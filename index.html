@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Join Dr. Bryan K. Williams' free 6-Week Leadership Tips & Challenge. Practical leadership habits for new and frontline leaders — delivered to your inbox." />
+  <title>Free 6-Week Leadership Challenge | Dr. Bryan K. Williams</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER / NAV (minimal — no distracting links)
+  ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <!-- LOGO PLACEMENT: Replace src with actual logo file -->
+      <img
+        src="assets/images/logo-full.png"
+        alt="Dr. Bryan K. Williams — Keynote Speaker · Author · Consultant"
+        class="site-logo"
+        width="320"
+        height="auto"
+        onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';"
+      />
+      <span id="logo-fallback" class="logo-fallback" style="display:none;">Dr. Bryan K. Williams</span>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         HERO SECTION
+    ============================================================ -->
+    <section class="hero" aria-labelledby="hero-headline">
+      <div class="hero-bg-overlay" aria-hidden="true"></div>
+
+      <!-- PHOTO PLACEMENT: hero-bg uses a speaking photo as background.
+           Update the CSS background-image URL or swap the img below. -->
+      <div class="hero-photo-wrap" aria-hidden="true">
+        <img
+          src="assets/images/hero-speaking.jpg"
+          alt=""
+          class="hero-photo"
+        />
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-text">
+          <p class="hero-eyebrow">FREE 6-WEEK CHALLENGE</p>
+
+          <h1 id="hero-headline" class="hero-headline">
+            Become the Leader<br />Your Team Actually<br />
+            <span class="highlight-gold">Wants to Follow</span>
+          </h1>
+
+          <p class="hero-sub">
+            Get one practical leadership tip every week for 6 weeks — built for
+            new managers, frontline leaders, and anyone ready to lead with
+            confidence.
+          </p>
+
+          <!-- INLINE FORM (above the fold) -->
+          <form
+            class="opt-in-form hero-form"
+            id="hero-form"
+            aria-label="Sign up for the free challenge"
+            novalidate
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label for="hero-first-name" class="sr-only">First Name</label>
+                <input
+                  type="text"
+                  id="hero-first-name"
+                  name="first_name"
+                  placeholder="First Name"
+                  autocomplete="given-name"
+                  required
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="hero-email" class="sr-only">Email Address</label>
+                <input
+                  type="email"
+                  id="hero-email"
+                  name="email"
+                  placeholder="Email Address"
+                  autocomplete="email"
+                  required
+                  aria-required="true"
+                />
+              </div>
+              <button type="submit" class="btn btn-gold btn-lg">
+                Yes! Send Me the Free Challenge
+              </button>
+            </div>
+            <p class="form-privacy">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              No spam. Unsubscribe any time. 100% free.
+            </p>
+          </form>
+        </div>
+
+        <!-- PHOTO PLACEMENT: Headshot or stage photo on right side (desktop) -->
+        <div class="hero-image-col" aria-hidden="true">
+          <div class="hero-card-photo">
+            <img
+              src="assets/images/bryan-stage.jpg"
+              alt="Dr. Bryan K. Williams speaking on stage"
+              class="hero-portrait"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SOCIAL PROOF BAR
+    ============================================================ -->
+    <section class="proof-bar" aria-label="Credibility highlights">
+      <div class="container proof-bar-inner">
+        <div class="proof-item">
+          <span class="proof-number">20+</span>
+          <span class="proof-label">Years of Leadership Experience</span>
+        </div>
+        <div class="proof-divider" aria-hidden="true"></div>
+        <div class="proof-item">
+          <span class="proof-number">500+</span>
+          <span class="proof-label">Organizations Served Worldwide</span>
+        </div>
+        <div class="proof-divider" aria-hidden="true"></div>
+        <div class="proof-item">
+          <span class="proof-number">10K+</span>
+          <span class="proof-label">Leaders Trained &amp; Inspired</span>
+        </div>
+        <div class="proof-divider" aria-hidden="true"></div>
+        <div class="proof-item">
+          <span class="proof-number">#1</span>
+          <span class="proof-label">Bestselling Author</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         THE PROBLEM / EMPATHY SECTION
+    ============================================================ -->
+    <section class="section section-cream" aria-labelledby="problem-heading">
+      <div class="container text-center">
+        <h2 id="problem-heading" class="section-headline">
+          Leading People Is the Hardest Job<br />
+          <span class="highlight-gold">Nobody Fully Prepared You For</span>
+        </h2>
+        <p class="section-sub max-680">
+          You got promoted because you were great at your job. But nobody handed
+          you a manual for leading a team. Now you're managing people, putting
+          out fires, and trying to figure it all out — while still getting your
+          own work done.
+        </p>
+        <p class="section-sub max-680">
+          This free 6-week challenge gives you the practical tools to lead with
+          clarity and confidence — one simple tip at a time.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WHAT YOU GET (Benefits Section)
+    ============================================================ -->
+    <section class="section section-navy" aria-labelledby="benefits-heading">
+      <div class="container">
+        <div class="section-header text-center">
+          <p class="eyebrow-light">WHAT'S INSIDE THE CHALLENGE</p>
+          <h2 id="benefits-heading" class="section-headline light">
+            6 Weeks. 6 Leadership Habits.<br />
+            <span class="highlight-gold">Delivered Straight to Your Inbox.</span>
+          </h2>
+          <p class="section-sub light max-600">
+            Each week, you'll receive one focused tip — practical, immediately
+            actionable, and built for the real challenges leaders face every day.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+
+          <div class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <h3 class="benefit-title">Week 1</h3>
+            <p class="benefit-desc">
+              Discover the #1 shift every new leader must make — and why your
+              old habits might be holding your team back.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="benefit-title">Week 2</h3>
+            <p class="benefit-desc">
+              Learn how to build immediate trust with your team — even if you're
+              brand new or still finding your footing.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3 class="benefit-title">Week 3</h3>
+            <p class="benefit-desc">
+              Master the simple communication habit that separates great leaders
+              from average ones — and transforms team performance.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 class="benefit-title">Week 4</h3>
+            <p class="benefit-desc">
+              Uncover how to motivate your team without micromanaging — and
+              create an environment where people actually want to perform.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3 class="benefit-title">Week 5</h3>
+            <p class="benefit-desc">
+              Get a framework for handling tough conversations — the ones most
+              leaders avoid — with confidence and compassion.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+            <h3 class="benefit-title">Week 6</h3>
+            <p class="benefit-desc">
+              Build a personal leadership identity that is authentic,
+              sustainable, and worthy of the team you've been trusted to lead.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Mid-page CTA -->
+        <div class="text-center cta-mid">
+          <a href="#signup" class="btn btn-gold btn-lg">
+            Join the Free 6-Week Challenge
+          </a>
+          <p class="form-privacy light">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            No spam. Unsubscribe any time. 100% free.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TESTIMONIALS / SOCIAL PROOF
+    ============================================================ -->
+    <section class="section section-cream" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header text-center">
+          <p class="eyebrow">WHAT LEADERS ARE SAYING</p>
+          <h2 id="testimonials-heading" class="section-headline">
+            Real Leaders. Real Results.
+          </h2>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <figure class="testimonial-card">
+            <blockquote>
+              <p>
+                "Dr. Bryan's insights completely shifted how I see my role as a
+                leader. Within weeks, my team's engagement went through the
+                roof."
+              </p>
+            </blockquote>
+            <figcaption>
+              <!-- PHOTO PLACEHOLDER: 60x60 headshot -->
+              <div class="testimonial-avatar" aria-hidden="true">
+                <img src="assets/images/testimonial-1.jpg" alt="" onerror="this.parentNode.innerHTML='<div class=\'avatar-initials\'>SM</div>'" />
+              </div>
+              <div class="testimonial-meta">
+                <strong>Sarah M.</strong>
+                <span>Director of Nursing, Regional Medical Center</span>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial-card">
+            <blockquote>
+              <p>
+                "I've been in hospitality for 12 years. Bryan's approach is
+                the most practical leadership content I've ever come across.
+                I use it every single day."
+              </p>
+            </blockquote>
+            <figcaption>
+              <div class="testimonial-avatar" aria-hidden="true">
+                <img src="assets/images/testimonial-2.jpg" alt="" onerror="this.parentNode.innerHTML='<div class=\'avatar-initials\'>JT</div>'" />
+              </div>
+              <div class="testimonial-meta">
+                <strong>James T.</strong>
+                <span>Food &amp; Beverage Manager, Luxury Hotel Group</span>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial-card">
+            <blockquote>
+              <p>
+                "I was promoted three months ago and had no idea where to start.
+                This challenge gave me a clear path and real confidence to lead
+                my team."
+              </p>
+            </blockquote>
+            <figcaption>
+              <div class="testimonial-avatar" aria-hidden="true">
+                <img src="assets/images/testimonial-3.jpg" alt="" onerror="this.parentNode.innerHTML='<div class=\'avatar-initials\'>AL</div>'" />
+              </div>
+              <div class="testimonial-meta">
+                <strong>Alicia L.</strong>
+                <span>Restaurant Manager, National Restaurant Chain</span>
+              </div>
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT DR. BRYAN
+    ============================================================ -->
+    <section class="section section-white" aria-labelledby="about-heading">
+      <div class="container about-inner">
+
+        <!-- PHOTO PLACEMENT: Professional headshot or candid speaking photo -->
+        <div class="about-photo-col">
+          <div class="about-photo-frame">
+            <img
+              src="assets/images/bryan-headshot.jpg"
+              alt="Dr. Bryan K. Williams, Keynote Speaker and Leadership Expert"
+              class="about-photo"
+            />
+            <!-- Decorative accent — matches brand navy -->
+            <div class="photo-accent" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="about-text-col">
+          <p class="eyebrow">ABOUT DR. BRYAN</p>
+          <h2 id="about-heading" class="section-headline">
+            20 Years. Thousands of Leaders.<br />
+            <span class="highlight-gold">One Clear Mission.</span>
+          </h2>
+          <p>
+            Dr. Bryan K. Williams is an internationally recognized keynote
+            speaker, author, and consultant who has spent more than two decades
+            helping organizations build exceptional leaders at every level.
+          </p>
+          <p>
+            As a former Global Director of Training for <strong>The Ritz-Carlton
+            Hotel Company</strong>, Dr. Bryan developed the leadership and
+            service excellence programs used by one of the world's most
+            prestigious brands.
+          </p>
+          <p>
+            Today, he brings that same world-class thinking to frontline
+            managers, new leaders, and growing organizations in healthcare,
+            hospitality, food service, and beyond.
+          </p>
+          <p>
+            His philosophy is simple: <em>"Service is not a department.
+            Leadership is not a title."</em>
+          </p>
+          <!-- LOGO PLACEMENT: Client/association logos row -->
+          <div class="client-logos" aria-label="Organizations Dr. Bryan has worked with">
+            <p class="client-logos-label">Trusted by leaders at organizations including:</p>
+            <div class="logos-row">
+              <!-- Replace these spans with <img> tags for real logos -->
+              <span class="logo-placeholder">Ritz-Carlton</span>
+              <span class="logo-placeholder">Mayo Clinic</span>
+              <span class="logo-placeholder">Marriott</span>
+              <span class="logo-placeholder">Hilton</span>
+              <span class="logo-placeholder">Cleveland Clinic</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FINAL CTA / OPT-IN FORM
+    ============================================================ -->
+    <section class="section section-navy cta-final" id="signup" aria-labelledby="cta-heading">
+      <div class="container text-center">
+        <p class="eyebrow-light">START YOUR LEADERSHIP JOURNEY TODAY</p>
+        <h2 id="cta-heading" class="section-headline light">
+          Ready to Lead with More<br />
+          <span class="highlight-gold">Confidence and Clarity?</span>
+        </h2>
+        <p class="section-sub light max-560">
+          Join thousands of leaders who have transformed the way they show up
+          for their teams. It's free. It's practical. And it starts the moment
+          you sign up.
+        </p>
+
+        <form
+          class="opt-in-form cta-form"
+          id="cta-form"
+          aria-label="Sign up for the free challenge"
+          novalidate
+        >
+          <div class="form-stack">
+            <div class="form-group">
+              <label for="cta-first-name" class="sr-only">First Name</label>
+              <input
+                type="text"
+                id="cta-first-name"
+                name="first_name"
+                placeholder="First Name"
+                autocomplete="given-name"
+                required
+                aria-required="true"
+              />
+            </div>
+            <div class="form-group">
+              <label for="cta-email" class="sr-only">Email Address</label>
+              <input
+                type="email"
+                id="cta-email"
+                name="email"
+                placeholder="Email Address"
+                autocomplete="email"
+                required
+                aria-required="true"
+              />
+            </div>
+            <button type="submit" class="btn btn-gold btn-lg btn-full">
+              Yes! I Want the Free 6-Week Challenge &rarr;
+            </button>
+          </div>
+          <p class="form-privacy light">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Your information is safe. No spam — ever. Unsubscribe any time.
+          </p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <!-- LOGO PLACEMENT: Small logo mark (BW monogram) -->
+      <img
+        src="assets/images/logo-mark.png"
+        alt="Dr. Bryan K. Williams"
+        class="footer-logo"
+        width="48"
+        height="48"
+        onerror="this.style.display='none';"
+      />
+      <p class="footer-name">Dr. Bryan K. Williams</p>
+      <p class="footer-tagline">Keynote Speaker &bull; Author &bull; Consultant</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://drbryanwilliams.com" rel="noopener">Website</a>
+        <span aria-hidden="true">&bull;</span>
+        <a href="https://drbryanwilliams.com/privacy" rel="noopener">Privacy Policy</a>
+        <span aria-hidden="true">&bull;</span>
+        <a href="mailto:info@drbryanwilliams.com">Contact</a>
+      </nav>
+      <p class="footer-copy">
+        &copy; <span id="year"></span> Dr. Bryan K. Williams. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
