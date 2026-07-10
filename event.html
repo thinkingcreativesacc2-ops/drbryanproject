@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Join Dr. Bryan K. Williams for a FREE live 3-day executive event on Service Excellence &amp; Leadership. Only 100 seats available — registration closes once seats are claimed." />
+<title>Free 3-Day Live Event with Dr. Bryan K. Williams | Only 100 Seats</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --gold:#e5ab48;
+    --gold-light:#f2c876;
+    --navy:#192857;
+    --navy-deep:#0f1938;
+    --red:#a8240f;
+    --white:#ffffff;
+    --cream:#f7f5f0;
+    --ink:#1c1c1c;
+    --gray:#5b6072;
+    --border:rgba(25,40,87,0.10);
+    --shadow-sm: 0 4px 16px rgba(15,25,56,0.08);
+    --shadow-md: 0 12px 32px rgba(15,25,56,0.14);
+    --shadow-lg: 0 24px 64px rgba(15,25,56,0.22);
+    --radius: 16px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Oswald', Arial, sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px;}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+  h1,h2,h3,h4{font-family:'Oswald', Arial, sans-serif;font-weight:600;margin:0;line-height:1.15;letter-spacing:0.2px;}
+  p{margin:0;line-height:1.65;}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+    color:var(--gold);
+  }
+  .eyebrow.on-light{color:var(--red);}
+  .eyebrow::before{content:"";width:24px;height:2px;background:currentColor;display:inline-block;}
+
+  .highlight-gold{color:var(--gold);}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    font-family:'Oswald', Arial, sans-serif;
+    font-weight:600;letter-spacing:0.5px;text-transform:uppercase;font-size:15px;
+    padding:18px 34px;border-radius:10px;border:none;cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .btn-gold{
+    background:linear-gradient(135deg, var(--gold-light), var(--gold));
+    color:var(--navy-deep);
+    box-shadow:0 8px 24px rgba(229,171,72,0.35);
+  }
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(229,171,72,0.5);}
+  .btn-full{width:100%;}
+
+  /* Fade-up animation */
+  .fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .fade-up.in-view{opacity:1;transform:translateY(0);}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    background:radial-gradient(ellipse at top right, #24346f 0%, var(--navy) 45%, var(--navy-deep) 100%);
+    padding:28px 0 56px;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(229,171,72,0.10) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(229,171,72,0.08) 0%, transparent 45%);
+    pointer-events:none;
+  }
+  .hero-topbar{display:flex;justify-content:center;padding-bottom:22px;position:relative;z-index:2;}
+  .hero-topbar img{height:44px;width:auto;}
+
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:52px;align-items:start;
+    position:relative;z-index:2;
+  }
+  .hero-copy{padding-top:8px;}
+  .live-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(229,171,72,0.12);border:1px solid rgba(229,171,72,0.4);
+    padding:8px 16px;border-radius:999px;margin-bottom:20px;
+    font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);
+  }
+  .live-dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 rgba(168,36,15,0.6);animation:pulse 1.8s infinite;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(168,36,15,0.55);}
+    70%{box-shadow:0 0 0 9px rgba(168,36,15,0);}
+    100%{box-shadow:0 0 0 0 rgba(168,36,15,0);}
+  }
+
+  .hero-headline{
+    color:var(--white);
+    font-size:clamp(34px, 4.6vw, 58px);
+    margin-bottom:20px;
+  }
+  .hero-sub{
+    color:rgba(255,255,255,0.82);
+    font-size:clamp(16px,1.6vw,19px);
+    font-weight:300;
+    max-width:540px;
+    margin-bottom:26px;
+  }
+
+  .hero-facts{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px;}
+  .hero-fact{
+    display:flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.12);
+    padding:9px 14px;border-radius:10px;
+    font-size:13px;color:rgba(255,255,255,0.88);letter-spacing:0.3px;
+  }
+  .hero-fact svg{flex-shrink:0;color:var(--gold);}
+
+  .hero-arrow-note{
+    display:flex;align-items:center;gap:10px;color:var(--gold-light);
+    font-size:14px;letter-spacing:1px;text-transform:uppercase;font-weight:500;
+  }
+  .hero-arrow-note svg{animation:arrowbounce 1.6s infinite;}
+  @keyframes arrowbounce{0%,100%{transform:translateX(0);}50%{transform:translateX(6px);}}
+  .hero-arrow-note.mobile-only{display:none;}
+
+  /* Right column: image + form */
+  .hero-visual{display:flex;flex-direction:column;gap:22px;}
+  .hero-photo-card{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow-lg);
+    border:1px solid rgba(229,171,72,0.35);
+  }
+  .hero-photo-card img{width:100%;height:340px;object-fit:cover;object-position:top center;}
+  .hero-photo-caption{
+    position:absolute;left:0;right:0;bottom:0;
+    background:linear-gradient(0deg, rgba(15,25,56,0.92) 0%, transparent 100%);
+    padding:34px 20px 16px;color:var(--white);
+  }
+  .hero-photo-caption strong{display:block;font-size:17px;letter-spacing:0.3px;}
+  .hero-photo-caption span{font-size:12px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;}
+
+  .reg-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-lg);
+    padding:28px 26px 24px;
+    position:relative;
+  }
+  .reg-card-ribbon{
+    position:absolute;top:-14px;left:26px;
+    background:var(--red);color:var(--white);
+    font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    padding:8px 14px;border-radius:8px;
+    box-shadow:0 6px 16px rgba(168,36,15,0.4);
+  }
+  .reg-card h2{
+    color:var(--navy);font-size:22px;margin-bottom:6px;margin-top:6px;
+  }
+  .reg-card .reg-sub{color:var(--gray);font-size:13.5px;font-weight:300;margin-bottom:16px;display:block;}
+
+  .seats-meter{margin-bottom:18px;}
+  .seats-meter-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--navy);font-weight:600;letter-spacing:0.5px;margin-bottom:6px;text-transform:uppercase;}
+  .seats-meter-labels .count-left{color:var(--red);}
+  .seats-track{width:100%;height:8px;border-radius:999px;background:#eee7d8;overflow:hidden;}
+  .seats-fill{height:100%;border-radius:999px;background:linear-gradient(90deg, var(--gold), var(--red));width:0%;transition:width 1.4s cubic-bezier(.2,.8,.2,1);}
+
+  .reg-embed-wrap{
+    border-radius:10px;overflow:hidden;border:1px solid var(--border);
+    min-height:434px;
+  }
+  .reg-embed-wrap iframe{display:block;}
+
+  .reg-privacy{
+    display:flex;align-items:center;gap:8px;
+    font-size:12px;color:var(--gray);margin-top:14px;
+  }
+  .reg-privacy svg{flex-shrink:0;color:var(--navy);}
+
+  /* ============ TRUST BAR ============ */
+  .trust-bar{background:var(--white);border-bottom:1px solid var(--border);}
+  .trust-inner{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    padding:34px 0;gap:20px;
+  }
+  .trust-item{text-align:center;padding:0 12px;}
+  .trust-number{
+    display:block;font-size:clamp(30px,4vw,42px);font-weight:700;color:var(--navy);
+    letter-spacing:0.5px;
+  }
+  .trust-label{
+    display:block;margin-top:4px;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--gray);font-weight:500;
+  }
+  .trust-divider{display:none;}
+
+  /* ============ SECTIONS ============ */
+  .section{padding:96px 0;}
+  .section-cream{background:var(--cream);}
+  .section-navy{background:linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);color:var(--white);position:relative;}
+  .section-white{background:var(--white);}
+
+  .section-header{max-width:720px;margin:0 auto 56px;text-align:center;}
+  .section-headline{font-size:clamp(28px,3.4vw,42px);color:var(--navy);margin-top:14px;}
+  .section-headline.light{color:var(--white);}
+  .section-sub{font-size:17px;font-weight:300;color:var(--gray);margin-top:16px;}
+  .section-sub.light{color:rgba(255,255,255,0.78);}
+
+  /* Why attend cards */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .why-card{
+    background:var(--white);border-radius:var(--radius);padding:36px 30px;
+    box-shadow:var(--shadow-sm);border:1px solid var(--border);
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .why-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:rgba(229,171,72,0.5);}
+  .why-icon{
+    width:56px;height:56px;border-radius:14px;
+    background:linear-gradient(135deg, rgba(229,171,72,0.18), rgba(25,40,87,0.06));
+    display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--navy);
+  }
+  .why-card h3{font-size:20px;color:var(--navy);margin-bottom:12px;}
+  .why-card p{font-size:15px;color:var(--gray);font-weight:300;}
+
+  /* 3-day experience */
+  .days-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .day-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:var(--radius);padding:34px 28px;
+    position:relative;overflow:hidden;
+    transition:transform .25s ease, border-color .25s ease, background .25s ease;
+  }
+  .day-card:hover{transform:translateY(-6px);border-color:rgba(229,171,72,0.5);background:rgba(255,255,255,0.07);}
+  .day-tag{
+    display:inline-block;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    color:var(--navy-deep);background:var(--gold);padding:6px 12px;border-radius:6px;margin-bottom:18px;
+  }
+  .day-card h3{color:var(--white);font-size:21px;margin-bottom:12px;}
+  .day-card p{color:rgba(255,255,255,0.75);font-size:14.5px;font-weight:300;}
+  .day-number{
+    position:absolute;top:-14px;right:8px;font-size:110px;font-weight:700;color:rgba(255,255,255,0.04);
+    line-height:1;
+  }
+
+  /* About Dr Bryan */
+  .about-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
+  .about-photo{
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md);
+    border:1px solid var(--border);position:relative;
+  }
+  .about-photo img{width:100%;height:auto;display:block;}
+  .about-photo::after{
+    content:"";position:absolute;inset:0;border-radius:var(--radius);
+    box-shadow:inset 0 0 0 1px rgba(229,171,72,0.25);
+  }
+  .about-text p{color:var(--gray);font-size:16px;font-weight:300;margin-bottom:16px;}
+  .about-text .lead{font-size:19px;color:var(--navy);font-weight:400;margin-bottom:18px;}
+  .about-stats{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap;}
+  .about-stat{text-align:left;}
+  .about-stat .num{display:block;font-size:30px;font-weight:700;color:var(--gold);}
+  .about-stat .lbl{display:block;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gray);margin-top:2px;}
+
+  /* Why limited */
+  .limited-wrap{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;
+  }
+  .limited-badge{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:140px;height:140px;border-radius:50%;
+    background:radial-gradient(circle, rgba(229,171,72,0.18), transparent 70%);
+    border:2px solid var(--gold);color:var(--navy);
+    font-size:34px;font-weight:700;flex-direction:column;margin:0 auto 24px;
+  }
+  .limited-list{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-direction:column;gap:16px;}
+  .limited-list li{
+    display:flex;gap:14px;align-items:flex-start;font-size:15.5px;color:var(--gray);font-weight:300;
+  }
+  .limited-list li svg{flex-shrink:0;color:var(--gold);margin-top:3px;}
+  .limited-list li strong{color:var(--navy);font-weight:500;}
+
+  /* Final CTA */
+  .final-cta{text-align:center;}
+  .final-cta .section-header{margin-bottom:40px;}
+  .final-seats-badge{
+    display:inline-flex;align-items:center;gap:10px;
+    background:rgba(168,36,15,0.14);border:1px solid rgba(168,36,15,0.4);
+    color:#ff9d85;padding:10px 20px;border-radius:999px;
+    font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px;
+  }
+  .final-reg-card{
+    max-width:560px;margin:0 auto;background:var(--white);border-radius:var(--radius);
+    box-shadow:var(--shadow-lg);padding:34px 30px 28px;text-align:left;
+  }
+  .final-reg-card h3{color:var(--navy);font-size:22px;margin-bottom:16px;text-align:center;}
+
+  /* Footer */
+  .site-footer{background:var(--navy-deep);color:rgba(255,255,255,0.6);padding:44px 0 30px;text-align:center;}
+  .site-footer img{height:34px;margin:0 auto 14px;}
+  .site-footer p{font-size:13px;font-weight:300;}
+  .footer-name{color:rgba(255,255,255,0.85);font-size:14px;letter-spacing:0.5px;margin-bottom:4px;}
+
+  /* Sticky mobile CTA */
+  .sticky-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    background:var(--navy-deep);border-top:1px solid rgba(229,171,72,0.3);
+    padding:12px 16px;display:none;
+    box-shadow:0 -8px 24px rgba(0,0,0,0.25);
+  }
+  .sticky-cta .btn{width:100%;}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 980px){
+    .hero-grid{grid-template-columns:1fr;gap:34px;}
+    .hero-arrow-note.desktop-only{display:none;}
+    .hero-arrow-note.mobile-only{display:flex;}
+    .trust-inner{grid-template-columns:repeat(3,1fr);gap:14px;padding:28px 0;}
+    .why-grid{grid-template-columns:1fr;}
+    .days-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;gap:32px;}
+    .about-photo{max-width:360px;margin:0 auto;}
+    .limited-wrap{grid-template-columns:1fr;gap:32px;text-align:center;}
+    .limited-list{text-align:left;}
+    .section{padding:64px 0;}
+    .sticky-cta{display:block;}
+    body{padding-bottom:70px;}
+  }
+  @media (max-width: 560px){
+    .trust-inner{grid-template-columns:1fr;}
+    .hero-facts{gap:10px;}
+    .hero-photo-card img{height:240px;}
+    .reg-card{padding:24px 18px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO — logo, headline, sub-headline, form, seats, CTA, image
+     ALL above the fold, form beside copy on desktop / stacked on mobile
+============================================================ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-topbar">
+      <img
+        src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png"
+        alt="Dr. Bryan K. Williams"
+        loading="eager"
+      />
+    </div>
+
+    <div class="hero-grid">
+      <!-- LEFT: Copy -->
+      <div class="hero-copy">
+        <span class="live-badge"><span class="live-dot"></span> Free &middot; Live &middot; 3-Day Virtual Event</span>
+
+        <h1 class="hero-headline">
+          Lead With the Clarity, Confidence &amp;
+          <span class="highlight-gold">Influence of the World's Best</span>
+        </h1>
+
+        <p class="hero-sub">
+          For three transformative days, internationally recognized authority
+          Dr. Bryan K. Williams will personally guide a private group of
+          leaders through the exact principles used by iconic global brands to
+          build exceptional service cultures and unshakable leadership —
+          completely free, strictly limited to 100 seats.
+        </p>
+
+        <div class="hero-facts">
+          <span class="hero-fact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            100% Free to Attend
+          </span>
+          <span class="hero-fact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Live — 3 Full Days
+          </span>
+          <span class="hero-fact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Capped at 100 Seats
+          </span>
+        </div>
+
+        <span class="hero-arrow-note desktop-only">
+          Reserve your seat &rarr;
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+        <span class="hero-arrow-note mobile-only">
+          Reserve your seat below
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        </span>
+      </div>
+
+      <!-- RIGHT: Hero Image + Registration Form (above the fold) -->
+      <div class="hero-visual">
+        <div class="hero-photo-card">
+          <img
+            src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg"
+            alt="Dr. Bryan K. Williams speaking on stage"
+            loading="eager"
+          />
+          <div class="hero-photo-caption">
+            <strong>Dr. Bryan K. Williams</strong>
+            <span>Speaker &middot; Author &middot; Service Excellence Authority</span>
+          </div>
+        </div>
+
+        <div class="reg-card" id="register">
+          <span class="reg-card-ribbon">Only 100 Seats Available</span>
+          <h2>Reserve Your Complimentary Seat</h2>
+          <span class="reg-sub">Registration closes the moment all 100 seats are claimed.</span>
+
+          <div class="seats-meter">
+            <div class="seats-meter-labels">
+              <span>Seats Claimed</span>
+              <span class="count-left" id="seatsLeftLabel">38 of 100 Remaining</span>
+            </div>
+            <div class="seats-track"><div class="seats-fill" id="seatsFill"></div></div>
+          </div>
+
+          <div class="reg-embed-wrap">
+            <iframe
+                src="https://link.thinkingcreatives.com/widget/form/DeFre6EjlKFBtnk5GZoj"
+                style="width:100%;height:100%;border:none;border-radius:8px"
+                id="inline-DeFre6EjlKFBtnk5GZoj"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="3 Day Live Event"
+                data-height="434"
+                data-layout-iframe-id="inline-DeFre6EjlKFBtnk5GZoj"
+                data-form-id="DeFre6EjlKFBtnk5GZoj"
+                title="3 Day Live Event">
+            </iframe>
+          </div>
+
+          <p class="reg-privacy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Your information is 100% secure. This event is free — no card required.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST BAR
+============================================================ -->
+<section class="trust-bar">
+  <div class="container trust-inner">
+    <div class="trust-item fade-up">
+      <span class="trust-number">25+</span>
+      <span class="trust-label">Years of Experience</span>
+    </div>
+    <div class="trust-item fade-up">
+      <span class="trust-number">20+</span>
+      <span class="trust-label">Industries Served</span>
+    </div>
+    <div class="trust-item fade-up">
+      <span class="trust-number">6</span>
+      <span class="trust-label">Continents Reached</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY ATTEND
+============================================================ -->
+<section class="section section-cream">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="eyebrow">Why Attend</span>
+      <h2 class="section-headline">
+        This Isn't Another Webinar.<br />
+        <span class="highlight-gold">It's a Leadership Turning Point.</span>
+      </h2>
+      <p class="section-sub">
+        Three days, live, with one of the world's most sought-after voices on
+        leadership and service — built for leaders ready to stop managing and
+        start truly leading.
+      </p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h7v8l10-12h-7z"/></svg>
+        </div>
+        <h3>Leadership Transformation</h3>
+        <p>
+          Walk away thinking, communicating, and leading like the top 1% of
+          executives — becoming the leader people choose to follow, not the
+          one they're required to.
+        </p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <h3>Service Excellence Mastery</h3>
+        <p>
+          Discover the proven Service Excellence framework Dr. Bryan has used
+          to transform leadership cultures across 20+ industries on six
+          continents.
+        </p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Practical Implementation</h3>
+        <p>
+          Leave with a clear, immediately actionable plan — not just
+          inspiration, but a system you and your team can put to work the
+          moment the event ends.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHAT YOU'LL EXPERIENCE — 3 DAYS
+============================================================ -->
+<section class="section section-navy">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="eyebrow" style="color:var(--gold-light);">The Experience</span>
+      <h2 class="section-headline light">
+        What You'll Experience<br />
+        <span class="highlight-gold">Over the 3 Live Days</span>
+      </h2>
+      <p class="section-sub light">
+        Each day builds on the last — moving you from mindset, to strategy, to
+        a concrete plan you can execute immediately.
+      </p>
+    </div>
+
+    <div class="days-grid">
+      <div class="day-card fade-up">
+        <span class="day-number">1</span>
+        <span class="day-tag">Day One</span>
+        <h3>The Leadership Shift</h3>
+        <p>
+          Uncover the mindset shift that separates good leaders from truly
+          exceptional ones — and why service excellence has become the
+          ultimate competitive advantage for organizations and careers alike.
+        </p>
+      </div>
+      <div class="day-card fade-up">
+        <span class="day-number">2</span>
+        <span class="day-tag">Day Two</span>
+        <h3>The Service Excellence System</h3>
+        <p>
+          Go deep into the frameworks Dr. Bryan has delivered inside
+          organizations across 20+ industries — and learn how to translate
+          them into your world, your team, and your culture.
+        </p>
+      </div>
+      <div class="day-card fade-up">
+        <span class="day-number">3</span>
+        <span class="day-tag">Day Three</span>
+        <h3>Your Implementation Blueprint</h3>
+        <p>
+          Leave with a personalized action plan to apply immediately, plus
+          live access to bring your most pressing leadership questions
+          directly to Dr. Bryan.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MEET DR. BRYAN
+============================================================ -->
+<section class="section section-white">
+  <div class="container about-grid">
+    <div class="about-photo fade-up">
+      <img
+        src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e78.jpg"
+        alt="Dr. Bryan K. Williams, keynote speaker and leadership authority"
+      />
+    </div>
+    <div class="about-text fade-up">
+      <span class="eyebrow">Meet Your Host</span>
+      <h2 class="section-headline" style="margin-bottom:18px;">Dr. Bryan K. Williams</h2>
+      <p class="lead">
+        A globally recognized authority on Service Excellence and Leadership
+        Effectiveness — on a mission to help leaders better serve others so
+        they can better serve the world.
+      </p>
+      <p>
+        Over the last 25+ years, Dr. Bryan has worked with organizations
+        across more than 20 industries — including healthcare, hospitality,
+        financial services, education, government, and luxury brands —
+        helping leaders at every level elevate how they lead and how they
+        serve.
+      </p>
+      <p>
+        As a keynote speaker, consultant, and author, he has delivered
+        keynote presentations and consulting engagements throughout North
+        America, South America, Europe, Asia, Africa, Australia, and the
+        Caribbean — bringing the same caliber of thinking he shares with
+        Fortune 500 companies directly to you, live, for three days, at no
+        cost.
+      </p>
+      <div class="about-stats">
+        <div class="about-stat">
+          <span class="num">25+</span>
+          <span class="lbl">Years Experience</span>
+        </div>
+        <div class="about-stat">
+          <span class="num">20+</span>
+          <span class="lbl">Industries Served</span>
+        </div>
+        <div class="about-stat">
+          <span class="num">6</span>
+          <span class="lbl">Continents</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY SEATS ARE LIMITED
+============================================================ -->
+<section class="section section-cream">
+  <div class="container limited-wrap">
+    <div class="fade-up" style="text-align:center;">
+      <div class="limited-badge">100<span style="font-size:12px;font-weight:600;letter-spacing:1.5px;">SEATS</span></div>
+      <span class="eyebrow">By Design, Not by Accident</span>
+      <h2 class="section-headline" style="margin-top:14px;">Why This Event Is<br /><span class="highlight-gold">Capped at 100 Leaders</span></h2>
+    </div>
+    <div class="fade-up">
+      <p style="color:var(--gray);font-size:16px;font-weight:300;margin-bottom:8px;">
+        This is intentionally <strong style="color:var(--navy);font-weight:500;">not</strong> a webinar with
+        thousands of passive viewers. Dr. Bryan caps every live cohort to preserve
+        what makes this experience genuinely transformational.
+      </p>
+      <ul class="limited-list">
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span><strong>Real interaction, not a broadcast.</strong> A smaller room means real dialogue, live Q&amp;A, and direct access to Dr. Bryan.</span>
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span><strong>An intimate, executive-level environment.</strong> Every participant is seen, heard, and engaged — not lost in a crowd.</span>
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span><strong>A premium experience, protected.</strong> The depth and quality typically reserved for Dr. Bryan's private consulting clients.</span>
+        </li>
+      </ul>
+      <p style="margin-top:22px;font-size:15.5px;color:var(--gray);font-weight:300;">
+        Once the 100th seat is claimed, registration closes — with no
+        exceptions and no waitlist guarantee for this session.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+============================================================ -->
+<section class="section section-navy final-cta">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="final-seats-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L14.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+        Only 100 Seats — Free Registration Closes Once Full
+      </span>
+      <h2 class="section-headline light">
+        Your Seat Is Reserved for<br />
+        <span class="highlight-gold">the Next 100 Leaders Only.</span>
+      </h2>
+      <p class="section-sub light">
+        Three live days. Zero cost. A room built for 100 — not thousands.
+        Once every seat is claimed, registration for this event closes.
+      </p>
+    </div>
+
+    <div class="final-reg-card fade-up">
+      <h3>Reserve Your Complimentary Seat</h3>
+      <div class="seats-meter">
+        <div class="seats-meter-labels">
+          <span>Seats Claimed</span>
+          <span class="count-left" id="seatsLeftLabelFinal">38 of 100 Remaining</span>
+        </div>
+        <div class="seats-track"><div class="seats-fill" id="seatsFillFinal"></div></div>
+      </div>
+      <div class="reg-embed-wrap">
+        <iframe
+            src="https://link.thinkingcreatives.com/widget/form/DeFre6EjlKFBtnk5GZoj"
+            style="width:100%;height:100%;border:none;border-radius:8px"
+            id="inline-DeFre6EjlKFBtnk5GZoj-final"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="3 Day Live Event"
+            data-height="434"
+            data-layout-iframe-id="inline-DeFre6EjlKFBtnk5GZoj-final"
+            data-form-id="DeFre6EjlKFBtnk5GZoj"
+            title="3 Day Live Event">
+        </iframe>
+      </div>
+      <p class="reg-privacy">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Free to attend. No payment information required.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <img
+      src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png"
+      alt="Dr. Bryan K. Williams"
+    />
+    <p class="footer-name">Dr. Bryan K. Williams</p>
+    <p>Keynote Speaker &bull; Author &bull; Service Excellence &amp; Leadership Authority</p>
+    <p style="margin-top:14px;">&copy; <span id="year"></span> Dr. Bryan K. Williams. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Sticky mobile CTA -->
+<div class="sticky-cta">
+  <a href="#register" class="btn btn-gold">Reserve My Free Seat</a>
+</div>
+
+<script src="https://link.thinkingcreatives.com/js/form_embed.js"></script>
+<script>
+  // EDIT HERE: update seats taken/total as registrations come in.
+  var SEATS_TOTAL = 100;
+  var SEATS_TAKEN = 62;
+
+  (function(){
+    var remaining = SEATS_TOTAL - SEATS_TAKEN;
+    var pct = Math.min(100, Math.round((SEATS_TAKEN / SEATS_TOTAL) * 100));
+    var labelText = remaining + ' of ' + SEATS_TOTAL + ' Remaining';
+
+    ['seatsLeftLabel','seatsLeftLabelFinal'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.textContent = labelText;
+    });
+    ['seatsFill','seatsFillFinal'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) requestAnimationFrame(function(){ el.style.width = pct + '%'; });
+    });
+  })();
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Fade-up on scroll
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(function(el){ observer.observe(el); });
+</script>
+</body>
+</html>
