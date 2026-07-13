@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Join the FREE 5-Star Leader Challenge — a 6-week leadership experience from Dr. Bryan K. Williams, celebrating 20 years of leadership and service excellence." />
+<title>The 5-Star Leader Challenge | Dr. Bryan K. Williams</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   RESET & TOKENS
+============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --navy:#192857;
+  --navy-deep:#0f1938;
+  --gold:#e5ab48;
+  --gold-light:#f3c877;
+  --red:#a8240f;
+  --white:#ffffff;
+  --ink:#1a2038;
+  --muted:#5c6280;
+  --cream:#f8f6f1;
+  --border:rgba(25,40,87,.10);
+  --radius:16px;
+  --radius-lg:26px;
+  --shadow:0 10px 40px rgba(15,25,56,.12);
+  --shadow-lg:0 30px 70px rgba(15,25,56,.20);
+  --bar-h:52px;
+  --header-h:84px;
+}
+body{
+  font-family:'Oswald',Arial,sans-serif;
+  font-weight:300;
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+h1,h2,h3,h4{font-family:'Oswald',Arial,sans-serif;font-weight:600;line-height:1.15;letter-spacing:.2px}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.wrap{width:100%;max-width:1220px;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,2.5rem)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--gold)}
+section{position:relative}
+.section-pad{padding-block:clamp(4rem,8vw,7rem)}
+.center{text-align:center}
+.max-720{max-width:720px;margin-inline:auto}
+.max-860{max-width:860px;margin-inline:auto}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 34px;border-radius:999px;font-size:14px;font-weight:600;
+  letter-spacing:1.5px;text-transform:uppercase;transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+  white-space:nowrap;
+}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  color:var(--navy-deep);
+  box-shadow:0 8px 24px rgba(229,171,72,.35);
+}
+.btn-gold:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 14px 32px rgba(229,171,72,.48)}
+.btn-outline{
+  background:transparent;border:1.5px solid rgba(255,255,255,.55);color:var(--white);
+}
+.btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-block{width:100%}
+
+/* Reveal on scroll — hidden ONLY once JS confirms it can reveal again (progressive enhancement; content stays visible if JS fails) */
+html.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+html.js .reveal.in-view{opacity:1;transform:none}
+html.js .reveal-delay-1.in-view{transition-delay:.1s}
+html.js .reveal-delay-2.in-view{transition-delay:.2s}
+html.js .reveal-delay-3.in-view{transition-delay:.3s}
+
+/* ============================================================
+   1. ANNOUNCEMENT BAR
+============================================================ */
+.announce-bar{
+  position:sticky;top:0;z-index:1001;
+  background:var(--navy);
+  border-bottom:1px solid rgba(229,171,72,.25);
+}
+.announce-inner{
+  max-width:1300px;margin-inline:auto;padding:10px clamp(1rem,4vw,2rem);
+  display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;
+}
+.announce-msg{
+  color:#fff;font-size:13px;font-weight:400;letter-spacing:.3px;text-align:center;flex:1 1 auto;
+}
+.announce-msg strong{color:var(--gold);font-weight:600}
+.announce-msg .sep{color:var(--gold);margin:0 8px}
+.announce-btn{
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  color:var(--navy-deep);padding:9px 20px;border-radius:999px;
+  font-size:11.5px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;
+  white-space:nowrap;flex:0 0 auto;transition:transform .2s ease,box-shadow .2s ease;
+}
+.announce-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(229,171,72,.4)}
+@media (max-width:640px){
+  .announce-msg .hide-mobile{display:none}
+  .announce-inner{gap:10px}
+}
+
+/* ============================================================
+   2. HEADER
+============================================================ */
+.site-header{
+  position:sticky;top:var(--bar-h);z-index:1000;
+  padding:18px 0;
+  margin-bottom:calc(-1 * var(--header-h));
+  background:transparent;
+  transition:background .35s ease,box-shadow .35s ease,padding .35s ease;
+}
+.site-header.scrolled{
+  background:rgba(25,40,87,.96);
+  backdrop-filter:blur(10px);
+  box-shadow:0 6px 24px rgba(15,25,56,.18);
+  padding:12px 0;
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{height:clamp(30px,4vw,40px);width:auto}
+.header-cta{font-size:12.5px;padding:13px 26px}
+
+/* ============================================================
+   3. HERO
+============================================================ */
+.hero{
+  background:linear-gradient(180deg,var(--navy-deep) 0%,var(--navy) 55%,#213a7a 100%);
+  padding-top:calc(var(--header-h) + clamp(1.5rem,4vw,2.25rem));
+  padding-bottom:clamp(3rem,6vw,4.5rem);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 85% 10%,rgba(229,171,72,.16),transparent 55%);
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(229,171,72,.12);border:1px solid rgba(229,171,72,.35);
+  padding:8px 18px;border-radius:999px;
+  font-size:11.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);
+  margin-bottom:22px;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.08fr .92fr;
+  grid-template-areas:"copy visual" "copy form";
+  gap:20px 64px;align-items:start;position:relative;z-index:1;
+}
+.hero-copy{grid-area:copy;padding-top:6px}
+.hero-visual{grid-area:visual}
+.hero-form-wrap{grid-area:form}
+.hero h1{
+  font-size:clamp(2.4rem,4.6vw,3.6rem);color:#fff;font-weight:700;margin-bottom:18px;
+}
+.hero h1 span{color:var(--gold)}
+.hero-tagline{
+  font-size:clamp(1.05rem,1.9vw,1.3rem);color:var(--gold-light);font-weight:500;
+  margin-bottom:20px;line-height:1.5;
+}
+.hero-sub{
+  font-size:16px;color:rgba(255,255,255,.82);font-weight:300;max-width:520px;margin-bottom:28px;
+}
+.hero-bullets{display:flex;flex-wrap:wrap;gap:14px 26px;margin-bottom:8px}
+.hero-bullets li{
+  display:flex;align-items:center;gap:8px;font-size:13.5px;color:#fff;font-weight:400;letter-spacing:.3px;
+}
+.hero-bullets li::before{
+  content:"✓";display:inline-flex;align-items:center;justify-content:center;
+  width:19px;height:19px;border-radius:50%;background:var(--gold);color:var(--navy-deep);
+  font-size:11px;font-weight:700;flex:0 0 auto;
+}
+.hero-visual img{
+  border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);
+  border:1px solid rgba(229,171,72,.3);
+  width:100%;object-fit:cover;aspect-ratio:4/3;
+}
+.hero-form-card{
+  background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);
+  padding:clamp(20px,3vw,28px);
+}
+.hero-form-card h3{
+  font-size:19px;color:var(--navy);font-weight:600;margin-bottom:4px;text-align:center;
+}
+.hero-form-card .form-sub{
+  font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;font-weight:300;
+}
+.form-embed-frame{width:100%;min-height:433px;border:none;border-radius:8px}
+.form-privacy{
+  font-size:11.5px;color:var(--muted);text-align:center;margin-top:10px;font-weight:300;
+}
+.hero-trust-line{
+  text-align:center;color:rgba(255,255,255,.65);font-size:13px;font-weight:300;
+  margin-top:clamp(2rem,4vw,2.75rem);letter-spacing:.3px;position:relative;z-index:1;
+}
+.hero-trust-line strong{color:var(--gold-light);font-weight:500}
+
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;grid-template-areas:"copy" "visual" "form";gap:28px}
+  .hero-sub{max-width:none}
+}
+
+/* ============================================================
+   4. ANNIVERSARY
+============================================================ */
+.anniversary{
+  background:var(--navy-deep);color:#fff;text-align:center;
+  padding-block:clamp(4.5rem,9vw,7.5rem);
+  position:relative;overflow:hidden;
+}
+.anniversary::before{
+  content:"20";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-size:min(60vw,560px);font-weight:700;color:rgba(229,171,72,.05);
+  line-height:1;pointer-events:none;letter-spacing:-10px;
+}
+.anniversary-mark{
+  width:64px;height:64px;border-radius:50%;border:1.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 26px;
+  font-size:22px;font-weight:700;color:var(--gold);position:relative;z-index:1;
+}
+.anniversary h2{
+  font-size:clamp(1.9rem,4vw,2.9rem);color:#fff;margin-bottom:10px;position:relative;z-index:1;
+}
+.anniversary h2 .line{display:block}
+.anniversary .decision{
+  font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(--gold);font-weight:600;margin:26px 0 34px;position:relative;z-index:1;
+}
+.anniversary p{
+  color:rgba(255,255,255,.78);font-size:16.5px;font-weight:300;margin-bottom:16px;
+  position:relative;z-index:1;
+}
+.anniversary .sign{
+  margin-top:24px;color:var(--gold-light);font-size:15px;letter-spacing:1px;font-weight:500;position:relative;z-index:1;
+}
+
+/* ============================================================
+   5 & 9. NARRATIVE / WHY / ABOUT shared text blocks
+============================================================ */
+.narrative{background:var(--cream)}
+.narrative-quotemark{
+  font-size:90px;color:var(--gold);line-height:1;font-weight:700;margin-bottom:-10px;opacity:.55;
+}
+.narrative h2{font-size:clamp(1.8rem,3.4vw,2.5rem);color:var(--navy);margin-bottom:22px;text-align:center}
+.narrative p{font-size:17px;color:var(--ink);font-weight:300;margin-bottom:18px}
+.narrative .sign{
+  text-align:center;margin-top:28px;color:var(--navy);font-size:15px;font-weight:600;letter-spacing:1px;
+}
+
+/* ============================================================
+   6. MOVEMENT
+============================================================ */
+.movement{background:#fff}
+.movement-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);color:var(--navy);margin:14px 0 16px}
+.movement-head p{font-size:16.5px;color:var(--muted);font-weight:300;max-width:680px;margin-inline:auto}
+.movement-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px;
+}
+.movement-card{
+  background:var(--cream);border-radius:var(--radius);padding:36px 30px;
+  border:1px solid var(--border);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+.movement-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(229,171,72,.4)}
+.movement-card .num{
+  font-size:13px;font-weight:600;color:var(--gold);letter-spacing:2px;margin-bottom:14px;
+}
+.movement-card h3{font-size:20px;color:var(--navy);margin-bottom:12px}
+.movement-card p{font-size:15px;color:var(--muted);font-weight:300}
+.movement-quote{
+  margin-top:56px;text-align:center;background:var(--navy);color:#fff;border-radius:var(--radius-lg);
+  padding:clamp(2.5rem,5vw,3.5rem);position:relative;
+}
+.movement-quote p{
+  font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:500;color:#fff;font-style:italic;margin-bottom:14px;
+}
+.movement-quote span{font-size:13px;color:var(--gold-light);letter-spacing:1px;font-weight:400}
+@media (max-width:860px){.movement-grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   7. SIX-WEEK JOURNEY
+============================================================ */
+.journey{background:var(--cream)}
+.journey-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);color:var(--navy);margin:14px 0 16px}
+.journey-head p{font-size:16.5px;color:var(--muted);font-weight:300;max-width:680px;margin-inline:auto}
+.timeline{margin-top:56px;position:relative;max-width:880px;margin-inline:auto}
+.timeline::before{
+  content:"";position:absolute;left:29px;top:10px;bottom:10px;width:2px;
+  background:linear-gradient(180deg,var(--gold) 0%,rgba(229,171,72,.25) 100%);
+}
+.week-item{display:grid;grid-template-columns:60px 1fr;gap:24px;margin-bottom:28px;position:relative}
+.week-num{
+  width:60px;height:60px;border-radius:50%;background:var(--navy);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;
+  border:3px solid var(--cream);box-shadow:0 0 0 2px var(--gold);position:relative;z-index:1;
+}
+.week-card{
+  background:#fff;border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow);
+  transition:transform .3s ease,box-shadow .3s ease;border:1px solid var(--border);
+}
+.week-card:hover{transform:translateX(6px);box-shadow:var(--shadow-lg)}
+.week-label{font-size:11.5px;letter-spacing:2px;color:var(--gold);font-weight:600;text-transform:uppercase;margin-bottom:6px}
+.week-card h3{font-size:21px;color:var(--navy);margin-bottom:12px}
+.week-row{display:flex;gap:10px;font-size:14.5px;margin-bottom:6px;font-weight:300;color:var(--ink)}
+.week-row strong{color:var(--navy);font-weight:600;flex:0 0 auto}
+.week-row.handout strong{color:var(--red)}
+@media (max-width:600px){
+  .week-item{grid-template-columns:44px 1fr;gap:14px}
+  .week-num{width:44px;height:44px;font-size:16px}
+  .timeline::before{left:21px}
+}
+
+/* ============================================================
+   8. TESTIMONIAL MARQUEE
+============================================================ */
+.trust-section{background:var(--navy-deep);overflow:hidden}
+.trust-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);color:#fff;margin:14px 0 16px}
+.trust-head p{font-size:16.5px;color:rgba(255,255,255,.65);font-weight:300;max-width:680px;margin-inline:auto}
+.marquee-row{overflow:hidden;margin-top:20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-track{display:flex;gap:22px;width:max-content;animation:marquee-l 75s linear infinite}
+.marquee-row.reverse .marquee-track{animation-name:marquee-r;animation-duration:85s}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee-l{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marquee-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.t-card{
+  width:330px;flex:0 0 330px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius);padding:24px;backdrop-filter:blur(6px);
+}
+.t-card .stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:12px}
+.t-card p{font-size:14px;color:rgba(255,255,255,.85);font-weight:300;line-height:1.65;margin-bottom:16px}
+.t-card .who{font-size:13px;color:#fff;font-weight:600}
+.t-card .role{font-size:12px;color:var(--gold-light);font-weight:300;margin-top:2px}
+
+/* ============================================================
+   9. ABOUT
+============================================================ */
+.about{background:#fff}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+.about-img{position:relative}
+.about-img img{border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}
+.about-img::after{
+  content:"";position:absolute;bottom:-18px;right:-18px;width:70%;height:70%;
+  border:2px solid var(--gold);border-radius:var(--radius-lg);z-index:-1;
+}
+.about-copy h2{font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--navy);margin:14px 0 18px}
+.about-copy p{font-size:16px;color:var(--ink);font-weight:300;margin-bottom:16px}
+.geo-pills{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 26px}
+.geo-pills li{
+  font-size:12.5px;font-weight:500;letter-spacing:.5px;color:var(--navy);
+  background:var(--cream);border:1px solid var(--border);padding:7px 16px;border-radius:999px;
+}
+.about-stats{display:flex;gap:32px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:22px}
+.about-stats .stat b{display:block;font-size:26px;color:var(--gold);font-weight:700}
+.about-stats .stat span{font-size:12px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:36px}.about-img::after{display:none}}
+
+/* ============================================================
+   10. TRUST METRICS BAND
+============================================================ */
+.metrics-band{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+  padding-block:clamp(3rem,6vw,4.5rem);
+}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center}
+.metric b{
+  display:block;font-size:clamp(2.6rem,5vw,3.6rem);font-weight:700;color:var(--gold);
+  font-variant-numeric:tabular-nums;
+}
+.metric span{
+  display:block;font-size:13px;color:rgba(255,255,255,.75);letter-spacing:2px;text-transform:uppercase;
+  margin-top:8px;font-weight:400;
+}
+.metrics-grid .metric{border-right:1px solid rgba(255,255,255,.12)}
+.metrics-grid .metric:last-child{border-right:none}
+@media (max-width:700px){
+  .metrics-grid{grid-template-columns:1fr;gap:26px}
+  .metrics-grid .metric{border-right:none;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:20px}
+  .metrics-grid .metric:last-child{border-bottom:none;padding-bottom:0}
+}
+
+/* ============================================================
+   11. FINAL INVITATION
+============================================================ */
+.invitation{
+  background:var(--cream);text-align:center;
+}
+.invitation h2{font-size:clamp(2rem,4.2vw,3rem);color:var(--navy);margin:14px 0 22px}
+.invitation p{font-size:17px;color:var(--ink);font-weight:300;margin-bottom:32px}
+.invitation .fine{font-size:13px;color:var(--muted);margin-top:16px}
+
+/* ============================================================
+   12. REGISTRATION (repeat)
+============================================================ */
+.register-repeat{background:var(--navy-deep)}
+.register-repeat .wrap{max-width:640px}
+.register-repeat h2{font-size:clamp(1.6rem,3vw,2.1rem);color:#fff;text-align:center;margin:14px 0 8px}
+.register-repeat .sub{color:rgba(255,255,255,.65);text-align:center;font-size:15px;font-weight:300;margin-bottom:28px}
+.register-repeat .hero-form-card{margin-top:0}
+
+/* ============================================================
+   13. FOOTER
+============================================================ */
+.site-footer{background:var(--navy-deep);padding:38px 0;text-align:center;border-top:1px solid rgba(255,255,255,.08)}
+.site-footer img{height:30px;margin:0 auto 14px}
+.site-footer p{font-size:12.5px;color:rgba(255,255,255,.5);font-weight:300;letter-spacing:.3px}
+
+/* Utility */
+.text-center{text-align:center}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     1. STICKY ANNOUNCEMENT BAR
+============================================================ -->
+<div class="announce-bar" id="announceBar">
+  <div class="announce-inner">
+    <p class="announce-msg">🎉 <strong>Celebrating 20 Years of Leadership Excellence</strong><span class="sep hide-mobile">|</span><span class="hide-mobile">Join the FREE 5-Star Leader Challenge</span></p>
+    <a href="#register" class="announce-btn js-scroll">Join the 6-Week Challenge</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     2. PREMIUM HEADER
+============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="#hero" aria-label="Dr. Bryan K. Williams — Home">
+      <img class="site-logo" src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" />
+    </a>
+    <a href="#register" class="btn btn-gold header-cta js-scroll">Join the 6-Week Challenge</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================
+     3. HERO — REGISTRATION ABOVE THE FOLD
+============================================================ -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div class="hero-copy">
+        <span class="hero-badge">✦ 20th Anniversary Celebration</span>
+        <h1>The 5-Star Leader <span>Challenge</span></h1>
+        <p class="hero-tagline">6 Weeks. 6 Challenges. One Decision — What Kind of Leader Will You Be?</p>
+        <p class="hero-sub">Every Monday for six weeks, you'll receive one leadership challenge, one practical framework, and one beautifully designed handout from Dr. Bryan K. Williams — built to help you lead with more intention, one week at a time.</p>
+        <ul class="hero-bullets">
+          <li>100% Free</li>
+          <li>6 Weekly Challenges</li>
+          <li>Delivered Every Monday</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual">
+        <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg" alt="Dr. Bryan K. Williams" loading="eager" />
+      </div>
+
+      <div class="hero-form-wrap">
+        <div class="hero-form-card" id="register">
+          <h3>Reserve Your Spot — It's Free</h3>
+          <p class="form-sub">Join leaders around the world taking the challenge.</p>
+
+          <iframe
+            src="https://link.thinkingcreatives.com/widget/form/ghNvm5EbEcY0qpupMGRK"
+            style="width:100%;height:100%;border:none;border-radius:8px"
+            id="inline-ghNvm5EbEcY0qpupMGRK"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="6 Week Challenge"
+            data-height="433"
+            data-layout-iframe-id="inline-ghNvm5EbEcY0qpupMGRK"
+            data-form-id="ghNvm5EbEcY0qpupMGRK"
+            title="6 Week Challenge"
+            class="form-embed-frame">
+          </iframe>
+
+          <p class="form-privacy">Free. No credit card. Just a decision to lead differently.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="hero-trust-line">Trusted by leaders across <strong>20+ industries</strong> and <strong>6 continents</strong> worldwide.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. 20TH ANNIVERSARY CELEBRATION
+============================================================ -->
+<section class="anniversary section-pad">
+  <div class="wrap">
+    <div class="anniversary-mark reveal">20</div>
+    <h2 class="reveal">
+      <span class="line">Twenty Years of Leadership.</span>
+      <span class="line">Twenty Years of Service.</span>
+      <span class="line">Twenty Years of Helping Leaders Create Excellence.</span>
+    </h2>
+    <p class="decision reveal">Now it's your turn.</p>
+    <div class="max-720 reveal">
+      <p>Two decades ago, I set out to help leaders and organizations create service experiences people never forget. That journey has taken me across six continents and into more than twenty industries — and every mile of it has convinced me of one truth: excellence is never an accident. It is the daily decision of an intentional leader.</p>
+      <p>The 5-Star Leader Challenge is my gift back to the leadership community that has given me so much. It's free, it's practical, and it's built from everything I've learned in twenty years of this work.</p>
+    </div>
+    <p class="sign reveal">— Dr. Bryan K. Williams</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. WHY THIS CHALLENGE EXISTS
+============================================================ -->
+<section class="narrative section-pad">
+  <div class="wrap max-860">
+    <div class="text-center narrative-quotemark reveal">"</div>
+    <h2 class="reveal">Why This Challenge Exists</h2>
+    <div class="reveal reveal-delay-1">
+      <p>For more than twenty-five years, I've had the privilege of stepping onto stages and into boardrooms across the globe, working alongside leaders who refused to settle for average. I've watched ordinary teams become extraordinary — not because of a new policy or a clever tactic, but because a leader decided, on purpose, to lead differently.</p>
+      <p>That decision is where this challenge begins.</p>
+      <p>The 5-Star Leader Challenge isn't a course you finish. It's a habit you build — one intentional act of leadership at a time, one week at a time, for six weeks. No fluff. No theory you'll forget by Friday. Just real challenges, real frameworks, and real change.</p>
+      <p>Twenty years into this work, I'm more convinced than ever: the world doesn't need more managers. It needs more 5-star leaders.</p>
+    </div>
+    <p class="sign reveal">— Dr. Bryan K. Williams</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. THE 5-STAR LEADER MOVEMENT
+============================================================ -->
+<section class="movement section-pad">
+  <div class="wrap">
+    <div class="text-center movement-head reveal">
+      <span class="eyebrow">The 5-Star Leader Movement</span>
+      <h2>This Is a Movement, Not a Mailing List</h2>
+      <p>The 5-Star Leader Challenge was built to be shared. Leaders who take it rarely keep it to themselves — they hand it to their managers, their front-desk teams, their department heads, because once you start leading on purpose, you want the people around you to do the same.</p>
+    </div>
+
+    <div class="movement-grid">
+      <div class="movement-card reveal">
+        <div class="num">01</div>
+        <h3>For You</h3>
+        <p>Six weeks of focused, practical challenges to sharpen how you lead — grounded in twenty-five years of real-world experience.</p>
+      </div>
+      <div class="movement-card reveal reveal-delay-1">
+        <div class="num">02</div>
+        <h3>For Your Team</h3>
+        <p>Every challenge is designed to be felt by the people you lead, not just read by you. Leadership becomes visible, week by week.</p>
+      </div>
+      <div class="movement-card reveal reveal-delay-2">
+        <div class="num">03</div>
+        <h3>For Your Organization</h3>
+        <p>Intentional leaders build cultures of excellence. This challenge is where that culture begins — one leader at a time.</p>
+      </div>
+    </div>
+
+    <div class="movement-quote reveal">
+      <p>"I want my leadership team to do this."</p>
+      <span>— WHAT EVERY 5-STAR LEADER SAYS AFTER WEEK ONE</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. THE COMPLETE SIX-WEEK JOURNEY
+============================================================ -->
+<section class="journey section-pad" id="journey">
+  <div class="wrap">
+    <div class="text-center journey-head reveal">
+      <span class="eyebrow">The Complete Six-Week Journey</span>
+      <h2>One Journey. Six Weeks. A Different Kind of Leader.</h2>
+      <p>Each week builds on the last. By the time you reach Week Six, you won't just think differently about leadership — you'll be leading differently.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="week-item reveal">
+        <div class="week-num">1</div>
+        <div class="week-card">
+          <div class="week-label">Week One</div>
+          <h3>Know Your Why</h3>
+          <p class="week-row"><strong>Challenge:</strong> Write your leadership purpose and share it with your team.</p>
+          <p class="week-row handout"><strong>Handout:</strong> My Leadership Purpose Worksheet</p>
+        </div>
+      </div>
+
+      <div class="week-item reveal">
+        <div class="week-num">2</div>
+        <div class="week-card">
+          <div class="week-label">Week Two</div>
+          <h3>See Your People</h3>
+          <p class="week-row"><strong>Challenge:</strong> Recognize one team member in a meaningful way.</p>
+          <p class="week-row handout"><strong>Handout:</strong> The Recognition Blueprint</p>
+        </div>
+      </div>
+
+      <div class="week-item reveal">
+        <div class="week-num">3</div>
+        <div class="week-card">
+          <div class="week-label">Week Three</div>
+          <h3>Raise Your Standard</h3>
+          <p class="week-row"><strong>Challenge:</strong> Address one slipping leadership standard.</p>
+          <p class="week-row handout"><strong>Handout:</strong> The Standard-Setting Conversation Guide</p>
+        </div>
+      </div>
+
+      <div class="week-item reveal">
+        <div class="week-num">4</div>
+        <div class="week-card">
+          <div class="week-label">Week Four</div>
+          <h3>Develop Someone</h3>
+          <p class="week-row"><strong>Challenge:</strong> Develop one person through intentional delegation.</p>
+          <p class="week-row handout"><strong>Handout:</strong> Delegation &amp; Development Checklist</p>
+        </div>
+      </div>
+
+      <div class="week-item reveal">
+        <div class="week-num">5</div>
+        <div class="week-card">
+          <div class="week-label">Week Five</div>
+          <h3>Lead Through the Hard Stuff</h3>
+          <p class="week-row"><strong>Challenge:</strong> Have the difficult leadership conversation you've been avoiding.</p>
+          <p class="week-row handout"><strong>Handout:</strong> The Courageous Conversation Framework</p>
+        </div>
+      </div>
+
+      <div class="week-item reveal">
+        <div class="week-num">6</div>
+        <div class="week-card">
+          <div class="week-label">Week Six</div>
+          <h3>Build What Lasts</h3>
+          <p class="week-row"><strong>Challenge:</strong> Write your personal leadership commitments.</p>
+          <p class="week-row handout"><strong>Handout:</strong> Leadership Commitment Card</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. WHY LEADERS TRUST DR. BRYAN
+============================================================ -->
+<section class="trust-section section-pad">
+  <div class="wrap">
+    <div class="text-center trust-head reveal">
+      <span class="eyebrow">Why Leaders Trust Dr. Bryan</span>
+      <h2>Real Leaders. Real Rooms. Real Results.</h2>
+      <p>For more than two decades, Dr. Bryan has helped leadership teams across the globe fall back in love with service and leadership. Here's what a few of them have said.</p>
+    </div>
+  </div>
+
+  <div class="marquee-row reveal">
+    <div class="marquee-track" id="marqueeTrack1">
+      <div class="t-card"><div class="stars">★★★★★</div><p>“Dr. Bryan Williams' two-day training energized and united our leadership team around a shared vision. We left inspired to help every team member feel like the CEO of their role, pursue daily 'Wow' moments, and continue to embrace continuous improvement as a way of life.”</p><div class="who">Eliezer Quinones</div><div class="role">General Manager, Rancho La Puerta</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“We have had endless compliments on having you as our speaker. Everyone said you were the best guest we've ever had.”</p><div class="who">Gerianne Cygan</div><div class="role">Co-Founder, The Exercise Coach®</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“His excitement and love of leadership was exactly what I needed at this exact time! His energy was contagious, and he re-ignited my fire and invigorated my passion to be a great leader and build a great team.”</p><div class="who">Jessica Hunt</div><div class="role">Organ Recovery and Preservation Services Manager, LifeSource</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“Bryan's session was a breath of fresh air to me and to my management team. Remembering his 10 suggestions on a day to day basis will help me and my coworkers to be mountain CLIMBERS! Bryan always delivers.”</p><div class="who">Barbara Lubbers</div><div class="role">Assistant General Manager, Club Greenwood</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“I've heard from many members that it was the best online inspirational meeting they've attended! We thank you for your professional, yet entertaining session.”</p><div class="who">Deborah Burns</div><div class="role">Executive Director, New England Inns &amp; Resorts Association</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“Bryan has provided the keynote address at two of our events. His message is consistently inspirational and motivating. If you're looking for the “wow” factor, look no further – Bryan is the best!”</p><div class="who">Priscilla Gandy</div><div class="role">Conferences and Events Director, NASPO</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“Bryan Williams WOW'd our audience of more than 1600 individuals! He shared stories to connect with the audience and left our guests with tangible take-aways to inspire them to strive for excellence.”</p><div class="who">Ericka Heiser</div><div class="role">President, Day of Excellence – Rapid City</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“We have had the privilege of having Bryan Williams present to our community on two occasions. His energy, knowledge and commitment to the importance of experience has a powerful impact on all with whom he engages.”</p><div class="who">Jason A. Wolf, PhD</div><div class="role">President, The Beryl Institute</div></div>
+      <!-- duplicate set for seamless loop -->
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“Dr. Bryan Williams' two-day training energized and united our leadership team around a shared vision. We left inspired to help every team member feel like the CEO of their role, pursue daily 'Wow' moments, and continue to embrace continuous improvement as a way of life.”</p><div class="who">Eliezer Quinones</div><div class="role">General Manager, Rancho La Puerta</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“We have had endless compliments on having you as our speaker. Everyone said you were the best guest we've ever had.”</p><div class="who">Gerianne Cygan</div><div class="role">Co-Founder, The Exercise Coach®</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“His excitement and love of leadership was exactly what I needed at this exact time! His energy was contagious, and he re-ignited my fire and invigorated my passion to be a great leader and build a great team.”</p><div class="who">Jessica Hunt</div><div class="role">Organ Recovery and Preservation Services Manager, LifeSource</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“Bryan's session was a breath of fresh air to me and to my management team. Remembering his 10 suggestions on a day to day basis will help me and my coworkers to be mountain CLIMBERS! Bryan always delivers.”</p><div class="who">Barbara Lubbers</div><div class="role">Assistant General Manager, Club Greenwood</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“I've heard from many members that it was the best online inspirational meeting they've attended! We thank you for your professional, yet entertaining session.”</p><div class="who">Deborah Burns</div><div class="role">Executive Director, New England Inns &amp; Resorts Association</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“Bryan has provided the keynote address at two of our events. His message is consistently inspirational and motivating. If you're looking for the “wow” factor, look no further – Bryan is the best!”</p><div class="who">Priscilla Gandy</div><div class="role">Conferences and Events Director, NASPO</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“Bryan Williams WOW'd our audience of more than 1600 individuals! He shared stories to connect with the audience and left our guests with tangible take-aways to inspire them to strive for excellence.”</p><div class="who">Ericka Heiser</div><div class="role">President, Day of Excellence – Rapid City</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“We have had the privilege of having Bryan Williams present to our community on two occasions. His energy, knowledge and commitment to the importance of experience has a powerful impact on all with whom he engages.”</p><div class="who">Jason A. Wolf, PhD</div><div class="role">President, The Beryl Institute</div></div>
+    </div>
+  </div>
+  <div class="marquee-row reverse reveal">
+    <div class="marquee-track" id="marqueeTrack2">
+      <div class="t-card"><div class="stars">★★★★★</div><p>“Bryan is, hands-down, the most engaging and inspiring customer service speaker we've had. His presentation left our employees feeling empowered, confident, and with a renewed sense of purpose.”</p><div class="who">Stephanie F. Brown</div><div class="role">SVP, AKRIDGE</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“Bryan really wowed our management team with his energy, passion, and expertise. Every attendee was motivated by his powerful message and walked away with tips and tools to take action.”</p><div class="who">Theresa Scolaro</div><div class="role">AVP, MedStar Ambulatory Services</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“Insightful, and full of ideas to assist the healthcare worker on their journey to consistently creating a great patient experience. He walks the talk! Every interaction I've had with Dr. Williams has been a memorable experience.”</p><div class="who">Michael Calhoun</div><div class="role">Shady Grove Adventist Hospital</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“Bryan was a huge hit with our leaders. I sat at the table with our CEO and he repeatedly nodded his head and identified how Bryan's message aligned with our culture.”</p><div class="who">Deb Stam</div><div class="role">Parkview Health</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“There are lots of firms in the business of providing service training, but none of them have the depth and breadth of experience that Bryan Williams does.”</p><div class="who">Dan Scott</div><div class="role">Shore Lodge</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“The depth of your material, your integrity, your open enthusiasm, your humor and your ability to connect on every level made it worthwhile for everyone!”</p><div class="who">Hans Bruland</div><div class="role">The Hay-Adams</div></div>
+      <div class="t-card"><div class="stars">★★★★★</div><p>“I have never witnessed such a refreshing, clear, and mind-opening presentation as the one Bryan Williams gave us. My colleagues were all inspired and are still talking about it!”</p><div class="who">Isabel Morero</div><div class="role">Marbella Club Hotel, Golf Resort &amp; Spa</div></div>
+      <!-- duplicate set for seamless loop -->
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“Bryan is, hands-down, the most engaging and inspiring customer service speaker we've had. His presentation left our employees feeling empowered, confident, and with a renewed sense of purpose.”</p><div class="who">Stephanie F. Brown</div><div class="role">SVP, AKRIDGE</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“Bryan really wowed our management team with his energy, passion, and expertise. Every attendee was motivated by his powerful message and walked away with tips and tools to take action.”</p><div class="who">Theresa Scolaro</div><div class="role">AVP, MedStar Ambulatory Services</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“Insightful, and full of ideas to assist the healthcare worker on their journey to consistently creating a great patient experience. He walks the talk! Every interaction I've had with Dr. Williams has been a memorable experience.”</p><div class="who">Michael Calhoun</div><div class="role">Shady Grove Adventist Hospital</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“Bryan was a huge hit with our leaders. I sat at the table with our CEO and he repeatedly nodded his head and identified how Bryan's message aligned with our culture.”</p><div class="who">Deb Stam</div><div class="role">Parkview Health</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“There are lots of firms in the business of providing service training, but none of them have the depth and breadth of experience that Bryan Williams does.”</p><div class="who">Dan Scott</div><div class="role">Shore Lodge</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“The depth of your material, your integrity, your open enthusiasm, your humor and your ability to connect on every level made it worthwhile for everyone!”</p><div class="who">Hans Bruland</div><div class="role">The Hay-Adams</div></div>
+      <div class="t-card" aria-hidden="true"><div class="stars">★★★★★</div><p>“I have never witnessed such a refreshing, clear, and mind-opening presentation as the one Bryan Williams gave us. My colleagues were all inspired and are still talking about it!”</p><div class="who">Isabel Morero</div><div class="role">Marbella Club Hotel, Golf Resort &amp; Spa</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9. ABOUT DR. BRYAN
+============================================================ -->
+<section class="about section-pad" id="about">
+  <div class="wrap about-grid">
+    <div class="about-img reveal">
+      <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e78.jpg" alt="Dr. Bryan K. Williams speaking" />
+    </div>
+    <div class="about-copy reveal reveal-delay-1">
+      <span class="eyebrow">About Dr. Bryan</span>
+      <h2>Meet Dr. Bryan K. Williams</h2>
+      <p>Dr. Bryan K. Williams is a keynote speaker, consultant, and author recognized worldwide as an authority on Service Excellence and Leadership Effectiveness.</p>
+      <p>For more than twenty-five years, he has helped organizations across more than twenty industries create world-class service cultures and intentional leadership — work that has taken him across North America, South America, Europe, Asia, Africa, Australia, and the Caribbean.</p>
+      <ul class="geo-pills">
+        <li>North America</li>
+        <li>South America</li>
+        <li>Europe</li>
+        <li>Asia</li>
+        <li>Africa</li>
+        <li>Australia</li>
+        <li>Caribbean</li>
+      </ul>
+      <div class="about-stats">
+        <div class="stat"><b>25+</b><span>Years of Experience</span></div>
+        <div class="stat"><b>20+</b><span>Industries Served</span></div>
+        <div class="stat"><b>6</b><span>Continents</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10. TRUST METRICS BAND
+============================================================ -->
+<section class="metrics-band">
+  <div class="wrap">
+    <div class="metrics-grid">
+      <div class="metric reveal"><b data-count="25" data-suffix="+">25+</b><span>Years of Experience</span></div>
+      <div class="metric reveal reveal-delay-1"><b data-count="20" data-suffix="+">20+</b><span>Industries Served</span></div>
+      <div class="metric reveal reveal-delay-2"><b data-count="6" data-suffix="">6</b><span>Continents Reached</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11. FINAL INVITATION
+============================================================ -->
+<section class="invitation section-pad">
+  <div class="wrap max-720">
+    <span class="eyebrow">Your Invitation</span>
+    <h2 class="reveal">What Kind of Leader Will You Be?</h2>
+    <p class="reveal reveal-delay-1">Twenty years ago, I made a decision to spend my life helping leaders create excellence on purpose. Today, I'm inviting you to make a decision of your own. Six weeks. Six challenges. Completely free. The only thing required is you.</p>
+    <a href="#register" class="btn btn-gold js-scroll reveal reveal-delay-2">Join the 6-Week Challenge</a>
+    <p class="fine reveal reveal-delay-2">Begins the moment you say yes.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     12. REGISTRATION FORM (REPEATED)
+============================================================ -->
+<section class="register-repeat section-pad" id="register-final">
+  <div class="wrap">
+    <span class="eyebrow" style="display:flex;justify-content:center">The 5-Star Leader Challenge</span>
+    <h2>Reserve Your Spot in the Challenge</h2>
+    <p class="sub">Free. Six weeks. One decision to lead differently.</p>
+
+    <div class="hero-form-card">
+      <iframe
+        src="https://link.thinkingcreatives.com/widget/form/ghNvm5EbEcY0qpupMGRK"
+        style="width:100%;height:100%;border:none;border-radius:8px"
+        id="inline-ghNvm5EbEcY0qpupMGRK-2"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="6 Week Challenge"
+        data-height="433"
+        data-layout-iframe-id="inline-ghNvm5EbEcY0qpupMGRK-2"
+        data-form-id="ghNvm5EbEcY0qpupMGRK"
+        title="6 Week Challenge"
+        class="form-embed-frame">
+      </iframe>
+      <p class="form-privacy">We respect your inbox. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     13. FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" />
+    <p>&copy; 2026 Dr. Bryan K. Williams. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="https://link.thinkingcreatives.com/js/form_embed.js"></script>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Progressive enhancement: only hide .reveal elements once JS is confirmed running */
+  document.documentElement.classList.add('js');
+
+  /* ---- Sticky bar height sync ---- */
+  var bar = document.getElementById('announceBar');
+  var header = document.getElementById('siteHeader');
+  function syncBarHeight(){
+    if(bar){ document.documentElement.style.setProperty('--bar-h', bar.offsetHeight + 'px'); }
+    if(header && !header.classList.contains('scrolled')){
+      document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+    }
+  }
+  syncBarHeight();
+  window.addEventListener('resize', syncBarHeight);
+  window.addEventListener('load', syncBarHeight);
+
+  /* ---- Header solid on scroll ---- */
+  function onScroll(){
+    if(window.scrollY > 40){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  /* ---- Smooth scroll to registration ---- */
+  document.querySelectorAll('.js-scroll').forEach(function(el){
+    el.addEventListener('click', function(e){
+      var href = el.getAttribute('href');
+      if(!href || href.charAt(0) !== '#') return;
+      var target = document.querySelector(href);
+      if(!target) return;
+      e.preventDefault();
+      var offset = (bar ? bar.offsetHeight : 0) + (header ? header.offsetHeight : 0) + 20;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+
+  /* ---- Reveal on scroll ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  /* ---- Count-up metrics ---- */
+  var counters = document.querySelectorAll('[data-count]');
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1400;
+    var start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target) + suffix;
+      if(progress < 1){ requestAnimationFrame(step); }
+      else { el.textContent = target + suffix; }
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window && counters.length){
+    var countIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCount(entry.target);
+          countIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.5 });
+    counters.forEach(function(el){ countIO.observe(el); });
+  }
+
+})();
+</script>
+
+</body>
+</html>
