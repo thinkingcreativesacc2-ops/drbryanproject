@@ -175,44 +175,14 @@ ul { list-style: none; }
 }
 
 .btn-lg { font-size: 1.0625rem; padding: 1rem 2rem; }
-.btn-full { width: 100%; }
 
 /* ── FORMS ──────────────────────────────────────────────── */
-.opt-in-form { width: 100%; }
-.form-row { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: stretch; }
-.form-row .form-group { flex: 1 1 200px; }
-.form-row .btn { flex: 0 1 auto; }
-
-.form-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+.register-form-embed {
+  width: 100%;
   max-width: 480px;
   margin-inline: auto;
-  width: 100%;
 }
-
-.form-group input {
-  width: 100%;
-  padding: 0.875rem 1rem;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--text);
-  background: var(--white);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.form-group input:focus {
-  outline: none;
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(200, 147, 43, 0.20);
-}
-.form-group input::placeholder { color: var(--muted); }
-input:invalid:not(:placeholder-shown) {
-  border-color: #d94040;
-  box-shadow: 0 0 0 3px rgba(217, 64, 64, 0.15);
-}
+.register-form-embed iframe { display: block; }
 
 .form-privacy {
   display: flex;
@@ -225,18 +195,6 @@ input:invalid:not(:placeholder-shown) {
 }
 .form-privacy.light { color: rgba(255,255,255,0.55); }
 .form-privacy svg { flex-shrink: 0; }
-
-.form-success {
-  background: rgba(200, 147, 43, 0.12);
-  border: 1.5px solid var(--gold);
-  border-radius: var(--radius);
-  padding: 1.25rem 1.5rem;
-  text-align: center;
-  display: none;
-}
-.form-success.visible { display: block; }
-.form-success p { color: var(--navy); font-weight: 700; font-size: 1.0625rem; margin: 0; }
-.section-navy .form-success p { color: var(--white); }
 
 /* ── HEADER ─────────────────────────────────────────────── */
 .site-header {
@@ -663,8 +621,7 @@ input:invalid:not(:placeholder-shown) {
 }
 
 @media (max-width: 600px) {
-  .form-row { flex-direction: column; }
-  .form-row .btn { width: 100%; }
+  .register-form-embed iframe { height: 520px; }
   .pillars-grid { grid-template-columns: 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }
@@ -720,7 +677,7 @@ input:invalid:not(:placeholder-shown) {
   <section class="hero" aria-labelledby="hero-headline">
     <div class="hero-bg-overlay" aria-hidden="true"></div>
     <div class="hero-photo-wrap" aria-hidden="true">
-      <img src="assets/images/hero-speaking.jpg" alt="" class="hero-photo" />
+      <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg" alt="" class="hero-photo" />
     </div>
 
     <div class="container hero-content">
@@ -752,7 +709,7 @@ input:invalid:not(:placeholder-shown) {
 
       <div class="hero-image-col" aria-hidden="true">
         <div class="hero-card-photo">
-          <img src="assets/images/bryan-stage.jpg" alt="Dr. Bryan K. Williams speaking on stage" class="hero-portrait" />
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg" alt="Dr. Bryan K. Williams speaking on stage" class="hero-portrait" />
         </div>
       </div>
     </div>
@@ -1018,7 +975,7 @@ input:invalid:not(:placeholder-shown) {
     <div class="container about-inner">
       <div class="about-photo-col">
         <div class="about-photo-frame">
-          <img src="assets/images/bryan-headshot.jpg" alt="Dr. Bryan K. Williams, Keynote Speaker and Leadership Expert" class="about-photo" />
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e78.jpg" alt="Dr. Bryan K. Williams, Keynote Speaker and Leadership Expert" class="about-photo" />
           <div class="photo-accent" aria-hidden="true"></div>
         </div>
       </div>
@@ -1138,25 +1095,29 @@ input:invalid:not(:placeholder-shown) {
           </p>
         </div>
 
-        <form class="opt-in-form" id="register-form" aria-label="Register for the 5-Star Leader Challenge" novalidate>
-          <div class="form-stack">
-            <div class="form-group">
-              <label for="reg-first-name" class="sr-only">First Name</label>
-              <input type="text" id="reg-first-name" name="first_name" placeholder="First Name" autocomplete="given-name" required aria-required="true" />
-            </div>
-            <div class="form-group">
-              <label for="reg-email" class="sr-only">Email Address</label>
-              <input type="email" id="reg-email" name="email" placeholder="Email Address" autocomplete="email" required aria-required="true" />
-            </div>
-            <button type="submit" class="btn btn-gold btn-lg btn-full">
-              Yes! Reserve My Free Spot &rarr;
-            </button>
-          </div>
-          <p class="form-privacy">
-            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            No spam. Unsubscribe any time. 100% free — our anniversary gift to you.
-          </p>
-        </form>
+        <div class="register-form-embed">
+          <iframe
+            src="https://link.thinkingcreatives.com/widget/form/ghNvm5EbEcY0qpupMGRK"
+            style="width:100%;height:433px;border:none;border-radius:8px"
+            id="inline-ghNvm5EbEcY0qpupMGRK"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="6 Week Challenge"
+            data-height="433"
+            data-layout-iframe-id="inline-ghNvm5EbEcY0qpupMGRK"
+            data-form-id="ghNvm5EbEcY0qpupMGRK"
+            title="6 Week Challenge"
+          ></iframe>
+        </div>
+        <p class="form-privacy">
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          No spam. Unsubscribe any time. 100% free — our anniversary gift to you.
+        </p>
       </div>
     </div>
   </section>
@@ -1219,65 +1180,6 @@ input:invalid:not(:placeholder-shown) {
     });
   }
 
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  function showSuccess(form, btn, originalText) {
-    [].slice.call(form.children).forEach(function (child) {
-      if (!child.classList.contains('form-success')) {
-        child.style.display = 'none';
-      }
-    });
-
-    var successEl = form.querySelector('.form-success');
-    if (!successEl) {
-      successEl = document.createElement('div');
-      successEl.className = 'form-success';
-      successEl.innerHTML = "<p>You're in! Check your inbox — your first leadership tip is on its way.</p>";
-      form.appendChild(successEl);
-    }
-    successEl.classList.add('visible');
-
-    btn.disabled = false;
-    btn.textContent = originalText;
-  }
-
-  function handleFormSubmit(form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      var firstName = form.querySelector('input[name="first_name"]');
-      var email = form.querySelector('input[name="email"]');
-      var valid = true;
-
-      if (!firstName.value.trim()) {
-        firstName.focus();
-        firstName.reportValidity();
-        valid = false;
-      }
-
-      if (valid && !isValidEmail(email.value.trim())) {
-        email.focus();
-        email.reportValidity();
-        valid = false;
-      }
-
-      if (!valid) return;
-
-      var btn = form.querySelector('button[type="submit"]');
-      var originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-
-      setTimeout(function () {
-        showSuccess(form, btn, originalText);
-      }, 1000);
-    });
-  }
-
-  document.querySelectorAll('.opt-in-form').forEach(handleFormSubmit);
-
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       var target = document.querySelector(this.getAttribute('href'));
@@ -1292,6 +1194,8 @@ input:invalid:not(:placeholder-shown) {
 
 })();
 </script>
+
+<script src="https://link.thinkingcreatives.com/js/form_embed.js"></script>
 
 </body>
 </html>
