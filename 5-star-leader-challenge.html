@@ -197,6 +197,23 @@ ul { list-style: none; }
 .form-privacy svg { flex-shrink: 0; }
 .hero-text .form-privacy { justify-content: center; }
 
+/* ── TOP BANNER ─────────────────────────────────────────── */
+.top-banner {
+  background: var(--gold);
+  text-align: center;
+  padding-block: 0.625rem;
+}
+.top-banner-link {
+  color: var(--navy);
+  font-family: var(--font-body);
+  font-weight: 900;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.top-banner-link:hover, .top-banner-link:focus { text-decoration: underline; }
+
 /* ── HEADER ─────────────────────────────────────────────── */
 .site-header {
   background: var(--navy);
@@ -641,6 +658,10 @@ ul { list-style: none; }
 </style>
 </head>
 <body>
+
+<div class="top-banner">
+  <a href="#register" class="top-banner-link">Join Free 6 Week Challenge &rarr;</a>
+</div>
 
 <header class="site-header" role="banner">
   <div class="container header-inner">
