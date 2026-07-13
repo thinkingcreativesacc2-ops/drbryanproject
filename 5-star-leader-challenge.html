@@ -277,17 +277,24 @@ ul { list-style: none; }
   margin-bottom: 2rem;
   line-height: 1.6;
 }
-.hero-cta-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1rem; }
-
-.hero-image-col { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-.hero-card-photo {
-  width: clamp(220px, 28vw, 340px);
+.hero-form-col { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 420px; }
+.hero-form-card {
+  width: 100%;
+  background: var(--white);
   border-radius: var(--radius-lg);
-  overflow: hidden;
   box-shadow: var(--shadow-lg);
   border: 3px solid rgba(200, 147, 43, 0.45);
+  padding: 1.5rem;
 }
-.hero-portrait { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; display: block; }
+.hero-form-title {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 1rem;
+}
 
 /* ── ANNIVERSARY SECTION ───────────────────────────────── */
 .anniversary-inner {
@@ -351,12 +358,15 @@ ul { list-style: none; }
 
 /* ── PILLARS (5-STAR MOVEMENT) ─────────────────────────── */
 .pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   margin-top: 2.5rem;
 }
 .pillar-card {
+  flex: 1 1 200px;
+  max-width: 220px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: var(--radius-lg);
@@ -580,18 +590,6 @@ ul { list-style: none; }
 /* ── FINAL INVITATION ───────────────────────────────────── */
 .invitation-inner { text-align: center; max-width: 760px; margin-inline: auto; }
 
-/* ── REGISTRATION CARD ──────────────────────────────────── */
-.register-card {
-  max-width: 560px;
-  margin-inline: auto;
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border);
-  padding: clamp(2rem, 5vw, 3rem);
-}
-.register-card .section-headline { font-size: clamp(1.75rem, 4vw, 2.5rem); }
-
 /* ── FOOTER ─────────────────────────────────────────────── */
 .site-footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding-block: 2.5rem; }
 .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; }
@@ -612,7 +610,7 @@ ul { list-style: none; }
 ============================================================ */
 @media (max-width: 900px) {
   .hero-content { grid-template-columns: 1fr; }
-  .hero-image-col { display: none; }
+  .hero-form-col { max-width: 100%; }
   .about-inner { grid-template-columns: 1fr; }
   .about-photo-col { max-width: 340px; margin-inline: auto; }
   .anniversary-inner { grid-template-columns: 1fr; text-align: center; }
@@ -622,7 +620,7 @@ ul { list-style: none; }
 
 @media (max-width: 600px) {
   .register-form-embed iframe { height: 520px; }
-  .pillars-grid { grid-template-columns: 1fr; }
+  .pillar-card { flex-basis: 100%; max-width: 320px; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }
   .anniversary-stats { grid-template-columns: 1fr; gap: 1rem; }
@@ -634,8 +632,8 @@ ul { list-style: none; }
 
 /* ── ANIMATIONS ─────────────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference) {
-  .hero-text, .hero-image-col { animation: fadeUp 0.7s ease both; }
-  .hero-image-col { animation-delay: 0.15s; }
+  .hero-text, .hero-form-col { animation: fadeUp 0.7s ease both; }
+  .hero-form-col { animation-delay: 0.15s; }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -674,7 +672,7 @@ ul { list-style: none; }
   <!-- ============================================================
        1. HERO SECTION
   ============================================================ -->
-  <section class="hero" aria-labelledby="hero-headline">
+  <section class="hero" id="register" aria-labelledby="hero-headline">
     <div class="hero-bg-overlay" aria-hidden="true"></div>
     <div class="hero-photo-wrap" aria-hidden="true">
       <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg" alt="" class="hero-photo" />
@@ -697,19 +695,34 @@ ul { list-style: none; }
           is opening the 5-Star Leader Challenge to every service leader, free of charge —
           one practical habit a week, for six weeks.
         </p>
-
-        <div class="hero-cta-row">
-          <a href="#register" class="btn btn-gold btn-lg">Reserve My Free Spot</a>
-        </div>
-        <p class="form-privacy light">
-          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          No spam. Unsubscribe any time. 100% free.
-        </p>
       </div>
 
-      <div class="hero-image-col" aria-hidden="true">
-        <div class="hero-card-photo">
-          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg" alt="Dr. Bryan K. Williams speaking on stage" class="hero-portrait" />
+      <div class="hero-form-col">
+        <div class="hero-form-card">
+          <p class="hero-form-title">Reserve Your Free Spot</p>
+          <div class="register-form-embed">
+            <iframe
+              src="https://link.thinkingcreatives.com/widget/form/ghNvm5EbEcY0qpupMGRK"
+              style="width:100%;height:433px;border:none;border-radius:8px"
+              id="inline-ghNvm5EbEcY0qpupMGRK"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="6 Week Challenge"
+              data-height="433"
+              data-layout-iframe-id="inline-ghNvm5EbEcY0qpupMGRK"
+              data-form-id="ghNvm5EbEcY0qpupMGRK"
+              title="6 Week Challenge"
+            ></iframe>
+          </div>
+          <p class="form-privacy">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            No spam. Unsubscribe any time. 100% free.
+          </p>
         </div>
       </div>
     </div>
@@ -1080,52 +1093,10 @@ ul { list-style: none; }
     </div>
   </section>
 
-  <!-- ============================================================
-       10. REGISTRATION FORM
-  ============================================================ -->
-  <section class="section section-cream" id="register" aria-labelledby="register-heading">
-    <div class="container">
-      <div class="register-card">
-        <div class="text-center">
-          <p class="eyebrow">FREE ANNIVERSARY REGISTRATION</p>
-          <h2 id="register-heading" class="section-headline">Join the Challenge</h2>
-          <p class="section-sub max-560">
-            Enter your name and email below — your first leadership tip arrives the moment
-            you register.
-          </p>
-        </div>
-
-        <div class="register-form-embed">
-          <iframe
-            src="https://link.thinkingcreatives.com/widget/form/ghNvm5EbEcY0qpupMGRK"
-            style="width:100%;height:433px;border:none;border-radius:8px"
-            id="inline-ghNvm5EbEcY0qpupMGRK"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="6 Week Challenge"
-            data-height="433"
-            data-layout-iframe-id="inline-ghNvm5EbEcY0qpupMGRK"
-            data-form-id="ghNvm5EbEcY0qpupMGRK"
-            title="6 Week Challenge"
-          ></iframe>
-        </div>
-        <p class="form-privacy">
-          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          No spam. Unsubscribe any time. 100% free — our anniversary gift to you.
-        </p>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <!-- ============================================================
-     11. FOOTER
+     10. FOOTER
 ============================================================ -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
