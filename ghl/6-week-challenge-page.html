@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The 6-Week Challenge | Dr. Bryan K. Williams</title>
+<meta name="description" content="Join Dr. Bryan K. Williams' free 6-Week Challenge and become the 5-Star Leader your team deserves. Twenty years on the platform. One journey worth starting today." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   RESET
+============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
+body{
+  font-family:'Oswald',Georgia,'Times New Roman',serif;
+  color:#1c2340;
+  background:#fdfcfa;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer}
+svg{display:block}
+
+/* ============================================================
+   TOKENS
+============================================================ */
+:root{
+  --navy:#192857;
+  --navy-deep:#101a3e;
+  --navy-soft:#2b3a72;
+  --gold:#e5ab48;
+  --gold-light:#f2c777;
+  --gold-deep:#c98f2e;
+  --red:#a8240f;
+  --white:#ffffff;
+  --cream:#faf7f1;
+  --ink:#1c2340;
+  --muted:#5c6280;
+  --border:#e7e2d6;
+  --shadow-sm:0 4px 18px rgba(16,26,62,.08);
+  --shadow-md:0 12px 40px rgba(16,26,62,.14);
+  --shadow-lg:0 24px 70px rgba(16,26,62,.22);
+  --radius:14px;
+  --radius-lg:24px;
+  --serif-body:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+}
+
+/* ============================================================
+   TYPE HELPERS
+============================================================ */
+.serif{font-family:var(--serif-body)}
+.eyebrow{
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.78rem;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep);
+  display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.1rem;
+}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--gold-deep);display:inline-block}
+.eyebrow.on-dark{color:var(--gold-light)}
+.eyebrow.on-dark::before{background:var(--gold-light)}
+.eyebrow.center{justify-content:center}
+h1,h2,h3,h4{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.01em;color:var(--navy)}
+.h1{font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:1.06;font-weight:600;color:var(--white)}
+.h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1.12;font-weight:600}
+.h3{font-size:clamp(1.3rem,2.2vw,1.6rem);font-weight:600}
+.gold-text{color:var(--gold)}
+.lead{font-family:var(--serif-body);font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--muted);line-height:1.75}
+.lead.on-dark{color:rgba(255,255,255,.82)}
+.center{text-align:center}
+
+/* ============================================================
+   LAYOUT
+============================================================ */
+.wrap{width:100%;max-width:1200px;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem)}
+.wrap-narrow{max-width:820px}
+section{position:relative}
+.section-pad{padding-block:clamp(4.5rem,9vw,8rem)}
+.bg-white{background:var(--white)}
+.bg-cream{background:var(--cream)}
+.bg-navy{background:var(--navy);color:var(--white)}
+.bg-navy-deep{background:linear-gradient(160deg,var(--navy-deep),var(--navy) 60%,var(--navy-soft))}
+
+/* ============================================================
+   REVEAL ANIMATIONS
+============================================================ */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1.visible{transition-delay:.1s}
+.reveal-delay-2.visible{transition-delay:.22s}
+.reveal-delay-3.visible{transition-delay:.34s}
+.reveal-delay-4.visible{transition-delay:.46s}
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+============================================================ */
+.announce{
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold) 50%,var(--gold-deep));
+  color:var(--navy-deep);position:sticky;top:0;z-index:1001;
+  font-size:.82rem;font-weight:600;letter-spacing:.03em;
+}
+.announce-inner{
+  max-width:1200px;margin-inline:auto;padding:.65rem clamp(1.25rem,5vw,3rem);
+  display:flex;align-items:center;justify-content:center;gap:.9rem;text-align:center;position:relative;
+}
+.announce a{text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.announce-close{
+  position:absolute;right:clamp(.5rem,2vw,1.25rem);top:50%;transform:translateY(-50%);
+  background:none;border:none;color:var(--navy-deep);font-size:1.1rem;line-height:1;
+  width:24px;height:24px;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;transition:background .2s;
+}
+.announce-close:hover{background:rgba(16,26,62,.12)}
+.announce.hidden{display:none}
+
+/* ============================================================
+   HEADER
+============================================================ */
+.site-header{
+  position:sticky;top:0;z-index:1000;background:var(--navy);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  transition:padding .3s ease,box-shadow .3s ease;
+}
+.site-header.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-block:1.1rem;transition:padding .3s ease;
+}
+.site-header.scrolled .header-inner{padding-block:.65rem}
+.site-logo{height:42px;width:auto;transition:height .3s ease}
+.site-header.scrolled .site-logo{height:34px}
+.main-nav{display:flex;align-items:center;gap:2.4rem}
+.main-nav a{
+  font-size:.86rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;
+  color:rgba(255,255,255,.82);position:relative;padding-block:.3rem;
+}
+.main-nav a::after{
+  content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);
+  transition:width .3s ease;
+}
+.main-nav a:hover{color:var(--white)}
+.main-nav a:hover::after{width:100%}
+.header-cta{
+  display:inline-flex;align-items:center;padding:.68rem 1.5rem;background:var(--gold);
+  color:var(--navy-deep);font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  border-radius:100px;transition:background .25s ease,transform .25s ease,box-shadow .25s ease;
+  box-shadow:0 6px 20px rgba(229,171,72,.28);
+}
+.header-cta:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 10px 26px rgba(229,171,72,.4)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:.4rem}
+.menu-toggle span{width:26px;height:2px;background:var(--white);transition:transform .3s ease,opacity .3s ease}
+.menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-toggle.open span:nth-child(2){opacity:0}
+.menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+@media (max-width:860px){
+  .main-nav{
+    position:fixed;inset:0 0 0 auto;top:var(--header-h,66px);height:calc(100vh - var(--header-h,66px));
+    width:min(78vw,320px);background:var(--navy-deep);flex-direction:column;align-items:flex-start;
+    padding:2.5rem 2rem;gap:1.6rem;transform:translateX(100%);transition:transform .35s ease;
+    box-shadow:-10px 0 40px rgba(0,0,0,.3);
+  }
+  .main-nav.open{transform:translateX(0)}
+  .main-nav a{font-size:1rem}
+  .header-cta{width:100%;justify-content:center}
+  .menu-toggle{display:flex}
+}
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  padding:1.05rem 2.4rem;border-radius:100px;font-size:.92rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+}
+.btn-gold{background:var(--gold);color:var(--navy-deep);box-shadow:0 10px 30px rgba(229,171,72,.35)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-3px);box-shadow:0 16px 40px rgba(229,171,72,.48)}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.5)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light);transform:translateY(-3px)}
+.btn svg{width:16px;height:16px;transition:transform .25s ease}
+.btn:hover svg{transform:translateX(4px)}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{
+  background:var(--bg-navy-deep,linear-gradient(160deg,#101a3e,#192857 55%,#2b3a72));
+  position:relative;overflow:hidden;padding-block:clamp(3.5rem,8vw,6.5rem);
+}
+.hero::before{
+  content:'';position:absolute;inset:-20% -10% auto auto;width:640px;height:640px;
+  background:radial-gradient(circle,rgba(229,171,72,.16),transparent 68%);pointer-events:none;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2.5rem,5vw,4.5rem);align-items:center;
+  position:relative;z-index:1;
+}
+.hero-copy .eyebrow{color:var(--gold-light)}
+.hero-copy .eyebrow::before{background:var(--gold-light)}
+.hero-sub{margin-top:1.4rem;max-width:52ch}
+.hero-badges{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:2.3rem}
+.hero-badge{
+  display:flex;align-items:center;gap:.55rem;font-size:.8rem;color:rgba(255,255,255,.78);
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.hero-badge svg{width:18px;height:18px;color:var(--gold)}
+.hero-visual{display:flex;flex-direction:column;gap:1.6rem}
+.hero-image-frame{
+  border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);
+  border:1px solid rgba(255,255,255,.12);position:relative;
+}
+.hero-image-frame img{width:100%;height:clamp(220px,32vw,320px);object-fit:cover;object-position:top center}
+.hero-image-frame::after{
+  content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(16,26,62,.55));
+}
+.form-card{
+  background:rgba(255,255,255,.98);border-radius:var(--radius-lg);padding:clamp(1.6rem,3vw,2.2rem);
+  box-shadow:var(--shadow-lg);border:1px solid rgba(255,255,255,.2);
+}
+.form-card h3{margin-bottom:.4rem}
+.form-card p{font-family:var(--serif-body);color:var(--muted);font-size:.95rem;margin-bottom:1.3rem}
+.form-embed-wrap{width:100%;min-height:433px}
+.form-embed-wrap iframe{width:100%;border:none;border-radius:8px}
+.privacy-note{
+  display:flex;align-items:center;gap:.5rem;justify-content:center;margin-top:1rem;
+  font-size:.76rem;color:var(--muted);letter-spacing:.02em;
+}
+.privacy-note svg{width:14px;height:14px;flex-shrink:0;color:var(--gold-deep)}
+
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-visual{order:-1}
+}
+
+/* ============================================================
+   ANNIVERSARY BADGE SECTION
+============================================================ */
+.anniv-section{background:var(--cream);overflow:hidden}
+.anniv-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+.anniv-badge-wrap{display:flex;justify-content:center}
+.anniv-badge{
+  width:min(280px,80vw);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,var(--navy-soft),var(--navy) 60%,var(--navy-deep));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:6px solid var(--gold);box-shadow:0 25px 60px rgba(25,40,87,.28);position:relative;
+}
+.anniv-badge::before{
+  content:'';position:absolute;inset:12px;border-radius:50%;border:1px dashed rgba(229,171,72,.55);
+}
+.anniv-badge .num{font-size:5rem;font-weight:700;color:var(--gold);line-height:1}
+.anniv-badge .label{font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;color:#fff;margin-top:.4rem;text-align:center;padding-inline:1.5rem}
+.anniv-copy p{margin-bottom:1.2rem}
+.anniv-copy p:last-child{margin-bottom:0}
+@media (max-width:860px){
+  .anniv-grid{grid-template-columns:1fr;text-align:center}
+  .anniv-copy{text-align:left}
+}
+
+/* ============================================================
+   WHY / QUOTE SECTIONS
+============================================================ */
+.quote-block{
+  border-left:3px solid var(--gold);padding-left:clamp(1.2rem,3vw,2rem);margin-top:2rem;
+}
+.quote-block p{font-family:var(--serif-body);font-style:italic;font-size:clamp(1.1rem,2vw,1.3rem);color:var(--navy);line-height:1.7}
+.quote-sign{margin-top:1rem;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.05em;text-transform:uppercase;font-size:.85rem;color:var(--gold-deep)}
+
+/* ============================================================
+   MOVEMENT SECTION
+============================================================ */
+.movement-section{background:var(--navy);color:var(--white);position:relative}
+.movement-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 15% 20%,rgba(229,171,72,.12),transparent 45%),
+             radial-gradient(circle at 85% 80%,rgba(168,36,15,.14),transparent 50%);
+  pointer-events:none;
+}
+.movement-inner{position:relative;z-index:1}
+.movement-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:3.2rem}
+.movement-card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);
+  padding:2rem 1.7rem;backdrop-filter:blur(6px);transition:transform .3s ease,background .3s ease,border-color .3s ease;
+}
+.movement-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.08);border-color:rgba(229,171,72,.4)}
+.movement-card .icon-circle{margin-bottom:1.2rem}
+.movement-card h4{color:var(--white);font-size:1.1rem;margin-bottom:.7rem}
+.movement-card p{font-family:var(--serif-body);color:rgba(255,255,255,.72);font-size:.94rem}
+.movement-cta{margin-top:3rem;display:flex;justify-content:center}
+@media (max-width:820px){.movement-cards{grid-template-columns:1fr}}
+
+.icon-circle{
+  width:52px;height:52px;border-radius:50%;background:rgba(229,171,72,.14);
+  display:flex;align-items:center;justify-content:center;border:1px solid rgba(229,171,72,.35);
+}
+.icon-circle svg{width:24px;height:24px;color:var(--gold)}
+
+/* ============================================================
+   JOURNEY / TIMELINE
+============================================================ */
+.journey-section{background:var(--white)}
+.timeline{position:relative;margin-top:4rem}
+.timeline::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,transparent,var(--gold) 6%,var(--gold) 94%,transparent);
+  transform:translateX(-50%);
+}
+.week-row{
+  display:grid;grid-template-columns:1fr 60px 1fr;align-items:center;gap:0;position:relative;
+  margin-bottom:clamp(2rem,4vw,3rem);
+}
+.week-row .week-card{grid-column:1}
+.week-row .week-spacer{grid-column:3}
+.week-row.alt .week-card{grid-column:3}
+.week-row.alt .week-spacer{grid-column:1}
+.week-node{
+  grid-column:2;width:52px;height:52px;border-radius:50%;background:var(--navy);
+  border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-weight:600;font-size:1.05rem;position:relative;z-index:2;
+  box-shadow:0 8px 20px rgba(25,40,87,.25);
+}
+.week-card{
+  background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);
+  padding:clamp(1.5rem,3vw,2.1rem);box-shadow:var(--shadow-sm);
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.week-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--gold)}
+.week-card .week-icon{margin-bottom:1rem}
+.week-card .week-title{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:.4rem}
+.week-card h3{margin-bottom:.9rem}
+.week-card .week-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.3rem}
+.week-card .week-challenge{font-family:var(--serif-body);color:var(--ink);margin-bottom:1.1rem}
+.week-handout{
+  display:flex;align-items:center;gap:.6rem;padding-top:1rem;border-top:1px dashed var(--border);
+  font-size:.86rem;color:var(--red);font-weight:500;
+}
+.week-handout svg{width:17px;height:17px;flex-shrink:0}
+
+@media (max-width:760px){
+  .timeline::before{left:26px}
+  .week-row,.week-row.alt{grid-template-columns:60px 1fr}
+  .week-row .week-card,.week-row.alt .week-card{grid-column:2}
+  .week-row .week-spacer,.week-row.alt .week-spacer{display:none}
+  .week-node{grid-column:1}
+}
+
+/* ============================================================
+   TRUST PILLARS
+============================================================ */
+.trust-section{background:var(--cream)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3.2rem}
+.trust-card{
+  background:var(--white);border-radius:var(--radius);padding:2rem 1.6rem;text-align:left;
+  border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:transform .3s ease,box-shadow .3s ease;
+}
+.trust-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.trust-card .icon-circle{background:rgba(25,40,87,.06);border-color:rgba(25,40,87,.16);margin-bottom:1.3rem}
+.trust-card .icon-circle svg{color:var(--navy)}
+.trust-card h4{margin-bottom:.6rem;font-size:1.05rem}
+.trust-card p{font-family:var(--serif-body);font-size:.92rem;color:var(--muted)}
+@media (max-width:960px){.trust-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.trust-grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   ABOUT
+============================================================ */
+.about-section{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+.about-image-frame{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);position:relative}
+.about-image-frame img{width:100%;height:clamp(320px,40vw,460px);object-fit:cover}
+.about-image-frame::after{content:'';position:absolute;inset:0;border:1px solid rgba(229,171,72,.4);border-radius:var(--radius-lg)}
+.about-copy p{margin-bottom:1.2rem}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.4rem}
+.about-stat{text-align:center;padding:1.4rem .8rem;border-radius:var(--radius);background:var(--cream);border:1px solid var(--border)}
+.about-stat .num{font-size:clamp(1.7rem,3vw,2.2rem);font-weight:700;color:var(--navy)}
+.about-stat .num .plus{color:var(--gold-deep)}
+.about-stat .cap{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr}.about-image-frame{order:-1}}
+
+/* ============================================================
+   METRICS BAND
+============================================================ */
+.metrics-section{
+  background:linear-gradient(120deg,var(--navy-deep),var(--navy) 55%,var(--navy-soft));
+  color:var(--white);
+}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center;margin-top:2.5rem}
+.metric{padding:1rem}
+.metric .metric-num{font-size:clamp(3rem,7vw,4.6rem);font-weight:700;color:var(--gold);line-height:1;display:flex;align-items:baseline;justify-content:center;gap:.15rem}
+.metric .metric-cap{margin-top:.8rem;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.metric-divider{width:1px;background:rgba(255,255,255,.15)}
+@media (max-width:760px){.metrics-grid{grid-template-columns:1fr;gap:2.6rem}}
+
+/* ============================================================
+   FINAL INVITATION
+============================================================ */
+.invite-section{
+  background:var(--cream);position:relative;overflow:hidden;
+}
+.invite-card{
+  background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);
+  padding:clamp(2.5rem,6vw,4.5rem);text-align:center;border:1px solid var(--border);position:relative;
+}
+.invite-card::before{
+  content:'';position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:120px;height:4px;
+  background:var(--gold);border-radius:4px;
+}
+.invite-card .lead{max-width:60ch;margin-inline:auto}
+.invite-actions{margin-top:2.2rem;display:flex;justify-content:center;flex-wrap:wrap;gap:1rem}
+.invite-sign{margin-top:2rem;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+
+/* ============================================================
+   REGISTRATION SECTION (bottom)
+============================================================ */
+.register-section{background:var(--bg-navy-deep,linear-gradient(160deg,#101a3e,#192857 60%,#2b3a72));color:var(--white)}
+.register-inner{max-width:640px;margin-inline:auto;text-align:center}
+.register-inner .form-card{margin-top:2.4rem;text-align:left}
+.register-inner .form-card h3, .register-inner .form-card p{text-align:center}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.site-footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding-block:3.5rem 2.2rem}
+.footer-top{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.2rem}
+.footer-logo{height:38px}
+.footer-tagline{font-family:var(--serif-body);font-style:italic;font-size:1rem;color:rgba(255,255,255,.75);max-width:44ch}
+.footer-nav{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin-top:.6rem}
+.footer-nav a{font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.68);transition:color .25s ease}
+.footer-nav a:hover{color:var(--gold-light)}
+.footer-rule{height:1px;background:rgba(255,255,255,.1);margin:2.4rem 0 1.6rem}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.5)}
+
+/* ============================================================
+   SCROLL TOP BUTTON
+============================================================ */
+.scroll-top{
+  position:fixed;right:1.4rem;bottom:1.4rem;width:46px;height:46px;border-radius:50%;
+  background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 26px rgba(0,0,0,.25);border:none;opacity:0;pointer-events:none;
+  transform:translateY(12px);transition:opacity .3s ease,transform .3s ease,background .3s ease;z-index:900;
+}
+.scroll-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.scroll-top:hover{background:var(--gold-light)}
+.scroll-top svg{width:20px;height:20px}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     ANNOUNCEMENT BAR
+============================================================ -->
+<div class="announce" id="announceBar">
+  <div class="announce-inner">
+    <span>🎉 Celebrating 20 Years on the Platform &mdash; Join the Free 6-Week Challenge</span>
+    <a href="#register">Reserve Your Spot →</a>
+    <button class="announce-close" id="announceClose" aria-label="Dismiss announcement">✕</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="#top" aria-label="Dr. Bryan K. Williams — Home">
+      <img class="site-logo" src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" />
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#journey">The Journey</a>
+      <a href="#movement">The Movement</a>
+      <a href="#about">About Dr. Bryan</a>
+      <a href="#register" class="header-cta">Register Free</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">A Free Six-Week Challenge</span>
+      <h1 class="h1">Twenty Years on the Platform. <span class="gold-text">One Journey</span> Worth Starting Today.</h1>
+      <p class="lead on-dark hero-sub">For two decades, Dr. Bryan K. Williams has helped leaders around the world build cultures people are proud to belong to. Now he's distilled that lifetime of practice into six focused weeks &mdash; one intentional challenge at a time, delivered directly to you.</p>
+      <div class="hero-badges">
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 10l-5 4.4 1.4 7.1L12 18l-5.4 3.5L8 14.4 3 10l6.6-1.4z"/></svg>25+ Years of Practice</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9z"/></svg>6 Continents Reached</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5a2 2 0 0 1 2-2h11l3 3v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>20+ Industries Served</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="hero-image-frame">
+        <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg" alt="Dr. Bryan K. Williams speaking on stage" />
+      </div>
+      <div class="form-card" id="hero-form-card">
+        <h3>Begin Your Journey</h3>
+        <p>Register free below &mdash; your first challenge arrives this week.</p>
+        <div class="form-embed-wrap">
+          <iframe
+          src="https://link.thinkingcreatives.com/widget/form/ghNvm5EbEcY0qpupMGRK"
+          style="width:100%;height:100%;border:none;border-radius:8px"
+          id="inline-ghNvm5EbEcY0qpupMGRK"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="6 Week Challenge"
+          data-height="433"
+          data-layout-iframe-id="inline-ghNvm5EbEcY0qpupMGRK"
+          data-form-id="ghNvm5EbEcY0qpupMGRK"
+          title="6 Week Challenge">
+          </iframe>
+        </div>
+        <div class="privacy-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          Your information is safe. No spam, ever.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://link.thinkingcreatives.com/js/form_embed.js"></script>
+
+<!-- ============================================================
+     20TH ANNIVERSARY CELEBRATION
+============================================================ -->
+<section class="anniv-section section-pad" id="anniversary">
+  <div class="wrap anniv-grid">
+    <div class="anniv-badge-wrap reveal">
+      <div class="anniv-badge">
+        <span class="num">20</span>
+        <span class="label">Years on the Platform</span>
+      </div>
+    </div>
+    <div class="anniv-copy reveal reveal-delay-2">
+      <span class="eyebrow">A Milestone Worth Marking</span>
+      <h2 class="h2">Twenty Years on the Platform</h2>
+      <p class="lead">Two decades ago, Dr. Bryan K. Williams stepped onto a platform for the first time as a professional speaker and consultant, carrying a simple conviction: that service and leadership are inseparable, and that great cultures are built one intentional decision at a time.</p>
+      <p class="lead">Twenty years &mdash; and more than twenty-five years total in the study and practice of Service Excellence &mdash; later, that conviction has carried him to organizations across six continents and more than twenty industries.</p>
+      <p class="lead">This challenge is his way of marking the milestone. Not by looking back, but by putting his life's work directly into the hands of the leaders carrying it forward.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY THIS CHALLENGE EXISTS
+============================================================ -->
+<section class="bg-white section-pad">
+  <div class="wrap wrap-narrow center reveal">
+    <span class="eyebrow center">Why This Challenge Exists</span>
+    <h2 class="h2">Because Leadership Is Learned in Practice, Not in a Slide Deck</h2>
+    <div class="quote-block" style="text-align:left;margin-top:2.2rem">
+      <p>&ldquo;After twenty-five years working alongside leaders in more than twenty industries, I've come to believe something simple: most leaders don't fail because they lack knowledge. They fail because good ideas never make it into daily practice.</p>
+      <p style="margin-top:1rem">This challenge was built to close that gap. Six weeks. Six challenges. Six real actions you'll take with real people on your team &mdash; not another framework to file away, but a set of habits you'll actually live.</p>
+      <p style="margin-top:1rem">My hope is that six weeks from now, you won't just think differently about leadership. You'll lead differently.&rdquo;</p>
+      <div class="quote-sign">&mdash; Dr. Bryan K. Williams</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE 5-STAR LEADER MOVEMENT
+============================================================ -->
+<section class="movement-section section-pad" id="movement">
+  <div class="wrap movement-inner">
+    <div class="wrap-narrow center reveal" style="margin-inline:auto">
+      <span class="eyebrow on-dark center">More Than a Course</span>
+      <h2 class="h2" style="color:#fff">The 5-Star Leader Movement</h2>
+      <p class="lead on-dark" style="margin-top:1.2rem">A 5-Star Leader is someone who has decided that how they lead matters as much as what they achieve &mdash; someone who sees their people, raises the standard, and builds a culture others want to be part of. This challenge is where that decision becomes daily practice.</p>
+      <p class="lead on-dark" style="margin-top:1rem">It's why leaders who complete it don't quietly move on. They tell their team. They forward it to a colleague. They bring their whole management team through it together. This isn't an email list &mdash; it's a growing community of leaders proving, one week at a time, that intentional leadership is contagious.</p>
+    </div>
+    <div class="movement-cards">
+      <div class="movement-card reveal">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20V10M12 10l-6 4M12 10l6 4M12 10V4"/><circle cx="12" cy="4" r="1.6"/></svg></div>
+        <h4>Built on Practice, Not Theory</h4>
+        <p>Every week centers on one real action, taken with real people, not another concept to file away.</p>
+      </div>
+      <div class="movement-card reveal reveal-delay-2">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 20v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>Made for Sharing</h4>
+        <p>Bring your leadership team. This grows fastest when leaders invite the people they lead alongside.</p>
+      </div>
+      <div class="movement-card reveal reveal-delay-3">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+        <h4>Designed to Spread</h4>
+        <p>Small, intentional acts of leadership ripple outward &mdash; through teams, departments, and entire cultures.</p>
+      </div>
+    </div>
+    <div class="movement-cta">
+      <a href="#register" class="btn btn-gold">Join the Movement <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE COMPLETE SIX-WEEK JOURNEY
+============================================================ -->
+<section class="journey-section section-pad" id="journey">
+  <div class="wrap">
+    <div class="wrap-narrow center reveal" style="margin-inline:auto">
+      <span class="eyebrow center">One Transformational Journey</span>
+      <h2 class="h2">The Complete Six-Week Journey</h2>
+      <p class="lead" style="margin-top:1.2rem">This isn't six separate lessons. It's one continuous journey &mdash; each week building on the one before it, moving you from purpose to practice to a leadership legacy that lasts.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="week-row reveal">
+        <div class="week-card">
+          <div class="week-icon icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="2.6"/></svg></div>
+          <div class="week-title">Week One</div>
+          <h3>Know Your Why</h3>
+          <div class="week-label">The Challenge</div>
+          <p class="week-challenge">Write your leadership purpose and share it with your team.</p>
+          <div class="week-handout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>My Leadership Purpose Worksheet</div>
+        </div>
+        <div class="week-node">1</div>
+        <div class="week-spacer"></div>
+      </div>
+
+      <div class="week-row alt reveal">
+        <div class="week-spacer"></div>
+        <div class="week-node">2</div>
+        <div class="week-card">
+          <div class="week-icon icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="week-title">Week Two</div>
+          <h3>See Your People</h3>
+          <div class="week-label">The Challenge</div>
+          <p class="week-challenge">Recognize one team member in a meaningful way.</p>
+          <div class="week-handout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>The Recognition Blueprint</div>
+        </div>
+      </div>
+
+      <div class="week-row reveal">
+        <div class="week-card">
+          <div class="week-icon icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V3M4 4h13l-2.5 4L17 12H4"/></svg></div>
+          <div class="week-title">Week Three</div>
+          <h3>Raise Your Standard</h3>
+          <div class="week-label">The Challenge</div>
+          <p class="week-challenge">Address one slipping leadership standard.</p>
+          <div class="week-handout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>The Standard-Setting Conversation Guide</div>
+        </div>
+        <div class="week-node">3</div>
+        <div class="week-spacer"></div>
+      </div>
+
+      <div class="week-row alt reveal">
+        <div class="week-spacer"></div>
+        <div class="week-node">4</div>
+        <div class="week-card">
+          <div class="week-icon icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20V10M12 10l-6 4M12 10l6 4M12 10V4"/><circle cx="12" cy="4" r="1.6"/></svg></div>
+          <div class="week-title">Week Four</div>
+          <h3>Develop Someone</h3>
+          <div class="week-label">The Challenge</div>
+          <p class="week-challenge">Develop one person through intentional delegation.</p>
+          <div class="week-handout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Delegation &amp; Development Checklist</div>
+        </div>
+      </div>
+
+      <div class="week-row reveal">
+        <div class="week-card">
+          <div class="week-icon icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 3 8v6c0 5 4 7.5 9 9 5-1.5 9-4 9-9V8z"/></svg></div>
+          <div class="week-title">Week Five</div>
+          <h3>Lead Through the Hard Stuff</h3>
+          <div class="week-label">The Challenge</div>
+          <p class="week-challenge">Have the difficult leadership conversation you've been avoiding.</p>
+          <div class="week-handout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>The Courageous Conversation Framework</div>
+        </div>
+        <div class="week-node">5</div>
+        <div class="week-spacer"></div>
+      </div>
+
+      <div class="week-row alt reveal">
+        <div class="week-spacer"></div>
+        <div class="week-node">6</div>
+        <div class="week-card">
+          <div class="week-icon icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m4 15 4-8 4 6 3-4 5 9"/><path d="M4 20h16"/></svg></div>
+          <div class="week-title">Week Six</div>
+          <h3>Build What Lasts</h3>
+          <div class="week-label">The Challenge</div>
+          <p class="week-challenge">Write your personal leadership commitments.</p>
+          <div class="week-handout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Leadership Commitment Card</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY LEADERS TRUST DR. BRYAN
+============================================================ -->
+<section class="trust-section section-pad">
+  <div class="wrap">
+    <div class="wrap-narrow center reveal" style="margin-inline:auto">
+      <span class="eyebrow center">Why Leaders Trust Dr. Bryan</span>
+      <h2 class="h2">A Voice Leaders Have Trusted for Two Decades</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card reveal">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V3M4 4h13l-2.5 4L17 12H4"/></svg></div>
+        <h4>Real-World Experience</h4>
+        <p>More than twenty-five years partnering directly with organizations &mdash; not theory from the sidelines.</p>
+      </div>
+      <div class="trust-card reveal reveal-delay-1">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9z"/></svg></div>
+        <h4>Global Perspective</h4>
+        <p>Work spanning six continents, bringing a culturally attuned view of what leadership truly requires.</p>
+      </div>
+      <div class="trust-card reveal reveal-delay-2">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20V10M12 10l-6 4M12 10l6 4M12 10V4"/><circle cx="12" cy="4" r="1.6"/></svg></div>
+        <h4>Practical, Not Preachy</h4>
+        <p>Every framework is built for immediate, real-world application &mdash; not abstract inspiration.</p>
+      </div>
+      <div class="trust-card reveal reveal-delay-3">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <h4>Recognized Authority</h4>
+        <p>A keynote speaker, consultant, and author recognized worldwide on Service Excellence and Leadership Effectiveness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT DR. BRYAN
+============================================================ -->
+<section class="about-section section-pad" id="about">
+  <div class="wrap about-grid">
+    <div class="about-image-frame reveal">
+      <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e78.jpg" alt="Dr. Bryan K. Williams" />
+    </div>
+    <div class="about-copy reveal reveal-delay-2">
+      <span class="eyebrow">About Dr. Bryan</span>
+      <h2 class="h2">A Global Authority on Service and Leadership</h2>
+      <p class="lead">Dr. Bryan K. Williams is a keynote speaker, consultant, and author recognized worldwide as an authority on Service Excellence and Leadership Effectiveness.</p>
+      <p class="lead">For more than 25 years he has helped organizations across more than 20 industries create world-class service cultures and intentional leadership. His work has taken him across North America, South America, Europe, Asia, Africa, Australia, and the Caribbean.</p>
+      <div class="about-stats">
+        <div class="about-stat"><div class="num"><span class="counter" data-target="25">0</span><span class="plus">+</span></div><div class="cap">Years</div></div>
+        <div class="about-stat"><div class="num"><span class="counter" data-target="20">0</span><span class="plus">+</span></div><div class="cap">Industries</div></div>
+        <div class="about-stat"><div class="num"><span class="counter" data-target="6">0</span></div><div class="cap">Continents</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST METRICS BAND
+============================================================ -->
+<section class="metrics-section section-pad">
+  <div class="wrap">
+    <div class="wrap-narrow center reveal" style="margin-inline:auto">
+      <span class="eyebrow on-dark center">A Legacy By the Numbers</span>
+      <h2 class="h2" style="color:#fff">Two Decades. One Mission.</h2>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric reveal">
+        <div class="metric-num"><span class="counter" data-target="25">0</span>+</div>
+        <div class="metric-cap">Years of Practice</div>
+      </div>
+      <div class="metric reveal reveal-delay-2">
+        <div class="metric-num"><span class="counter" data-target="20">0</span>+</div>
+        <div class="metric-cap">Industries Served</div>
+      </div>
+      <div class="metric reveal reveal-delay-3">
+        <div class="metric-num"><span class="counter" data-target="6">0</span></div>
+        <div class="metric-cap">Continents Reached</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL INVITATION
+============================================================ -->
+<section class="invite-section section-pad">
+  <div class="wrap wrap-narrow">
+    <div class="invite-card reveal">
+      <span class="eyebrow center">Your Next Six Weeks</span>
+      <h2 class="h2">The Best Time to Become a 5-Star Leader Was Twenty Years Ago. The Second Best Time Is Now.</h2>
+      <p class="lead" style="margin-top:1.2rem">You don't need a new title to lead well. You need a decision &mdash; and six weeks to prove it to yourself. Join the leaders taking on the challenge, one week, one habit, one act of intentional leadership at a time.</p>
+      <div class="invite-actions">
+        <a href="#register" class="btn btn-gold">Start the Challenge Free <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="invite-sign">&mdash; I'll See You in Week One, Dr. Bryan</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REGISTRATION FORM (BOTTOM, BEFORE FOOTER)
+============================================================ -->
+<section class="register-section section-pad" id="register">
+  <div class="wrap register-inner">
+    <span class="eyebrow on-dark center">Begin Your Journey</span>
+    <h2 class="h2" style="color:#fff">Begin Your Six-Week Journey</h2>
+    <p class="lead on-dark" style="margin-top:1rem">Register free below. Your first challenge and handout arrive this week.</p>
+    <div class="form-card reveal">
+      <div class="form-embed-wrap">
+        <iframe
+        src="https://link.thinkingcreatives.com/widget/form/ghNvm5EbEcY0qpupMGRK"
+        style="width:100%;height:100%;border:none;border-radius:8px"
+        id="inline-ghNvm5EbEcY0qpupMGRK"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="6 Week Challenge"
+        data-height="433"
+        data-layout-iframe-id="inline-ghNvm5EbEcY0qpupMGRK"
+        data-form-id="ghNvm5EbEcY0qpupMGRK"
+        title="6 Week Challenge">
+        </iframe>
+      </div>
+      <div class="privacy-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        Your information is safe. No spam, ever.
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://link.thinkingcreatives.com/js/form_embed.js"></script>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <img class="footer-logo" src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" />
+    <p class="footer-tagline">Building 5-Star Leaders, one week at a time.</p>
+    <nav class="footer-nav">
+      <a href="#journey">The Journey</a>
+      <a href="#movement">The Movement</a>
+      <a href="#about">About Dr. Bryan</a>
+      <a href="#register">Register</a>
+    </nav>
+  </div>
+  <div class="wrap">
+    <div class="footer-rule"></div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Dr. Bryan K. Williams. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Announcement bar dismiss */
+  var announceBar = document.getElementById('announceBar');
+  var announceClose = document.getElementById('announceClose');
+  if(announceClose){
+    announceClose.addEventListener('click', function(){
+      announceBar.classList.add('hidden');
+    });
+  }
+
+  /* Sticky header shrink + shadow on scroll */
+  var header = document.getElementById('siteHeader');
+  function setHeaderHeight(){
+    document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  }
+  setHeaderHeight();
+  window.addEventListener('resize', setHeaderHeight);
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 40){
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    setHeaderHeight();
+  }, { passive: true });
+
+  /* Mobile menu toggle */
+  var menuToggle = document.getElementById('menuToggle');
+  var mainNav = document.getElementById('mainNav');
+  if(menuToggle && mainNav){
+    menuToggle.addEventListener('click', function(){
+      var isOpen = mainNav.classList.toggle('open');
+      menuToggle.classList.toggle('open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mainNav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        mainNav.classList.remove('open');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  /* Smooth scroll for in-page anchors */
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var targetId = this.getAttribute('href');
+      if(targetId.length > 1){
+        var target = document.querySelector(targetId);
+        if(target){
+          e.preventDefault();
+          var headerH = header ? header.offsetHeight : 0;
+          var announceH = (announceBar && !announceBar.classList.contains('hidden')) ? announceBar.offsetHeight : 0;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - headerH - announceH - 16;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  /* Scroll-to-top button */
+  var scrollTopBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 700){
+      scrollTopBtn.classList.add('show');
+    } else {
+      scrollTopBtn.classList.remove('show');
+    }
+  }, { passive: true });
+  scrollTopBtn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* Fade-up reveal on scroll */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  /* Animated stat counters */
+  var counters = document.querySelectorAll('.counter');
+  function animateCounter(el){
+    var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    var duration = 1400;
+    var startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if(progress < 1){
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window && counters.length){
+    var counterIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCounter(entry.target);
+          counterIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function(el){ counterIO.observe(el); });
+  } else {
+    counters.forEach(function(el){ el.textContent = el.getAttribute('data-target'); });
+  }
+
+})();
+</script>
+
+</body>
+</html>
