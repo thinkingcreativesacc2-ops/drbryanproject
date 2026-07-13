@@ -198,20 +198,20 @@ ul { list-style: none; }
 
 /* ── HEADER ─────────────────────────────────────────────── */
 .site-header {
-  background: var(--white);
-  padding-block: 1rem;
-  border-bottom: 1px solid var(--border);
+  background: var(--navy);
+  padding-block: 1.125rem;
+  border-bottom: 1px solid rgba(200, 147, 43, 0.35);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 12px rgba(22,36,63,0.07);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.site-logo { height: 48px; width: auto; object-fit: contain; }
+.site-logo { height: 44px; width: auto; object-fit: contain; }
 .logo-fallback {
   font-family: var(--font-display);
   font-size: 1.6rem;
-  color: var(--navy);
+  color: var(--white);
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
@@ -230,11 +230,11 @@ ul { list-style: none; }
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(22,36,63,0.97) 0%, rgba(22,36,63,0.88) 50%, rgba(22,36,63,0.75) 100%);
+  background: linear-gradient(115deg, rgba(22,36,63,0.96) 0%, rgba(22,36,63,0.90) 40%, rgba(22,36,63,0.68) 100%);
   z-index: 1;
 }
 .hero-photo-wrap { position: absolute; inset: 0; z-index: 0; }
-.hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 0.25; }
+.hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; opacity: 0.4; }
 
 .hero-content {
   position: relative;
@@ -361,7 +361,7 @@ ul { list-style: none; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-top: 2.5rem;
 }
 .pillar-card {
@@ -370,7 +370,7 @@ ul { list-style: none; }
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: var(--radius-lg);
-  padding: 1.75rem 1.5rem;
+  padding: 1.5rem 1.25rem;
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 .pillar-card:hover {
@@ -618,6 +618,11 @@ ul { list-style: none; }
   .anniversary-stat { text-align: center; }
 }
 
+@media (min-width: 860px) {
+  .pillars-grid { flex-wrap: nowrap; }
+  .pillar-card { max-width: none; }
+}
+
 @media (max-width: 600px) {
   .register-form-embed iframe { height: 520px; }
   .pillar-card { flex-basis: 100%; max-width: 320px; }
@@ -655,7 +660,7 @@ ul { list-style: none; }
 <header class="site-header" role="banner">
   <div class="container header-inner">
     <img
-      src="assets/images/logo-full.png"
+      src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png"
       alt="Dr. Bryan K. Williams — Keynote Speaker · Author · Consultant"
       class="site-logo"
       width="280"
@@ -675,7 +680,7 @@ ul { list-style: none; }
   <section class="hero" id="register" aria-labelledby="hero-headline">
     <div class="hero-bg-overlay" aria-hidden="true"></div>
     <div class="hero-photo-wrap" aria-hidden="true">
-      <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg" alt="" class="hero-photo" />
+      <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e78.jpg" alt="" class="hero-photo" />
     </div>
 
     <div class="container hero-content">
@@ -988,7 +993,7 @@ ul { list-style: none; }
     <div class="container about-inner">
       <div class="about-photo-col">
         <div class="about-photo-frame">
-          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e78.jpg" alt="Dr. Bryan K. Williams, Keynote Speaker and Leadership Expert" class="about-photo" />
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg" alt="Dr. Bryan K. Williams, Keynote Speaker and Leadership Expert" class="about-photo" />
           <div class="photo-accent" aria-hidden="true"></div>
         </div>
       </div>
@@ -1101,11 +1106,11 @@ ul { list-style: none; }
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
     <img
-      src="assets/images/logo-mark.png"
+      src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png"
       alt="Dr. Bryan K. Williams"
       class="footer-logo"
-      width="48"
-      height="48"
+      width="200"
+      height="auto"
       onerror="this.style.display='none';"
     />
     <p class="footer-name">Dr. Bryan K. Williams</p>
