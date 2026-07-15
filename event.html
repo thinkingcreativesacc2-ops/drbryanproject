@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Join Dr. Bryan K. Williams for a FREE live 3-day executive event on Service Excellence &amp; Leadership. Only 100 seats available — registration closes once seats are claimed." />
 <title>Free 3-Day Live Event with Dr. Bryan K. Williams | Only 100 Seats</title>
+<script>
+  // Runs before first paint: if the 20th-anniversary intro already played
+  // this session, flag it on <html> so the overlay never flashes on repeat views.
+  (function(){
+    try{
+      if (sessionStorage.getItem('bkwIntroSeen')) {
+        document.documentElement.classList.add('no-intro');
+      }
+    } catch(e){}
+  })();
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -75,6 +86,99 @@
   /* Fade-up animation */
   .fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
   .fade-up.in-view{opacity:1;transform:translateY(0);}
+
+  /* ============ 20TH ANNIVERSARY INTRO OVERLAY ============ */
+  html.no-intro #intro-overlay{display:none !important;}
+  body.intro-lock{overflow:hidden;}
+
+  #intro-overlay{
+    position:fixed;inset:0;z-index:9999;
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(ellipse at 50% 35%, #1c2c58 0%, #16243F 55%, #0b1226 100%);
+    overflow:hidden;
+    transition:opacity 0.9s ease, transform 0.9s cubic-bezier(.4,0,.2,1);
+  }
+  #intro-overlay.intro-hide{
+    opacity:0;
+    transform:translateY(-4%);
+    pointer-events:none;
+  }
+
+  .intro-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+  .particle{
+    position:absolute;border-radius:50%;
+    background:radial-gradient(circle, rgba(242,200,118,0.95), rgba(229,171,72,0) 70%);
+    opacity:0;
+    animation-name:particleFloat;
+    animation-timing-function:ease-in-out;
+    animation-iteration-count:infinite;
+  }
+  @keyframes particleFloat{
+    0%{opacity:0;transform:translateY(6px) scale(.6);}
+    15%{opacity:1;}
+    85%{opacity:.65;}
+    100%{opacity:0;transform:translateY(-34px) scale(1);}
+  }
+
+  .intro-content{position:relative;z-index:2;text-align:center;padding:24px;max-width:90vw;}
+
+  .intro-main{
+    font-family:'Oswald', Arial, sans-serif;font-weight:600;
+    font-size:clamp(30px,7vw,62px);letter-spacing:1px;margin:0;
+    opacity:0;transform:scale(0.86);
+    animation:introFadeScale 1.1s cubic-bezier(.2,.8,.2,1) forwards;
+    animation-delay:0.15s;
+  }
+  .intro-main .shimmer{
+    background-image:linear-gradient(100deg, var(--gold-light) 20%, #fff7e6 40%, var(--gold) 55%, var(--gold-light) 80%);
+    background-size:220% auto;
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    display:inline-block;
+    animation:shimmerSweep 2.6s linear infinite;
+    animation-delay:0.6s;
+  }
+  @keyframes introFadeScale{ to{opacity:1;transform:scale(1);} }
+  @keyframes shimmerSweep{
+    0%{background-position:220% center;}
+    100%{background-position:-120% center;}
+  }
+
+  .intro-line{
+    width:220px;max-width:52vw;height:2px;margin:22px auto;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform:scaleX(0);transform-origin:center;
+    animation:lineDraw 0.9s cubic-bezier(.4,0,.2,1) forwards;
+    animation-delay:0.95s;
+  }
+  @keyframes lineDraw{ to{transform:scaleX(1);} }
+
+  .intro-name{
+    font-family:'Oswald', Arial, sans-serif;font-weight:500;
+    color:var(--white);font-size:clamp(15px,2.2vw,21px);
+    letter-spacing:2.5px;text-transform:uppercase;margin:0;
+    opacity:0;transform:translateY(10px);
+    animation:introFadeUp .8s ease forwards;
+    animation-delay:1.15s;
+  }
+  .intro-tagline{
+    font-family:'Oswald', Arial, sans-serif;font-weight:300;
+    color:rgba(255,255,255,0.68);font-size:clamp(12px,1.5vw,15px);
+    letter-spacing:1px;margin:10px 0 0;
+    opacity:0;transform:translateY(10px);
+    animation:introFadeUp .8s ease forwards;
+    animation-delay:1.3s;
+  }
+  @keyframes introFadeUp{ to{opacity:1;transform:translateY(0);} }
+
+  @media (prefers-reduced-motion: reduce){
+    #intro-overlay, #intro-overlay *{
+      animation:none !important;
+      transition:none !important;
+      opacity:1 !important;
+      transform:none !important;
+      background-position:0 center !important;
+    }
+  }
 
   /* ============ HERO ============ */
   .hero{
@@ -352,6 +456,21 @@
 </style>
 </head>
 <body>
+
+<!-- ============================================================
+     20TH ANNIVERSARY INTRO OVERLAY
+     Plays once per browser session (sessionStorage-gated), then
+     fades/slides away to reveal the already-loaded page beneath.
+============================================================ -->
+<div id="intro-overlay" aria-hidden="true">
+  <div class="intro-particles" id="introParticles"></div>
+  <div class="intro-content">
+    <h1 class="intro-main"><span class="shimmer">Celebrating 20 Years</span></h1>
+    <div class="intro-line"></div>
+    <p class="intro-name">Dr. Bryan K. Williams</p>
+    <p class="intro-tagline">20 Years of Inspiring Excellence in Leadership &amp; Service</p>
+  </div>
+</div>
 
 <!-- ============================================================
      HERO — logo, headline, sub-headline, form, seats, CTA, image
@@ -794,6 +913,64 @@
     });
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade-up').forEach(function(el){ observer.observe(el); });
+
+  // 20th Anniversary intro overlay — plays once per browser session.
+  (function(){
+    var overlay = document.getElementById('intro-overlay');
+    if(!overlay) return;
+
+    // Already seen this session (flagged by the head script before paint) — remove and stop.
+    if(document.documentElement.classList.contains('no-intro')){
+      overlay.remove();
+      return;
+    }
+
+    try{ sessionStorage.setItem('bkwIntroSeen', '1'); }catch(e){}
+
+    var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reducedMotion){
+      overlay.remove();
+      return;
+    }
+
+    document.body.classList.add('intro-lock');
+
+    var field = document.getElementById('introParticles');
+    if(field){
+      var count = window.innerWidth < 640 ? 16 : 28;
+      for(var i = 0; i < count; i++){
+        var p = document.createElement('span');
+        p.className = 'particle';
+        var size = (Math.random() * 3 + 1.5).toFixed(1);
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = (Math.random() * 100) + '%';
+        p.style.top = (Math.random() * 100) + '%';
+        p.style.animationDuration = (Math.random() * 3 + 3).toFixed(2) + 's';
+        p.style.animationDelay = (Math.random() * 2).toFixed(2) + 's';
+        field.appendChild(p);
+      }
+    }
+
+    var removed = false;
+    function removeOverlay(){
+      if(removed) return;
+      removed = true;
+      document.body.classList.remove('intro-lock');
+      if(overlay && overlay.parentNode) overlay.remove();
+    }
+
+    setTimeout(function(){
+      overlay.classList.add('intro-hide');
+      document.body.classList.remove('intro-lock');
+      overlay.addEventListener('transitionend', function handler(e){
+        if(e.target !== overlay) return;
+        overlay.removeEventListener('transitionend', handler);
+        removeOverlay();
+      });
+      setTimeout(removeOverlay, 1200); // fallback in case transitionend never fires
+    }, 2600);
+  })();
 </script>
 </body>
 </html>
