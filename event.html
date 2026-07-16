@@ -184,21 +184,33 @@
     align-items:start;
   }
   .hero-anniversary-logo{
-    height:clamp(64px,9vw,124px);width:auto;max-width:100%;
-    display:block;margin-bottom:2rem;
+    width:clamp(130px,16vw,220px);height:auto;max-width:100%;
+    display:block;margin-bottom:2.75rem;
   }
   .hero-copy h1{max-width:600px;margin-bottom:1.1rem;color:var(--navy)}
   .hero-subhead{
     color:var(--gold-dark);font-weight:500;
     font-size:clamp(1.1rem,2vw,1.4rem);
-    max-width:520px;margin-bottom:1rem;
+    max-width:520px;margin-bottom:1.5rem;
   }
-  .hero-copy .lede{max-width:480px;margin-bottom:1.75rem}
-  .hero-info-line{
-    font-size:.82rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
-    color:var(--navy-light);margin-bottom:2.25rem;
+  .hero-copy .lede{max-width:520px;margin-bottom:1.1rem}
+  .hero-copy .lede:last-of-type{margin-bottom:0}
+  .hero-divider{
+    width:56px;height:2px;margin:1.85rem 0;
+    background:linear-gradient(90deg,var(--gold),transparent);
   }
-  .hero-info-line .dot{color:var(--gold-dark);margin:0 .55rem;font-weight:700}
+  .hero-details{
+    display:flex;flex-direction:column;gap:.65rem;
+    margin-bottom:2.25rem;
+  }
+  .hero-details li{
+    display:flex;align-items:center;gap:.75rem;
+    font-size:.95rem;font-weight:500;color:var(--navy-light);
+  }
+  .hero-details li::before{
+    content:"";width:6px;height:6px;border-radius:50%;
+    background:var(--gold);flex-shrink:0;
+  }
 
   .hero-cta-note{
     display:flex;align-items:center;gap:.55rem;
@@ -576,13 +588,22 @@
 
         <p class="hero-subhead" data-reveal>Join Dr. Bryan K. Williams for an Exclusive 3-Day Live Virtual Celebration</p>
 
-        <p class="lede" data-reveal>A landmark event celebrating two decades of leadership, service, and lasting impact.</p>
+        <p class="lede" data-reveal>For two decades, Dr. Bryan K. Williams has inspired organizations around the world to lead with excellence, elevate service, and create lasting impact.</p>
 
-        <p class="hero-info-line" data-reveal>
-          September 17&ndash;19 <span class="dot">&bull;</span> Live Online <span class="dot">&bull;</span> Complimentary Registration <span class="dot">&bull;</span> Limited to 100 Attendees
-        </p>
+        <p class="lede" data-reveal>To celebrate this milestone, you&rsquo;re invited to a special 3-day live virtual celebration where he&rsquo;ll share the leadership lessons, service principles, and real-world insights that have shaped his remarkable journey.</p>
 
-        <a href="#hero-register" class="btn btn-navy" data-reveal>Reserve Your Complimentary Seat</a>
+        <p class="lede" data-reveal>This isn&rsquo;t a replay or a typical webinar&mdash;it&rsquo;s a live anniversary celebration designed to celebrate the past while equipping leaders for the future.</p>
+
+        <div class="hero-divider" data-reveal></div>
+
+        <ul class="hero-details" data-reveal>
+          <li>September 17&ndash;19</li>
+          <li>Live Daily &bull; 10:00 AM EDT</li>
+          <li>Complimentary Registration</li>
+          <li>Only 100 Attendees</li>
+        </ul>
+
+        <a href="#hero-register" class="btn btn-navy" data-reveal>Reserve My Complimentary Seat</a>
 
         <div class="hero-cta-note" data-reveal>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
