@@ -132,6 +132,12 @@
     box-shadow:0 8px 24px rgba(229,171,72,.38);
   }
   .btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(229,171,72,.5)}
+  .btn-navy{
+    background:var(--navy);
+    color:#fff;
+    box-shadow:0 10px 28px rgba(25,40,87,.28);
+  }
+  .btn-navy:hover{transform:translateY(-3px);background:var(--navy-dark);box-shadow:0 16px 36px rgba(25,40,87,.38)}
   .btn-block{width:100%}
   .btn-outline{
     background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff;
@@ -152,44 +158,53 @@
   .logo-img{height:56px;width:auto}
 
   /* ============================================================
-     HERO — dark navy, executive brand; the 20th Anniversary logo
-     sits above a centered headline, balanced with the form beside it
+     HERO — clean white split layout; the 20th Anniversary logo is
+     the centerpiece, navy headline/CTA, gold accents only
   ============================================================ */
   .hero{
-    background:
-      radial-gradient(ellipse 900px 500px at 85% 0%, rgba(229,171,72,.14), transparent 60%),
-      radial-gradient(ellipse 700px 500px at 5% 100%, rgba(229,171,72,.08), transparent 60%),
-      linear-gradient(180deg,var(--navy) 0%, var(--navy-dark) 100%);
-    padding-block:clamp(3.5rem,7vw,5.5rem);
+    position:relative;overflow:hidden;
+    background:#ffffff;
+    padding-block:clamp(3.5rem,7vw,6rem);
+  }
+  .hero::before{
+    content:"";position:absolute;top:-12%;left:-8%;
+    width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle, rgba(229,171,72,.12), transparent 70%);
+    pointer-events:none;
   }
   .hero-grid{
+    position:relative;z-index:1;
     display:grid;grid-template-columns:1.05fr .95fr;
-    gap:clamp(2.5rem,5vw,4rem);
-    align-items:center;
+    gap:clamp(2.5rem,5vw,4.5rem);
+    align-items:start;
   }
-  .hero-copy{
-    display:flex;flex-direction:column;align-items:center;
-    text-align:center;
+  .hero-anniversary-logo{
+    height:clamp(64px,9vw,124px);width:auto;max-width:100%;
+    display:block;margin-bottom:2rem;
   }
-  .hero-logo-plaque{
-    display:inline-flex;max-width:100%;background:#fff;border-radius:14px;
-    padding:1rem 1.75rem;margin-bottom:2rem;
-    box-shadow:0 12px 32px rgba(0,0,0,.18);
+  .hero-copy h1{max-width:600px;margin-bottom:1.1rem;color:var(--navy)}
+  .hero-subhead{
+    color:var(--gold-dark);font-weight:500;
+    font-size:clamp(1.1rem,2vw,1.4rem);
+    max-width:520px;margin-bottom:1rem;
   }
-  .hero-logo-plaque img{max-height:clamp(46px,6.5vw,68px);max-width:100%;width:auto;height:auto;display:block}
-  .hero-copy h1{max-width:640px;margin-inline:auto;margin-bottom:1.35rem}
-  .hero-copy .lede{max-width:520px;margin:0 auto 2.25rem;font-size:clamp(1.05rem,2vw,1.3rem)}
+  .hero-copy .lede{max-width:480px;margin-bottom:1.75rem}
+  .hero-info-line{
+    font-size:.82rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--navy-light);margin-bottom:2.25rem;
+  }
+  .hero-info-line .dot{color:var(--gold-dark);margin:0 .55rem;font-weight:700}
 
   .hero-cta-note{
-    display:flex;align-items:center;justify-content:center;gap:.55rem;
-    font-size:.78rem;color:rgba(255,255,255,.55);letter-spacing:.03em;
+    display:flex;align-items:center;gap:.55rem;
+    font-size:.78rem;color:var(--muted);letter-spacing:.03em;
     margin-top:1.25rem;
   }
 
-  /* Registration card (right column: image + form) */
+  /* Registration card (right column: image + form) — premium floating card */
   .reg-col{display:flex;flex-direction:column;gap:0}
   .reg-photo{
-    position:relative;border-radius:var(--radius-lg) var(--radius-lg) 0 0;overflow:hidden;
+    position:relative;border-radius:22px 22px 0 0;overflow:hidden;
     border:1px solid rgba(229,171,72,.35);border-bottom:none;
   }
   .reg-photo img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top center}
@@ -207,7 +222,8 @@
     color:#fff;font-size:.85rem;font-weight:500;letter-spacing:.03em;
   }
   .reg-card{
-    background:#fff;border-radius:0 0 var(--radius-lg) var(--radius-lg);
+    background:#fff;border-radius:0 0 22px 22px;
+    border:1px solid rgba(25,40,87,.07);border-top:none;
     box-shadow:var(--shadow-lg);
     padding:1.6rem 1.6rem 1.4rem;
   }
@@ -526,29 +542,33 @@
 </header>
 
 <!-- ============================================================
-     HERO — dark navy executive brand; the 20th Anniversary logo,
-     headline, and form all read as one balanced, centered composition
+     HERO — clean white split layout; the 20th Anniversary logo is
+     the centerpiece, an executive event invitation, not a webinar page
 ============================================================ -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
 
-      <!-- LEFT: 20th Anniversary logo + centered headline -->
+      <!-- LEFT: 20th Anniversary logo, headline, event info, CTA -->
       <div class="hero-copy">
-        <div class="hero-logo-plaque" data-reveal>
-          <img
-            src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a58ca9265673434068e2d07.png"
-            alt="Dr. Bryan K. Williams — 20th Anniversary"
-          />
-        </div>
+        <img
+          src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a58ca9265673434068e2d07.png"
+          alt="Dr. Bryan K. Williams — 20th Anniversary"
+          class="hero-anniversary-logo"
+          data-reveal
+        />
 
         <h1 data-reveal>Celebrate 20 Years of Leadership Excellence</h1>
 
-        <p class="lede on-dark" data-reveal>
-          Join Dr. Bryan K. Williams<br />for an Exclusive 3-Day Live Virtual Celebration
+        <p class="hero-subhead" data-reveal>Join Dr. Bryan K. Williams for an Exclusive 3-Day Live Virtual Celebration</p>
+
+        <p class="lede" data-reveal>A landmark event celebrating two decades of leadership, service, and lasting impact.</p>
+
+        <p class="hero-info-line" data-reveal>
+          September 17&ndash;19 <span class="dot">&bull;</span> Live Online <span class="dot">&bull;</span> Complimentary Registration <span class="dot">&bull;</span> Limited to 100 Attendees
         </p>
 
-        <a href="#hero-register" class="btn btn-gold" data-reveal>Reserve Your Complimentary Seat</a>
+        <a href="#hero-register" class="btn btn-navy" data-reveal>Reserve Your Complimentary Seat</a>
 
         <div class="hero-cta-note" data-reveal>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
