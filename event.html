@@ -455,6 +455,21 @@
     .hero-fact-row{flex-direction:column;gap:.5rem}
     .hero-fact{border-right:none;padding-right:0;margin-right:0;border-bottom:1px solid var(--border);padding-bottom:.5rem}
     .hero-fact:last-child{border-bottom:none;padding-bottom:0}
+
+    /* Mobile header: compact, logo-only — event pills move under the hero headline instead */
+    .site-header{padding:.5rem 0}
+    .logo-img{height:36px}
+    .header-pills{display:none}
+
+    /* Mobile hero: tighter, purpose-built hierarchy rather than a collapsed desktop layout */
+    .hero{padding-block:2rem 2.5rem}
+    .hero-anniversary-logo{width:90px;margin-bottom:.4rem}
+    .hero-copy h1{font-size:1.6rem;line-height:1.22;margin-bottom:.55rem}
+    .hero-subhead{font-size:1rem;margin-bottom:.75rem}
+    .hero-copy .lede{margin-bottom:1rem;font-size:.95rem}
+    .hero-fact-row{margin-bottom:1.1rem}
+    .hero-copy .btn{margin-bottom:1.25rem}
+    .hero-bullets{margin-bottom:1.5rem}
   }
 
   /* ============================================================
@@ -605,13 +620,13 @@
 
         <p class="lede" data-reveal>To celebrate two decades of serving the world&rsquo;s best teams, Dr. Bryan K. Williams is hosting a special live virtual celebration&mdash;three complimentary days built around the leadership and service excellence lessons that have shaped his legacy.</p>
 
-        <a href="#hero-register" class="btn btn-navy" data-reveal>Reserve Your Complimentary Seat</a>
-
         <div class="hero-fact-row" data-reveal>
           <span class="hero-fact">September 17&ndash;19</span>
           <span class="hero-fact">10:00 AM EDT Daily</span>
           <span class="hero-fact">Only 100 Complimentary Seats Available</span>
         </div>
+
+        <a href="#hero-register" class="btn btn-navy" data-reveal>Reserve Your Complimentary Seat</a>
 
         <ul class="hero-bullets" data-reveal>
           <li>
