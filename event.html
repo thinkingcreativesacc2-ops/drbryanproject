@@ -146,16 +146,21 @@
   .btn-sm{padding:.65rem 1.6rem;font-size:.78rem}
 
   /* ============================================================
-     HEADER — clean white band: logo + a single CTA, nothing else
+     HEADER — dark navy band: logo + gold-outlined event pills
   ============================================================ */
   .site-header{
-    background:#ffffff;
-    padding:.85rem 0;
-    border-bottom:1px solid var(--border);
-    box-shadow:0 2px 16px rgba(15,20,45,.05);
+    background:var(--navy);
+    padding:1rem 0;
   }
   .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   .logo-img{height:56px;width:auto}
+  .header-pills{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:flex-end}
+  .header-pill{
+    display:inline-flex;align-items:center;gap:.5rem;
+    background:rgba(229,171,72,.12);border:1px solid rgba(229,171,72,.35);
+    padding:.5rem 1rem;border-radius:100px;
+    font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);
+  }
 
   /* ============================================================
      HERO — clean white split layout; the 20th Anniversary logo is
@@ -533,11 +538,20 @@
 <header class="site-header">
   <div class="wrap">
     <img
-      src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8c708c41d4df7503d8.png"
+      src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png"
       alt="Dr. Bryan K. Williams"
       class="logo-img"
     />
-    <a href="#hero-register" class="btn btn-gold btn-sm">Reserve Seat</a>
+    <div class="header-pills">
+      <span class="header-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Celebrating 20 Years
+      </span>
+      <span class="header-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Sept 17&ndash;19 &middot; 10:00 AM EDT
+      </span>
+    </div>
   </div>
 </header>
 
