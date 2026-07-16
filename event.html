@@ -187,30 +187,36 @@
     width:clamp(130px,16vw,220px);height:auto;max-width:100%;
     display:block;margin-bottom:2.75rem;
   }
-  .hero-copy h1{max-width:600px;margin-bottom:1.1rem;color:var(--navy)}
+  .hero-copy h1{
+    max-width:600px;margin-bottom:.85rem;color:var(--navy);
+    font-size:clamp(1.9rem,3.4vw,2.85rem);
+  }
   .hero-subhead{
     color:var(--gold-dark);font-weight:500;
     font-size:clamp(1.1rem,2vw,1.4rem);
-    max-width:520px;margin-bottom:1.5rem;
+    max-width:520px;margin-bottom:1.35rem;
   }
-  .hero-copy .lede{max-width:520px;margin-bottom:1.1rem}
-  .hero-copy .lede:last-of-type{margin-bottom:0}
-  .hero-divider{
-    width:56px;height:2px;margin:1.85rem 0;
-    background:linear-gradient(90deg,var(--gold),transparent);
+  .hero-copy .lede{max-width:520px;margin-bottom:1.75rem}
+
+  .hero-copy .btn{margin-bottom:2rem}
+
+  /* Elegant event-fact row — plain text, hairline dividers, no pills */
+  .hero-fact-row{
+    display:flex;flex-wrap:wrap;
+    margin-bottom:2rem;
   }
-  .hero-details{
-    display:flex;flex-direction:column;gap:.65rem;
-    margin-bottom:2.25rem;
+  .hero-fact{
+    font-size:.85rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--navy-light);
+    padding-right:1.25rem;margin-right:1.25rem;
+    border-right:1px solid var(--border);
   }
-  .hero-details li{
-    display:flex;align-items:center;gap:.75rem;
-    font-size:.95rem;font-weight:500;color:var(--navy-light);
-  }
-  .hero-details li::before{
-    content:"";width:6px;height:6px;border-radius:50%;
-    background:var(--gold);flex-shrink:0;
-  }
+  .hero-fact:last-child{border-right:none;padding-right:0;margin-right:0}
+
+  /* Benefit highlights */
+  .hero-bullets{display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem}
+  .hero-bullets li{display:flex;align-items:flex-start;gap:.65rem;font-size:.95rem;font-weight:300;color:var(--muted)}
+  .hero-bullets svg{flex-shrink:0;margin-top:.2rem;color:var(--gold-dark)}
 
   .hero-cta-note{
     display:flex;align-items:center;gap:.55rem;
@@ -440,6 +446,9 @@
     .why-grid{grid-template-columns:1fr}
     .region-row{justify-content:center}
     .btn{white-space:normal}
+    .hero-fact-row{flex-direction:column;gap:.5rem}
+    .hero-fact{border-right:none;padding-right:0;margin-right:0;border-bottom:1px solid var(--border);padding-bottom:.5rem}
+    .hero-fact:last-child{border-bottom:none;padding-bottom:0}
   }
 
   /* ============================================================
@@ -584,30 +593,38 @@
           data-reveal
         />
 
-        <h1 data-reveal>Celebrate 20 Years of Leadership Excellence</h1>
+        <h1 data-reveal>Join Dr. Bryan K. Williams for a Special 3-Day Live Celebration</h1>
 
-        <p class="hero-subhead" data-reveal>Join Dr. Bryan K. Williams for an Exclusive 3-Day Live Virtual Celebration</p>
+        <p class="hero-subhead" data-reveal>Honoring 20 Years of Leadership, Service &amp; Lasting Impact.</p>
 
-        <p class="lede" data-reveal>For two decades, Dr. Bryan K. Williams has inspired organizations around the world to lead with excellence, elevate service, and create lasting impact.</p>
+        <p class="lede" data-reveal>To celebrate two decades of serving the world&rsquo;s best teams, Dr. Bryan K. Williams is hosting a special live virtual celebration&mdash;three complimentary days built around the leadership and service excellence lessons that have shaped his legacy.</p>
 
-        <p class="lede" data-reveal>To celebrate this milestone, you&rsquo;re invited to a special 3-day live virtual celebration where he&rsquo;ll share the leadership lessons, service principles, and real-world insights that have shaped his remarkable journey.</p>
+        <a href="#hero-register" class="btn btn-navy" data-reveal>Reserve Your Complimentary Seat</a>
 
-        <p class="lede" data-reveal>This isn&rsquo;t a replay or a typical webinar&mdash;it&rsquo;s a live anniversary celebration designed to celebrate the past while equipping leaders for the future.</p>
+        <div class="hero-fact-row" data-reveal>
+          <span class="hero-fact">September 17&ndash;19</span>
+          <span class="hero-fact">10:00 AM EDT Daily</span>
+          <span class="hero-fact">Only 100 Complimentary Seats Available</span>
+        </div>
 
-        <div class="hero-divider" data-reveal></div>
-
-        <ul class="hero-details" data-reveal>
-          <li>September 17&ndash;19</li>
-          <li>Live Daily &bull; 10:00 AM EDT</li>
-          <li>Complimentary Registration</li>
-          <li>Only 100 Attendees</li>
+        <ul class="hero-bullets" data-reveal>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Live daily sessions with direct access to Dr. Bryan&mdash;not recordings.
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Leadership and service strategies refined through more than 25 years of working with organizations across 20+ industries.
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            An intentionally limited audience of only 100 participants to encourage meaningful interaction and engagement.
+          </li>
         </ul>
-
-        <a href="#hero-register" class="btn btn-navy" data-reveal>Reserve My Complimentary Seat</a>
 
         <div class="hero-cta-note" data-reveal>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Registration closes the moment all 100 seats are claimed.
+          Registration closes once all 100 seats have been claimed.
         </div>
       </div>
 
