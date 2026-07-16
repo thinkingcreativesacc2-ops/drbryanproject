@@ -139,18 +139,6 @@
   .btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
 
   /* ============================================================
-     TOP URGENCY STRIP
-  ============================================================ */
-  .strip{
-    background:var(--navy-dark);
-    padding:.55rem 0;
-    border-bottom:1px solid rgba(229,171,72,.18);
-  }
-  .strip .wrap{display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap;text-align:center}
-  .strip p{font-size:.74rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light)}
-  .strip svg{flex-shrink:0}
-
-  /* ============================================================
      HEADER
   ============================================================ */
   .site-header{background:var(--navy);padding:1rem 0}
@@ -173,6 +161,33 @@
       radial-gradient(ellipse 700px 500px at 5% 100%, rgba(229,171,72,.08), transparent 60%),
       linear-gradient(180deg,var(--navy) 0%, var(--navy-dark) 100%);
     padding-block:clamp(2.5rem,5vw,4rem);
+  }
+
+  /* 20th Anniversary logo plaque — visual anchor at the top of the hero */
+  .anniversary-badge{
+    max-width:520px;margin:0 auto clamp(2.25rem,5vw,3.25rem);
+    background:linear-gradient(180deg,#ffffff,#faf7f0);
+    border-radius:var(--radius-lg);
+    padding:clamp(1.5rem,3.4vw,2.25rem) clamp(1.75rem,4vw,3rem);
+    text-align:center;
+    box-shadow:var(--shadow-lg), 0 0 0 1px rgba(229,171,72,.4);
+  }
+  .anniversary-logo{
+    height:clamp(52px,8vw,84px);width:auto;margin:0 auto;
+  }
+  .anniversary-rule{
+    display:flex;align-items:center;justify-content:center;gap:.65rem;
+    margin:1rem auto .85rem;
+  }
+  .anniversary-rule::before,.anniversary-rule::after{
+    content:"";width:38px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dark));
+  }
+  .anniversary-rule::after{background:linear-gradient(90deg,var(--gold-dark),transparent);}
+  .anniversary-rule i{
+    width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0;font-style:normal;
+  }
+  .anniversary-caption{
+    font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-light);
   }
   .hero-grid{
     display:grid;grid-template-columns:1.15fr .95fr;
@@ -427,7 +442,6 @@
     .hero-meta{gap:.5rem}
     .meta-chip{font-size:.74rem;padding:.5rem .8rem}
     .region-row{justify-content:center}
-    .strip p{font-size:.65rem;letter-spacing:.08em}
   }
 
   /* ============================================================
@@ -533,16 +547,6 @@
 </div>
 
 <!-- ============================================================
-     TOP URGENCY STRIP
-============================================================ -->
-<div class="strip">
-  <div class="wrap">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2.5 2.5"/></svg>
-    <p>Serve. Lead. Inspire. &nbsp;&bull;&nbsp; Free 3-Day Virtual Celebration &nbsp;&bull;&nbsp; Only 100 Seats Available &nbsp;&bull;&nbsp; Registration Closes When Seats Are Filled</p>
-  </div>
-</div>
-
-<!-- ============================================================
      HEADER
 ============================================================ -->
 <header class="site-header">
@@ -570,11 +574,23 @@
 ============================================================ -->
 <section class="hero">
   <div class="wrap">
+
+    <!-- 20th Anniversary logo plaque — visual anchor for the milestone celebration -->
+    <div class="anniversary-badge" data-reveal>
+      <img
+        src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a58ca9265673434068e2d07.png"
+        alt="Dr. Bryan K. Williams — 20th Anniversary"
+        class="anniversary-logo"
+      />
+      <div class="anniversary-rule"><i></i></div>
+      <p class="anniversary-caption">A Landmark 3-Day Live Event &middot; Two Decades of Service Excellence &amp; Leadership</p>
+    </div>
+
     <div class="hero-grid">
 
       <!-- LEFT: Copy -->
       <div class="hero-copy">
-        <span class="eyebrow on-dark">Free &middot; Live &middot; 3-Day Virtual Celebration</span>
+        <span class="eyebrow on-dark">20th Anniversary &middot; Free &middot; Live &middot; 3-Day Celebration</span>
         <h1>
           <span class="block">Serve. Lead.</span>
           <span class="block gold-text">Inspire.</span>
