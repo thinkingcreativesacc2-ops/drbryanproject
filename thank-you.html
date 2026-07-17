@@ -168,22 +168,26 @@
      EVENT SUMMARY CARD
   ============================================================ */
   .summary-card{
-    max-width:860px;margin:0 auto;background:#fff;border-radius:var(--radius-lg);
+    max-width:440px;margin:0 auto;background:#fff;border-radius:var(--radius-lg);
     box-shadow:var(--shadow-lg);border:1px solid var(--border);
-    padding:clamp(2rem,4.5vw,3.25rem);
+    padding:clamp(1.5rem,3vw,2rem) clamp(1.5rem,3.5vw,2.25rem);
   }
-  .summary-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3vw,2.25rem);
+  .summary-title{
+    font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold-dark);margin-bottom:.9rem;
   }
-  .summary-item{text-align:center}
+  .summary-list{display:flex;flex-direction:column}
+  .summary-row{
+    display:flex;align-items:center;gap:.85rem;
+    padding:.7rem 0;border-bottom:1px solid var(--border);
+  }
+  .summary-row:first-child{padding-top:0}
+  .summary-row:last-child{border-bottom:none;padding-bottom:0}
   .summary-icon{
-    width:56px;height:56px;border-radius:50%;margin:0 auto .75rem;
-    background:linear-gradient(135deg,rgba(229,171,72,.16),rgba(229,171,72,.05));
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.5rem;
+    width:18px;height:18px;flex-shrink:0;color:var(--gold-dark);
   }
-  .summary-label{
-    font-size:.86rem;font-weight:600;letter-spacing:.03em;
+  .summary-value{
+    font-size:.96rem;font-weight:600;
     color:var(--navy);line-height:1.4;
   }
 
@@ -272,14 +276,10 @@
   /* ============================================================
      RESPONSIVE
   ============================================================ */
-  @media(max-width:1000px){
-    .summary-grid{grid-template-columns:repeat(2,1fr)}
-  }
   @media(max-width:640px){
     .site-header .wrap{justify-content:flex-start}
     .header-pills{display:none}
     .logo-img{height:36px}
-    .summary-grid{grid-template-columns:1fr;gap:1.5rem}
     .share-row{gap:.65rem}
     .share-btn{width:46px;height:46px}
   }
@@ -322,7 +322,7 @@
       data-reveal
     />
     <span class="eyebrow" data-reveal>Registration Confirmed</span>
-    <h1 data-reveal>&#127881; Your Seat Has Been Reserved!</h1>
+    <h1 data-reveal>Your Seat Has Been Reserved!</h1>
     <p class="hero-subhead" data-reveal>Welcome to Dr. Bryan K. Williams&rsquo; 20th Anniversary Celebration</p>
     <p class="lede" data-reveal>
       Thank you for reserving your complimentary seat for this special 3-Day Live Virtual Celebration. We look forward to celebrating two decades of leadership, service, and lasting impact with you.
@@ -336,26 +336,27 @@
 <section class="section bg-offwhite" style="padding-top:0">
   <div class="wrap">
     <div class="summary-card" data-reveal>
-      <div class="summary-grid">
-        <div class="summary-item">
-          <div class="summary-icon">&#128197;</div>
-          <div class="summary-label">September 17&ndash;19</div>
+      <p class="summary-title">Event Details</p>
+      <div class="summary-list">
+        <div class="summary-row">
+          <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span class="summary-value">September 17&ndash;19</span>
         </div>
-        <div class="summary-item">
-          <div class="summary-icon">&#128341;</div>
-          <div class="summary-label">10:00 AM EDT Daily</div>
+        <div class="summary-row">
+          <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <span class="summary-value">10:00 AM EDT Daily</span>
         </div>
-        <div class="summary-item">
-          <div class="summary-icon">&#128187;</div>
-          <div class="summary-label">Live Online</div>
+        <div class="summary-row">
+          <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span class="summary-value">Live Online</span>
         </div>
-        <div class="summary-item">
-          <div class="summary-icon">&#127903;</div>
-          <div class="summary-label">Complimentary Registration</div>
+        <div class="summary-row">
+          <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 0 0 6v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 0 0-6V8z"/><path d="M13 6v2M13 11v2M13 16v2"/></svg>
+          <span class="summary-value">Complimentary Registration</span>
         </div>
-        <div class="summary-item">
-          <div class="summary-icon">&#128101;</div>
-          <div class="summary-label">Limited to 100 Participants</div>
+        <div class="summary-row">
+          <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="summary-value">Limited to 100 Participants</span>
         </div>
       </div>
     </div>
