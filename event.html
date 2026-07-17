@@ -29,13 +29,13 @@
      RESET
   ============================================================ */
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;font-size:17px}
   body{
     font-family:'Oswald',Arial,Helvetica,sans-serif;
     font-weight:300;
     color:#26314f;
     background:#ffffff;
-    line-height:1.7;
+    line-height:1.75;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
     overflow-x:hidden;
@@ -98,19 +98,19 @@
 
   h1,h2,h3,h4{font-family:'Oswald',Arial,sans-serif;font-weight:600;color:var(--navy);letter-spacing:.005em}
   h1{
-    font-size:clamp(2.15rem,4.1vw,3.5rem);
-    line-height:1.08;color:#fff;font-weight:600;
+    font-size:clamp(2.35rem,4.6vw,3.85rem);
+    line-height:1.1;color:#fff;font-weight:600;
     text-transform:uppercase;letter-spacing:.01em;
-    margin-bottom:1.1rem;
+    margin-bottom:1.2rem;
   }
   h2{
-    font-size:clamp(1.85rem,3.4vw,2.75rem);
-    line-height:1.15;text-transform:uppercase;
-    margin-bottom:1rem;
+    font-size:clamp(2.05rem,3.8vw,3.05rem);
+    line-height:1.18;text-transform:uppercase;
+    margin-bottom:1.1rem;
   }
   h2.on-dark{color:#fff}
-  h3{font-size:1.35rem;text-transform:uppercase;letter-spacing:.02em;margin-bottom:.6rem}
-  .lede{font-size:clamp(1rem,1.6vw,1.2rem);font-weight:300;color:var(--muted);line-height:1.75}
+  h3{font-size:1.5rem;line-height:1.3;text-transform:uppercase;letter-spacing:.02em;margin-bottom:.65rem}
+  .lede{font-size:clamp(1.125rem,1.9vw,1.375rem);font-weight:300;color:var(--muted);line-height:1.85}
   .lede.on-dark{color:rgba(255,255,255,.82)}
   .gold-text{color:var(--gold)}
   .red-text{color:var(--red)}
@@ -188,13 +188,14 @@
     display:block;margin-bottom:.75rem;
   }
   .hero-copy h1{
-    max-width:600px;margin-bottom:.85rem;color:var(--navy);
-    font-size:clamp(1.9rem,3.4vw,2.85rem);
+    max-width:640px;margin-bottom:.9rem;color:var(--navy);
+    font-size:clamp(2.1rem,3.8vw,3.15rem);
   }
   .hero-subhead{
     color:var(--gold-dark);font-weight:500;
-    font-size:clamp(1.1rem,2vw,1.4rem);
-    max-width:520px;margin-bottom:1.35rem;
+    font-size:clamp(1.2rem,2.2vw,1.55rem);
+    line-height:1.5;
+    max-width:540px;margin-bottom:1.4rem;
   }
   .hero-copy .lede{max-width:520px;margin-bottom:1.75rem}
 
@@ -250,8 +251,8 @@
     box-shadow:var(--shadow-lg);
     padding:1.6rem 1.6rem 1.4rem;
   }
-  .reg-card h3{color:var(--navy);font-size:1.2rem;margin-bottom:.3rem}
-  .reg-card .reg-sub{font-size:.85rem;color:var(--muted);margin-bottom:1.1rem}
+  .reg-card h3{color:var(--navy);font-size:1.3rem;margin-bottom:.35rem}
+  .reg-card .reg-sub{font-size:.95rem;color:var(--muted);margin-bottom:1.1rem;line-height:1.6}
   .ghl-form-embed{width:100%;min-height:434px}
   .reg-trust{
     display:flex;flex-wrap:wrap;gap:.5rem 1rem;justify-content:center;
@@ -292,7 +293,7 @@
     display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;color:var(--gold-dark);
   }
   .why-card h3{font-size:1.05rem;color:var(--navy)}
-  .why-card p{font-size:.92rem;color:var(--muted);font-weight:300}
+  .why-card p{font-size:1.02rem;color:var(--muted);font-weight:300;line-height:1.7}
 
   /* ============================================================
      CURRICULUM / DAYS
@@ -309,9 +310,9 @@
     color:var(--navy-dark);background:var(--gold);padding:.35rem .75rem;border-radius:5px;margin-bottom:1.1rem;
   }
   .day-card h3{color:#fff;font-size:1.15rem;margin-bottom:.4rem}
-  .day-sub{font-size:.85rem;font-weight:300;font-style:italic;color:rgba(255,255,255,.6);margin-bottom:1.15rem}
+  .day-sub{font-size:.95rem;font-weight:300;font-style:italic;color:rgba(255,255,255,.6);margin-bottom:1.15rem;line-height:1.5}
   .day-card ul{display:flex;flex-direction:column;gap:.65rem}
-  .day-card li{display:flex;gap:.55rem;font-size:.9rem;font-weight:300;color:rgba(255,255,255,.78)}
+  .day-card li{display:flex;gap:.55rem;font-size:1rem;font-weight:300;color:rgba(255,255,255,.78);line-height:1.6}
   .day-card li svg{flex-shrink:0;margin-top:.25rem;color:var(--gold)}
 
   /* ============================================================
@@ -348,7 +349,7 @@
   }
   .t-slide.active{display:block;animation:fadeUp .5s ease both}
   .t-quote-mark{font-size:2.5rem;color:var(--gold);line-height:1;font-family:Georgia,serif;margin-bottom:.5rem}
-  .t-quote{font-size:clamp(1rem,1.6vw,1.2rem);font-weight:300;color:var(--ink);line-height:1.7;margin-bottom:1.5rem}
+  .t-quote{font-size:clamp(1.1rem,1.9vw,1.35rem);font-weight:300;color:var(--ink);line-height:1.8;margin-bottom:1.5rem}
   .t-name{font-weight:600;color:var(--navy);font-size:.95rem;letter-spacing:.02em;text-transform:uppercase}
   .t-role{font-size:.82rem;color:var(--muted);margin-top:.2rem}
   .t-controls{display:flex;align-items:center;justify-content:center;gap:1.25rem;margin-top:1.75rem}
@@ -405,7 +406,7 @@
     box-shadow:var(--shadow-lg);border:1px solid var(--border);padding:clamp(1.75rem,4vw,2.75rem);
   }
   .register-panel-title{color:var(--navy);font-size:1.3rem;text-align:center;margin-bottom:.5rem}
-  .register-panel-sub{color:var(--muted);font-size:.88rem;text-align:center;max-width:420px;margin:0 auto 1.5rem}
+  .register-panel-sub{color:var(--muted);font-size:.98rem;line-height:1.6;text-align:center;max-width:420px;margin:0 auto 1.5rem}
   .register-panel-divider{
     width:44px;height:2px;margin:0 auto 1.75rem;
     background:linear-gradient(90deg,transparent,var(--gold),transparent);
@@ -823,19 +824,20 @@
     <div class="about-grid">
       <div class="about-photo-wrap" data-reveal>
         <img
-          src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e78.jpg"
+          src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5a14711097b81195c54f43.png"
           alt="Dr. Bryan K. Williams"
           class="about-photo"
+          loading="lazy"
         />
         <div class="about-accent"></div>
       </div>
       <div data-reveal>
         <span class="eyebrow">Your Host</span>
         <h2>Meet Dr. Bryan K. Williams</h2>
-        <p style="margin-bottom:1rem;color:var(--muted);font-weight:300;">
+        <p style="margin-bottom:1.1rem;color:var(--muted);font-weight:300;font-size:1.05rem;line-height:1.75;">
           Dr. Bryan K. Williams is a keynote speaker, consultant, and author recognized worldwide as an authority on Service Excellence and Leadership Effectiveness. His passion is helping leaders better serve others &mdash; so they can better serve the world.
         </p>
-        <p style="margin-bottom:0;color:var(--muted);font-weight:300;">
+        <p style="margin-bottom:0;color:var(--muted);font-weight:300;font-size:1.05rem;line-height:1.75;">
           Over the last 25+ years, Bryan has trained and consulted with hundreds of organizations across more than 20 industries &mdash; including healthcare, hospitality, luxury hotels, education, financial services, and government. His work has taken him across North America, South America, Europe, Asia, Africa, Australia, and the Caribbean.
         </p>
 
