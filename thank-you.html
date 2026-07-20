@@ -209,25 +209,6 @@
   .expect-list svg{flex-shrink:0;margin-top:.2rem;color:var(--gold-dark)}
 
   /* ============================================================
-     WHAT'S NEXT — vertical timeline
-  ============================================================ */
-  .timeline{max-width:640px;margin:2.75rem auto 0}
-  .timeline-step{display:flex;gap:1.5rem;position:relative;padding-bottom:2.5rem}
-  .timeline-step:last-child{padding-bottom:0}
-  .timeline-step:not(:last-child)::before{
-    content:"";position:absolute;left:21px;top:46px;bottom:-2.5rem;width:1px;
-    background:rgba(255,255,255,.16);
-  }
-  .timeline-num{
-    width:44px;height:44px;border-radius:50%;flex-shrink:0;position:relative;z-index:1;
-    background:linear-gradient(135deg,var(--gold-light),var(--gold-dark));
-    color:var(--navy-dark);font-weight:700;font-size:1.05rem;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .timeline-content h3{color:#fff;font-size:1.05rem;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.35rem}
-  .timeline-content p{color:rgba(255,255,255,.75);font-size:.95rem;font-weight:300}
-
-  /* ============================================================
      CALENDAR CTA
   ============================================================ */
   .calendar-note{font-size:.82rem;color:var(--muted);margin-top:1rem}
@@ -262,14 +243,6 @@
   }
   .quote-attribution{
     font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
-  }
-
-  /* ============================================================
-     THE CELEBRATION BEGINS SOON
-  ============================================================ */
-  .soon-divider{
-    width:56px;height:2px;margin:1.5rem auto 1.75rem;
-    background:linear-gradient(90deg,transparent,var(--gold),transparent);
   }
 
   /* ============================================================
@@ -365,7 +338,7 @@
       <div class="next-step-card" data-reveal>
         <div class="next-step-icon">&#128231;</div>
         <h3 class="next-step-title">Check Your Email</h3>
-        <p class="next-step-desc">A confirmation email with important event details is on its way. If you don&rsquo;t see it, please check your spam or promotions folder.</p>
+        <p class="next-step-desc">Your confirmation and event details are on their way, along with reminders as the celebration approaches. Don&rsquo;t see it? Check your spam or promotions folder.</p>
       </div>
       <div class="next-step-card" data-reveal>
         <div class="next-step-icon">&#128197;</div>
@@ -379,6 +352,7 @@
           href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dr.+Bryan+K.+Williams%27+20th+Anniversary+Celebration&dates=20260917T140000Z/20260919T190000Z&details=Join+Dr.+Bryan+K.+Williams+live+for+a+special+3-Day+Virtual+Celebration+marking+20+years+of+leadership+and+service+excellence.&location=Live+Online"
           target="_blank" rel="noopener"
         >Add to My Calendar</a>
+        <p class="calendar-note">Opens Google Calendar</p>
       </div>
     </div>
   </div>
@@ -420,62 +394,11 @@
         </li>
       </ul>
     </div>
-  </div>
-</section>
 
-<!-- ============================================================
-     WHAT'S NEXT
-============================================================ -->
-<section class="section bg-navy">
-  <div class="wrap">
-    <div class="center max-720">
-      <span class="eyebrow on-dark" data-reveal>What&rsquo;s Next</span>
-      <h2 class="on-dark" data-reveal>Here&rsquo;s What Happens Next</h2>
-      <p class="lede on-dark" data-reveal>A few simple steps between now and the celebration.</p>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-step" data-reveal>
-        <div class="timeline-num">1</div>
-        <div class="timeline-content">
-          <h3>Check Your Inbox</h3>
-          <p>Check your email for your registration confirmation.</p>
-        </div>
-      </div>
-      <div class="timeline-step" data-reveal>
-        <div class="timeline-num">2</div>
-        <div class="timeline-content">
-          <h3>Save the Dates</h3>
-          <p>Add the event to your calendar so you don&rsquo;t miss the live sessions.</p>
-        </div>
-      </div>
-      <div class="timeline-step" data-reveal>
-        <div class="timeline-num">3</div>
-        <div class="timeline-content">
-          <h3>Watch for Updates</h3>
-          <p>Watch for reminder emails leading up to the celebration with important updates and access information.</p>
-        </div>
-      </div>
-      <div class="timeline-step" data-reveal>
-        <div class="timeline-num">4</div>
-        <div class="timeline-content">
-          <h3>Join Us Live</h3>
-          <p>Join us live on September 17&ndash;19 and be ready to participate.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="center" style="margin-top:2.75rem" data-reveal>
-      <!-- Pre-fills a Google Calendar event for the celebration.
-           To swap in an .ics download or another calendar provider later,
-           just change this href — the button styling stays the same. -->
-      <a
-        class="btn btn-gold"
-        id="add-to-calendar"
-        href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dr.+Bryan+K.+Williams%27+20th+Anniversary+Celebration&dates=20260917T140000Z/20260919T190000Z&details=Join+Dr.+Bryan+K.+Williams+live+for+a+special+3-Day+Virtual+Celebration+marking+20+years+of+leadership+and+service+excellence.&location=Live+Online"
-        target="_blank" rel="noopener"
-      >Add to My Calendar</a>
-      <p class="calendar-note" style="color:rgba(255,255,255,.55)">Opens Google Calendar &mdash; details will also arrive by email.</p>
+    <div class="center max-820" style="margin-top:2.75rem" data-reveal>
+      <div class="quote-mark">&ldquo;</div>
+      <p class="quote-text">Service is not a department. Leadership is not a title.</p>
+      <p class="quote-attribution">Dr. Bryan K. Williams</p>
     </div>
   </div>
 </section>
@@ -509,30 +432,6 @@
       </button>
     </div>
     <span class="copy-feedback" id="copy-feedback">Link copied!</span>
-  </div>
-</section>
-
-<!-- ============================================================
-     FINAL INSPIRATION QUOTE
-============================================================ -->
-<section class="section bg-offwhite">
-  <div class="wrap center max-820" data-reveal>
-    <div class="quote-mark">&ldquo;</div>
-    <p class="quote-text">Service is not a department. Leadership is not a title.</p>
-    <p class="quote-attribution">Dr. Bryan K. Williams</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     THE CELEBRATION BEGINS SOON
-============================================================ -->
-<section class="section bg-navy">
-  <div class="wrap center max-720" data-reveal>
-    <h2 class="on-dark">The Celebration Begins Soon</h2>
-    <div class="soon-divider"></div>
-    <p class="lede on-dark">
-      Over the next few weeks, we&rsquo;ll send you important updates, reminders, and everything you need to make the most of this special 20th Anniversary Celebration. We look forward to welcoming you live in September.
-    </p>
   </div>
 </section>
 
