@@ -191,6 +191,8 @@
     font-size:.96rem;font-weight:600;
     color:var(--navy);line-height:1.4;
   }
+  .summary-card .btn{width:100%;margin-top:1.75rem}
+  .summary-card .calendar-note{text-align:center}
 
   /* ============================================================
      WHAT'S NEXT — vertical timeline
@@ -326,7 +328,7 @@
     <h1 data-reveal>Your Seat Has Been Reserved!</h1>
     <p class="hero-subhead" data-reveal>Welcome to Dr. Bryan K. Williams&rsquo; 20th Anniversary Celebration</p>
     <p class="lede" data-reveal>
-      Thank you for reserving your complimentary seat for this special 3-Day Live Virtual Celebration. We look forward to celebrating two decades of leadership, service, and lasting impact with you.
+      Thank you for reserving your complimentary seat for this special 3-Day Live Virtual Celebration. Check your email for your confirmation details, and we look forward to celebrating two decades of leadership, service, and lasting impact with you.
     </p>
   </div>
 </section>
@@ -360,6 +362,14 @@
           <span class="summary-value">Limited to 100 Participants</span>
         </div>
       </div>
+      <!-- Pre-fills a Google Calendar event for the celebration;
+           mirrors the "Add to My Calendar" button further down the page. -->
+      <a
+        class="btn btn-gold"
+        href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dr.+Bryan+K.+Williams%27+20th+Anniversary+Celebration&dates=20260917T140000Z/20260919T190000Z&details=Join+Dr.+Bryan+K.+Williams+live+for+a+special+3-Day+Virtual+Celebration+marking+20+years+of+leadership+and+service+excellence.&location=Live+Online"
+        target="_blank" rel="noopener"
+      >Add to Calendar</a>
+      <p class="calendar-note">Opens Google Calendar</p>
     </div>
   </div>
 </section>
