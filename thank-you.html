@@ -166,6 +166,34 @@
   .ty-hero .lede{max-width:620px;margin-inline:auto}
 
   /* ============================================================
+     BEFORE YOU GO — quick next-steps, above the fold
+  ============================================================ */
+  .next-steps-title{
+    text-align:center;font-size:1.3rem;text-transform:none;
+    color:var(--navy);margin-bottom:1.25rem;
+  }
+  .next-steps-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;
+    max-width:1040px;margin:0 auto;
+  }
+  .next-step-card{
+    background:#fff;border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-sm);border:1px solid var(--border);
+    padding:clamp(1.35rem,2.4vw,1.75rem);text-align:center;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .next-step-icon{
+    width:44px;height:44px;border-radius:50%;margin-bottom:.75rem;
+    background:linear-gradient(135deg,rgba(229,171,72,.16),rgba(229,171,72,.05));
+    display:flex;align-items:center;justify-content:center;font-size:1.25rem;
+  }
+  .next-step-title{
+    font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:.4rem;
+  }
+  .next-step-desc{font-size:.88rem;color:var(--muted);line-height:1.55;margin-bottom:0}
+  .next-step-card .btn{margin-top:1rem;padding:.85rem 1.75rem;font-size:.88rem}
+
+  /* ============================================================
      EVENT SUMMARY CARD
   ============================================================ */
   .summary-card{
@@ -277,6 +305,9 @@
   /* ============================================================
      RESPONSIVE
   ============================================================ */
+  @media(max-width:900px){
+    .next-steps-grid{grid-template-columns:1fr;max-width:440px}
+  }
   @media(max-width:640px){
     .site-header .wrap{justify-content:flex-start}
     .header-pills{display:none}
@@ -328,6 +359,40 @@
     <p class="lede" data-reveal>
       Thank you for reserving your complimentary seat for this special 3-Day Live Virtual Celebration. We look forward to celebrating two decades of leadership, service, and lasting impact with you.
     </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     BEFORE YOU GO — quick next steps, above the fold
+============================================================ -->
+<section class="section bg-white" style="padding-top:1.25rem;padding-bottom:2rem">
+  <div class="wrap">
+    <h2 class="next-steps-title" data-reveal>Before You Go&hellip;</h2>
+    <div class="next-steps-grid">
+      <div class="next-step-card" data-reveal>
+        <div class="next-step-icon">&#9989;</div>
+        <h3 class="next-step-title">Your Seat Has Been Reserved</h3>
+        <p class="next-step-desc">Your registration is confirmed, and your complimentary seat has been secured for the 3-Day Live Virtual Celebration.</p>
+      </div>
+      <div class="next-step-card" data-reveal>
+        <div class="next-step-icon">&#128231;</div>
+        <h3 class="next-step-title">Check Your Email</h3>
+        <p class="next-step-desc">A confirmation email with important event details is on its way. If you don&rsquo;t see it, please check your spam or promotions folder.</p>
+      </div>
+      <div class="next-step-card" data-reveal>
+        <div class="next-step-icon">&#128197;</div>
+        <h3 class="next-step-title">Add the Celebration to Your Calendar</h3>
+        <p class="next-step-desc">Save the event now so you don&rsquo;t miss any of the live sessions.</p>
+        <!-- Pre-fills a Google Calendar event; swap this href for an .ics
+             link or another provider later — button styling stays the same. -->
+        <a
+          class="btn btn-navy"
+          id="add-to-calendar-top"
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dr.+Bryan+K.+Williams%27+20th+Anniversary+Celebration&dates=20260917T140000Z/20260919T190000Z&details=Join+Dr.+Bryan+K.+Williams+live+for+a+special+3-Day+Virtual+Celebration+marking+20+years+of+leadership+and+service+excellence.&location=Live+Online"
+          target="_blank" rel="noopener"
+        >Add to My Calendar</a>
+      </div>
+    </div>
   </div>
 </section>
 
