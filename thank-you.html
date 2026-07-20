@@ -194,31 +194,19 @@
   .next-step-card .btn{margin-top:1rem;padding:.85rem 1.75rem;font-size:.88rem}
 
   /* ============================================================
-     EVENT SUMMARY CARD
+     WHAT TO EXPECT — builds anticipation, no repeated logistics
   ============================================================ */
-  .summary-card{
-    max-width:480px;margin:0 auto;background:#fff;border-radius:var(--radius-lg);
+  .expect-card{
+    max-width:700px;margin:2.5rem auto 0;background:#fff;border-radius:var(--radius-lg);
     box-shadow:var(--shadow-lg);border:1px solid var(--border);
-    padding:clamp(2.5rem,4.5vw,3.125rem);
+    padding:clamp(2rem,4vw,2.75rem) clamp(1.75rem,4vw,3rem);
   }
-  .summary-title{
-    font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--gold-dark);margin-bottom:.9rem;
+  .expect-list{display:flex;flex-direction:column;gap:1.15rem}
+  .expect-list li{
+    display:flex;align-items:flex-start;gap:.9rem;
+    font-size:1rem;color:var(--ink);font-weight:300;line-height:1.6;
   }
-  .summary-list{display:flex;flex-direction:column}
-  .summary-row{
-    display:flex;align-items:center;gap:.85rem;
-    padding:.7rem 0;border-bottom:1px solid var(--border);
-  }
-  .summary-row:first-child{padding-top:0}
-  .summary-row:last-child{border-bottom:none;padding-bottom:0}
-  .summary-icon{
-    width:18px;height:18px;flex-shrink:0;color:var(--gold-dark);
-  }
-  .summary-value{
-    font-size:.96rem;font-weight:600;
-    color:var(--navy);line-height:1.4;
-  }
+  .expect-list svg{flex-shrink:0;margin-top:.2rem;color:var(--gold-dark)}
 
   /* ============================================================
      WHAT'S NEXT — vertical timeline
@@ -397,34 +385,40 @@
 </section>
 
 <!-- ============================================================
-     EVENT SUMMARY CARD
+     WHAT TO EXPECT — builds anticipation instead of repeating
+     logistics already covered in "Before You Go..."
 ============================================================ -->
-<section class="section bg-white" style="padding-top:1.5rem;padding-bottom:5rem">
+<section class="section bg-white" style="padding-top:1.5rem;padding-bottom:4rem">
   <div class="wrap">
-    <div class="summary-card" data-reveal>
-      <p class="summary-title">Event Details</p>
-      <div class="summary-list">
-        <div class="summary-row">
-          <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <span class="summary-value">September 17&ndash;19</span>
-        </div>
-        <div class="summary-row">
-          <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-          <span class="summary-value">10:00 AM EDT Daily</span>
-        </div>
-        <div class="summary-row">
-          <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          <span class="summary-value">Live Online</span>
-        </div>
-        <div class="summary-row">
-          <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 0 0 6v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 0 0-6V8z"/><path d="M13 6v2M13 11v2M13 16v2"/></svg>
-          <span class="summary-value">Complimentary Registration</span>
-        </div>
-        <div class="summary-row">
-          <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <span class="summary-value">Limited to 100 Participants</span>
-        </div>
-      </div>
+    <div class="center max-720">
+      <span class="eyebrow" data-reveal>Get Ready</span>
+      <h2 data-reveal>What to Expect</h2>
+      <p class="lede" data-reveal>A quick look at the experience waiting for you this September.</p>
+    </div>
+
+    <div class="expect-card" data-reveal>
+      <ul class="expect-list">
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Three live sessions with Dr. Bryan K. Williams
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Practical leadership and service excellence strategies you can immediately apply
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Interactive learning and real-world insights drawn from more than 25 years of experience
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          A special 20th Anniversary Celebration with an intentionally small group of only 100 participants
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Opportunities to reflect, learn, and celebrate two decades of leadership excellence
+        </li>
+      </ul>
     </div>
   </div>
 </section>
