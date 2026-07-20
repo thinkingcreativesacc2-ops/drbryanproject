@@ -164,6 +164,11 @@
     max-width:600px;margin:0 auto 1.35rem;
   }
   .ty-hero .lede{max-width:620px;margin-inline:auto}
+  .hero-occasion{
+    font-style:italic;font-weight:400;color:var(--gold-dark);
+    font-size:clamp(1.05rem,1.8vw,1.25rem);
+    max-width:600px;margin:1.25rem auto 0;line-height:1.6;
+  }
 
   /* ============================================================
      BEFORE YOU GO — quick next-steps, above the fold
@@ -173,8 +178,8 @@
     color:var(--navy);margin-bottom:1.25rem;
   }
   .next-steps-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;
-    max-width:1040px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;
+    max-width:720px;margin:0 auto;
   }
   .next-step-card{
     background:#fff;border-radius:var(--radius-lg);
@@ -194,19 +199,30 @@
   .next-step-card .btn{margin-top:1rem;padding:.85rem 1.75rem;font-size:.88rem}
 
   /* ============================================================
-     WHAT TO EXPECT — builds anticipation, no repeated logistics
+     WHAT TO EXPECT — integrated photo + list, no floating card
   ============================================================ */
-  .expect-card{
-    max-width:700px;margin:2.5rem auto 0;background:#fff;border-radius:var(--radius-lg);
-    box-shadow:var(--shadow-lg);border:1px solid var(--border);
-    padding:clamp(2rem,4vw,2.75rem) clamp(1.75rem,4vw,3rem);
+  .expect-grid{
+    display:grid;grid-template-columns:.85fr 1.15fr;
+    gap:clamp(2.5rem,6vw,4.5rem);align-items:center;
+    margin-top:2.75rem;
   }
-  .expect-list{display:flex;flex-direction:column;gap:1.15rem}
+  .expect-photo-wrap{position:relative}
+  .expect-photo{
+    width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);
+    aspect-ratio:4/5;object-fit:cover;object-position:top center;
+    position:relative;z-index:1;
+  }
+  .expect-photo-accent{
+    position:absolute;bottom:-18px;right:-18px;width:60%;height:55%;
+    background:linear-gradient(135deg,var(--gold),var(--gold-dark));opacity:.18;
+    border-radius:var(--radius-lg);z-index:0;
+  }
+  .expect-list{display:flex;flex-direction:column;gap:1.25rem}
   .expect-list li{
     display:flex;align-items:flex-start;gap:.9rem;
-    font-size:1rem;color:var(--ink);font-weight:300;line-height:1.6;
+    font-size:1.02rem;color:var(--ink);font-weight:300;line-height:1.6;
   }
-  .expect-list svg{flex-shrink:0;margin-top:.2rem;color:var(--gold-dark)}
+  .expect-list svg{flex-shrink:0;margin-top:.25rem;color:var(--gold-dark)}
 
   /* ============================================================
      CALENDAR CTA
@@ -268,6 +284,8 @@
   ============================================================ */
   @media(max-width:900px){
     .next-steps-grid{grid-template-columns:1fr;max-width:440px}
+    .expect-grid{grid-template-columns:1fr}
+    .expect-photo-wrap{max-width:360px;margin-inline:auto}
   }
   @media(max-width:640px){
     .site-header .wrap{justify-content:flex-start}
@@ -318,7 +336,10 @@
     <h1 data-reveal>Your Seat Has Been Reserved!</h1>
     <p class="hero-subhead" data-reveal>Welcome to Dr. Bryan K. Williams&rsquo; 20th Anniversary Celebration</p>
     <p class="lede" data-reveal>
-      Thank you for reserving your complimentary seat for this special 3-Day Live Virtual Celebration. We look forward to celebrating two decades of leadership, service, and lasting impact with you.
+      Your complimentary seat for this special 3-Day Live Virtual Celebration is confirmed.
+    </p>
+    <p class="hero-occasion" data-reveal>
+      Thank you for being part of this milestone celebration. We can&rsquo;t wait to welcome you this September.
     </p>
   </div>
 </section>
@@ -326,15 +347,10 @@
 <!-- ============================================================
      BEFORE YOU GO — quick next steps, above the fold
 ============================================================ -->
-<section class="section bg-white" style="padding-top:1.25rem;padding-bottom:2rem">
+<section class="section bg-offwhite" style="padding-top:1.25rem;padding-bottom:2rem">
   <div class="wrap">
     <h2 class="next-steps-title" data-reveal>Before You Go&hellip;</h2>
     <div class="next-steps-grid">
-      <div class="next-step-card" data-reveal>
-        <div class="next-step-icon">&#9989;</div>
-        <h3 class="next-step-title">Your Seat Has Been Reserved</h3>
-        <p class="next-step-desc">Your registration is confirmed, and your complimentary seat has been secured for the 3-Day Live Virtual Celebration.</p>
-      </div>
       <div class="next-step-card" data-reveal>
         <div class="next-step-icon">&#128231;</div>
         <h3 class="next-step-title">Check Your Email</h3>
@@ -362,40 +378,47 @@
      WHAT TO EXPECT — builds anticipation instead of repeating
      logistics already covered in "Before You Go..."
 ============================================================ -->
-<section class="section bg-white" style="padding-top:1.5rem;padding-bottom:4rem">
+<section class="section bg-white" style="padding-top:2.5rem;padding-bottom:4rem">
   <div class="wrap">
-    <div class="center max-720">
-      <span class="eyebrow" data-reveal>Get Ready</span>
-      <h2 data-reveal>What to Expect</h2>
-      <p class="lede" data-reveal>A quick look at the experience waiting for you this September.</p>
+    <div class="expect-grid">
+      <div class="expect-photo-wrap" data-reveal>
+        <img
+          src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5a14711097b81195c54f43.png"
+          alt="Dr. Bryan K. Williams"
+          class="expect-photo"
+        />
+        <div class="expect-photo-accent"></div>
+      </div>
+      <div data-reveal>
+        <span class="eyebrow">Get Ready</span>
+        <h2>What to Expect</h2>
+        <p class="lede" style="margin-bottom:1.5rem">A quick look at the experience waiting for you this September.</p>
+        <ul class="expect-list">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Three live sessions with Dr. Bryan K. Williams
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Practical leadership and service excellence strategies you can immediately apply
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Interactive learning and real-world insights drawn from more than 25 years of experience
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            A special 20th Anniversary Celebration with an intentionally small group of only 100 participants
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Opportunities to reflect, learn, and celebrate two decades of leadership excellence
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="expect-card" data-reveal>
-      <ul class="expect-list">
-        <li>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          Three live sessions with Dr. Bryan K. Williams
-        </li>
-        <li>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          Practical leadership and service excellence strategies you can immediately apply
-        </li>
-        <li>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          Interactive learning and real-world insights drawn from more than 25 years of experience
-        </li>
-        <li>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          A special 20th Anniversary Celebration with an intentionally small group of only 100 participants
-        </li>
-        <li>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          Opportunities to reflect, learn, and celebrate two decades of leadership excellence
-        </li>
-      </ul>
-    </div>
-
-    <div class="center max-820" style="margin-top:2.75rem" data-reveal>
+    <div class="center max-820" style="margin-top:3.5rem" data-reveal>
       <div class="quote-mark">&ldquo;</div>
       <p class="quote-text">Service is not a department. Leadership is not a title.</p>
       <p class="quote-attribution">Dr. Bryan K. Williams</p>
@@ -406,7 +429,7 @@
 <!-- ============================================================
      SHARE SECTION
 ============================================================ -->
-<section class="section bg-white">
+<section class="section bg-offwhite">
   <div class="wrap center max-720">
     <span class="eyebrow" data-reveal>Spread the Word</span>
     <h2 data-reveal>Leadership Is Better Together</h2>
