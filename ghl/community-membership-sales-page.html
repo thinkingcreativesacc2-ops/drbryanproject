@@ -281,11 +281,9 @@ p{margin:0;}
 .tm-masonry{columns:3 300px;column-gap:26px;margin-top:8px;}
 .tm-masonry > *{break-inside:avoid;-webkit-column-break-inside:avoid;margin:0 0 26px;}
 
-.tm-video{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:16/9;background:linear-gradient(155deg,var(--navy-mid),var(--navy-deep));box-shadow:0 14px 36px rgba(22,36,63,0.14);transition:transform .4s ease,box-shadow .4s ease;}
+.tm-video{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:#000;box-shadow:0 14px 36px rgba(22,36,63,0.14);transition:transform .4s ease,box-shadow .4s ease;}
 .tm-video:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(22,36,63,0.2);}
-.tm-video::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(200,147,43,0.30),transparent 62%);}
-.tm-video .play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,0.14);border:1.5px solid rgba(255,255,255,0.5);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;transition:transform .3s ease,background .3s ease;}
-.tm-video:hover .play-btn{transform:translate(-50%,-50%) scale(1.1);background:rgba(200,147,43,0.85);}
+.tm-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
 
 .tm-quote{background:var(--white);border-radius:22px;padding:40px 36px;box-shadow:0 14px 36px rgba(22,36,63,0.07);border:1px solid var(--line);position:relative;transition:transform .4s ease,box-shadow .4s ease;}
 .tm-quote:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(22,36,63,0.12);}
@@ -303,12 +301,6 @@ p{margin:0;}
 
 @media (max-width:920px){.tm-masonry{columns:2 260px;}}
 @media (max-width:620px){.tm-masonry{columns:1;}}
-
-.video-modal{position:fixed;inset:0;background:rgba(8,13,24,0.92);backdrop-filter:blur(10px);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease;padding:20px;}
-.video-modal.open{opacity:1;pointer-events:all;}
-.video-modal-inner{width:100%;max-width:780px;aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,0.5);position:relative;}
-.video-modal-inner iframe{width:100%;height:100%;border:0;}
-.video-modal-close{position:absolute;top:-46px;right:0;background:none;border:none;color:var(--white);font-size:30px;cursor:pointer;line-height:1;}
 
 /* ============================================================
    PRICING
@@ -747,8 +739,8 @@ p{margin:0;}
 
     <div class="tm-masonry reveal reveal-delay-3">
 
-      <div class="tm-video" data-vimeo="1125329664" data-hash="85de2af59b" role="button" tabindex="0" aria-label="Play community testimonial video">
-        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125329664?h=85de2af59b&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
       </div>
 
       <figure class="tm-quote tm-quote-lg">
@@ -760,8 +752,8 @@ p{margin:0;}
         </figcaption>
       </figure>
 
-      <div class="tm-video" data-vimeo="1125323208" data-hash="ace35ef467" role="button" tabindex="0" aria-label="Play community testimonial video">
-        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125323208?h=ace35ef467&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
       </div>
 
       <div class="tm-stat">
@@ -769,8 +761,8 @@ p{margin:0;}
         <p>Leaders sat in that room together. Now the conversation continues every month — not once a year.</p>
       </div>
 
-      <div class="tm-video" data-vimeo="1125322589" data-hash="d3a29d9359" role="button" tabindex="0" aria-label="Play community testimonial video">
-        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125322589?h=d3a29d9359&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
       </div>
 
       <figure class="tm-quote">
@@ -782,8 +774,8 @@ p{margin:0;}
         </figcaption>
       </figure>
 
-      <div class="tm-video" data-vimeo="1125322439" data-hash="662c71e37f" role="button" tabindex="0" aria-label="Play community testimonial video">
-        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125322439?h=662c71e37f&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
       </div>
 
       <div class="tm-stat tm-stat-alt">
@@ -791,28 +783,21 @@ p{margin:0;}
         <p>Years turning one day of inspiration into a lifetime of leadership habits.</p>
       </div>
 
-      <div class="tm-video" data-vimeo="1125322807" data-hash="0157034cb5" role="button" tabindex="0" aria-label="Play community testimonial video">
-        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125322807?h=0157034cb5&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
       </div>
 
-      <div class="tm-video" data-vimeo="1125321962" data-hash="9da397f887" role="button" tabindex="0" aria-label="Play community testimonial video">
-        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125321962?h=9da397f887&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
       </div>
 
-      <div class="tm-video" data-vimeo="1125321782" data-hash="821ff289f3" role="button" tabindex="0" aria-label="Play community testimonial video">
-        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125321782?h=821ff289f3&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
       </div>
 
     </div>
   </div>
 </section>
-
-<div class="video-modal" id="videoModal">
-  <div class="video-modal-inner">
-    <button class="video-modal-close" id="videoModalClose" aria-label="Close video">&times;</button>
-    <div id="videoModalEmbed"></div>
-  </div>
-</div>
 
 <!-- ============================================================
      PRICING
@@ -988,37 +973,6 @@ p{margin:0;}
       }
     });
   });
-
-  /* ---- Video modal ---- */
-  var modal = document.getElementById('videoModal');
-  var embedWrap = document.getElementById('videoModalEmbed');
-  var modalClose = document.getElementById('videoModalClose');
-
-  function openVideo(id, hash){
-    var src = 'https://player.vimeo.com/video/' + id + (hash ? ('?h=' + hash + '&autoplay=1') : '?autoplay=1');
-    embedWrap.innerHTML = '<iframe src="' + src + '" width="100%" height="100%" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Community testimonial video"></iframe>';
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeVideo(){
-    modal.classList.remove('open');
-    embedWrap.innerHTML = '';
-    document.body.style.overflow = '';
-  }
-  document.querySelectorAll('.tm-video').forEach(function(card){
-    card.addEventListener('click', function(){
-      openVideo(card.getAttribute('data-vimeo'), card.getAttribute('data-hash'));
-    });
-    card.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        openVideo(card.getAttribute('data-vimeo'), card.getAttribute('data-hash'));
-      }
-    });
-  });
-  modalClose.addEventListener('click', closeVideo);
-  modal.addEventListener('click', function(e){ if(e.target === modal){ closeVideo(); } });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeVideo(); } });
 
   /* ---- Founding member deadline (dynamic, non-pushy) ---- */
   var deadlineEl = document.getElementById('daysRemaining');
