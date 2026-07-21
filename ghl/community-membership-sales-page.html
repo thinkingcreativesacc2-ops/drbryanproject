@@ -306,7 +306,19 @@ p{margin:0;}
    PRICING
 ============================================================ */
 .pricing-wrap{max-width:620px;margin:0 auto;}
-.price-banner{display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(200,147,43,0.12);border:1px solid rgba(200,147,43,0.35);color:var(--gold);font-size:13.5px;font-weight:700;letter-spacing:0.3px;padding:12px 22px;border-radius:100px;margin:0 auto 40px;width:fit-content;}
+.countdown-wrap{text-align:center;margin:0 auto 40px;}
+.countdown-label{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:18px;}
+.countdown{display:flex;align-items:stretch;justify-content:center;gap:12px;}
+.countdown-seg{background:linear-gradient(155deg,var(--navy),var(--navy-deep));border-radius:14px;padding:14px 16px;min-width:70px;box-shadow:0 10px 26px rgba(22,36,63,0.18);}
+.cd-num{display:block;font-family:'League Gothic';font-size:32px;color:var(--gold-light);line-height:1;font-variant-numeric:tabular-nums;}
+.cd-label{display:block;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:6px;}
+.cd-colon{align-self:center;font-family:'League Gothic';font-size:26px;color:var(--gold);opacity:0.45;}
+
+@media (max-width:480px){
+  .countdown{gap:8px;}
+  .countdown-seg{min-width:58px;padding:12px 10px;}
+  .cd-num{font-size:26px;}
+}
 .price-card{background:linear-gradient(165deg,var(--navy) 0%,var(--navy-deep) 100%);border-radius:28px;padding:56px 48px;color:var(--white);box-shadow:var(--shadow-lift);position:relative;overflow:hidden;border:1px solid rgba(200,147,43,0.25);}
 .price-card::before{content:"";position:absolute;width:520px;height:520px;background:radial-gradient(circle,rgba(200,147,43,0.18),transparent 65%);top:-220px;right:-180px;}
 .price-card-top{position:relative;z-index:1;text-align:center;}
@@ -811,9 +823,20 @@ p{margin:0;}
     </div>
 
     <div class="pricing-wrap reveal reveal-delay-3">
-      <div class="price-banner">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <span id="daysRemaining">Founding Member pricing ends September 30</span>
+      <div class="countdown-wrap">
+        <p class="countdown-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Founding Member Pricing Ends In
+        </p>
+        <div class="countdown" id="countdown">
+          <div class="countdown-seg"><span class="cd-num" id="cdDays">00</span><span class="cd-label">Days</span></div>
+          <span class="cd-colon">:</span>
+          <div class="countdown-seg"><span class="cd-num" id="cdHours">00</span><span class="cd-label">Hours</span></div>
+          <span class="cd-colon">:</span>
+          <div class="countdown-seg"><span class="cd-num" id="cdMins">00</span><span class="cd-label">Minutes</span></div>
+          <span class="cd-colon">:</span>
+          <div class="countdown-seg"><span class="cd-num" id="cdSecs">00</span><span class="cd-label">Seconds</span></div>
+        </div>
       </div>
 
       <div class="price-card">
@@ -974,14 +997,36 @@ p{margin:0;}
     });
   });
 
-  /* ---- Founding member deadline (dynamic, non-pushy) ---- */
-  var deadlineEl = document.getElementById('daysRemaining');
+  /* ---- Founding member countdown (live, non-pushy) ---- */
+  var cdDays = document.getElementById('cdDays');
+  var cdHours = document.getElementById('cdHours');
+  var cdMins = document.getElementById('cdMins');
+  var cdSecs = document.getElementById('cdSecs');
   var deadline = new Date(new Date().getFullYear(), 8, 30, 23, 59, 59);
   if(new Date() > deadline){ deadline.setFullYear(deadline.getFullYear() + 1); }
-  var msLeft = deadline - new Date();
-  var daysLeft = Math.max(0, Math.ceil(msLeft / (1000*60*60*24)));
-  if(daysLeft > 0){
-    deadlineEl.textContent = daysLeft + ' day' + (daysLeft === 1 ? '' : 's') + ' left at Founding Member pricing';
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+  function tickCountdown(){
+    var msLeft = deadline - new Date();
+    if(msLeft <= 0){
+      cdDays.textContent = cdHours.textContent = cdMins.textContent = cdSecs.textContent = '00';
+      return;
+    }
+    var totalSeconds = Math.floor(msLeft / 1000);
+    var days = Math.floor(totalSeconds / 86400);
+    var hours = Math.floor((totalSeconds % 86400) / 3600);
+    var mins = Math.floor((totalSeconds % 3600) / 60);
+    var secs = totalSeconds % 60;
+    cdDays.textContent = pad(days);
+    cdHours.textContent = pad(hours);
+    cdMins.textContent = pad(mins);
+    cdSecs.textContent = pad(secs);
+  }
+
+  if(cdDays){
+    tickCountdown();
+    setInterval(tickCountdown, 1000);
   }
 
 })();
