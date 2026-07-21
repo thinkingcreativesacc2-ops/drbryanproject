@@ -276,30 +276,33 @@ p{margin:0;}
 }
 
 /* ============================================================
-   TESTIMONIALS
+   TESTIMONIALS — masonry social-proof wall
 ============================================================ */
-.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-.testi-card{background:var(--white);border-radius:22px;padding:40px 36px;box-shadow:0 14px 36px rgba(22,36,63,0.07);border:1px solid var(--line);position:relative;}
-.testi-quote-mark{font-family:'League Gothic';font-size:70px;color:var(--gold);opacity:0.28;line-height:1;position:absolute;top:20px;right:30px;}
-.testi-card p.quote{font-size:16.5px;color:var(--ink);line-height:1.75;margin-bottom:26px;position:relative;z-index:1;}
-.testi-name{font-weight:700;color:var(--navy);font-size:15.5px;}
-.testi-role{font-size:13.5px;color:var(--ink-soft);margin-top:2px;}
+.tm-masonry{columns:3 300px;column-gap:26px;margin-top:8px;}
+.tm-masonry > *{break-inside:avoid;-webkit-column-break-inside:avoid;margin:0 0 26px;}
 
-@media (max-width:820px){.testi-grid{grid-template-columns:1fr;}}
+.tm-video{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:16/9;background:linear-gradient(155deg,var(--navy-mid),var(--navy-deep));box-shadow:0 14px 36px rgba(22,36,63,0.14);transition:transform .4s ease,box-shadow .4s ease;}
+.tm-video:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(22,36,63,0.2);}
+.tm-video::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(200,147,43,0.30),transparent 62%);}
+.tm-video .play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,0.14);border:1.5px solid rgba(255,255,255,0.5);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;transition:transform .3s ease,background .3s ease;}
+.tm-video:hover .play-btn{transform:translate(-50%,-50%) scale(1.1);background:rgba(200,147,43,0.85);}
 
-/* ============================================================
-   VIDEO GALLERY
-============================================================ */
-.video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
-.video-card{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:9/16;background:linear-gradient(155deg,var(--navy-mid),var(--navy-deep));box-shadow:0 14px 36px rgba(22,36,63,0.14);}
-.video-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(200,147,43,0.28),transparent 60%);}
-.video-card .play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.14);border:1.5px solid rgba(255,255,255,0.5);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;transition:transform .3s ease,background .3s ease;}
-.video-card:hover .play-btn{transform:translate(-50%,-50%) scale(1.1);background:rgba(200,147,43,0.75);}
-.video-card .v-label{position:absolute;bottom:16px;left:16px;right:16px;color:rgba(255,255,255,0.88);font-size:13px;font-weight:700;letter-spacing:0.4px;}
-.video-card .v-num{position:absolute;top:14px;left:16px;font-family:'League Gothic';font-size:26px;color:rgba(255,255,255,0.35);}
+.tm-quote{background:var(--white);border-radius:22px;padding:40px 36px;box-shadow:0 14px 36px rgba(22,36,63,0.07);border:1px solid var(--line);position:relative;transition:transform .4s ease,box-shadow .4s ease;}
+.tm-quote:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(22,36,63,0.12);}
+.tm-quote-lg{padding:46px 40px;}
+.tm-quote-mark{font-family:'League Gothic';font-size:70px;color:var(--gold);opacity:0.28;line-height:1;position:absolute;top:20px;right:30px;}
+.tm-quote p.quote{font-size:16px;color:var(--ink);line-height:1.75;margin-bottom:24px;position:relative;z-index:1;}
+.tm-quote figcaption{display:flex;flex-direction:column;}
+.tm-name{font-weight:700;color:var(--navy);font-size:15.5px;}
+.tm-role{font-size:13.5px;color:var(--ink-soft);margin-top:2px;}
 
-@media (max-width:920px){.video-grid{grid-template-columns:repeat(2,1fr);}}
-@media (max-width:520px){.video-grid{grid-template-columns:1fr 1fr;gap:14px;}}
+.tm-stat{background:linear-gradient(155deg,var(--navy),var(--navy-deep));border-radius:22px;padding:38px 34px;color:var(--white);box-shadow:var(--shadow-soft);text-align:center;}
+.tm-stat-alt{background:linear-gradient(155deg,var(--navy-mid),var(--navy));}
+.tm-stat-num{display:block;font-family:'League Gothic';font-size:52px;color:var(--gold-light);line-height:1;margin-bottom:14px;}
+.tm-stat p{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.6;}
+
+@media (max-width:920px){.tm-masonry{columns:2 260px;}}
+@media (max-width:620px){.tm-masonry{columns:1;}}
 
 .video-modal{position:fixed;inset:0;background:rgba(8,13,24,0.92);backdrop-filter:blur(10px);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease;padding:20px;}
 .video-modal.open{opacity:1;pointer-events:all;}
@@ -732,79 +735,74 @@ p{margin:0;}
 </section>
 
 <!-- ============================================================
-     TESTIMONIALS
+     TESTIMONIALS — masonry social-proof wall
 ============================================================ -->
-<section class="section section-white" aria-labelledby="testi-heading">
+<section class="section section-cream" aria-labelledby="testi-heading">
   <div class="container">
     <div class="section-header text-center max-720">
-      <p class="eyebrow reveal">In Their Words</p>
-      <h2 id="testi-heading" class="h-lg reveal reveal-delay-1">Leaders Who've Experienced Dr. Bryan.</h2>
+      <p class="eyebrow reveal">Real Leaders. Real Growth.</p>
+      <h2 id="testi-heading" class="h-lg reveal reveal-delay-1">These Leaders Stayed Connected — And Never Stopped Growing.</h2>
+      <p class="lede reveal reveal-delay-2" style="color:var(--ink-soft);margin-top:16px;">Hear it directly from the leaders who've experienced Dr. Bryan — and see what they said in their own words.</p>
     </div>
 
-    <div class="testi-grid">
-      <div class="testi-card reveal">
-        <span class="testi-quote-mark">&rdquo;</span>
+    <div class="tm-masonry reveal reveal-delay-3">
+
+      <div class="tm-video" data-vimeo="1125329664" data-hash="85de2af59b" role="button" tabindex="0" aria-label="Play community testimonial video">
+        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </div>
+
+      <figure class="tm-quote tm-quote-lg">
+        <span class="tm-quote-mark">&rdquo;</span>
         <p class="quote">I genuinely appreciated and am so thankful to have attended the Manager Skills Workshop, and our all staff presentation on, "Work Like You Own It." This really was a world class experience. I'm realizing now how much I needed this for my own personal growth as a leader as well. I'm blown away by how well you knew everyone's names and even remembered them as you called them out during the all-staff presentation as well.</p>
-        <div class="testi-name">Dell Anderson, M.Ed, LMHC</div>
-        <div class="testi-role">Executive Director, Grant Behavioral Health &amp; Wellness</div>
-      </div>
-      <div class="testi-card reveal reveal-delay-2">
-        <span class="testi-quote-mark">&rdquo;</span>
-        <p class="quote">I wanted to send you a quick note and thank you for last week's Managers Workshop through Commerce Lexington. The content was superb, you are an AMAZING facilitator – your energy and ability to connect with people is truly a gift, and I really appreciated all the different perspectives and voices from the group.</p>
-        <div class="testi-name">Rockelle Ward</div>
-        <div class="testi-role">Director of Global Accreditation, ICF Coaching Federation</div>
-      </div>
-    </div>
-  </div>
-</section>
+        <figcaption>
+          <span class="tm-name">Dell Anderson, M.Ed, LMHC</span>
+          <span class="tm-role">Executive Director, Grant Behavioral Health &amp; Wellness</span>
+        </figcaption>
+      </figure>
 
-<!-- ============================================================
-     VIDEO TESTIMONIALS
-============================================================ -->
-<section class="section section-navy" aria-labelledby="video-heading">
-  <div class="container">
-    <div class="section-header text-center max-720">
-      <p class="eyebrow on-dark reveal">See It For Yourself</p>
-      <h2 id="video-heading" class="h-lg on-dark reveal reveal-delay-1">Real Leaders. Real Stories.</h2>
-      <p class="lede on-dark reveal reveal-delay-2" style="margin-top:16px;">Tap any video to hear directly from leaders who've experienced Dr. Bryan.</p>
-    </div>
+      <div class="tm-video" data-vimeo="1125323208" data-hash="ace35ef467" role="button" tabindex="0" aria-label="Play community testimonial video">
+        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </div>
 
-    <div class="video-grid reveal reveal-delay-3">
-      <div class="video-card" data-vimeo="1125329664" data-hash="85de2af59b">
-        <span class="v-num">01</span>
-        <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="v-label">Community Voices</span>
+      <div class="tm-stat">
+        <span class="tm-stat-num">1,700+</span>
+        <p>Leaders sat in that room together. Now the conversation continues every month — not once a year.</p>
       </div>
-      <div class="video-card" data-vimeo="1125323208" data-hash="ace35ef467">
-        <span class="v-num">02</span>
-        <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="v-label">Community Voices</span>
+
+      <div class="tm-video" data-vimeo="1125322589" data-hash="d3a29d9359" role="button" tabindex="0" aria-label="Play community testimonial video">
+        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
       </div>
-      <div class="video-card" data-vimeo="1125322589" data-hash="d3a29d9359">
-        <span class="v-num">03</span>
-        <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="v-label">Community Voices</span>
+
+      <figure class="tm-quote">
+        <span class="tm-quote-mark">&rdquo;</span>
+        <p class="quote">I wanted to send you a quick note and thank you for last week's Managers Workshop through Commerce Lexington. The content was superb, you are an AMAZING facilitator – your energy and ability to connect with people is truly a gift.</p>
+        <figcaption>
+          <span class="tm-name">Rockelle Ward</span>
+          <span class="tm-role">Director of Global Accreditation, ICF Coaching Federation</span>
+        </figcaption>
+      </figure>
+
+      <div class="tm-video" data-vimeo="1125322439" data-hash="662c71e37f" role="button" tabindex="0" aria-label="Play community testimonial video">
+        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
       </div>
-      <div class="video-card" data-vimeo="1125322439" data-hash="662c71e37f">
-        <span class="v-num">04</span>
-        <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="v-label">Community Voices</span>
+
+      <div class="tm-stat tm-stat-alt">
+        <span class="tm-stat-num">25+</span>
+        <p>Years turning one day of inspiration into a lifetime of leadership habits.</p>
       </div>
-      <div class="video-card" data-vimeo="1125322807" data-hash="0157034cb5">
-        <span class="v-num">05</span>
-        <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="v-label">Community Voices</span>
+
+      <div class="tm-video" data-vimeo="1125322807" data-hash="0157034cb5" role="button" tabindex="0" aria-label="Play community testimonial video">
+        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
       </div>
-      <div class="video-card" data-vimeo="1125321962" data-hash="9da397f887">
-        <span class="v-num">06</span>
-        <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="v-label">Community Voices</span>
+
+      <div class="tm-video" data-vimeo="1125321962" data-hash="9da397f887" role="button" tabindex="0" aria-label="Play community testimonial video">
+        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
       </div>
-      <div class="video-card" data-vimeo="1125321782" data-hash="821ff289f3">
-        <span class="v-num">07</span>
-        <span class="play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="v-label">Community Voices</span>
+
+      <div class="tm-video" data-vimeo="1125321782" data-hash="821ff289f3" role="button" tabindex="0" aria-label="Play community testimonial video">
+        <span class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
       </div>
+
     </div>
   </div>
 </section>
@@ -1007,9 +1005,15 @@ p{margin:0;}
     embedWrap.innerHTML = '';
     document.body.style.overflow = '';
   }
-  document.querySelectorAll('.video-card').forEach(function(card){
+  document.querySelectorAll('.tm-video').forEach(function(card){
     card.addEventListener('click', function(){
       openVideo(card.getAttribute('data-vimeo'), card.getAttribute('data-hash'));
+    });
+    card.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        openVideo(card.getAttribute('data-vimeo'), card.getAttribute('data-hash'));
+      }
     });
   });
   modalClose.addEventListener('click', closeVideo);
