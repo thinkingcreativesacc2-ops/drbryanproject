@@ -194,14 +194,33 @@ h1,h2,h3{font-family:'League Gothic',Georgia,serif;font-weight:400;letter-spacin
 .quote-attr{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep)}
 
 /* ═══════════════════════════════════════════════════════════════
-   SPEAKER
+   HOST / SPEAKER
 ═══════════════════════════════════════════════════════════════ */
-.speaker{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,4vw,2.5rem);align-items:center}
-.speaker-photo{width:120px;height:120px;border-radius:50%;overflow:hidden;box-shadow:var(--shadow-lg);border:2px solid rgba(229,171,72,.4);flex-shrink:0}
-.speaker-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.speaker-name{font-family:'League Gothic',serif;font-size:1.4rem;letter-spacing:.03em;text-transform:uppercase;color:var(--navy);margin-bottom:.35rem}
-.speaker-text p{color:var(--muted);font-size:.95rem;margin:0}
-@media (max-width:560px){ .speaker{grid-template-columns:1fr;text-align:center;justify-items:center} }
+.host-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,3.5rem);align-items:center}
+.host-media{position:relative}
+.host-media .accent{position:absolute;top:-14px;left:-14px;width:55%;height:55%;background:var(--gold);opacity:.15;border-radius:14px;z-index:0}
+.host-media .frame{position:relative;z-index:1;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/5}
+.host-media img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.host-text p{color:var(--muted);margin-bottom:1.1rem;font-size:.98rem}
+.host-text p:last-of-type{margin-bottom:0}
+.host-stats{display:flex;margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.host-stat{position:relative;padding-right:clamp(1.25rem,3vw,2rem)}
+.host-stat + .host-stat{padding-left:clamp(1.25rem,3vw,2rem)}
+.host-stat + .host-stat::before{content:'';position:absolute;left:0;top:.15rem;bottom:.15rem;width:1px;background:rgba(185,130,44,.35)}
+.host-stat-num{display:block;font-family:'League Gothic',serif;font-size:1.9rem;color:var(--navy);line-height:1}
+.host-stat-lbl{display:block;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);margin-top:.3rem}
+.host-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+.host-tag{font-size:.72rem;font-weight:700;letter-spacing:.03em;color:var(--navy);border:1px solid rgba(25,40,87,.18);background:var(--white);padding:.4rem .9rem;border-radius:20px}
+@media (max-width:760px){
+  .host-grid{grid-template-columns:1fr}
+  .host-media{max-width:340px;margin-inline:auto}
+}
+@media (max-width:480px){
+  .host-stats{flex-wrap:wrap;row-gap:.85rem}
+  .host-stat{padding-right:1.25rem}
+  .host-stat + .host-stat{padding-left:0}
+  .host-stat + .host-stat::before{display:none}
+}
 
 /* ═══════════════════════════════════════════════════════════════
    FINAL CTA
@@ -393,27 +412,71 @@ h1,h2,h3{font-family:'League Gothic',Georgia,serif;font-weight:400;letter-spacin
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════
-       SPEAKER
+       YOUR HOST
   ═══════════════════════════════════════════════════════════ -->
-  <section class="section bg-cream">
+  <section class="section bg-white">
     <div class="wrap">
-      <div class="speaker reveal">
-        <div class="speaker-photo">
-          <img
-            src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd899c9b37b5fd0b1e4b.jpg"
-            alt="Dr. Bryan K. Williams"
-            loading="lazy"
-          />
+      <div class="host-grid">
+
+        <div class="host-media reveal">
+          <div class="accent" aria-hidden="true"></div>
+          <div class="frame">
+            <img
+              src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd899c9b37b5fd0b1e4b.jpg"
+              alt="Dr. Bryan K. Williams"
+              loading="lazy"
+            />
+          </div>
         </div>
-        <div class="speaker-text">
-          <p class="speaker-name">Dr. Bryan K. Williams</p>
+
+        <div class="host-text reveal">
+          <span class="eyebrow">Your Host</span>
+          <h2 class="h-display">Meet Dr. Bryan K. Williams</h2>
+
           <p>
-            Keynote speaker, consultant, and author Dr. Bryan K. Williams is a noted
-            authority on service excellence and leadership effectiveness. Over the past
-            25+ years, he has brought training and consulting expertise to hundreds of
-            organizations across 20+ industries, on six continents.
+            Dr. Bryan K. Williams is a keynote speaker, consultant, and author
+            recognized worldwide as an authority on Service Excellence and Leadership
+            Effectiveness. His passion is helping leaders better serve others — so they
+            can better serve the world.
           </p>
+          <p>
+            Over the last 25+ years, Bryan has trained and consulted with hundreds of
+            organizations across more than 20 industries — including healthcare,
+            hospitality, luxury hotels, education, financial services, and government.
+            His work has taken him across North America, South America, Europe, Asia,
+            Africa, Australia, and the Caribbean.
+          </p>
+          <p>
+            His hospitality clients include The Inn at Little Washington, a Forbes
+            Five-Star property recognized among the finest in the world.
+          </p>
+
+          <div class="host-stats">
+            <div class="host-stat">
+              <span class="host-stat-num">25+</span>
+              <span class="host-stat-lbl">Years Experience</span>
+            </div>
+            <div class="host-stat">
+              <span class="host-stat-num">20+</span>
+              <span class="host-stat-lbl">Industries</span>
+            </div>
+            <div class="host-stat">
+              <span class="host-stat-num">6</span>
+              <span class="host-stat-lbl">Continents</span>
+            </div>
+          </div>
+
+          <div class="host-tags">
+            <span class="host-tag">North America</span>
+            <span class="host-tag">South America</span>
+            <span class="host-tag">Europe</span>
+            <span class="host-tag">Asia</span>
+            <span class="host-tag">Africa</span>
+            <span class="host-tag">Australia</span>
+            <span class="host-tag">Caribbean</span>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
