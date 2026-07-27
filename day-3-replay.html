@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Watch the Day Three replay of Dr. Bryan K. Williams' 20th Anniversary Celebration — Leading a 5-Star Team. Replay access closes September 30." />
+<title>Leading a 5-Star Team | Day Three Replay — Dr. Bryan K. Williams</title>
+
+<!--
+  ════════════════════════════════════════════════════════════════
+  GHL CUSTOM CODE — HOW TO USE
+  ────────────────────────────────────────────────────────────────
+  Paste this entire file as a full Custom Code page, or paste the
+  contents between <body> and </body> into a Custom HTML block and
+  the <style> block into the page's Custom CSS.
+
+  BEFORE PUBLISHING, replace:
+    - DAY3_VIDEO_URL        (search "REPLACE_WITH_DAY3_VIDEO_EMBED_URL")
+    - COMMUNITY_URL         (final CTA + footer link)
+    - The countdown deadline near the bottom of the <script> block —
+      currently set to September 30, 2026, 11:59 PM in each visitor's
+      own local time. Change the year/date/time there if needed.
+
+  NOTE: This session's window is 3 days longer than Day One/Two
+  (closes September 30, not September 27) since it's the final
+  session of the celebration.
+  ════════════════════════════════════════════════════════════════
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Playfair+Display:ital@1&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  font-family:'Lato',Arial,sans-serif;color:var(--ink);background:var(--white);
+  line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'League Gothic',Georgia,serif;font-weight:400;letter-spacing:.01em}
+
+/* ═══════════════════════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════════════════════ */
+:root{
+  --navy:#192857; --navy-deep:#0f1938; --navy-light:#2f4180;
+  --gold:#e5ab48; --gold-light:#f2c887; --gold-deep:#b9822c;
+  --cream:#faf6ee; --white:#ffffff; --ink:#20263b; --muted:#666f8a; --border:#e9e2d3;
+  --shadow:0 10px 40px rgba(15,25,56,.10); --shadow-lg:0 24px 70px rgba(15,25,56,.20);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LAYOUT HELPERS
+═══════════════════════════════════════════════════════════════ */
+.wrap{width:100%;max-width:1080px;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,2.5rem)}
+.center{text-align:center}
+.max-720{max-width:720px;margin-inline:auto}
+.section{padding-block:clamp(3.5rem,8vw,6.5rem)}
+.bg-white{background:var(--white)}
+.bg-cream{background:var(--cream)}
+.bg-ivory{background:#f8f6f0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.6em;
+  font-size:.72rem;font-weight:900;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold-deep);margin-bottom:1.1rem;
+}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--gold);display:inline-block}
+.h-display{font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.05;text-transform:uppercase;color:var(--navy);margin-bottom:1.1rem}
+.lede{font-size:clamp(1.02rem,1.5vw,1.15rem);color:var(--muted);line-height:1.75;font-weight:300}
+.divider-gold{width:56px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:1.5rem auto;border-radius:2px}
+
+.btn-gold{
+  display:inline-flex;align-items:center;gap:.75rem;background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  color:var(--navy-deep);font-weight:900;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:1.1rem 2.4rem;border-radius:100px;box-shadow:0 14px 34px rgba(229,171,72,.30);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(229,171,72,.42)}
+.btn-gold svg{transition:transform .3s var(--ease)}
+.btn-gold:hover svg{transform:translateX(4px)}
+.btn-gold.is-disabled{opacity:.45;pointer-events:none;box-shadow:none}
+.btn-gold.btn-lg{padding:1.3rem 2.8rem;font-size:.92rem;box-shadow:0 18px 44px rgba(229,171,72,.38)}
+
+@media (prefers-reduced-motion: no-preference){
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   URGENCY BAR
+═══════════════════════════════════════════════════════════════ */
+.urgency-bar{
+  position:sticky;top:0;z-index:600;background:var(--navy-deep);border-bottom:1px solid rgba(229,171,72,.25);
+  padding:.65rem 0;text-align:center;
+}
+.urgency-bar .wrap{display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap}
+.urgency-text{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.urgency-clock{font-size:.78rem;font-weight:900;letter-spacing:.05em;color:var(--gold-light)}
+
+/* ═══════════════════════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════════════════════ */
+.site-header{background:var(--navy);padding:1.1rem 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.brand-logo{height:30px;width:auto;opacity:.96}
+.back-link{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72);display:flex;align-items:center;gap:.5rem}
+.back-link:hover{color:var(--gold-light)}
+@media (max-width:560px){ .back-link span{display:none} }
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════════════ */
+.hero{
+  position:relative;overflow:hidden;text-align:center;
+  background:linear-gradient(175deg,var(--navy) 0%,var(--navy-deep) 100%);
+  padding-block:clamp(3.5rem,8vw,5.5rem);
+}
+.hero-glow{position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:60%;height:70%;z-index:0;pointer-events:none;
+  background:radial-gradient(circle,rgba(229,171,72,.22) 0%,rgba(229,171,72,0) 70%);filter:blur(60px);
+}
+.hero-inner{position:relative;z-index:1;max-width:760px;margin-inline:auto;padding-inline:1.5rem}
+.hero-eyebrow{font-size:.72rem;font-weight:900;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.25rem}
+.hero-title{font-size:clamp(2.5rem,7vw,4.5rem);line-height:1.03;text-transform:uppercase;color:#fff;margin-bottom:1.25rem}
+.hero-sub{font-size:clamp(1rem,1.7vw,1.2rem);color:rgba(255,255,255,.82);font-weight:300;line-height:1.8;max-width:620px;margin:0 auto 1.75rem}
+.hero-meta{display:flex;align-items:center;justify-content:center;gap:.9rem;flex-wrap:wrap;margin-bottom:2.25rem}
+.hero-meta span{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.hero-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--gold)}
+
+/* ═══════════════════════════════════════════════════════════════
+   COUNTDOWN
+═══════════════════════════════════════════════════════════════ */
+.countdown-section{background:var(--cream);border-top:1px solid rgba(229,171,72,.3);border-bottom:1px solid var(--border);padding-block:clamp(2.75rem,6vw,4rem)}
+.countdown-label{font-size:.78rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:1.5rem}
+.countdown-label strong{color:var(--gold-deep)}
+.countdown-grid{display:flex;align-items:center;justify-content:center;gap:clamp(.75rem,2.5vw,1.5rem);flex-wrap:wrap}
+.countdown-unit{
+  background:var(--white);border:1px solid rgba(229,171,72,.35);border-radius:14px;
+  padding:1rem clamp(1rem,3vw,1.5rem);min-width:82px;box-shadow:var(--shadow);text-align:center;
+}
+.countdown-num{display:block;font-family:'League Gothic',serif;font-size:clamp(2rem,5vw,2.75rem);color:var(--navy);line-height:1}
+.countdown-unit-label{display:block;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);margin-top:.35rem}
+.countdown-sep{font-family:'League Gothic',serif;font-size:2rem;color:rgba(229,171,72,.5)}
+.countdown-note{margin-top:1.5rem;font-size:.9rem;color:var(--muted);max-width:480px;margin-inline:auto}
+.countdown-expired{display:none;font-size:1.1rem;font-weight:700;color:var(--navy-deep);letter-spacing:.02em}
+@media (max-width:520px){ .countdown-sep{display:none} .countdown-grid{gap:.6rem} .countdown-unit{min-width:68px;padding:.85rem .5rem} }
+
+/* ═══════════════════════════════════════════════════════════════
+   VIDEO
+═══════════════════════════════════════════════════════════════ */
+.video-wrap{max-width:900px;margin-inline:auto}
+.video-frame{
+  position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;
+  box-shadow:var(--shadow-lg);background:var(--navy);
+}
+.video-frame img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.video-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,25,56,0) 45%,rgba(15,25,56,.6) 100%)}
+.video-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
+  width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.14);
+  border:1.5px solid rgba(255,255,255,.7);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;transition:transform .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease);
+}
+.video-play svg{margin-left:5px}
+.video-frame:hover .video-play{transform:translate(-50%,-50%) scale(1.08);background:var(--gold);border-color:var(--gold)}
+.video-duration{position:absolute;bottom:1rem;right:1rem;z-index:2;font-size:.7rem;font-weight:700;letter-spacing:.08em;color:#fff;background:rgba(15,25,56,.55);border:1px solid rgba(255,255,255,.25);padding:.3rem .7rem;border-radius:20px}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-expired{
+  display:none;flex-direction:column;align-items:center;justify-content:center;gap:1rem;
+  width:100%;aspect-ratio:16/9;border-radius:16px;background:var(--navy-deep);color:#fff;text-align:center;padding:2rem;
+}
+.video-expired h3{font-size:1.5rem;text-transform:uppercase;color:#fff}
+.video-expired p{color:rgba(255,255,255,.7);max-width:420px;font-size:.95rem}
+
+/* ═══════════════════════════════════════════════════════════════
+   TAKEAWAYS
+═══════════════════════════════════════════════════════════════ */
+.takeaway-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2.5rem;text-align:left}
+.takeaway{display:flex;gap:1rem;align-items:flex-start}
+.takeaway-icon{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;background:linear-gradient(160deg,var(--gold-light),var(--gold));
+  display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(229,171,72,.3);
+}
+.takeaway p{color:var(--muted);font-size:.95rem;margin:0}
+
+/* ═══════════════════════════════════════════════════════════════
+   QUOTE
+═══════════════════════════════════════════════════════════════ */
+.quote-block{max-width:680px;margin-inline:auto;text-align:center}
+.quote-mark{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:3rem;color:var(--gold);line-height:1;margin-bottom:.5rem;opacity:.85}
+.quote-text{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(1.2rem,2.6vw,1.6rem);line-height:1.6;color:var(--navy);margin-bottom:1.25rem}
+.quote-attr{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep)}
+
+/* ═══════════════════════════════════════════════════════════════
+   HOST / SPEAKER
+═══════════════════════════════════════════════════════════════ */
+.host-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,3.5rem);align-items:center}
+.host-media{position:relative}
+.host-media .accent{position:absolute;top:-14px;left:-14px;width:55%;height:55%;background:var(--gold);opacity:.15;border-radius:14px;z-index:0}
+.host-media .frame{position:relative;z-index:1;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/5}
+.host-media img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.host-text p{color:var(--muted);margin-bottom:1.1rem;font-size:.98rem}
+.host-text p:last-of-type{margin-bottom:0}
+.host-stats{display:flex;margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.host-stat{position:relative;padding-right:clamp(1.25rem,3vw,2rem)}
+.host-stat + .host-stat{padding-left:clamp(1.25rem,3vw,2rem)}
+.host-stat + .host-stat::before{content:'';position:absolute;left:0;top:.15rem;bottom:.15rem;width:1px;background:rgba(185,130,44,.35)}
+.host-stat-num{display:block;font-family:'League Gothic',serif;font-size:1.9rem;color:var(--navy);line-height:1}
+.host-stat-lbl{display:block;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);margin-top:.3rem}
+.host-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+.host-tag{font-size:.72rem;font-weight:700;letter-spacing:.03em;color:var(--navy);border:1px solid rgba(25,40,87,.18);background:var(--white);padding:.4rem .9rem;border-radius:20px}
+@media (max-width:760px){
+  .host-grid{grid-template-columns:1fr}
+  .host-media{max-width:340px;margin-inline:auto}
+}
+@media (max-width:480px){
+  .host-stats{flex-wrap:wrap;row-gap:.85rem}
+  .host-stat{padding-right:1.25rem}
+  .host-stat + .host-stat{padding-left:0}
+  .host-stat + .host-stat::before{display:none}
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FINAL CTA — JOIN THE COMMUNITY (emphasized)
+═══════════════════════════════════════════════════════════════ */
+.final-cta{
+  position:relative;overflow:hidden;padding-block:clamp(4.5rem,10vw,7.5rem);
+  background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);
+}
+.final-cta-glow{
+  position:absolute;top:-15%;left:50%;transform:translateX(-50%);width:70%;height:70%;z-index:0;pointer-events:none;
+  background:radial-gradient(circle,rgba(229,171,72,.20) 0%,rgba(229,171,72,0) 70%);filter:blur(70px);
+}
+.community-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(2.25rem,5vw,4rem);align-items:center}
+.community-media .frame{
+  position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;
+  box-shadow:0 30px 70px rgba(0,0,0,.35);border:1px solid rgba(229,171,72,.4);
+}
+.community-media img{width:100%;height:100%;object-fit:cover;object-position:center}
+.community-badge{
+  display:inline-block;font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--navy-deep);background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  padding:.4rem 1rem;border-radius:20px;margin-bottom:1.1rem;
+}
+.community-text .h-display{font-size:clamp(2.4rem,6vw,4.1rem)}
+.community-benefits{list-style:none;margin:1.85rem 0 2.25rem;display:flex;flex-direction:column;gap:1rem}
+.community-benefit{display:flex;align-items:flex-start;gap:.85rem;color:rgba(255,255,255,.88);font-size:.98rem}
+.community-benefit-icon{
+  flex-shrink:0;width:26px;height:26px;border-radius:50%;margin-top:.05rem;
+  background:linear-gradient(160deg,var(--gold-light),var(--gold));
+  display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(229,171,72,.35);
+}
+.community-note{margin-top:1.1rem;font-size:.8rem;color:rgba(255,255,255,.55);letter-spacing:.02em}
+@media (max-width:760px){
+  .community-grid{grid-template-columns:1fr;text-align:center}
+  .community-media{max-width:340px;margin-inline:auto}
+  .community-benefit{text-align:left}
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════════ */
+.site-footer{background:var(--navy-deep);padding-block:2.5rem;text-align:center;border-top:1px solid rgba(229,171,72,.15)}
+.footer-logo{height:30px;margin:0 auto .9rem;opacity:.9}
+.footer-tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light)}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:1rem}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     URGENCY BAR
+═══════════════════════════════════════════════════════════════ -->
+<div class="urgency-bar">
+  <div class="wrap">
+    <span class="urgency-text">Replay access closes September 30 &mdash;</span>
+    <span class="urgency-clock" id="urgencyClock">calculating&hellip;</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <img
+      src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png"
+      alt="Dr. Bryan K. Williams"
+      class="brand-logo"
+    />
+    <!-- Link back to the full 20th Anniversary hub page -->
+    <a href="20th-anniversary-replay-experience.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>All Sessions</span>
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <span class="hero-eyebrow">20th Anniversary Celebration &middot; Day Three Replay</span>
+      <h1 class="hero-title">Leading a 5-Star Team</h1>
+      <p class="hero-sub">
+        The celebration closes with a blueprint for building a team that performs like
+        the best in the world. Relive the session on what true 5-star leadership looks
+        like in action — drawn from Dr. Bryan's years shaping The Ritz-Carlton's service
+        culture.
+      </p>
+      <div class="hero-meta">
+        <span>Recorded September 19</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span>51 Minutes</span>
+      </div>
+      <a href="#watch" class="btn-gold">
+        Watch the Replay
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       COUNTDOWN
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="countdown-section center">
+    <div class="wrap">
+      <p class="countdown-label">This replay is only available <strong>through September 30</strong></p>
+
+      <div class="countdown-grid" id="countdownGrid">
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cdDays">00</span>
+          <span class="countdown-unit-label">Days</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cdHours">00</span>
+          <span class="countdown-unit-label">Hours</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cdMinutes">00</span>
+          <span class="countdown-unit-label">Minutes</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cdSeconds">00</span>
+          <span class="countdown-unit-label">Seconds</span>
+        </div>
+      </div>
+
+      <p class="countdown-expired" id="countdownExpired">This replay window has closed.</p>
+
+      <p class="countdown-note" id="countdownNote">After this date, this session will no longer be available to
+        watch. If you haven't yet, now's the time.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section bg-white" id="watch">
+    <div class="wrap">
+      <div class="center max-720 reveal" style="margin-bottom:2.5rem;">
+        <span class="eyebrow" style="justify-content:center;">Day Three</span>
+        <h2 class="h-display">Leading a 5-Star Team</h2>
+      </div>
+
+      <div class="video-wrap reveal">
+        <div class="video-frame" id="videoFrame">
+          <img
+            src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd800e67afc0134fb868.jpg"
+            alt="Leading a 5-Star Team — Day Three session thumbnail"
+            loading="lazy"
+          />
+          <button class="video-play" id="videoPlayBtn" aria-label="Play the Day Three replay">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <span class="video-duration">51 MIN</span>
+        </div>
+
+        <div class="video-expired" id="videoExpiredBlock">
+          <h3>This Replay Has Expired</h3>
+          <p>Access to this session closed on September 30. Join the community below to
+            stay close to what's next from Dr. Bryan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TAKEAWAYS
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section bg-cream">
+    <div class="wrap">
+      <div class="center max-720 reveal">
+        <span class="eyebrow" style="justify-content:center;">Inside This Session</span>
+        <h2 class="h-display">What You'll Walk Away With</h2>
+      </div>
+
+      <div class="takeaway-list">
+        <div class="takeaway reveal">
+          <span class="takeaway-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#192857" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <p>What separates a 5-star team from a team that simply performs "well enough."</p>
+        </div>
+        <div class="takeaway reveal">
+          <span class="takeaway-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#192857" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <p>How to build a culture of service excellence that holds up under pressure.</p>
+        </div>
+        <div class="takeaway reveal">
+          <span class="takeaway-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#192857" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <p>The standards Dr. Bryan carried from The Ritz-Carlton into every industry since.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       QUOTE
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section bg-white">
+    <div class="wrap">
+      <div class="quote-block reveal">
+        <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+        <p class="quote-text">
+          Five-star service isn't a department. It's what happens when every person
+          on the team decides excellence is the standard, not the exception.
+        </p>
+        <div class="divider-gold" style="margin-top:0;"></div>
+        <p class="quote-attr">Dr. Bryan K. Williams</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       YOUR HOST
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section bg-ivory">
+    <div class="wrap">
+      <div class="host-grid">
+
+        <div class="host-media reveal">
+          <div class="accent" aria-hidden="true"></div>
+          <div class="frame">
+            <img
+              src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd899c9b37b5fd0b1e4b.jpg"
+              alt="Dr. Bryan K. Williams"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="host-text reveal">
+          <span class="eyebrow">Your Host</span>
+          <h2 class="h-display">Meet Dr. Bryan K. Williams</h2>
+
+          <p>
+            Dr. Bryan K. Williams is a keynote speaker, consultant, and author
+            recognized worldwide as an authority on Service Excellence and Leadership
+            Effectiveness. His passion is helping leaders better serve others — so they
+            can better serve the world.
+          </p>
+          <p>
+            Over the last 25+ years, Bryan has trained and consulted with hundreds of
+            organizations across more than 20 industries — including healthcare,
+            hospitality, luxury hotels, education, financial services, and government.
+            His work has taken him across North America, South America, Europe, Asia,
+            Africa, Australia, and the Caribbean.
+          </p>
+          <p>
+            His hospitality clients include The Inn at Little Washington, a Forbes
+            Five-Star property recognized among the finest in the world.
+          </p>
+
+          <div class="host-stats">
+            <div class="host-stat">
+              <span class="host-stat-num">25+</span>
+              <span class="host-stat-lbl">Years Experience</span>
+            </div>
+            <div class="host-stat">
+              <span class="host-stat-num">20+</span>
+              <span class="host-stat-lbl">Industries</span>
+            </div>
+            <div class="host-stat">
+              <span class="host-stat-num">6</span>
+              <span class="host-stat-lbl">Continents</span>
+            </div>
+          </div>
+
+          <div class="host-tags">
+            <span class="host-tag">North America</span>
+            <span class="host-tag">South America</span>
+            <span class="host-tag">Europe</span>
+            <span class="host-tag">Asia</span>
+            <span class="host-tag">Africa</span>
+            <span class="host-tag">Australia</span>
+            <span class="host-tag">Caribbean</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FINAL CTA — JOIN THE COMMUNITY (emphasized)
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="final-cta">
+    <div class="final-cta-glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="community-grid reveal">
+
+        <div class="community-media">
+          <div class="frame">
+            <img
+              src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a028b4c07e403605e7.jpg"
+              alt="Dr. Bryan K. Williams community"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="community-text">
+          <span class="community-badge">This Is Just the Beginning</span>
+          <span class="eyebrow" style="color:var(--gold-light);">The Celebration Doesn't Have to End</span>
+          <h2 class="h-display" style="color:#fff;">Join the Community Built Around This Legacy</h2>
+          <p class="lede" style="color:rgba(255,255,255,.78);">
+            Three days of sessions were just the start. The community is where the
+            leadership conversation keeps going — long after the replays are gone.
+          </p>
+
+          <ul class="community-benefits">
+            <li class="community-benefit">
+              <span class="community-benefit-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#192857" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <span>Exclusive leadership resources and tools you won't find anywhere else.</span>
+            </li>
+            <li class="community-benefit">
+              <span class="community-benefit-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#192857" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <span>First access to Dr. Bryan's newest content, events, and ideas.</span>
+            </li>
+            <li class="community-benefit">
+              <span class="community-benefit-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#192857" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <span>A network of leaders carrying this legacy forward — together.</span>
+            </li>
+          </ul>
+
+          <!-- COMMUNITY_URL: replace with the destination for "Join the Community" -->
+          <a href="https://drbryanwilliams.com/community" class="btn-gold btn-lg" rel="noopener">
+            Join the Community Now
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="community-note">Free to join &middot; Takes less than a minute</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <img
+      src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png"
+      alt="Dr. Bryan K. Williams"
+      class="footer-logo"
+    />
+    <p class="footer-tag">20th Anniversary Celebration &bull; Day Three Replay</p>
+    <p class="footer-copy">&copy; <span id="yr"></span> Dr. Bryan K. Williams. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  /* Scroll-reveal */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function(el){ obs.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* Smooth anchor scroll */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var target = document.querySelector(this.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.pageYOffset - 50;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+
+  /* ─────────────────────────────────────────────────────────
+     COUNTDOWN — replay closes September 30 (3 days later than
+     Day One/Two since this is the final session).
+     Change the date/time below if the deadline moves. Written
+     without a timezone suffix, so it counts down to 11:59 PM in
+     each visitor's own local time on that date.
+  ───────────────────────────────────────────────────────── */
+  var deadline = new Date('2026-09-30T23:59:59');
+
+  var elDays = document.getElementById('cdDays');
+  var elHours = document.getElementById('cdHours');
+  var elMinutes = document.getElementById('cdMinutes');
+  var elSeconds = document.getElementById('cdSeconds');
+  var elGrid = document.getElementById('countdownGrid');
+  var elExpired = document.getElementById('countdownExpired');
+  var elNote = document.getElementById('countdownNote');
+  var elUrgencyClock = document.getElementById('urgencyClock');
+  var elVideoFrame = document.getElementById('videoFrame');
+  var elVideoExpired = document.getElementById('videoExpiredBlock');
+  var heroCta = document.querySelector('.hero .btn-gold');
+
+  function pad(n){ return String(n).padStart(2, '0'); }
+
+  function showExpiredState(){
+    if (elGrid) elGrid.style.display = 'none';
+    if (elExpired) elExpired.style.display = 'block';
+    if (elNote) elNote.style.display = 'none';
+    if (elUrgencyClock) elUrgencyClock.textContent = 'Replay window closed';
+    if (elVideoFrame) elVideoFrame.style.display = 'none';
+    if (elVideoExpired) elVideoExpired.style.display = 'flex';
+    if (heroCta) {
+      heroCta.classList.add('is-disabled');
+      heroCta.setAttribute('aria-disabled', 'true');
+    }
+  }
+
+  function tick(){
+    var now = new Date();
+    var diff = deadline.getTime() - now.getTime();
+
+    if (diff <= 0) {
+      showExpiredState();
+      return;
+    }
+
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    var minutes = Math.floor((diff / (1000 * 60)) % 60);
+    var seconds = Math.floor((diff / 1000) % 60);
+
+    if (elDays) elDays.textContent = pad(days);
+    if (elHours) elHours.textContent = pad(hours);
+    if (elMinutes) elMinutes.textContent = pad(minutes);
+    if (elSeconds) elSeconds.textContent = pad(seconds);
+    if (elUrgencyClock) elUrgencyClock.textContent = days + 'd ' + pad(hours) + 'h ' + pad(minutes) + 'm ' + pad(seconds) + 's';
+  }
+
+  tick();
+  setInterval(tick, 1000);
+
+  /* ─────────────────────────────────────────────────────────
+     VIDEO — lazy-loads the embed only once the visitor clicks
+     play, matching the pattern used on the main hub page.
+     Replace the src below with your Wistia / Vimeo / YouTube /
+     GHL-hosted embed URL.
+  ───────────────────────────────────────────────────────── */
+  var DAY3_VIDEO_URL = 'REPLACE_WITH_DAY3_VIDEO_EMBED_URL';
+  var playBtn = document.getElementById('videoPlayBtn');
+  if (playBtn) {
+    playBtn.addEventListener('click', function(){
+      elVideoFrame.innerHTML = '<iframe src="' + DAY3_VIDEO_URL + '" title="Leading a 5-Star Team — Day Three Replay" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>
