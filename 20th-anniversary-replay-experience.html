@@ -138,7 +138,8 @@ h1,h2,h3,h4{font-family:'League Gothic',Georgia,serif;font-weight:400;letter-spa
    HERO
 ═══════════════════════════════════════════════════════════════ */
 .hero{
-  position:relative;overflow:hidden;min-height:100svh;
+  position:relative;overflow:hidden;min-height:100svh;width:100vw;
+  margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
   display:flex;align-items:center;justify-content:center;
   padding-block:clamp(7rem,14vw,5rem);
 }
@@ -157,7 +158,7 @@ h1,h2,h3,h4{font-family:'League Gothic',Georgia,serif;font-weight:400;letter-spa
   position:absolute;top:6%;left:50%;transform:translateX(-50%);width:48%;height:46%;z-index:2;pointer-events:none;
   background:radial-gradient(circle,rgba(229,171,72,.28) 0%,rgba(229,171,72,0) 70%);filter:blur(55px);
 }
-.hero-inner{position:relative;z-index:3;text-align:center;max-width:820px;padding-inline:1.5rem}
+.hero-inner{position:relative;z-index:3;text-align:center;max-width:1120px;padding-inline:1.5rem}
 .hero-eyebrow{
   display:block;font-size:.75rem;font-weight:900;letter-spacing:.32em;text-transform:uppercase;
   color:var(--gold-light);margin-bottom:clamp(1.75rem,4vw,2.25rem);
@@ -171,7 +172,7 @@ h1,h2,h3,h4{font-family:'League Gothic',Georgia,serif;font-weight:400;letter-spa
   .hero-mark{animation:markFloat 7s ease-in-out infinite}
 }
 @keyframes markFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.hero-title{font-size:clamp(2.75rem,7vw,5.25rem);line-height:1.03;text-transform:uppercase;color:#fff;margin-bottom:1.5rem}
+.hero-title{font-size:clamp(2.25rem,4.8vw,4rem);line-height:1.05;text-transform:uppercase;color:#fff;margin-bottom:1.5rem;white-space:normal}
 .hero-title em{font-style:normal;color:var(--gold)}
 .hero-divider{width:64px;height:2px;border-radius:2px;margin:0 auto 1.75rem;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
 .hero-sub{font-size:clamp(1.05rem,1.8vw,1.25rem);color:rgba(255,255,255,.85);font-weight:300;line-height:1.8;max-width:620px;margin:0 auto 2.5rem}
@@ -374,7 +375,7 @@ body.modal-lock{overflow:hidden}
         />
       </div>
 
-      <h1 class="hero-title">The Complete<br /><em>Celebration</em></h1>
+      <h1 class="hero-title">The Complete <em>Celebration</em></h1>
       <div class="hero-divider" aria-hidden="true"></div>
 
       <p class="hero-sub">
