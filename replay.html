@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Replay | Dr. Bryan K. Williams' 20th Anniversary Celebration</title>
-<meta name="description" content="Missed the live celebration, or want to relive it? Watch the complete replay of Dr. Bryan K. Williams' 20th Anniversary Celebration — three days of leadership and service excellence, distilled into one unforgettable session." />
-<meta property="og:title" content="The Replay | Dr. Bryan K. Williams' 20th Anniversary Celebration" />
-<meta property="og:description" content="Relive two decades of leadership excellence. Watch the complete replay of the 20th Anniversary Celebration." />
+<title>Day One Replay | Dr. Bryan K. Williams' 20th Anniversary Celebration</title>
+<meta name="description" content="Missed Day One live, or want to relive it? Watch the complete replay of September 17 — the opening session of Dr. Bryan K. Williams' 20th Anniversary Celebration." />
+<meta property="og:title" content="Day One Replay | Dr. Bryan K. Williams' 20th Anniversary Celebration" />
+<meta property="og:description" content="Relive two decades of leadership excellence. Watch the complete Day One replay from September 17." />
 <meta property="og:image" content="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a58ca9265673434068e2d07.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -201,25 +201,41 @@
   }
 
   /* ============================================================
-     KEY TAKEAWAYS
+     KEY TAKEAWAYS — list rows paired with a photo + quote
   ============================================================ */
-  .takeaway-grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:1.75rem;max-width:1080px;margin:3rem auto 0;
+  .takeaway-split{
+    display:grid;grid-template-columns:1.15fr .85fr;
+    gap:clamp(3rem,6vw,5.5rem);align-items:center;
   }
-  .takeaway-card{
-    background:#fff;border-radius:var(--radius-lg);
-    border:1px solid var(--border);box-shadow:var(--shadow-sm);
-    padding:clamp(2rem,3.5vw,2.5rem);text-align:left;
-    transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+  .takeaway-list{display:flex;flex-direction:column;gap:1rem;margin-top:2.25rem}
+  .takeaway-row{
+    display:flex;align-items:center;gap:1.1rem;
+    padding:1.15rem 1.6rem;border-radius:100px;
+    border:1.5px solid rgba(229,171,72,.55);background:#fff;
+    transition:background .25s ease,transform .25s ease,box-shadow .25s ease,border-color .25s ease;
   }
-  .takeaway-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:rgba(229,171,72,.4)}
-  .takeaway-icon{
-    width:52px;height:52px;border-radius:50%;margin-bottom:1.25rem;
-    background:linear-gradient(135deg,rgba(229,171,72,.18),rgba(229,171,72,.05));
+  .takeaway-row:hover{background:var(--off-white);transform:translateX(6px);box-shadow:var(--shadow-sm);border-color:var(--gold)}
+  .takeaway-row-icon{
+    width:34px;height:34px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(135deg,rgba(229,171,72,.2),rgba(229,171,72,.06));
     display:flex;align-items:center;justify-content:center;color:var(--gold-dark);
   }
-  .takeaway-card p{font-size:1.05rem;color:var(--ink);font-weight:400;line-height:1.6}
+  .takeaway-row span{font-size:1.02rem;color:var(--ink);font-weight:400;line-height:1.5}
+  .takeaway-photo-wrap{position:relative;max-width:420px;margin-inline:auto}
+  .takeaway-photo{
+    width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top center;
+    border-radius:var(--radius-lg);border:1.5px solid var(--gold);
+    box-shadow:var(--shadow-md);
+  }
+  .takeaway-quote{
+    font-style:italic;color:var(--navy);text-align:center;
+    font-size:clamp(1.05rem,1.7vw,1.2rem);line-height:1.6;
+    max-width:380px;margin:1.75rem auto 0;
+  }
+  .takeaway-quote-attribution{
+    display:block;text-align:center;margin-top:.75rem;
+    font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dark);
+  }
 
   /* ============================================================
      MEET DR. BRYAN
@@ -312,13 +328,14 @@
     .meet-grid{grid-template-columns:1fr}
     .meet-photo-wrap{max-width:400px;margin-inline:auto}
     .meet-credentials{justify-content:center}
+    .takeaway-split{grid-template-columns:1fr}
+    .takeaway-photo-wrap{order:-1}
   }
   @media(max-width:640px){
     .logo-img{height:32px}
     .share-btn{width:50px;height:50px}
     h1{font-size:clamp(2rem,8vw,2.6rem)}
     h2{font-size:clamp(1.75rem,7vw,2.3rem)}
-    .takeaway-grid{grid-template-columns:1fr}
     .journey-actions{flex-direction:column;align-items:stretch}
     .journey-actions .btn{width:100%}
   }
@@ -344,19 +361,19 @@
   <div class="wrap hero-inner">
     <span class="eyebrow" data-reveal>The Celebration Continues</span>
     <h1 data-reveal>Thank You for Joining Our<br />20th Anniversary Celebration</h1>
-    <p class="hero-kicker" data-reveal>The Replay Is Now Available</p>
+    <p class="hero-kicker" data-reveal>Day One Replay &mdash; September 17</p>
     <p class="lede" data-reveal>
       If you couldn&rsquo;t join us live &mdash; or you&rsquo;d like to revisit the experience &mdash;
-      the complete replay is waiting below. For nearly two decades, Dr. Bryan K. Williams has
-      helped organizations build extraordinary cultures through service excellence and leadership.
-      This special celebration captures some of his most valuable insights.
+      the complete Day One replay from September 17 is waiting below. For nearly two decades,
+      Dr. Bryan K. Williams has helped organizations build extraordinary cultures through service
+      excellence and leadership. This special celebration captures some of his most valuable insights.
     </p>
 
     <a href="#video" class="btn btn-gold btn-play" data-reveal id="hero-watch-btn">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
       Experience the Celebration
     </a>
-    <p class="hero-cta-note" data-reveal>Runtime: Highlights from the full 3-Day Celebration</p>
+    <p class="hero-cta-note" data-reveal>Day One of Three &middot; September 17</p>
   </div>
 </section>
 
@@ -365,69 +382,82 @@
 ============================================================ -->
 <section class="section bg-offwhite" id="video">
   <div class="wrap center max-780">
-    <span class="eyebrow" data-reveal>Replay Session</span>
+    <span class="eyebrow" data-reveal>Day One Replay &middot; September 17</span>
     <h2 data-reveal>A Milestone Worth Watching</h2>
   </div>
 
   <div class="video-frame-wrap" data-reveal>
     <div class="video-frame" id="video-frame">
-      <div class="video-poster" id="video-poster" style="background-image:url('https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5a14711097b81195c54f43.png')" role="button" tabindex="0" aria-label="Play the replay video">
+      <div class="video-poster" id="video-poster" style="background-image:url('https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5a14711097b81195c54f43.png')" role="button" tabindex="0" aria-label="Play the Day One replay video">
         <div class="play-btn" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         </div>
-        <span class="video-placeholder-msg">Click to Play &mdash; Full Replay</span>
+        <span class="video-placeholder-msg">Click to Play &mdash; Day One Replay</span>
       </div>
     </div>
   </div>
 
   <div class="wrap center max-680">
     <p class="video-caption" data-reveal>
-      Experience the complete 20th Anniversary Celebration exactly as it happened &mdash;
-      three days of leadership, service excellence, and lasting impact, together in one session.
+      Experience Day One of the 20th Anniversary Celebration exactly as it happened live on
+      September 17 &mdash; leadership, service excellence, and lasting impact, captured in one session.
     </p>
   </div>
 </section>
 
 <!-- ============================================================
-     KEY TAKEAWAYS
+     KEY TAKEAWAYS — paired with a photo and a signature quote
 ============================================================ -->
 <section class="section bg-white">
-  <div class="wrap center max-680">
-    <span class="eyebrow" data-reveal>Inside This Celebration</span>
-    <h2 data-reveal>What You&rsquo;ll Learn</h2>
-  </div>
-
   <div class="wrap">
-    <div class="takeaway-grid">
-      <div class="takeaway-card" data-reveal>
-        <div class="takeaway-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c-4.5-2.5-8-6-8-11a8 8 0 0 1 16 0c0 5-3.5 8.5-8 11z"/><path d="M9 11l2 2 4-4"/></svg>
+    <div class="takeaway-split">
+      <div data-reveal>
+        <span class="eyebrow">Inside This Celebration</span>
+        <h2>What You&rsquo;ll Learn</h2>
+        <div class="takeaway-list">
+          <div class="takeaway-row">
+            <span class="takeaway-row-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c-4.5-2.5-8-6-8-11a8 8 0 0 1 16 0c0 5-3.5 8.5-8 11z"/><path d="M9 11l2 2 4-4"/></svg>
+            </span>
+            <span>Building a culture of service excellence that outlasts any single leader.</span>
+          </div>
+          <div class="takeaway-row">
+            <span class="takeaway-row-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <span>Leadership that creates lasting impact, long after the applause fades.</span>
+          </div>
+          <div class="takeaway-row">
+            <span class="takeaway-row-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </span>
+            <span>Creating memorable customer experiences that turn moments into loyalty.</span>
+          </div>
+          <div class="takeaway-row">
+            <span class="takeaway-row-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </span>
+            <span>Hard-won lessons from over 25 years of leadership consulting worldwide.</span>
+          </div>
+          <div class="takeaway-row">
+            <span class="takeaway-row-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            </span>
+            <span>Practical strategies your team can put into action immediately.</span>
+          </div>
         </div>
-        <p>Building a culture of service excellence that outlasts any single leader.</p>
       </div>
-      <div class="takeaway-card" data-reveal>
-        <div class="takeaway-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+
+      <div data-reveal>
+        <div class="takeaway-photo-wrap">
+          <img
+            src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5a14711097b81195c54f43.png"
+            alt="Dr. Bryan K. Williams"
+            class="takeaway-photo"
+          />
         </div>
-        <p>Leadership that creates lasting impact, long after the applause fades.</p>
-      </div>
-      <div class="takeaway-card" data-reveal>
-        <div class="takeaway-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        <p>Creating memorable customer experiences that turn moments into loyalty.</p>
-      </div>
-      <div class="takeaway-card" data-reveal>
-        <div class="takeaway-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        </div>
-        <p>Hard-won lessons from over 25 years of leadership consulting worldwide.</p>
-      </div>
-      <div class="takeaway-card" data-reveal>
-        <div class="takeaway-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-        </div>
-        <p>Practical strategies your team can put into action immediately.</p>
+        <p class="takeaway-quote">&ldquo;Service is not a department. Leadership is not a title.&rdquo;</p>
+        <span class="takeaway-quote-attribution">Dr. Bryan K. Williams</span>
       </div>
     </div>
   </div>
@@ -511,7 +541,7 @@
     </p>
     <div class="journey-actions" data-reveal>
       <a href="event.html" class="btn btn-gold">Explore Upcoming Events</a>
-      <a href="https://drbryanwilliams.com" target="_blank" rel="noopener" class="btn btn-navy-outline">Visit the Official Website</a>
+      <a href="https://www.drbwilliams.com" target="_blank" rel="noopener" class="btn btn-navy-outline">Visit the Official Website</a>
     </div>
   </div>
 </section>
