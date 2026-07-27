@@ -143,13 +143,6 @@
     pointer-events:none;
   }
   .hero-inner{position:relative;z-index:1}
-  .hero-logo-wrap{position:relative;width:fit-content;margin:0 auto 3rem}
-  .hero-logo-glow{
-    position:absolute;inset:-60px;border-radius:50%;
-    background:radial-gradient(circle, rgba(229,171,72,.38), transparent 68%);
-    filter:blur(24px);z-index:0;pointer-events:none;
-  }
-  .hero-anniv-logo{position:relative;z-index:1;width:clamp(150px,18vw,260px);height:auto;display:block;margin:0 auto}
   .hero-kicker{
     color:var(--gold-dark);font-weight:500;
     font-size:clamp(1.1rem,2vw,1.45rem);
@@ -349,15 +342,6 @@
 ============================================================ -->
 <section class="replay-hero">
   <div class="wrap hero-inner">
-    <div class="hero-logo-wrap" data-reveal>
-      <div class="hero-logo-glow" aria-hidden="true"></div>
-      <img
-        src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a58ca9265673434068e2d07.png"
-        alt="Dr. Bryan K. Williams — 20th Anniversary"
-        class="hero-anniv-logo"
-      />
-    </div>
-
     <span class="eyebrow" data-reveal>The Celebration Continues</span>
     <h1 data-reveal>Thank You for Joining Our<br />20th Anniversary Celebration</h1>
     <p class="hero-kicker" data-reveal>The Replay Is Now Available</p>
