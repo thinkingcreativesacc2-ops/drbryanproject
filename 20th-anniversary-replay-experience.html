@@ -211,9 +211,21 @@ h1,h2,h3,h4{font-family:'League Gothic',Georgia,serif;font-weight:400;letter-spa
 .story-text p{color:var(--muted);margin-bottom:1.25rem;font-size:1.02rem}
 .story-text p:last-of-type{margin-bottom:0}
 .story-text strong{color:var(--navy)}
+.story-stats{display:flex;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.story-stat{position:relative;padding-right:clamp(1.5rem,4vw,2.5rem)}
+.story-stat + .story-stat{padding-left:clamp(1.5rem,4vw,2.5rem)}
+.story-stat + .story-stat::before{content:'';position:absolute;left:0;top:.15rem;bottom:.15rem;width:1px;background:rgba(185,130,44,.35)}
+.story-stat-num{display:block;font-family:'League Gothic',serif;font-size:1.9rem;color:var(--navy);line-height:1}
+.story-stat-lbl{display:block;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);margin-top:.3rem}
 @media (max-width:860px){
   .story{grid-template-columns:1fr}
   .story-portrait{max-width:280px;margin-inline:auto}
+}
+@media (max-width:480px){
+  .story-stats{flex-wrap:wrap;row-gap:1rem}
+  .story-stat{padding-right:1.5rem}
+  .story-stat + .story-stat{padding-left:0}
+  .story-stat + .story-stat::before{display:none}
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -444,20 +456,35 @@ body.modal-lock{overflow:hidden}
           </p>
           <p class="reveal">
             That conviction carried him from the ballrooms of <strong>The Ritz-Carlton</strong>
-            to stages across the globe, shaping how healthcare systems, hospitality brands,
-            and Fortune 500 organizations think about culture, service, and what it truly
-            means to lead well.
+            to a career as a noted authority on service excellence and leadership
+            effectiveness — bringing training and consulting expertise to hundreds of
+            organizations across more than twenty industries, from healthcare systems to
+            luxury hotels, resorts, and beyond.
           </p>
           <p class="reveal">
-            This celebration isn't about looking back — it's about honoring twenty years
-            of leaders transformed, teams elevated, and organizations rebuilt around a
-            single idea: excellence is a choice, made again and again, by the people we
-            lead.
+            His work has carried him across six continents, from North and South America
+            to Europe, Asia, Africa, and Australia — always in service of the same idea:
+            that excellence is a choice, made again and again, by the people we lead.
           </p>
           <p class="reveal">
             Three days. Three chapters of the journey. One legacy that continues —
             through every leader watching.
           </p>
+
+          <div class="story-stats">
+            <div class="story-stat reveal">
+              <span class="story-stat-num">25+</span>
+              <span class="story-stat-lbl">Years</span>
+            </div>
+            <div class="story-stat reveal">
+              <span class="story-stat-num">20+</span>
+              <span class="story-stat-lbl">Industries</span>
+            </div>
+            <div class="story-stat reveal">
+              <span class="story-stat-num">6</span>
+              <span class="story-stat-lbl">Continents</span>
+            </div>
+          </div>
         </div>
 
       </div>
