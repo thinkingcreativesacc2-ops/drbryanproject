@@ -291,12 +291,17 @@
   .bg-gold-panel{
     background:linear-gradient(165deg,#fbf4e6 0%,#f3e2bb 55%,#f7ecd4 100%);
   }
-  .community-icon{
-    width:64px;height:64px;border-radius:50%;margin:0 auto 1.5rem;
-    background:#fff;border:1px solid rgba(196,141,49,.35);
-    display:flex;align-items:center;justify-content:center;color:var(--navy);
-    box-shadow:var(--shadow-sm);
+  .community-grid{
+    display:grid;grid-template-columns:.9fr 1.1fr;
+    gap:clamp(3rem,6vw,5.5rem);align-items:center;
   }
+  .community-photo-wrap{position:relative}
+  .community-photo{
+    width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top center;
+    border-radius:var(--radius-lg);border:1.5px solid var(--gold);
+    box-shadow:var(--shadow-lg);
+  }
+  .community-copy .btn{margin-top:.5rem}
 
   /* ============================================================
      SOCIAL SHARE
@@ -343,6 +348,8 @@
     .meet-credentials{justify-content:center}
     .takeaway-split{grid-template-columns:1fr}
     .takeaway-photo-wrap{order:-1}
+    .community-grid{grid-template-columns:1fr}
+    .community-photo-wrap{max-width:400px;margin-inline:auto}
   }
   @media(max-width:640px){
     .logo-img{height:32px}
@@ -563,18 +570,26 @@
      JOIN THE COMMUNITY
 ============================================================ -->
 <section class="section bg-gold-panel">
-  <div class="wrap center max-680">
-    <div class="community-icon" data-reveal>
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  <div class="wrap">
+    <div class="community-grid">
+      <div class="community-photo-wrap" data-reveal>
+        <img
+          src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0f8478ee0ed74a7cc.jpg"
+          alt="The BW Leadership Community"
+          class="community-photo"
+        />
+      </div>
+      <div class="community-copy" data-reveal>
+        <span class="eyebrow">Beyond the Celebration</span>
+        <h2>Join the Leadership Community</h2>
+        <p class="lede">
+          The conversation doesn&rsquo;t end when the replay does. Connect with Dr. Bryan and a
+          growing community of leaders committed to building extraordinary cultures through
+          service excellence &mdash; every week, not just once a year.
+        </p>
+        <a href="https://www.skool.com/bw-leadership-community-1830/about" target="_blank" rel="noopener" class="btn btn-gold" style="margin-top:1rem">Join the Community</a>
+      </div>
     </div>
-    <span class="eyebrow" data-reveal>Beyond the Celebration</span>
-    <h2 data-reveal>Join the Leadership Community</h2>
-    <p class="lede" data-reveal>
-      The conversation doesn&rsquo;t end when the replay does. Connect with Dr. Bryan and a
-      growing community of leaders committed to building extraordinary cultures through
-      service excellence &mdash; every week, not just once a year.
-    </p>
-    <a href="https://www.skool.com/bw-leadership-community-1830/about" target="_blank" rel="noopener" class="btn btn-gold" data-reveal style="margin-top:1.5rem">Join the Community</a>
   </div>
 </section>
 
