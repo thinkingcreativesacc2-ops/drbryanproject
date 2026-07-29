@@ -373,6 +373,35 @@ p:last-child { margin-bottom: 0; }
   background: linear-gradient(135deg, var(--gold-light) 0%, var(--navy-light) 55%, var(--navy) 100%);
 }
 
+/* ── COMMUNITY GRID ─────────────────────────────────────── */
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.75rem;
+  max-width: 900px;
+  margin: 2.5rem auto 1.5rem;
+}
+
+.community-tile {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.community-caption {
+  font-size: 0.875rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .community-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* ── PROOF BAR ──────────────────────────────────────────── */
 .proof-bar {
   background: var(--gold);

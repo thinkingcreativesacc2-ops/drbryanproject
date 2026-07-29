@@ -96,6 +96,12 @@ p:last-child{margin-bottom:0}
 .bkw-faq-q{font-family:'Lato',Arial,sans-serif;font-size:1.0625rem;font-weight:900;color:var(--navy);margin-bottom:.5rem}
 .bkw-faq-a{font-size:.9375rem;color:var(--muted);line-height:1.65;margin:0}
 
+/* ── COMMUNITY GRID ─────────────────────────────────────── */
+.bkw-community-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem;max-width:900px;margin:2.5rem auto 1.5rem}
+.bkw-community-tile{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--radius)}
+.bkw-community-caption{font-size:.875rem;color:var(--muted);font-style:italic;margin:0}
+@media(max-width:700px){.bkw-community-grid{grid-template-columns:repeat(3,1fr)}}
+
 /* ── PROOF BAR ──────────────────────────────────────────── */
 .bkw-proof{background:var(--gold);padding:1.5rem 0}
 .bkw-proof-inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap}
@@ -195,7 +201,7 @@ p:last-child{margin-bottom:0}
   <!-- Background speaking photo (optional) -->
   <div class="bkw-hero-bg">
     <!-- PHOTO: Replace src with GHL media URL for a wide stage/speaking photo -->
-    <img src="REPLACE_WITH_GHL_HERO_BG_PHOTO_URL" alt="" onerror="this.removeAttribute('src');this.classList.add('bkw-img-empty');" />
+    <img src="REPLACE_WITH_GHL_HERO_BG_PHOTO_URL" alt="" onerror="var d=document.createElement('div'); d.className=this.className+' bkw-img-empty'; this.replaceWith(d);" />
   </div>
   <div class="bkw-hero-overlay"></div>
 
@@ -260,12 +266,47 @@ p:last-child{margin-bottom:0}
             src="REPLACE_WITH_GHL_PORTRAIT_PHOTO_URL"
             alt="Dr. Bryan K. Williams speaking on stage"
             class="bkw-hero-portrait"
-            onerror="this.removeAttribute('src');this.classList.add('bkw-img-empty');"
+            onerror="var d=document.createElement('div'); d.className=this.className+' bkw-img-empty'; this.replaceWith(d);"
           />
         </div>
       </div>
 
     </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     COMMUNITY SECTION
+     PHOTO PLACEMENT: replace each REPLACE_WITH_GHL_COMMUNITY_PHOTO_n_URL
+     with a real GHL media URL once photos are uploaded (group shots,
+     event photos, candid leader photos). Any tile left as a placeholder
+     falls back to a gradient tile automatically — no broken images.
+═══════════════════════════════════════════════════════ -->
+<section class="bkw-section bkw-white bkw-center">
+  <div class="bkw-wrap">
+    <span class="bkw-eyebrow">JOIN THE COMMUNITY</span>
+    <h2 class="bkw-h2 bkw-max680" style="color:var(--navy);">
+      You're Joining a Growing<br />
+      <span class="bkw-gold">Community of Leaders</span>
+    </h2>
+    <p class="bkw-sub bkw-max680">
+      This challenge isn't just six emails — it's an entry point into a
+      community of new and frontline leaders working through the same
+      challenges as you, at hospitals, hotels, restaurants, and growing
+      teams worldwide.
+    </p>
+
+    <div class="bkw-community-grid" aria-hidden="true">
+      <img src="REPLACE_WITH_GHL_COMMUNITY_PHOTO_1_URL" alt="" class="bkw-community-tile" onerror="var d=document.createElement('div'); d.className=this.className+' bkw-img-empty'; this.replaceWith(d);" />
+      <img src="REPLACE_WITH_GHL_COMMUNITY_PHOTO_2_URL" alt="" class="bkw-community-tile" onerror="var d=document.createElement('div'); d.className=this.className+' bkw-img-empty'; this.replaceWith(d);" />
+      <img src="REPLACE_WITH_GHL_COMMUNITY_PHOTO_3_URL" alt="" class="bkw-community-tile" onerror="var d=document.createElement('div'); d.className=this.className+' bkw-img-empty'; this.replaceWith(d);" />
+      <img src="REPLACE_WITH_GHL_COMMUNITY_PHOTO_4_URL" alt="" class="bkw-community-tile" onerror="var d=document.createElement('div'); d.className=this.className+' bkw-img-empty'; this.replaceWith(d);" />
+      <img src="REPLACE_WITH_GHL_COMMUNITY_PHOTO_5_URL" alt="" class="bkw-community-tile" onerror="var d=document.createElement('div'); d.className=this.className+' bkw-img-empty'; this.replaceWith(d);" />
+      <img src="REPLACE_WITH_GHL_COMMUNITY_PHOTO_6_URL" alt="" class="bkw-community-tile" onerror="var d=document.createElement('div'); d.className=this.className+' bkw-img-empty'; this.replaceWith(d);" />
+    </div>
+
+    <p class="bkw-community-caption">Leaders growing together — one tip, one team, one week at a time.</p>
   </div>
 </section>
 
@@ -493,7 +534,7 @@ p:last-child{margin-bottom:0}
           src="REPLACE_WITH_GHL_HEADSHOT_URL"
           alt="Dr. Bryan K. Williams"
           class="bkw-about-photo"
-          onerror="this.removeAttribute('src');this.classList.add('bkw-img-empty');"
+          onerror="var d=document.createElement('div'); d.className=this.className+' bkw-img-empty'; this.replaceWith(d);"
         />
         <div class="bkw-about-accent"></div>
       </div>

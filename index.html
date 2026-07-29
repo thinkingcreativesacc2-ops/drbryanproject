@@ -48,7 +48,7 @@
           src="assets/images/hero-speaking.jpg"
           alt=""
           class="hero-photo"
-          onerror="this.removeAttribute('src'); this.classList.add('img-empty');"
+          onerror="var d=document.createElement('div'); d.className=this.className+' img-empty'; this.replaceWith(d);"
         />
       </div>
 
@@ -120,10 +120,47 @@
               src="assets/images/bryan-stage.jpg"
               alt="Dr. Bryan K. Williams speaking on stage"
               class="hero-portrait"
-              onerror="this.removeAttribute('src'); this.classList.add('img-empty');"
+              onerror="var d=document.createElement('div'); d.className=this.className+' img-empty'; this.replaceWith(d);"
             />
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         COMMUNITY SECTION
+         PHOTO PLACEMENT: Drop real photos in as
+         assets/images/community-1.jpg through community-6.jpg (any
+         missing file gracefully falls back to a placeholder tile —
+         no broken images). Group shots, event photos, or candid
+         leader photos all work well here.
+    ============================================================ -->
+    <section class="section section-white" aria-labelledby="community-heading">
+      <div class="container text-center">
+        <p class="eyebrow">JOIN THE COMMUNITY</p>
+        <h2 id="community-heading" class="section-headline max-680">
+          You're Joining a Growing<br />
+          <span class="highlight-gold">Community of Leaders</span>
+        </h2>
+        <p class="section-sub max-680">
+          This challenge isn't just six emails — it's an entry point into a
+          community of new and frontline leaders working through the same
+          challenges as you, at hospitals, hotels, restaurants, and growing
+          teams worldwide.
+        </p>
+
+        <div class="community-grid" aria-hidden="true">
+          <img src="assets/images/community-1.jpg" alt="" class="community-tile" onerror="var d=document.createElement('div'); d.className=this.className+' img-empty'; this.replaceWith(d);" />
+          <img src="assets/images/community-2.jpg" alt="" class="community-tile" onerror="var d=document.createElement('div'); d.className=this.className+' img-empty'; this.replaceWith(d);" />
+          <img src="assets/images/community-3.jpg" alt="" class="community-tile" onerror="var d=document.createElement('div'); d.className=this.className+' img-empty'; this.replaceWith(d);" />
+          <img src="assets/images/community-4.jpg" alt="" class="community-tile" onerror="var d=document.createElement('div'); d.className=this.className+' img-empty'; this.replaceWith(d);" />
+          <img src="assets/images/community-5.jpg" alt="" class="community-tile" onerror="var d=document.createElement('div'); d.className=this.className+' img-empty'; this.replaceWith(d);" />
+          <img src="assets/images/community-6.jpg" alt="" class="community-tile" onerror="var d=document.createElement('div'); d.className=this.className+' img-empty'; this.replaceWith(d);" />
+        </div>
+
+        <p class="community-caption">
+          Leaders growing together — one tip, one team, one week at a time.
+        </p>
       </div>
     </section>
 
@@ -369,7 +406,7 @@
               src="assets/images/bryan-headshot.jpg"
               alt="Dr. Bryan K. Williams, Keynote Speaker and Leadership Expert"
               class="about-photo"
-              onerror="this.removeAttribute('src'); this.classList.add('img-empty');"
+              onerror="var d=document.createElement('div'); d.className=this.className+' img-empty'; this.replaceWith(d);"
             />
             <!-- Decorative accent — matches brand navy -->
             <div class="photo-accent" aria-hidden="true"></div>

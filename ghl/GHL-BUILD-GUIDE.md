@@ -79,7 +79,32 @@
 
 ---
 
-### SECTION 3: PROOF BAR
+### SECTION 3: COMMUNITY
+| Setting | Value |
+|---|---|
+| Background Color | `#FFFFFF` (white) |
+| Padding | 80px top/bottom |
+| Width | Boxed, max 680px content width (photo grid can run wider) |
+
+**Elements:**
+1. Text → eyebrow: "JOIN THE COMMUNITY"
+2. Headline → "You're Joining a Growing Community of Leaders"
+   - "Community of Leaders" → color `#C8932B`
+3. Text → sub-copy:
+   > "This challenge isn't just six emails — it's an entry point into a
+   > community of new and frontline leaders working through the same
+   > challenges as you, at hospitals, hotels, restaurants, and growing
+   > teams worldwide."
+4. Custom HTML → paste `BLOCK 0B` (6-photo community grid + caption)
+
+> **Photos needed:** group shots, event photos, or candid leader photos —
+> upload to GHL Media first, then replace each `REPLACE_WITH_GHL_COMMUNITY_PHOTO_n_URL`
+> placeholder in `BLOCK 0B`. Any tile left as a placeholder automatically
+> falls back to a gradient tile, so it's safe to launch before all 6 are ready.
+
+---
+
+### SECTION 4: PROOF BAR
 | Setting | Value |
 |---|---|
 | Background Color | `#C8932B` (gold) |
@@ -90,7 +115,7 @@
 
 ---
 
-### SECTION 4: PROBLEM / EMPATHY
+### SECTION 5: PROBLEM / EMPATHY
 | Setting | Value |
 |---|---|
 | Background Color | `#F4EFE6` (cream) |
@@ -106,7 +131,7 @@
 
 ---
 
-### SECTION 5: 6-WEEK BENEFITS
+### SECTION 6: 6-WEEK BENEFITS
 | Setting | Value |
 |---|---|
 | Background Color | `#16243F` (navy) |
@@ -128,7 +153,7 @@
 
 ---
 
-### SECTION 6: TESTIMONIALS
+### SECTION 7: TESTIMONIALS
 | Setting | Value |
 |---|---|
 | Background Color | `#F4EFE6` (cream) |
@@ -147,7 +172,7 @@
 
 ---
 
-### SECTION 7: ABOUT DR. BRYAN
+### SECTION 8: ABOUT DR. BRYAN
 | Setting | Value |
 |---|---|
 | Background Color | `#FFFFFF` (white) |
@@ -170,7 +195,7 @@
 
 ---
 
-### SECTION 8: FAQ / OBJECTION HANDLING
+### SECTION 9: FAQ / OBJECTION HANDLING
 | Setting | Value |
 |---|---|
 | Background Color | `#F4EFE6` (cream) |
@@ -190,12 +215,12 @@
 
 ---
 
-### SECTION 9: DIVIDER (optional)
+### SECTION 10: DIVIDER (optional)
 - Simple 1px border separator using Divider element, color `#E6DFD2`
 
 ---
 
-### SECTION 10: FINAL CTA (anchor: `signup`)
+### SECTION 11: FINAL CTA (anchor: `signup`)
 | Setting | Value |
 |---|---|
 | Background Color | `#16243F` (navy) |
@@ -219,7 +244,7 @@
 
 ---
 
-### SECTION 11: FOOTER
+### SECTION 12: FOOTER
 | Setting | Value |
 |---|---|
 | Background Color | `#16243F` (navy) |
