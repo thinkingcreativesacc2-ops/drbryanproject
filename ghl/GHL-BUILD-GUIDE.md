@@ -54,16 +54,23 @@
 | Layout | 2 columns (70% / 30%) — hide right column on mobile |
 
 **Left Column Elements (top to bottom):**
-1. **Text element** → `EYEBROW TEXT`: "FREE 6-WEEK CHALLENGE"
+1. **Text element** → badge: "20th Anniversary Edition"
+   - Add class `bkw-badge` in the element's Advanced/Custom CSS settings
+2. **Text element** → `EYEBROW TEXT`: "FREE 6-WEEK CHALLENGE"
    - Font: Lato 700, 11px, #C8932B, letter-spacing 3px, uppercase
-2. **Headline element** → "Become the Leader Your Team Actually Wants to Follow"
+3. **Headline element** → "Become the Leader Your Team Actually Wants to Follow"
    - Font: League Gothic, 64px desktop / 40px mobile, White
    - "Wants to Follow" → color `#C8932B`
-3. **Text element** → sub-headline copy (see index.html hero-sub)
+4. **Text element** → sub-headline copy:
+   > "To mark 20 years of turning managers into leaders — from the training
+   > rooms of The Ritz-Carlton to healthcare and hospitality teams
+   > worldwide — Dr. Bryan K. Williams is sharing his most-requested
+   > leadership tips. One practical habit a week, for six weeks, straight
+   > to your inbox. Free."
    - Font: Lato 400, 19px, rgba(255,255,255,0.82)
-4. **Form element** → select your pre-built GHL form
+5. **Form element** → select your pre-built GHL form
    - Style the inputs and button via the Custom CSS (already done)
-5. **Text/HTML element** → paste `BLOCK 5` (privacy line)
+6. **Text/HTML element** → paste `BLOCK 5` (privacy line)
 
 **Right Column:**
 - Image element → upload `bryan-stage.jpg`
@@ -109,7 +116,10 @@
 1. Text → eyebrow: "WHAT'S INSIDE THE CHALLENGE" — gold, small, uppercase
 2. Headline → "6 Weeks. 6 Leadership Habits. Delivered Straight to Your Inbox."
    - White headline, gold accent
-3. Text → supporting sub-copy
+3. Text → supporting sub-copy:
+   > "Each week you'll get one short email — 5 minutes or less — with a
+   > focused tip that's practical, immediately actionable, and built for
+   > the real challenges leaders face every day."
 4. Custom HTML → paste `BLOCK 2` (all 6 benefit cards)
 5. Button element → "Join the Free 6-Week Challenge"
    - Add class `bkw-btn` in button's Advanced/Custom CSS settings
@@ -131,6 +141,10 @@
 
 > **Tip:** Replace the initials avatar divs with `<img>` tags once you have headshot photos.
 
+> **TODO before launch:** The three testimonials in `BLOCK 3` are
+> placeholders. Replace them with real, permissioned quotes (verified
+> name, title, and sign-off) before this page goes live.
+
 ---
 
 ### SECTION 7: ABOUT DR. BRYAN
@@ -148,14 +162,40 @@
 **Right Column:**
 - Custom HTML → paste `BLOCK 4`
 
+> **Compliance check before launch:** The client-logos row inside `BLOCK 4`
+> only lists an organization if you have confirmed, permissioned engagement
+> history (a signed contract or written approval to use their name/logo).
+> Naming a brand without permission is a false-endorsement risk — verify
+> each one or remove it.
+
 ---
 
-### SECTION 8: DIVIDER (optional)
+### SECTION 8: FAQ / OBJECTION HANDLING
+| Setting | Value |
+|---|---|
+| Background Color | `#F4EFE6` (cream) |
+| Padding | 80px top/bottom |
+| Width | Boxed, max 680px content width |
+
+**Elements:**
+1. Text → eyebrow: "QUESTIONS"
+2. Headline → "Before You Sign Up"
+3. Custom HTML → paste `BLOCK 4B` (5 FAQ items)
+
+> **Confirm before launch:** the "What happens after the 6 weeks?" answer
+> in `BLOCK 4B` currently says leaders will get occasional updates. Replace
+> it with the actual post-challenge flow (ongoing newsletter, a specific
+> nurture sequence, or a paid-program invite) so the copy matches the real
+> workflow.
+
+---
+
+### SECTION 9: DIVIDER (optional)
 - Simple 1px border separator using Divider element, color `#E6DFD2`
 
 ---
 
-### SECTION 9: FINAL CTA (anchor: `signup`)
+### SECTION 10: FINAL CTA (anchor: `signup`)
 | Setting | Value |
 |---|---|
 | Background Color | `#16243F` (navy) |
@@ -163,18 +203,23 @@
 | Width | Boxed, center |
 
 **Elements:**
-1. Text → eyebrow: "START YOUR LEADERSHIP JOURNEY TODAY" (gold-light)
-2. Headline → "Ready to Lead with More Confidence and Clarity?"
+1. Text element → badge: "20th Anniversary Edition"
+   - Add classes `bkw-badge bkw-badge-center`
+2. Text → eyebrow: "START YOUR LEADERSHIP JOURNEY TODAY" (gold-light)
+3. Headline → "Ready to Lead with More Confidence and Clarity?"
    - White + gold accent
-3. Text → supporting sub-copy (max 560px, center)
-4. Form element → same GHL form, stacked layout
-5. Text/HTML → paste `BLOCK 5` (privacy line)
+4. Text → supporting sub-copy (max 560px, center):
+   > "Join thousands of leaders who've been part of Dr. Bryan's first 20
+   > years — and be part of what's next. It's free. It's practical. And it
+   > starts the moment you sign up."
+5. Form element → same GHL form, stacked layout
+6. Text/HTML → paste `BLOCK 5` (privacy line)
 
 > **Note:** Set the Section ID to `signup` in Section settings so mid-page anchor links work.
 
 ---
 
-### SECTION 10: FOOTER
+### SECTION 11: FOOTER
 | Setting | Value |
 |---|---|
 | Background Color | `#16243F` (navy) |
@@ -183,6 +228,7 @@
 **Elements:**
 1. Image element → `logo-mark.png`, center, 48px height
 2. Custom HTML → paste `BLOCK 6`
+   - Tagline updated to: "Keynote Speaker • Author • Consultant • Celebrating 20 Years"
 
 ---
 
@@ -208,6 +254,7 @@ After the form is connected, set up a Workflow:
 - [ ] Benefit cards stack to single column
 - [ ] Testimonial cards stack to single column
 - [ ] About section: photo above text on mobile
+- [ ] FAQ items stack full-width on mobile (they already do — single column by default)
 
 ---
 
@@ -217,6 +264,8 @@ After the form is connected, set up a Workflow:
 |---|---|
 | `bkw-eyebrow` | Gold uppercase label above headings |
 | `bkw-eyebrow-light` | Gold-light version (on dark backgrounds) |
+| `bkw-badge` | Gold-outline pill badge (use for "20th Anniversary Edition") |
+| `bkw-badge-center` | Centers the badge (final CTA section) |
 | `bkw-headline` | Navy display headline (League Gothic) |
 | `bkw-headline-light` | White headline |
 | `bkw-headline-gold` | Gold headline accent |
@@ -224,8 +273,20 @@ After the form is connected, set up a Workflow:
 | `bkw-btn-full` | Full-width gold button |
 | `bkw-card` | Benefit card (dark bg) |
 | `bkw-testimonial` | Testimonial card (white) |
+| `bkw-faq-item` | FAQ card (white, left-aligned) |
+| `bkw-faq-q` / `bkw-faq-a` | FAQ question / answer text |
 | `bkw-privacy` | Small privacy/lock line |
 | `bkw-privacy-light` | Privacy line on dark bg |
 | `bkw-section-cream` | Cream background section |
 | `bkw-section-navy` | Navy background section |
 | `bkw-section-white` | White background section |
+
+---
+
+## Before Launch — Final Checklist
+
+- [ ] **Testimonials** (`BLOCK 3`): replaced placeholder quotes with real, permissioned testimonials
+- [ ] **Client logos** (`BLOCK 4`): every listed organization has confirmed, permissioned engagement history — or has been removed
+- [ ] **Post-challenge flow** (`BLOCK 4B`, last FAQ item): copy matches the actual workflow after week 6 (newsletter, nurture sequence, or program invite)
+- [ ] **All photo placeholders** replaced with real uploaded images (hero background, portrait, headshot)
+- [ ] **ESP/webhook** wired into the form (see inline script comments) so signups actually reach the 6-week drip sequence

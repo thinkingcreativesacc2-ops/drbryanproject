@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Free 6-Week Leadership Challenge | Dr. Bryan K. Williams</title>
+<title>Free 6-Week Leadership Challenge | 20th Anniversary Edition | Dr. Bryan K. Williams</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
@@ -88,6 +88,13 @@ p:last-child{margin-bottom:0}
 .bkw-hero-img-col{flex-shrink:0}
 .bkw-hero-portrait-wrap{width:clamp(220px,28vw,320px);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);border:3px solid rgba(200,147,43,.45)}
 .bkw-hero-portrait{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;display:block}
+.bkw-badge{display:inline-block;font-family:'Lato',Arial,sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light);background:rgba(200,147,43,.14);border:1px solid rgba(226,178,90,.55);border-radius:999px;padding:.375rem .9rem;margin-bottom:1rem}
+.bkw-badge-center{margin-inline:auto;display:table}
+.bkw-img-empty{background:linear-gradient(135deg,var(--gold-light) 0%,var(--navy-light) 55%,var(--navy) 100%)}
+.bkw-faq-list{display:flex;flex-direction:column;gap:1.25rem}
+.bkw-faq-item{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem 1.75rem;text-align:left}
+.bkw-faq-q{font-family:'Lato',Arial,sans-serif;font-size:1.0625rem;font-weight:900;color:var(--navy);margin-bottom:.5rem}
+.bkw-faq-a{font-size:.9375rem;color:var(--muted);line-height:1.65;margin:0}
 
 /* ── PROOF BAR ──────────────────────────────────────────── */
 .bkw-proof{background:var(--gold);padding:1.5rem 0}
@@ -188,7 +195,7 @@ p:last-child{margin-bottom:0}
   <!-- Background speaking photo (optional) -->
   <div class="bkw-hero-bg">
     <!-- PHOTO: Replace src with GHL media URL for a wide stage/speaking photo -->
-    <img src="REPLACE_WITH_GHL_HERO_BG_PHOTO_URL" alt="" />
+    <img src="REPLACE_WITH_GHL_HERO_BG_PHOTO_URL" alt="" onerror="this.removeAttribute('src');this.classList.add('bkw-img-empty');" />
   </div>
   <div class="bkw-hero-overlay"></div>
 
@@ -197,6 +204,7 @@ p:last-child{margin-bottom:0}
 
       <!-- Left: Copy + Form -->
       <div class="bkw-hero-text">
+        <span class="bkw-badge">20th Anniversary Edition</span>
         <span class="bkw-eyebrow">FREE 6-WEEK CHALLENGE</span>
 
         <h1 class="bkw-h1">
@@ -205,9 +213,11 @@ p:last-child{margin-bottom:0}
         </h1>
 
         <p class="bkw-sub bkw-sub-lt">
-          Get one practical leadership tip every week for 6 weeks — built for
-          new managers, frontline leaders, and anyone ready to lead with
-          confidence.
+          To mark 20 years of turning managers into leaders — from the
+          training rooms of The Ritz-Carlton to healthcare and hospitality
+          teams worldwide — Dr. Bryan K. Williams is sharing his
+          most-requested leadership tips. One practical habit a week, for
+          six weeks, straight to your inbox. Free.
         </p>
 
         <!-- ─────────────────────────────────────────────────────
@@ -250,6 +260,7 @@ p:last-child{margin-bottom:0}
             src="REPLACE_WITH_GHL_PORTRAIT_PHOTO_URL"
             alt="Dr. Bryan K. Williams speaking on stage"
             class="bkw-hero-portrait"
+            onerror="this.removeAttribute('src');this.classList.add('bkw-img-empty');"
           />
         </div>
       </div>
@@ -328,8 +339,9 @@ p:last-child{margin-bottom:0}
         <span class="bkw-gold">Delivered to Your Inbox.</span>
       </h2>
       <p class="bkw-sub bkw-sub-lt bkw-max600">
-        Each week you'll get one focused tip — practical, immediately
-        actionable, and built for the real challenges leaders face every day.
+        Each week you'll get one short email — 5 minutes or less — with a
+        focused tip that's practical, immediately actionable, and built for
+        the real challenges leaders face every day.
       </p>
     </div>
 
@@ -402,6 +414,8 @@ p:last-child{margin-bottom:0}
 
 <!-- ═══════════════════════════════════════════════════════
      TESTIMONIALS
+     TODO BEFORE LAUNCH: placeholder quotes — swap in real,
+     permissioned testimonials (verified name, title, sign-off).
 ═══════════════════════════════════════════════════════ -->
 <section class="bkw-section bkw-cream">
   <div class="bkw-wrap">
@@ -479,7 +493,7 @@ p:last-child{margin-bottom:0}
           src="REPLACE_WITH_GHL_HEADSHOT_URL"
           alt="Dr. Bryan K. Williams"
           class="bkw-about-photo"
-          onerror="this.style.background='#E6DFD2';this.removeAttribute('src')"
+          onerror="this.removeAttribute('src');this.classList.add('bkw-img-empty');"
         />
         <div class="bkw-about-accent"></div>
       </div>
@@ -513,6 +527,9 @@ p:last-child{margin-bottom:0}
           Leadership is not a title."</em>
         </p>
 
+        <!-- COMPLIANCE CHECK BEFORE LAUNCH: only keep organizations below
+             with confirmed, permissioned engagement history. Naming a
+             brand without permission is a false-endorsement risk. -->
         <div class="bkw-logos-bar">
           <p class="bkw-logos-label">Trusted by leaders at organizations including:</p>
           <div class="bkw-logos-row">
@@ -536,20 +553,65 @@ p:last-child{margin-bottom:0}
 
 
 <!-- ═══════════════════════════════════════════════════════
+     FAQ / OBJECTION HANDLING
+═══════════════════════════════════════════════════════ -->
+<section class="bkw-section bkw-cream">
+  <div class="bkw-wrap bkw-center">
+
+    <span class="bkw-eyebrow">QUESTIONS</span>
+    <h2 class="bkw-h2">Before You Sign Up</h2>
+
+    <div class="bkw-faq-list bkw-max680" style="margin-top:2rem;">
+
+      <div class="bkw-faq-item">
+        <p class="bkw-faq-q">Is this actually free?</p>
+        <p class="bkw-faq-a">Yes — 100%. No credit card, no hidden catch. You'll get six weekly leadership tips delivered by email, completely free.</p>
+      </div>
+
+      <div class="bkw-faq-item">
+        <p class="bkw-faq-q">What exactly do I receive each week?</p>
+        <p class="bkw-faq-a">One short, focused email — a single practical leadership tip you can read in under 5 minutes and apply the same day.</p>
+      </div>
+
+      <div class="bkw-faq-item">
+        <p class="bkw-faq-q">How much time will this take?</p>
+        <p class="bkw-faq-a">Just a few minutes a week. Each tip is designed to be read quickly and put into practice immediately — no workbooks, no homework.</p>
+      </div>
+
+      <div class="bkw-faq-item">
+        <p class="bkw-faq-q">Who is this challenge for?</p>
+        <p class="bkw-faq-a">New managers, frontline supervisors, and anyone stepping into a leadership role for the first time — or any leader who wants a confidence reset.</p>
+      </div>
+
+      <div class="bkw-faq-item">
+        <p class="bkw-faq-q">What happens after the 6 weeks?</p>
+        <!-- CONFIRM: replace with the real post-challenge flow (ongoing
+             newsletter, nurture sequence, or paid-program invite) so this
+             matches what actually happens in the workflow. -->
+        <p class="bkw-faq-a">You'll continue to hear from Dr. Bryan occasionally with new leadership resources and updates — never spam, and you can unsubscribe any time.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
      FINAL CTA
 ═══════════════════════════════════════════════════════ -->
 <section class="bkw-section bkw-navy bkw-center" id="bkw-signup">
   <div class="bkw-wrap">
 
+    <span class="bkw-badge bkw-badge-center">20th Anniversary Edition</span>
     <span class="bkw-eyebrow bkw-eyebrow-lt">START YOUR LEADERSHIP JOURNEY TODAY</span>
     <h2 class="bkw-h2 bkw-h2-lt bkw-max560">
       Ready to Lead with More<br />
       <span class="bkw-gold">Confidence and Clarity?</span>
     </h2>
     <p class="bkw-sub bkw-sub-lt bkw-max560">
-      Join thousands of leaders who have transformed the way they show up for
-      their teams. It's free. It's practical. And it starts the moment you
-      sign up.
+      Join thousands of leaders who've been part of Dr. Bryan's first 20
+      years — and be part of what's next. It's free. It's practical. And it
+      starts the moment you sign up.
     </p>
 
     <!-- PASTE YOUR GHL FORM EMBED CODE HERE (replaces this div) -->
@@ -589,7 +651,7 @@ p:last-child{margin-bottom:0}
       onerror="this.style.display='none';"
     />
     <p class="bkw-footer-name">Dr. Bryan K. Williams</p>
-    <p class="bkw-footer-tag">Keynote Speaker &bull; Author &bull; Consultant</p>
+    <p class="bkw-footer-tag">Keynote Speaker &bull; Author &bull; Consultant &bull; Celebrating 20 Years</p>
     <nav class="bkw-footer-links">
       <a href="https://drbryanwilliams.com" rel="noopener">Website</a>
       <span class="bkw-footer-sep">&bull;</span>
@@ -628,6 +690,13 @@ p:last-child{margin-bottom:0}
       });
     },{threshold:0.1});
     els.forEach(function(el){ obs.observe(el); });
+
+    /* Safety net: force-reveal everything after a beat if the observer
+       never fires (headless previews, restricted iframes, crawlers). */
+    setTimeout(function(){
+      obs.disconnect();
+      els.forEach(function(el){ el.classList.add('bkw-vis'); });
+    }, 2000);
   } else {
     document.querySelectorAll('.bkw-card,.bkw-tcard').forEach(function(el){
       el.classList.add('bkw-vis');

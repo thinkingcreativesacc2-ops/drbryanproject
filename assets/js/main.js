@@ -29,6 +29,14 @@
       { threshold: 0.1 }
     );
     animTargets.forEach((el) => observer.observe(el));
+
+    // Safety net: if the observer never fires (headless previews,
+    // restricted iframes, crawlers, or a slow/stalled scroll), don't leave
+    // content permanently invisible — force-reveal everything after a beat.
+    setTimeout(() => {
+      observer.disconnect();
+      animTargets.forEach((el) => el.classList.add('visible'));
+    }, 2000);
   } else {
     // Fallback: show all immediately
     document.querySelectorAll('.benefit-card, .testimonial-card').forEach((el) => {
