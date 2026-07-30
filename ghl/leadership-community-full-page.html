@@ -530,9 +530,19 @@ p{margin:0;}
 .price-per{font-size:15px;color:rgba(255,255,255,0.55);}
 .price-savings{text-align:center;color:var(--gold-light);font-size:14.5px;font-weight:700;margin-bottom:10px;}
 .price-perday{text-align:center;color:rgba(255,255,255,0.55);font-size:13.5px;margin-bottom:36px;}
-.price-features{display:flex;flex-direction:column;gap:14px;margin-bottom:40px;position:relative;z-index:1;}
-.price-features .pf-item{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;color:rgba(255,255,255,0.85);}
+.price-features{display:flex;flex-direction:column;gap:0;margin-bottom:40px;position:relative;z-index:1;}
+.price-features .pf-item{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.08);font-size:15.5px;color:rgba(255,255,255,0.85);}
+.price-features .pf-item:last-child{border-bottom:none;padding-bottom:0;}
+.price-features .pf-left{display:flex;gap:12px;align-items:flex-start;}
 .price-features svg{flex-shrink:0;margin-top:2px;color:var(--gold-light);}
+.pf-tag{text-align:right;flex-shrink:0;white-space:nowrap;}
+.pf-tag .was{display:block;font-size:11px;color:rgba(255,255,255,0.4);text-decoration:line-through;}
+.pf-tag .included{display:block;font-size:12.5px;font-weight:700;color:var(--gold-light);letter-spacing:0.3px;margin-top:1px;}
+
+@media (max-width:480px){
+  .price-features .pf-item{flex-wrap:wrap;}
+  .pf-tag{text-align:left;margin-left:30px;}
+}
 .price-deadline{text-align:center;font-size:13px;color:rgba(255,255,255,0.55);margin-top:18px;}
 .price-deadline strong{color:var(--gold-light);}
 .price-risk{text-align:center;font-size:12.5px;color:rgba(255,255,255,0.4);margin-top:10px;}
@@ -1133,12 +1143,30 @@ p{margin:0;}
         </div>
 
         <div class="price-features">
-          <div class="pf-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Weekly Leadership Tip &amp; Challenge</div>
-          <div class="pf-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Monthly Leadership Lounge Call</div>
-          <div class="pf-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Monthly Leadership Sprint Call</div>
-          <div class="pf-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>BWTV — Full Video Library ($795 value, free)</div>
-          <div class="pf-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Leadership templates, downloads &amp; resources</div>
-          <div class="pf-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Private community &amp; networking access</div>
+          <div class="pf-item">
+            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Weekly Leadership Tip &amp; Challenge</span>
+            <span class="pf-tag"><span class="included">Included</span></span>
+          </div>
+          <div class="pf-item">
+            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Monthly Leadership Lounge Call</span>
+            <span class="pf-tag"><span class="was">$2,988 value</span><span class="included">Included</span></span>
+          </div>
+          <div class="pf-item">
+            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Monthly Leadership Sprint Call</span>
+            <span class="pf-tag"><span class="was">$5,964 value</span><span class="included">Included</span></span>
+          </div>
+          <div class="pf-item">
+            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>BWTV — Full Video Library</span>
+            <span class="pf-tag"><span class="was">$795 value</span><span class="included">Included</span></span>
+          </div>
+          <div class="pf-item">
+            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Leadership templates, downloads &amp; resources</span>
+            <span class="pf-tag"><span class="included">Included</span></span>
+          </div>
+          <div class="pf-item">
+            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Private community &amp; networking access</span>
+            <span class="pf-tag"><span class="included">Included</span></span>
+          </div>
         </div>
 
         <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg btn-full btn-glow">Yes — Lock In My $249 Rate</a>
