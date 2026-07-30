@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Welcome — You're In! | The Leadership Community</title>
+
+<!-- ============================================================
+     FONTS — League Gothic (display) + Lato (body), matching the
+     rest of Dr. Bryan's brand system.
+============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Lato:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   1. BRAND TOKENS
+============================================================ */
+:root{
+  --navy:#192857;
+  --navy-deep:#0F1938;
+  --navy-mid:#233568;
+  --header-bg:#161D2D;
+  --gold:#E5AB48;
+  --gold-light:#F0C878;
+  --cream:#F8F5EF;
+  --cream-deep:#F0EAD9;
+  --white:#FFFFFF;
+  --ink:#1F2937;
+  --ink-soft:#5B6472;
+  --line:rgba(25,40,87,0.10);
+  --shadow-soft:0 20px 60px rgba(15,25,56,0.10);
+  --shadow-lift:0 30px 90px rgba(15,25,56,0.20);
+  --radius-lg:28px;
+  --radius-md:18px;
+  --radius-sm:12px;
+  --maxw:1180px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;padding:0;background:var(--cream);color:var(--ink);
+  font-family:'Lato',sans-serif;font-weight:400;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+h1,h2,h3,h4{font-family:'League Gothic','Lato',sans-serif;font-weight:400;letter-spacing:0.3px;margin:0;}
+p{margin:0;}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1;}
+.text-center{text-align:center;}
+.max-680{max-width:680px;margin-left:auto;margin-right:auto;}
+.max-560{max-width:560px;margin-left:auto;margin-right:auto;}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Lato',sans-serif;font-weight:700;font-size:12px;
+  letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:16px;
+}
+.section-mark{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;}
+.section-mark::before,.section-mark::after{content:"";height:1px;width:34px;background:linear-gradient(90deg,transparent,var(--line));}
+.section-mark::after{background:linear-gradient(90deg,var(--line),transparent);}
+.section-mark span{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+.h-xl{font-size:clamp(36px,5.6vw,64px);line-height:1.05;color:var(--navy);}
+.h-lg{font-size:clamp(28px,3.8vw,42px);line-height:1.1;color:var(--navy);}
+.h-md{font-size:clamp(22px,2.6vw,28px);line-height:1.15;color:var(--navy);}
+.on-dark{color:var(--white);}
+.accent{color:var(--gold);}
+.lede{font-size:clamp(16.5px,1.6vw,19px);color:var(--ink-soft);line-height:1.75;}
+.lede.on-dark{color:rgba(255,255,255,0.78);}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:'Lato',sans-serif;font-weight:700;font-size:14.5px;letter-spacing:0.3px;
+  padding:16px 30px;border-radius:100px;border:none;cursor:pointer;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,background .3s ease;
+  white-space:nowrap;
+}
+.btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold) 60%);color:var(--navy-deep);box-shadow:0 14px 34px rgba(229,171,72,0.35);}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(229,171,72,0.48);}
+.btn-outline{background:var(--white);border:1.5px solid var(--line);color:var(--navy);}
+.btn-outline:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 14px 30px rgba(15,25,56,0.08);}
+.btn-glow{animation:btnGlow 3.2s ease-in-out infinite;}
+@keyframes btnGlow{
+  0%,100%{box-shadow:0 14px 34px rgba(229,171,72,0.35);}
+  50%{box-shadow:0 14px 44px rgba(229,171,72,0.58),0 0 0 6px rgba(229,171,72,0.08);}
+}
+
+/* ---------- Reveal-on-scroll ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+.reveal-delay-3{transition-delay:.3s;}
+.reveal-delay-4{transition-delay:.4s;}
+
+/* ============================================================
+   2. HEADER — minimal, dark, logo only + confirmation badge
+============================================================ */
+.page-header{background:var(--header-bg);border-bottom:1px solid rgba(255,255,255,0.08);}
+.page-header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.page-logo{height:30px;width:auto;display:block;}
+.header-badge{
+  display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--white);white-space:nowrap;
+}
+.header-badge svg{flex-shrink:0;color:var(--gold);}
+@media (max-width:560px){
+  .page-header-inner{padding:12px 20px;}
+  .header-badge span{display:none;}
+}
+
+/* ============================================================
+   3. SECTION SHELLS
+============================================================ */
+.section{padding:96px 0;position:relative;}
+.section-tight{padding:72px 0;}
+.section-cream{background:var(--cream);}
+.section-white{background:var(--white);}
+.section-navy{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);}
+.section-header{margin-bottom:52px;}
+@media (max-width:768px){
+  .section{padding:64px 0;}
+  .section-tight{padding:52px 0;}
+  .section-header{margin-bottom:36px;}
+}
+
+/* ============================================================
+   4. HERO — celebration
+============================================================ */
+.hero{
+  position:relative;overflow:hidden;
+  padding:88px 0 96px;
+  background:radial-gradient(120% 120% at 50% -10%,#233568 0%,var(--navy) 46%,var(--navy-deep) 100%);
+  text-align:center;
+}
+.hero-glow{position:absolute;width:820px;height:820px;border-radius:50%;top:-360px;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(229,171,72,0.20) 0%,rgba(229,171,72,0) 65%);pointer-events:none;}
+
+/* animated success ring + checkmark */
+.success-ring{
+  position:relative;z-index:1;width:104px;height:104px;margin:0 auto 30px;
+  border-radius:50%;
+  background:linear-gradient(135deg,rgba(229,171,72,0.16),rgba(229,171,72,0.04));
+  border:1px solid rgba(229,171,72,0.4);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 0 rgba(229,171,72,0.35);
+  animation:ringPulse 2.6s ease-out .6s infinite;
+}
+@keyframes ringPulse{
+  0%{box-shadow:0 0 0 0 rgba(229,171,72,0.35);}
+  70%{box-shadow:0 0 0 22px rgba(229,171,72,0);}
+  100%{box-shadow:0 0 0 0 rgba(229,171,72,0);}
+}
+.success-check{stroke-dasharray:40;stroke-dashoffset:40;animation:drawCheck 0.7s cubic-bezier(.2,.7,.2,1) .5s forwards;}
+@keyframes drawCheck{to{stroke-dashoffset:0;}}
+
+.hero-heading{margin:6px 0 20px;position:relative;z-index:1;}
+.hero-lede{max-width:600px;margin:0 auto;position:relative;z-index:1;}
+
+/* confetti burst — sparse, brand-colored, fades after a few seconds */
+.confetti-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+.confetti-piece{
+  position:absolute;top:-40px;width:8px;height:14px;opacity:0.9;
+  animation:confettiFall 3.6s ease-in forwards;
+}
+@keyframes confettiFall{
+  0%{transform:translateY(0) rotate(0deg);opacity:0.9;}
+  100%{transform:translateY(560px) rotate(340deg);opacity:0;}
+}
+@media (prefers-reduced-motion: reduce){
+  .confetti-piece,.success-ring,.success-check{animation:none;}
+  .success-check{stroke-dashoffset:0;}
+}
+
+/* ============================================================
+   5. CHECK YOUR EMAIL — the most important section
+============================================================ */
+.email-card{
+  position:relative;max-width:760px;margin:0 auto;
+  background:var(--white);border:1px solid rgba(229,171,72,0.3);
+  border-radius:var(--radius-lg);box-shadow:var(--shadow-lift);
+  padding:52px 48px;overflow:hidden;
+}
+.email-card::before{
+  content:"";position:absolute;top:-140px;right:-120px;width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(229,171,72,0.14) 0%,rgba(229,171,72,0) 65%);pointer-events:none;
+}
+.email-icon{
+  width:64px;height:64px;border-radius:18px;margin:0 auto 22px;
+  background:linear-gradient(135deg,var(--navy),var(--navy-mid));
+  display:flex;align-items:center;justify-content:center;color:var(--gold-light);
+  position:relative;z-index:1;
+}
+.email-card h3{position:relative;z-index:1;}
+.email-card .lede{position:relative;z-index:1;margin-top:12px;}
+.email-target{font-weight:700;color:var(--navy);}
+
+.email-checklist{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  margin:32px 0;position:relative;z-index:1;text-align:left;
+}
+.email-check-item{
+  display:flex;align-items:center;gap:12px;
+  background:var(--cream);border-radius:var(--radius-sm);padding:14px 16px;
+  font-size:14.5px;font-weight:700;color:var(--navy);
+}
+.email-check-item .badge{
+  flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+}
+
+.email-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+
+.email-note{
+  margin-top:28px;padding:16px 20px;border-radius:var(--radius-sm);
+  background:var(--cream-deep);border-left:3px solid var(--gold);
+  font-size:13.5px;color:var(--ink-soft);text-align:left;position:relative;z-index:1;
+}
+
+@media (max-width:620px){
+  .email-card{padding:36px 26px;}
+  .email-checklist{grid-template-columns:1fr;}
+}
+
+/* ============================================================
+   6. TIMELINE — What Happens Next
+============================================================ */
+.next-timeline{position:relative;display:flex;justify-content:space-between;gap:12px;margin-top:60px;padding-top:6px;}
+.nt-track{position:absolute;top:23px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line) 6%,var(--line) 94%,transparent);}
+.nt-progress{position:absolute;top:23px;left:0;height:1px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width 1.5s cubic-bezier(.2,.7,.2,1) .2s;}
+.next-timeline.in .nt-progress{width:12%;} /* only step 1 is truly "done" */
+
+.nt-stop{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;}
+.nt-dot{
+  position:relative;z-index:1;width:46px;height:46px;border-radius:50%;
+  background:var(--white);border:2px solid var(--line);
+  display:flex;align-items:center;justify-content:center;color:var(--ink-soft);
+  transition:border-color .3s ease,background .3s ease,color .3s ease;
+}
+.nt-stop.done .nt-dot{background:linear-gradient(135deg,var(--gold-light),var(--gold));border-color:var(--gold);color:var(--navy-deep);}
+.nt-when{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);}
+.nt-what{font-size:14px;color:var(--ink-soft);max-width:150px;}
+.nt-stop.done .nt-when{color:var(--ink-soft);}
+
+@media (max-width:860px){
+  .next-timeline{flex-direction:column;align-items:flex-start;gap:26px;padding-left:23px;margin-top:44px;}
+  .nt-track{top:0;bottom:0;left:23px;right:auto;width:1px;height:auto;background:linear-gradient(180deg,transparent,var(--line) 6%,var(--line) 94%,transparent);}
+  .nt-progress{top:0;left:23px;width:1px;height:0;background:linear-gradient(180deg,var(--gold),var(--gold-light));transition:height 1.5s cubic-bezier(.2,.7,.2,1) .2s;}
+  .next-timeline.in .nt-progress{width:1px;height:10%;}
+  .nt-stop{flex-direction:row;text-align:left;align-items:center;gap:16px;margin-left:-23px;}
+  .nt-what{max-width:none;}
+}
+
+/* ============================================================
+   7. SNEAK PEEK GALLERY
+============================================================ */
+.peek-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,260px);gap:18px;margin-top:52px;}
+.peek-tile{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 16px 40px rgba(15,25,56,0.14);}
+.peek-tile img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1);}
+.peek-tile::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,29,45,0) 45%,rgba(15,20,35,0.75) 100%);z-index:1;}
+.peek-tile figcaption{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;color:var(--white);}
+.peek-tile figcaption .tag{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);margin-bottom:3px;}
+.peek-tile figcaption .label{font-size:15px;font-weight:700;}
+.peek-tile:hover img{transform:scale(1.08);}
+
+.peek-tile{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+.peek-grid.in .peek-tile{opacity:1;transform:translateY(0);}
+.peek-grid.in .peek-tile:nth-child(1){transition-delay:.05s;}
+.peek-grid.in .peek-tile:nth-child(2){transition-delay:.13s;}
+.peek-grid.in .peek-tile:nth-child(3){transition-delay:.21s;}
+.peek-grid.in .peek-tile:nth-child(4){transition-delay:.29s;}
+.peek-grid.in .peek-tile:nth-child(5){transition-delay:.37s;}
+.peek-grid.in .peek-tile:nth-child(6){transition-delay:.45s;}
+
+@media (max-width:860px){.peek-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,220px);}}
+@media (max-width:520px){.peek-grid{grid-template-columns:1fr;grid-template-rows:repeat(6,220px);gap:14px;}}
+
+/* ============================================================
+   8. WELCOME MESSAGE FROM DR. BRYAN
+============================================================ */
+.welcome-panel{
+  display:grid;grid-template-columns:0.55fr 1.45fr;gap:48px;align-items:center;
+  background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);
+  padding:48px;
+}
+.welcome-photo{border-radius:20px;overflow:hidden;box-shadow:var(--shadow-soft);}
+.welcome-photo img{width:100%;height:340px;object-fit:cover;object-position:top;}
+.welcome-quote-mark{font-family:'League Gothic';font-size:64px;color:var(--gold);opacity:0.35;line-height:1;}
+.welcome-panel blockquote{font-family:'League Gothic';font-size:clamp(20px,2vw,26px);color:var(--navy);line-height:1.4;margin:6px 0 18px;}
+.welcome-sig{font-size:13.5px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:var(--ink-soft);}
+.welcome-sig span{color:var(--gold);}
+
+@media (max-width:860px){
+  .welcome-panel{grid-template-columns:1fr;padding:34px 26px;gap:26px;text-align:center;}
+  .welcome-photo{max-width:220px;margin:0 auto;}
+  .welcome-photo img{height:220px;}
+}
+
+/* ============================================================
+   9. WHILE YOU WAIT
+============================================================ */
+.wait-list{display:flex;flex-direction:column;gap:14px;max-width:640px;margin:0 auto;}
+.wait-item{
+  display:flex;align-items:center;gap:16px;
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:18px 22px;box-shadow:0 8px 24px rgba(15,25,56,0.04);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.wait-item:hover{transform:translateX(4px);box-shadow:0 14px 32px rgba(15,25,56,0.09);}
+.wait-item .badge{
+  flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--cream-deep);
+  display:flex;align-items:center;justify-content:center;color:var(--gold);
+}
+.wait-item p{font-size:15px;font-weight:600;color:var(--navy);}
+.wait-item a{color:var(--gold);font-weight:700;border-bottom:1px solid rgba(229,171,72,0.4);}
+
+/* ============================================================
+   10. COMMUNITY VALUES
+============================================================ */
+.values-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:52px;}
+.value-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:26px 20px;text-align:center;
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.value-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,25,56,0.10);border-color:rgba(229,171,72,0.35);}
+.value-icon{
+  width:44px;height:44px;border-radius:12px;margin:0 auto 14px;
+  background:linear-gradient(135deg,var(--navy),var(--navy-mid));
+  display:flex;align-items:center;justify-content:center;color:var(--gold-light);
+}
+.value-card h4{font-family:'Lato';font-weight:700;font-size:15px;color:var(--navy);margin-bottom:6px;}
+.value-card p{font-size:13px;color:var(--ink-soft);line-height:1.5;}
+
+@media (max-width:960px){.values-grid{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:560px){.values-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* ============================================================
+   11. FINAL MESSAGE
+============================================================ */
+.final-section{position:relative;overflow:hidden;text-align:center;}
+.final-glow{position:absolute;width:640px;height:640px;border-radius:50%;bottom:-300px;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(229,171,72,0.20),transparent 65%);pointer-events:none;}
+
+/* ============================================================
+   12. FOOTER
+============================================================ */
+.page-footer{background:var(--header-bg);padding:44px 0 30px;text-align:center;}
+.footer-logo{height:26px;width:auto;margin:0 auto 16px;}
+.footer-tagline{color:rgba(255,255,255,0.55);font-size:13px;margin-bottom:16px;}
+.footer-copy{color:rgba(255,255,255,0.32);font-size:12px;}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <img class="page-logo" src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" />
+    <div class="header-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+      <span>Payment Confirmed</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO — celebration
+============================================================ -->
+<section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="success-ring">
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path class="success-check" d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+
+    <p class="eyebrow reveal">You're Officially A Member</p>
+    <h1 class="h-xl on-dark hero-heading reveal reveal-delay-1">You're Officially In.</h1>
+    <p class="lede on-dark hero-lede reveal reveal-delay-2">
+      Thank you for joining Dr. Bryan K. Williams' Leadership Community. Today marks the beginning of a new chapter in your leadership growth — and we're genuinely excited to have you with us.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     CHECK YOUR EMAIL — the most important section on this page
+============================================================ -->
+<section class="section section-cream">
+  <div class="container">
+    <div class="email-card reveal">
+      <div class="email-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      </div>
+      <h3 class="h-md text-center">Check Your Email</h3>
+      <p class="lede text-center">
+        Your community invitation is on its way to <span class="email-target" id="emailTarget">the email address you used at checkout</span>. Inside, you'll find everything you need to step inside.
+      </p>
+
+      <div class="email-checklist">
+        <div class="email-check-item"><span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--navy-deep)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Your Skool invitation</div>
+        <div class="email-check-item"><span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--navy-deep)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Community access link</div>
+        <div class="email-check-item"><span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--navy-deep)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Instructions for joining</div>
+        <div class="email-check-item"><span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--navy-deep)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>What to do next</div>
+      </div>
+
+      <div class="email-actions">
+        <a href="https://mail.google.com/" target="_blank" rel="noopener" class="btn btn-gold btn-glow">
+          Open Gmail
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </a>
+        <a href="https://outlook.live.com/" target="_blank" rel="noopener" class="btn btn-outline">
+          Open Outlook
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </a>
+      </div>
+
+      <p class="email-note">
+        Don't see it within 5–10 minutes? Check your <strong>Spam, Promotions, or Junk</strong> folder — and while you're there, mark it "Not Spam" so nothing from the community gets lost later.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHAT HAPPENS NEXT — 5-step timeline
+============================================================ -->
+<section class="section section-white">
+  <div class="container">
+    <div class="section-header text-center max-680">
+      <div class="section-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow">What Happens Next</p>
+      <h2 class="h-lg">Five Small Steps Between You And The Room.</h2>
+    </div>
+
+    <div class="next-timeline reveal">
+      <div class="nt-track" aria-hidden="true"></div>
+      <div class="nt-progress" aria-hidden="true"></div>
+
+      <div class="nt-stop done">
+        <div class="nt-dot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 13l4 4L19 7"/></svg></div>
+        <span class="nt-when">Step 1</span>
+        <span class="nt-what">Complete Payment</span>
+      </div>
+      <div class="nt-stop">
+        <div class="nt-dot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></div>
+        <span class="nt-when">Step 2</span>
+        <span class="nt-what">Check Your Email</span>
+      </div>
+      <div class="nt-stop">
+        <div class="nt-dot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/></svg></div>
+        <span class="nt-when">Step 3</span>
+        <span class="nt-what">Accept Your Skool Invitation</span>
+      </div>
+      <div class="nt-stop">
+        <div class="nt-dot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+        <span class="nt-when">Step 4</span>
+        <span class="nt-what">Introduce Yourself</span>
+      </div>
+      <div class="nt-stop">
+        <div class="nt-dot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <span class="nt-when">Step 5</span>
+        <span class="nt-what">Start Growing With The Community</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SNEAK PEEK INSIDE
+============================================================ -->
+<section class="section section-cream">
+  <div class="container">
+    <div class="section-header text-center max-680">
+      <div class="section-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow">Take A Sneak Peek Inside</p>
+      <h2 class="h-lg">This Is What You're About To Step Into.</h2>
+      <p class="lede" style="margin-top:16px;">Real moments from inside the community — leaders showing up, sharing wins, and doing the work.</p>
+    </div>
+
+    <div class="peek-grid reveal">
+      <figure class="peek-tile">
+        <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0dd8ffd1870ca2d55.jpg" alt="Leaders connecting in the community" />
+        <figcaption><span class="tag">Community</span><span class="label">Real Connection</span></figcaption>
+      </figure>
+      <figure class="peek-tile">
+        <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0f8478ee0ed74a7cc.jpg" alt="Member discussions" />
+        <figcaption><span class="tag">Discussions</span><span class="label">Real Conversations</span></figcaption>
+      </figure>
+      <figure class="peek-tile">
+        <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a03db5490e90701146.jpg" alt="Office hours with Dr. Bryan" />
+        <figcaption><span class="tag">Office Hours</span><span class="label">Direct Access To Dr. Bryan</span></figcaption>
+      </figure>
+      <figure class="peek-tile">
+        <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0e4e420b6ec15facb.jpg" alt="Leadership challenges" />
+        <figcaption><span class="tag">Challenges</span><span class="label">Real Growth</span></figcaption>
+      </figure>
+      <figure class="peek-tile">
+        <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a028b4c07e403605e7.jpg" alt="Resource library" />
+        <figcaption><span class="tag">Resources</span><span class="label">Real Learning</span></figcaption>
+      </figure>
+      <figure class="peek-tile">
+        <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a030b285321c813433.jpg" alt="Member wins" />
+        <figcaption><span class="tag">Member Wins</span><span class="label">Real Belonging</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WELCOME MESSAGE FROM DR. BRYAN
+============================================================ -->
+<section class="section section-white">
+  <div class="container">
+    <div class="welcome-panel reveal">
+      <div class="welcome-photo">
+        <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5a14711097b81195c54f43.png" alt="Dr. Bryan K. Williams" />
+      </div>
+      <div>
+        <span class="welcome-quote-mark">&ldquo;</span>
+        <blockquote>
+          Thank you for trusting me to be part of your leadership journey. I truly believe leadership isn't built in a single workshop — it grows through consistent learning, meaningful conversations, and a community committed to excellence. I'm excited to welcome you.
+        </blockquote>
+        <p class="welcome-sig">— Dr. Bryan K. Williams <span>· Founder</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHILE YOU WAIT
+============================================================ -->
+<section class="section section-cream">
+  <div class="container">
+    <div class="section-header text-center max-680">
+      <div class="section-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow">While You Wait</p>
+      <h2 class="h-lg">A Few Small Things To Do Right Now.</h2>
+    </div>
+
+    <div class="wait-list reveal">
+      <div class="wait-item">
+        <span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 21 12 16l-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></span>
+        <p>Bookmark this page so you can find your way back if you need to.</p>
+      </div>
+      <div class="wait-item">
+        <span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></span>
+        <p>Whitelist our email address so your invitation — and every update after it — lands in your inbox.</p>
+      </div>
+      <div class="wait-item">
+        <span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M8 9h4v2a4 4 0 0 1 8 0v9h-4v-8a2 2 0 0 0-4 0v8H8z"/></svg></span>
+        <p>Follow Dr. Bryan on <a href="#" target="_blank" rel="noopener"><!-- Add Dr. Bryan's LinkedIn URL here -->LinkedIn</a> for leadership insight between sessions.</p>
+      </div>
+      <div class="wait-item">
+        <span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
+        <p>Start thinking about your introduction — where you lead, and what you're hoping to grow into this year.</p>
+      </div>
+      <div class="wait-item">
+        <span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+        <p>Watch for the next Office Hours announcement — your first live session with Dr. Bryan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COMMUNITY VALUES
+============================================================ -->
+<section class="section section-navy">
+  <div class="container">
+    <div class="section-header text-center max-680">
+      <div class="section-mark on-dark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow">The Culture You're Joining</p>
+      <h2 class="h-lg on-dark">This Is How We Show Up For Each Other.</h2>
+    </div>
+
+    <div class="values-grid reveal">
+      <div class="value-card">
+        <div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h4>We Encourage</h4>
+        <p>Every voice in the room matters, especially the ones still finding their footing.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/></svg></div>
+        <h4>We Challenge</h4>
+        <p>Comfortable never made anyone a better leader. We push each other forward.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h4>We Celebrate</h4>
+        <p>Every win gets noticed here — the small ones and the career-defining ones.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>We Grow Together</h4>
+        <p>Nobody levels up alone. Your growth is the room's growth too.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h4>We Lead With Excellence</h4>
+        <p>Service is not a department. Leadership is not a title. It's a standard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL MESSAGE
+============================================================ -->
+<section class="section final-section section-cream">
+  <div class="final-glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="reveal max-560" style="margin:0 auto;">
+      <div class="section-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow">Your Next Chapter Starts Now</p>
+      <h2 class="h-lg">We'll See You Inside.</h2>
+      <p class="lede" style="margin-top:18px;">
+        The best leaders never stop learning. Thank you for choosing to continue your leadership journey with us — we're honored to have you as part of the community.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="page-footer">
+  <div class="container">
+    <img class="footer-logo" src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" />
+    <p class="footer-tagline">Service is not a department. Leadership is not a title.</p>
+    <p class="footer-copy">&copy; <span id="year"></span> Dr. Bryan K. Williams. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- Personalize "Check Your Email" if ?email= is present on the
+     redirect URL (GHL can append the contact's email to the thank-you
+     page URL). Falls back to generic copy if it isn't. ---- */
+  try{
+    var params = new URLSearchParams(window.location.search);
+    var email = params.get('email');
+    if(email){
+      document.getElementById('emailTarget').textContent = email;
+    }
+  }catch(e){ /* no-op — generic copy already in place */ }
+
+  /* ---- Reveal on scroll ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---- Confetti burst (brand-colored, sparse, plays once) ---- */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var layer = document.getElementById('confettiLayer');
+  if(layer && !reduceMotion){
+    var colors = ['#E5AB48','#F0C878','#FFFFFF'];
+    var count = 26;
+    for(var i = 0; i < count; i++){
+      var piece = document.createElement('span');
+      piece.className = 'confetti-piece';
+      var left = Math.random() * 100;
+      var delay = Math.random() * 0.6;
+      var duration = 2.8 + Math.random() * 1.4;
+      var color = colors[i % colors.length];
+      var rotate = Math.random() > 0.5;
+      piece.style.left = left + '%';
+      piece.style.background = color;
+      piece.style.borderRadius = rotate ? '50%' : '2px';
+      piece.style.animationDelay = delay + 's';
+      piece.style.animationDuration = duration + 's';
+      layer.appendChild(piece);
+    }
+    /* clean up after the burst finishes so it never replays or lingers in the DOM */
+    setTimeout(function(){ layer.innerHTML = ''; }, 5000);
+  }
+})();
+</script>
+
+</body>
+</html>
