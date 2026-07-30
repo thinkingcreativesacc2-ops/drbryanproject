@@ -57,6 +57,39 @@ p{margin:0;}
 .enroll-container{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1;}
 
 /* ============================================================
+   1B. PAGE HEADER
+   Deliberately minimal — logo + a quiet trust signal, no nav
+   links or outbound CTAs. Checkout-style pages convert better
+   with fewer exits; the only action on this page should be the
+   form below.
+============================================================ */
+.enroll-header{
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.enroll-header-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:20px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.enroll-logo{height:32px;width:auto;display:block;}
+.enroll-header-trust{
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;color:var(--navy);
+  white-space:nowrap;
+}
+.enroll-header-trust svg{flex-shrink:0;color:var(--gold);}
+
+@media (max-width:560px){
+  .enroll-header-inner{padding:16px 20px;}
+  .enroll-header-trust span{display:none;}
+}
+
+/* ============================================================
    2. SECTION SHELL + DECORATIVE BACKGROUND
 ============================================================ */
 .enroll{
@@ -318,6 +351,21 @@ p{margin:0;}
 </style>
 </head>
 <body>
+
+<!-- ============================================================
+     PAGE HEADER — logo + secure-enrollment signal only.
+     No nav links, no outbound CTA: nothing on this page should
+     compete with completing the form below.
+============================================================ -->
+<header class="enroll-header">
+  <div class="enroll-header-inner">
+    <img class="enroll-logo" src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" />
+    <div class="enroll-header-trust">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <span>Secure Enrollment</span>
+    </div>
+  </div>
+</header>
 
 <!-- ============================================================
      ENROLLMENT SECTION
