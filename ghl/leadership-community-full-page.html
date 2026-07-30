@@ -455,6 +455,22 @@ p{margin:0;}
 .stack-reframe strong{color:var(--navy);}
 .stack-reframe .price-highlight{color:var(--gold);font-weight:800;font-size:1.2em;}
 
+.value-strip{display:flex;align-items:stretch;margin-top:18px;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-soft);}
+.vs-side{flex:1;padding:26px 32px;display:flex;flex-direction:column;justify-content:center;gap:6px;}
+.vs-was{background:var(--cream-deep);}
+.vs-now{background:linear-gradient(135deg,#FBF3DE,var(--white));}
+.vs-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);}
+.vs-was .vs-amount{font-family:'League Gothic';font-size:32px;color:#9aa0aa;text-decoration:line-through;line-height:1;margin-top:4px;}
+.vs-now .vs-amount{font-family:'League Gothic';font-size:42px;color:var(--gold);line-height:1;margin-top:4px;}
+.vs-now .vs-amount small{font-family:'Lato';font-weight:700;font-size:14px;color:var(--ink-soft);margin-left:5px;}
+.vs-arrow{flex-shrink:0;width:60px;display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--gold-light);}
+
+@media (max-width:620px){
+  .value-strip{flex-direction:column;}
+  .vs-arrow{width:100%;height:34px;}
+  .vs-arrow svg{transform:rotate(90deg);}
+}
+
 @media (max-width:620px){
   .stack-item{grid-template-columns:56px 1fr;}
   .stack-price{grid-column:1/3;text-align:left;display:flex;gap:12px;align-items:baseline;}
@@ -1053,6 +1069,21 @@ p{margin:0;}
         <span class="label">Total Annual Value</span>
         <span class="amount" data-count-to="9747" data-prefix="$" data-suffix="+">$9,747+</span>
       </div>
+
+      <div class="value-strip">
+        <div class="vs-side vs-was">
+          <span class="vs-label">Total Value</span>
+          <span class="vs-amount">$9,747</span>
+        </div>
+        <div class="vs-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </div>
+        <div class="vs-side vs-now">
+          <span class="vs-label">Your Price</span>
+          <span class="vs-amount">$249<small>/year</small></span>
+        </div>
+      </div>
+
       <p class="stack-reframe">That's <strong>$9,747 in value</strong> for leaders who treat growth like a hobby. For <span class="price-highlight">$249</span>, treat it like a career.</p>
     </div>
   </div>
