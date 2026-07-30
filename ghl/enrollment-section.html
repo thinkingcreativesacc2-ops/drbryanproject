@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Enroll — The Leadership Community | Dr. Bryan K. Williams</title>
+
+<!-- ============================================================
+     FONTS
+     League Gothic = display/headline face, Lato = body face.
+     Matches Dr. Bryan's existing brand type system.
+============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Lato:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   1. BRAND TOKENS — edit these to re-theme the whole section
+============================================================ */
+:root{
+  --navy:#192857;
+  --navy-deep:#0F1938;
+  --navy-mid:#233568;
+  --gold:#E5AB48;
+  --gold-light:#F0C878;
+  --cream:#F8F5EF;
+  --cream-deep:#F0EAD9;
+  --white:#FFFFFF;
+  --ink:#1F2937;
+  --ink-soft:#5B6472;
+  --line:rgba(25,40,87,0.10);
+  --shadow-soft:0 20px 60px rgba(15,25,56,0.10);
+  --shadow-lift:0 30px 90px rgba(15,25,56,0.20);
+  --radius-lg:28px;
+  --radius-md:18px;
+  --radius-sm:12px;
+  --maxw:1200px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+body{
+  margin:0;
+  padding:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Lato',sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+h1,h2,h3,h4{font-family:'League Gothic','Lato',sans-serif;font-weight:400;letter-spacing:0.3px;margin:0;}
+p{margin:0;}
+.enroll-container{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1;}
+
+/* ============================================================
+   2. SECTION SHELL + DECORATIVE BACKGROUND
+============================================================ */
+.enroll{
+  position:relative;
+  padding:140px 0;
+  overflow:hidden;
+  background:var(--cream);
+}
+.enroll-bg{position:absolute;inset:0;pointer-events:none;z-index:0;}
+.enroll-texture{
+  position:absolute;inset:0;
+  background-image:radial-gradient(rgba(25,40,87,0.05) 1.4px,transparent 1.4px);
+  background-size:26px 26px;
+  opacity:0.7;
+}
+.glow{position:absolute;border-radius:50%;filter:blur(2px);animation:drift 16s ease-in-out infinite;}
+.glow-gold{
+  width:620px;height:620px;top:-260px;left:-200px;
+  background:radial-gradient(circle,rgba(229,171,72,0.20) 0%,rgba(229,171,72,0) 65%);
+}
+.glow-navy{
+  width:520px;height:520px;bottom:-220px;right:-160px;
+  background:radial-gradient(circle,rgba(25,40,87,0.12) 0%,rgba(25,40,87,0) 65%);
+  animation-delay:-8s;
+}
+@keyframes drift{
+  0%,100%{transform:translate(0,0);}
+  50%{transform:translate(24px,-18px);}
+}
+@media (prefers-reduced-motion: reduce){
+  .glow{animation:none;}
+}
+
+/* ============================================================
+   3. TYPE SCALE
+============================================================ */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Lato',sans-serif;font-weight:700;font-size:12px;
+  letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);
+}
+.chapter-mark{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.chapter-mark::before{content:"";height:1px;width:34px;background:linear-gradient(90deg,transparent,var(--line));}
+.chapter-mark span{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+.enroll-heading{
+  font-size:clamp(34px,4.6vw,54px);
+  line-height:1.06;
+  color:var(--navy);
+  margin:16px 0 22px;
+}
+.enroll-lede{
+  font-size:clamp(16.5px,1.6vw,18.5px);
+  color:var(--ink-soft);
+  line-height:1.75;
+  max-width:520px;
+}
+
+/* ============================================================
+   4. REVEAL-ON-SCROLL (fade-up utility)
+============================================================ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+.reveal-delay-3{transition-delay:.3s;}
+.reveal-delay-4{transition-delay:.4s;}
+
+/* ============================================================
+   5. LAYOUT — two-column enrollment grid
+============================================================ */
+.enroll-grid{
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:72px;
+  align-items:start;
+  margin-top:56px;
+}
+
+/* ============================================================
+   6. LEFT COLUMN — story, feature list, trust row
+============================================================ */
+.feature-list{
+  display:flex;flex-direction:column;gap:14px;
+  margin-top:44px;
+}
+.feature-row{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:18px 20px;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  box-shadow:0 8px 24px rgba(15,25,56,0.05);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .35s ease;
+}
+.feature-row:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 40px rgba(15,25,56,0.10);
+  border-color:rgba(229,171,72,0.35);
+}
+.feature-icon{
+  position:relative;
+  flex-shrink:0;width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(135deg,var(--navy),var(--navy-mid));
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold-light);
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+.feature-check{
+  position:absolute;bottom:-5px;right:-5px;width:18px;height:18px;border-radius:50%;
+  background:var(--gold);border:2px solid var(--cream);
+  display:flex;align-items:center;justify-content:center;
+}
+.feature-row:hover .feature-icon{transform:scale(1.08) rotate(-4deg);}
+.feature-copy h4{
+  font-family:'Lato',sans-serif;font-weight:700;font-size:15.5px;
+  color:var(--navy);margin-bottom:3px;
+}
+.feature-copy p{font-size:14px;color:var(--ink-soft);line-height:1.55;}
+
+/* staggered entrance for feature rows once .feature-list gets .in */
+.feature-list.in .feature-row{opacity:1;transform:translateY(0);}
+.feature-row{opacity:0;transform:translateY(14px);transition:opacity .55s cubic-bezier(.2,.7,.2,1),transform .55s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .35s ease;}
+.feature-list.in .feature-row:nth-child(1){transition-delay:.05s;}
+.feature-list.in .feature-row:nth-child(2){transition-delay:.12s;}
+.feature-list.in .feature-row:nth-child(3){transition-delay:.19s;}
+.feature-list.in .feature-row:nth-child(4){transition-delay:.26s;}
+.feature-list.in .feature-row:nth-child(5){transition-delay:.33s;}
+.feature-list.in .feature-row:nth-child(6){transition-delay:.4s;}
+
+/* animated checkmark used inside each icon chip */
+.check-draw{stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .5s ease .3s;}
+.feature-list.in .feature-row .check-draw{stroke-dashoffset:0;}
+
+.trust-row{
+  display:flex;flex-wrap:wrap;gap:14px 28px;
+  margin-top:36px;padding-top:32px;
+  border-top:1px solid var(--line);
+}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;color:var(--navy);}
+.trust-item svg{flex-shrink:0;color:var(--gold);}
+.trust-item span.sub{display:block;font-size:12px;font-weight:400;color:var(--ink-soft);margin-top:1px;}
+
+/* ============================================================
+   7. RIGHT COLUMN — floating membership card
+============================================================ */
+.enroll-card-wrap{position:relative;}
+.enroll-card{
+  position:relative;
+  background:var(--white);
+  border-radius:var(--radius-lg);
+  border:1px solid rgba(229,171,72,0.25);
+  box-shadow:var(--shadow-lift);
+  padding:44px 40px 36px;
+  overflow:hidden;
+  transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease;
+}
+.enroll-card:hover{transform:translateY(-6px);box-shadow:0 40px 110px rgba(15,25,56,0.26);}
+.card-glow{
+  position:absolute;top:-140px;right:-120px;width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(229,171,72,0.16) 0%,rgba(229,171,72,0) 65%);
+  pointer-events:none;
+}
+.card-kicker{
+  font-size:11.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;position:relative;z-index:1;
+}
+.card-title{
+  font-size:clamp(24px,2.4vw,30px);color:var(--navy);line-height:1.1;
+  position:relative;z-index:1;
+}
+.card-price{
+  display:flex;align-items:baseline;gap:14px;margin-top:22px;position:relative;z-index:1;
+}
+.card-price .was{font-family:'League Gothic';font-size:24px;color:#B9BEC7;text-decoration:line-through;}
+.card-price .now{font-family:'League Gothic';font-size:58px;color:var(--navy);line-height:1;}
+.card-price .per{font-size:14px;color:var(--ink-soft);}
+.founding-badge{
+  display:inline-flex;align-items:center;gap:7px;margin-top:14px;
+  padding:7px 14px;border-radius:100px;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  color:var(--navy-deep);font-size:12px;font-weight:800;letter-spacing:0.4px;
+  position:relative;z-index:1;
+  animation:badgePulse 2.6s ease-in-out infinite;
+}
+.founding-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--navy-deep);flex-shrink:0;}
+@keyframes badgePulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(229,171,72,0.45);}
+  50%{box-shadow:0 0 0 8px rgba(229,171,72,0);}
+}
+.card-value{
+  margin-top:18px;font-size:14.5px;color:var(--ink-soft);line-height:1.6;
+  position:relative;z-index:1;
+}
+.card-divider{
+  height:1px;margin:28px 0;position:relative;z-index:1;
+  background:linear-gradient(90deg,transparent,rgba(229,171,72,0.45),transparent);
+}
+.card-step{
+  display:flex;align-items:center;gap:10px;margin-bottom:16px;position:relative;z-index:1;
+}
+.card-step .num{
+  flex-shrink:0;width:24px;height:24px;border-radius:50%;
+  background:var(--navy);color:var(--gold-light);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;
+}
+.card-step p{font-size:13px;font-weight:700;letter-spacing:0.3px;text-transform:uppercase;color:var(--navy);}
+
+/* ---------- Embedded GHL form wrapper — styled to feel native ---------- */
+.form-embed-wrap{
+  position:relative;z-index:1;
+  background:var(--cream);
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:6px;
+  height:606px;
+  overflow:hidden;
+}
+.form-embed-wrap iframe{
+  width:100%;height:100%;border:none;border-radius:14px;display:block;
+  background:var(--white);
+}
+
+.card-microtrust{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:20px;font-size:12.5px;color:var(--ink-soft);
+  position:relative;z-index:1;
+}
+.card-microtrust svg{flex-shrink:0;color:var(--gold);}
+
+/* subtle floating accent chip near the card */
+.card-float-tag{
+  position:absolute;top:26px;right:-14px;
+  background:var(--navy);color:var(--gold-light);
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:8px 14px;border-radius:100px;
+  box-shadow:var(--shadow-soft);
+  animation:floatTag 5s ease-in-out infinite;
+  z-index:2;
+}
+@keyframes floatTag{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+/* ============================================================
+   8. RESPONSIVE
+============================================================ */
+@media (max-width:960px){
+  .enroll{padding:100px 0;}
+  .enroll-grid{grid-template-columns:1fr;gap:52px;}
+  .enroll-lede{max-width:none;}
+  .card-float-tag{right:8px;}
+}
+@media (max-width:560px){
+  .enroll-card{padding:34px 24px 28px;}
+  .card-price .now{font-size:46px;}
+  .form-embed-wrap{height:640px;}
+  .trust-row{gap:16px 22px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     ENROLLMENT SECTION
+     Two-column: story + feature summary (left) / floating
+     membership card with embedded GHL form (right).
+============================================================ -->
+<section class="enroll" id="enroll">
+
+  <div class="enroll-bg" aria-hidden="true">
+    <div class="glow glow-gold"></div>
+    <div class="glow glow-navy"></div>
+    <div class="enroll-texture"></div>
+  </div>
+
+  <div class="enroll-container">
+    <div class="enroll-grid">
+
+      <!-- ========================================================
+           LEFT COLUMN — the pitch, restated as belonging
+      ========================================================= -->
+      <div class="enroll-story">
+        <div class="chapter-mark" aria-hidden="true"><span></span></div>
+        <p class="eyebrow reveal">Your Next Chapter</p>
+        <h2 class="enroll-heading reveal reveal-delay-1">Everything Begins Today.</h2>
+        <p class="enroll-lede reveal reveal-delay-2">
+          The workshop inspired you. This community is where you become that leader — every single week, alongside people who refuse to stop growing too. You've already invested in learning. This is where you invest in becoming.
+        </p>
+
+        <div class="feature-list reveal reveal-delay-3">
+
+          <div class="feature-row">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <div class="feature-check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="check-draw" d="M5 13l4 4L19 7"/></svg>
+              </div>
+            </div>
+            <div class="feature-copy">
+              <h4>Weekly Leadership Tip &amp; Challenge</h4>
+              <p>One sharp insight and one real challenge, delivered every week — so growth never waits for the next call.</p>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+              <div class="feature-check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="check-draw" d="M5 13l4 4L19 7"/></svg>
+              </div>
+            </div>
+            <div class="feature-copy">
+              <h4>Monthly Leadership Lounge Call</h4>
+              <p>Live, direct access to Dr. Bryan — bring the question you haven't said out loud yet.</p>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg>
+              <div class="feature-check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="check-draw" d="M5 13l4 4L19 7"/></svg>
+              </div>
+            </div>
+            <div class="feature-copy">
+              <h4>Monthly Leadership Sprint Call</h4>
+              <p>Deep coaching built around real conflict and real scenarios, so you walk in prepared.</p>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <div class="feature-check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="check-draw" d="M5 13l4 4L19 7"/></svg>
+              </div>
+            </div>
+            <div class="feature-copy">
+              <h4>BWTV — The Complete Video Library</h4>
+              <p>Every session Dr. Bryan has delivered live to 1,700+ leaders, yours to rewatch anytime.</p>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              <div class="feature-check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="check-draw" d="M5 13l4 4L19 7"/></svg>
+              </div>
+            </div>
+            <div class="feature-copy">
+              <h4>Leadership Templates &amp; Resources</h4>
+              <p>Frameworks built to use the same day you receive them — not homework, tools.</p>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <div class="feature-check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path class="check-draw" d="M5 13l4 4L19 7"/></svg>
+              </div>
+            </div>
+            <div class="feature-copy">
+              <h4>Private Community &amp; Networking</h4>
+              <p>A room full of leaders who won't let you quietly go back to old habits.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Trust row -->
+        <div class="trust-row reveal reveal-delay-4">
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Secure Enrollment<span class="sub">Payment processed safely</span></span>
+          </div>
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/></svg>
+            <span>Instant Access<span class="sub">You're in within minutes</span></span>
+          </div>
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
+            <span>Cancel Anytime<span class="sub">No contracts, ever</span></span>
+          </div>
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            <span>Founding Pricing<span class="sub">Locked for as long as you stay</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================
+           RIGHT COLUMN — floating membership card + embedded form
+      ========================================================= -->
+      <div class="enroll-card-wrap reveal reveal-delay-2">
+        <div class="enroll-card">
+          <div class="card-glow" aria-hidden="true"></div>
+          <span class="card-float-tag">Founding Member</span>
+
+          <p class="card-kicker">Membership</p>
+          <h3 class="card-title">The Leadership Community</h3>
+
+          <div class="card-price">
+            <span class="was">$497</span>
+            <span class="now">$249</span>
+            <span class="per">/ year</span>
+          </div>
+          <span class="founding-badge"><span class="dot"></span>Founding Member Pricing — Save $248</span>
+
+          <p class="card-value">One membership. Everything included. No tiers to compare, no add-ons to upsell — just full access, for a full year.</p>
+
+          <div class="card-divider" aria-hidden="true"></div>
+
+          <div class="card-step">
+            <span class="num">1</span>
+            <p>Complete Your Enrollment</p>
+          </div>
+
+          <!-- Paste GHL Payment Form Here -->
+          <div class="form-embed-wrap">
+            <iframe
+                src="https://link.thinkingcreatives.com/widget/form/UF30qSZajNM6wIdb7GLI"
+                style="width:100%;height:100%;border:none;border-radius:8px"
+                id="inline-UF30qSZajNM6wIdb7GLI"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Payment Form for Skool"
+                data-height="606"
+                data-layout-iframe-id="inline-UF30qSZajNM6wIdb7GLI"
+                data-form-id="UF30qSZajNM6wIdb7GLI"
+                title="Payment Form for Skool"
+            >
+            </iframe>
+          </div>
+          <script src="https://link.thinkingcreatives.com/js/form_embed.js"></script>
+
+          <p class="card-microtrust">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Secure checkout · Cancel anytime · No hidden fees
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  /* ---- Fade-up reveal on scroll ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+</body>
+</html>
