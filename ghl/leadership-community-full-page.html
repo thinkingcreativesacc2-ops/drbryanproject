@@ -17,6 +17,8 @@
   --gold-light:#E3B563;
   --cream:#F7F2E9;
   --cream-deep:#F0E9DA;
+  --beige:#EAE0C6;
+  --beige-deep:#E1D3AC;
   --ink:#1c1c1c;
   --ink-soft:#4a4f58;
   --white:#ffffff;
@@ -173,10 +175,33 @@ p{margin:0;}
 .section-compact{padding:64px 0;}
 .section-cream{background:var(--cream);}
 .section-cream-deep{background:var(--cream-deep);}
+.section-beige{background:var(--beige);}
 .section-navy{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);}
 .section-white{background:var(--white);}
 .section-header{margin-bottom:64px;}
 .divider-fade{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);}
+
+/* ---------- Chapter rhythm: curved dividers, textures, glows ---------- */
+.chapter-curve{position:absolute;top:0;left:0;width:100%;line-height:0;transform:translateY(-99%);z-index:2;pointer-events:none;}
+.chapter-curve svg{display:block;width:100%;height:56px;}
+@media (max-width:768px){.chapter-curve svg{height:34px;}}
+
+.chapter-seam{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:12px;padding-top:56px;margin-bottom:-32px;}
+.chapter-seam::before,.chapter-seam::after{content:"";height:1px;width:52px;background:linear-gradient(90deg,transparent,rgba(227,181,99,0.4));}
+.chapter-seam::after{background:linear-gradient(90deg,rgba(227,181,99,0.4),transparent);}
+.chapter-seam span{width:7px;height:7px;transform:rotate(45deg);background:var(--gold);flex-shrink:0;}
+
+.texture-dots{position:relative;}
+.texture-dots::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(22,36,63,0.07) 1.4px,transparent 1.4px);background-size:26px 26px;opacity:0.6;pointer-events:none;z-index:0;}
+
+.texture-diagonal{position:relative;}
+.texture-diagonal::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(22,36,63,0.045) 0px,rgba(22,36,63,0.045) 1px,transparent 1px,transparent 14px);pointer-events:none;z-index:0;}
+
+.chapter-glow{position:absolute;border-radius:50%;pointer-events:none;z-index:0;}
+.chapter-glow-gold{background:radial-gradient(circle,rgba(200,147,43,0.16) 0%,rgba(200,147,43,0) 65%);}
+.chapter-glow-navy{background:radial-gradient(circle,rgba(22,36,63,0.08) 0%,rgba(22,36,63,0) 65%);}
+
+.texture-dots > .container,.texture-diagonal > .container,.section-glow > .container{position:relative;z-index:1;}
 
 /* ============================================================
    THE GAP (pain)
@@ -468,7 +493,7 @@ p{margin:0;}
 .countdown-wrap{text-align:center;margin:0 auto 40px;}
 .countdown-label{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:18px;}
 .countdown{display:flex;align-items:stretch;justify-content:center;gap:12px;}
-.countdown-seg{background:linear-gradient(155deg,var(--navy),var(--navy-deep));border-radius:14px;padding:14px 16px;min-width:70px;box-shadow:0 10px 26px rgba(22,36,63,0.18);}
+.countdown-seg{background:rgba(255,255,255,0.06);border:1px solid rgba(200,147,43,0.3);border-radius:14px;padding:14px 16px;min-width:70px;box-shadow:0 10px 26px rgba(0,0,0,0.25);backdrop-filter:blur(6px);}
 .cd-num{display:block;font-family:'League Gothic';font-size:32px;color:var(--gold-light);line-height:1;font-variant-numeric:tabular-nums;}
 .cd-label{display:block;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:6px;}
 .cd-colon{align-self:center;font-family:'League Gothic';font-size:26px;color:var(--gold);opacity:0.45;}
@@ -478,7 +503,7 @@ p{margin:0;}
   .countdown-seg{min-width:58px;padding:12px 10px;}
   .cd-num{font-size:26px;}
 }
-.price-card{background:linear-gradient(165deg,var(--navy) 0%,var(--navy-deep) 100%);border-radius:28px;padding:56px 48px;color:var(--white);box-shadow:var(--shadow-lift);position:relative;overflow:hidden;border:1px solid rgba(200,147,43,0.25);}
+.price-card{background:linear-gradient(165deg,var(--navy-mid) 0%,var(--navy-deep) 100%);border-radius:28px;padding:56px 48px;color:var(--white);box-shadow:0 0 0 1px rgba(200,147,43,0.4),0 30px 90px rgba(0,0,0,0.45),0 0 70px rgba(200,147,43,0.1);position:relative;overflow:hidden;border:1px solid rgba(227,181,99,0.4);}
 .price-card::before{content:"";position:absolute;width:520px;height:520px;background:radial-gradient(circle,rgba(200,147,43,0.18),transparent 65%);top:-220px;right:-180px;}
 .price-card-top{position:relative;z-index:1;text-align:center;}
 .price-plan-name{font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:18px;}
@@ -612,7 +637,9 @@ p{margin:0;}
 <!-- ============================================================
      IMMERSIVE COMMUNITY (belonging) — first thing after the hero
 ============================================================ -->
-<section class="section section-cream community-section" id="experience" aria-labelledby="community-heading">
+<section class="section section-cream community-section texture-dots" id="experience" aria-labelledby="community-heading">
+  <div class="chapter-glow chapter-glow-gold" style="width:560px;height:560px;top:-220px;left:-160px;" aria-hidden="true"></div>
+  <div class="chapter-glow chapter-glow-navy" style="width:460px;height:460px;bottom:-200px;right:-140px;" aria-hidden="true"></div>
   <div class="container">
     <div class="section-header text-center max-720">
       <div class="section-mark" aria-hidden="true"><span></span></div>
@@ -758,7 +785,8 @@ p{margin:0;}
 <!-- ============================================================
      THE GAP (pain)
 ============================================================ -->
-<section class="section section-cream" aria-labelledby="gap-heading">
+<section class="section section-beige" aria-labelledby="gap-heading">
+  <div class="chapter-curve" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 Q720,0 1440,80 L1440,80 L0,80 Z" style="fill:var(--beige);"/></svg></div>
   <div class="container">
     <div class="section-header text-center max-720">
       <div class="section-mark" aria-hidden="true"><span></span></div>
@@ -800,7 +828,8 @@ p{margin:0;}
 <!-- ============================================================
      TRUST STRIP (credibility, kept brief on purpose)
 ============================================================ -->
-<section class="section section-compact section-white" aria-labelledby="story-heading">
+<section class="section section-compact section-white section-glow" aria-labelledby="story-heading">
+  <div class="chapter-glow chapter-glow-navy" style="width:420px;height:420px;top:-160px;left:50%;transform:translateX(-50%);" aria-hidden="true"></div>
   <div class="container">
     <div class="story-grid">
       <div class="reveal">
@@ -848,6 +877,7 @@ p{margin:0;}
      THE SOLUTION / bridge
 ============================================================ -->
 <section class="section transition-section" id="solution" aria-labelledby="transition-heading">
+  <div class="chapter-seam" aria-hidden="true"><span></span></div>
   <div class="container transition-inner">
     <div class="transition-photo reveal">
       <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a03db5490e90701146.jpg" alt="Leaders in real conversation inside the community" />
@@ -876,7 +906,8 @@ p{margin:0;}
 <!-- ============================================================
      TRANSFORMATION
 ============================================================ -->
-<section class="section section-white" aria-labelledby="transform-heading">
+<section class="section section-cream" aria-labelledby="transform-heading">
+  <div class="chapter-curve" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 Q720,0 1440,80 L1440,80 L0,80 Z" style="fill:var(--cream);"/></svg></div>
   <div class="container">
     <div class="section-header text-center max-720">
       <div class="section-mark" aria-hidden="true"><span></span></div>
@@ -920,7 +951,7 @@ p{margin:0;}
 <!-- ============================================================
      EVERYTHING INCLUDED
 ============================================================ -->
-<section class="section section-white" id="included" aria-labelledby="included-heading">
+<section class="section section-beige texture-diagonal" id="included" aria-labelledby="included-heading">
   <div class="container">
     <div class="section-header text-center max-720">
       <div class="section-mark" aria-hidden="true"><span></span></div>
@@ -976,7 +1007,7 @@ p{margin:0;}
 <!-- ============================================================
      VALUE STACK
 ============================================================ -->
-<section class="section section-cream" aria-labelledby="value-heading">
+<section class="section section-white" aria-labelledby="value-heading">
   <div class="container">
     <div class="section-header text-center max-720">
       <p class="eyebrow reveal">What It Would Cost À La Carte</p>
@@ -1029,13 +1060,15 @@ p{margin:0;}
 <!-- ============================================================
      PRICING
 ============================================================ -->
-<section class="section section-cream" id="pricing" aria-labelledby="pricing-heading">
+<section class="section section-navy section-glow" id="pricing" aria-labelledby="pricing-heading">
+  <div class="chapter-curve" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 Q720,0 1440,80 L1440,80 L0,80 Z" style="fill:var(--navy);"/></svg></div>
+  <div class="chapter-glow chapter-glow-gold" style="width:640px;height:640px;top:-260px;left:50%;transform:translateX(-50%);" aria-hidden="true"></div>
   <div class="container">
     <div class="section-header text-center max-720">
-      <div class="section-mark" aria-hidden="true"><span></span></div>
-      <p class="eyebrow reveal">Membership</p>
-      <h2 id="pricing-heading" class="h-lg reveal reveal-delay-1">One Membership. Everything Included.</h2>
-      <p class="lede reveal reveal-delay-2" style="color:var(--ink-soft);margin-top:16px;">No tiers to compare. No add-ons to upsell. Just full access to everything, for a full year.</p>
+      <div class="section-mark on-dark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow on-dark reveal">Membership</p>
+      <h2 id="pricing-heading" class="h-lg on-dark reveal reveal-delay-1">One Membership. Everything Included.</h2>
+      <p class="lede on-dark reveal reveal-delay-2" style="margin-top:16px;">No tiers to compare. No add-ons to upsell. Just full access to everything, for a full year.</p>
     </div>
 
     <div class="pricing-wrap reveal reveal-delay-3">
@@ -1088,6 +1121,7 @@ p{margin:0;}
      TESTIMONIALS — masonry social-proof wall
 ============================================================ -->
 <section class="section section-cream" aria-labelledby="testi-heading">
+  <div class="chapter-curve" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 Q720,0 1440,80 L1440,80 L0,80 Z" style="fill:var(--cream);"/></svg></div>
   <div class="container">
     <div class="section-header text-center max-720">
       <div class="section-mark" aria-hidden="true"><span></span></div>
