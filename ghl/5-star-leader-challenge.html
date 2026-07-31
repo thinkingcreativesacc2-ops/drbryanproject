@@ -9,7 +9,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -39,23 +39,12 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  h1,h2,h3,h4{
-    font-family:'Oswald',sans-serif;
-    font-weight:600;
-    letter-spacing:.01em;
-    color:var(--navy);
-    margin:0;
-  }
+  h1,h2,h3{ margin:0; color:var(--navy); }
   p{margin:0;}
-  ul{margin:0;}
+  ol,ul{margin:0;}
   img{max-width:100%;display:block;}
   a{color:inherit;}
-  .container{
-    max-width:1180px;
-    margin:0 auto;
-    padding:0 24px;
-    position:relative;
-  }
+  .container{ max-width:1180px; margin:0 auto; padding:0 24px; position:relative; }
   section{position:relative;}
 
   /* ---------- utility ---------- */
@@ -63,430 +52,225 @@
   .max-720{max-width:720px;margin-left:auto;margin-right:auto;}
   .max-680{max-width:680px;margin-left:auto;margin-right:auto;}
   .max-560{max-width:560px;margin-left:auto;margin-right:auto;}
-  .section-pad{padding:120px 0;}
-  @media (max-width:768px){ .section-pad{padding:72px 0;} }
+  .section-pad{padding:150px 0;}
+  @media (max-width:900px){ .section-pad{padding:90px 0;} }
 
-  /* ---------- tag pill (replaces old plain-text eyebrows everywhere so
-     contrast is always self-contained, never dependent on what's behind it) ---------- */
-  .tag-pill{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:8px 20px;
-    border-radius:100px;
-    background:rgba(229,171,72,.1);
-    border:1px solid rgba(229,171,72,.35);
-    color:var(--gold-soft);
-    font-family:'Inter',sans-serif;
-    font-size:13px;
-    font-weight:600;
-    letter-spacing:.02em;
-    margin-bottom:22px;
-  }
-  .tag-pill .dot{
-    width:7px;height:7px;border-radius:50%;
-    background:var(--gold);
-    box-shadow:0 0 0 4px rgba(229,171,72,.25);
-    flex:none;
-  }
-  .tag-pill-light{
-    background:rgba(168,36,15,.08);
-    border-color:rgba(168,36,15,.22);
-    color:var(--red);
-  }
-  .tag-pill-light .dot{ background:var(--red); box-shadow:0 0 0 4px rgba(168,36,15,.15); }
+  /* ---------- serif display type + emphasis marks ---------- */
+  .serif{ font-family:'Fraunces',serif; font-weight:600; color:var(--navy); }
+  .serif-italic{ font-style:italic; font-weight:500; }
+  .mark-dark{ color:var(--gold); font-style:italic; }
+  .mark-light{ color:var(--red); font-style:italic; }
 
-  /* ---------- reveal animation ---------- */
-  .reveal{
-    opacity:0;
-    transform:translateY(34px);
-    transition:opacity .9s var(--ease), transform .9s var(--ease);
+  /* ---------- kicker (self-contained pill so contrast never depends on
+     what ends up behind it — small and quiet by design) ---------- */
+  .kicker{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Oswald',sans-serif; font-size:12px; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase;
+    padding:7px 16px; border-radius:100px;
+    background:rgba(229,171,72,.1); border:1px solid rgba(229,171,72,.32); color:var(--gold-soft);
+    margin-bottom:26px;
   }
+  .kicker.on-light{ background:rgba(168,36,15,.07); border-color:rgba(168,36,15,.2); color:var(--red); }
+
+  /* ---------- reveal ---------- */
+  .reveal{ opacity:0; transform:translateY(34px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
   .reveal.is-visible{opacity:1;transform:translateY(0);}
-  .reveal-delay-1{transition-delay:.1s;}
-  .reveal-delay-2{transition-delay:.2s;}
-  .reveal-delay-3{transition-delay:.3s;}
   @media (prefers-reduced-motion: reduce){
     .reveal, .reveal.is-visible, *{transition-duration:.01ms !important; animation-duration:.01ms !important;}
-    .aurora-blob, .marquee-track, .chip-float, .floating-badge, .scroll-cue .line{ animation:none !important; }
+    .marquee-track, .scroll-cue .line{ animation:none !important; }
   }
 
   /* ---------- buttons ---------- */
   .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    font-family:'Oswald',sans-serif;
-    text-transform:uppercase;
-    letter-spacing:.12em;
-    font-size:16px;
-    font-weight:600;
-    padding:22px 48px;
-    border-radius:100px;
-    border:none;
-    cursor:pointer;
-    text-decoration:none;
-    position:relative;
-    overflow:hidden;
-    transition:transform .35s var(--ease), box-shadow .35s var(--ease);
-    isolation:isolate;
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.12em;
+    font-size:15px; font-weight:600; padding:22px 46px; border-radius:100px; border:none;
+    cursor:pointer; text-decoration:none; position:relative; overflow:hidden;
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease); isolation:isolate;
   }
   .btn::before{
-    content:"";
-    position:absolute;inset:0;
+    content:""; position:absolute;inset:0;
     background:linear-gradient(120deg, transparent, rgba(255,255,255,.35), transparent);
-    transform:translateX(-120%);
-    transition:transform .7s var(--ease);
-    z-index:1;
+    transform:translateX(-120%); transition:transform .7s var(--ease); z-index:1;
   }
   .btn:hover::before{transform:translateX(120%);}
   .btn:hover{transform:translateY(-3px);}
-  .btn-gold{
-    background:linear-gradient(135deg,var(--gold),#d4933a);
-    color:var(--navy-deep);
-    box-shadow:0 15px 35px -8px rgba(229,171,72,.55);
-  }
+  .btn-gold{ background:linear-gradient(135deg,var(--gold),#d4933a); color:var(--navy-deep); box-shadow:0 15px 35px -8px rgba(229,171,72,.55); }
   .btn-gold:hover{box-shadow:0 22px 45px -8px rgba(229,171,72,.7);}
   .btn-sm{ padding:14px 26px; font-size:12.5px; }
   .micro-copy{ margin-top:18px; font-size:14px; color:var(--ink-soft); letter-spacing:.02em; }
   .micro-copy.light{color:rgba(255,255,255,.72);}
 
-  /* ---------- glass surfaces ---------- */
-  .glass-dark{
-    background:rgba(15,25,56,.75);
-    backdrop-filter:blur(16px);
-    -webkit-backdrop-filter:blur(16px);
-    border:1px solid rgba(229,171,72,.25);
-    box-shadow:var(--shadow-lg);
-  }
-
   /* ---------- scroll progress ---------- */
-  .scroll-progress{
-    position:fixed; top:0; left:0; height:3px; width:0%;
-    background:linear-gradient(90deg,var(--gold),var(--gold-soft));
-    z-index:1200;
-  }
+  .scroll-progress{ position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--gold),var(--gold-soft)); z-index:1200; }
 
-  /* ---------- aurora animated gradient background ---------- */
-  .aurora{ position:absolute; inset:0; overflow:hidden; z-index:0; pointer-events:none; }
-  .aurora-blob{ position:absolute; border-radius:50%; filter:blur(80px); opacity:.55; }
-  .aurora-blob.a1{ width:640px;height:640px; background:radial-gradient(circle, rgba(229,171,72,.35), transparent 70%); top:-220px; left:-140px; animation:auroraMove1 18s ease-in-out infinite; }
-  .aurora-blob.a2{ width:520px;height:520px; background:radial-gradient(circle, rgba(36,58,122,.6), transparent 70%); bottom:-180px; right:-100px; animation:auroraMove2 22s ease-in-out infinite; }
-  .aurora-blob.a3{ width:380px;height:380px; background:radial-gradient(circle, rgba(242,205,143,.22), transparent 70%); top:38%; left:55%; animation:auroraMove3 16s ease-in-out infinite; }
-  @keyframes auroraMove1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(60px,40px) scale(1.1);}}
-  @keyframes auroraMove2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-50px,-30px) scale(1.05);}}
-  @keyframes auroraMove3{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-40px,50px) scale(.95);}}
+  /* ---------- duotone photo (reused across hero / about / finale, each
+     with a different scrim so it never feels like the same treatment) ---------- */
+  .photo-duotone{ position:absolute; inset:0; z-index:0; overflow:hidden; }
+  .photo-duotone img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(.35) contrast(1.08) brightness(.95); }
 
   /* ================= HERO ================= */
   .hero{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    background:var(--navy-deep);
-    overflow:hidden;
-    padding:150px 24px 90px;
-    color:var(--white);
+    position:relative; min-height:100vh; display:flex; flex-direction:column;
+    justify-content:space-between; overflow:hidden; background:var(--navy-deep);
+    color:var(--white); padding:150px 0 44px;
   }
-  .hero-grid{
-    position:relative; z-index:1;
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:64px;
-    align-items:center;
-    width:100%;
+  .hero::before{
+    content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:
+      linear-gradient(100deg, rgba(15,25,56,.94) 0%, rgba(15,25,56,.68) 42%, rgba(15,25,56,.32) 75%),
+      linear-gradient(0deg, rgba(10,16,36,.85) 0%, transparent 46%);
   }
-  .hero-logo{ height:40px; width:auto; margin-bottom:28px; opacity:.92; }
-  .hero-title{
-    font-size:clamp(2.5rem, 5vw, 4.2rem);
-    line-height:1.06;
-    color:var(--white);
-    letter-spacing:-.01em;
-    margin-bottom:20px;
+  .hero-content{ position:relative; z-index:2; padding:0 6vw; max-width:760px; }
+  .hero-logo{ height:36px; width:auto; margin-bottom:30px; opacity:.92; }
+  .hero-headline{
+    font-family:'Fraunces',serif; font-weight:600; font-size:clamp(2.8rem,8.6vw,6.4rem);
+    line-height:.98; letter-spacing:-.01em; color:var(--white);
   }
-  .hero-title .gold{color:var(--gold);}
-  .hero-lede{
-    font-size:17px;
-    color:rgba(255,255,255,.72);
-    max-width:480px;
-    margin-bottom:32px;
-    font-weight:300;
-  }
-  .hero-form-card{
-    background:rgba(255,255,255,.97);
-    border:1px solid rgba(255,255,255,.6);
-    border-radius:20px;
-    padding:26px 24px 22px;
-    box-shadow:var(--shadow-lg);
-    max-width:460px;
-  }
-  .hero-form-kicker{
-    font-family:'Oswald',sans-serif;
-    font-size:13px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:var(--navy);
-    font-weight:600;
-    margin-bottom:14px;
-    text-align:center;
-  }
-  .hero-form-embed{ border-radius:12px; overflow:hidden; background:var(--white); }
-  .hero-form-embed iframe{ display:block; width:100%; min-height:433px; border:none; }
-  .hero-trust-row{ display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; }
-  .trust-chip{
-    flex:1 1 0; min-width:118px;
-    display:flex; align-items:center; gap:8px;
-    background:var(--cream); border-radius:10px; padding:10px 12px;
-  }
-  .trust-chip svg{ width:18px;height:18px;color:var(--gold); flex:none; }
-  .trust-chip strong{ display:block; font-family:'Oswald',sans-serif; font-size:13px; color:var(--navy); line-height:1.2; }
-  .trust-chip span{ display:block; font-size:10px; color:var(--ink-soft); letter-spacing:.02em; }
+  .hero-headline .mark-dark{ display:inline-block; }
+  .hero-lede{ font-size:17px; color:rgba(255,255,255,.72); max-width:440px; margin-top:26px; font-weight:300; }
 
-  .hero-visual{ position:relative; perspective:1200px; }
-  .hero-photo-stack{ position:relative; max-width:440px; margin:0 auto; transition:transform .3s ease-out; }
-  .hero-photo-frame{ border-radius:24px; overflow:hidden; box-shadow:0 40px 80px -20px rgba(0,0,0,.55); border:1px solid rgba(229,171,72,.25); position:relative; }
-  .hero-photo-frame img{ width:100%; height:560px; object-fit:cover; display:block; }
-  .hero-photo-frame::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(15,25,56,.5) 100%); }
-  .floating-badge{
-    position:absolute; top:-20px; right:-16px;
-    background:var(--white); border-radius:16px; padding:16px 20px;
-    box-shadow:var(--shadow-md); text-align:center;
-    animation:floatY 5s ease-in-out infinite;
+  .hero-register{
+    position:relative; z-index:2; margin:44px 6vw 0; max-width:420px;
+    background:rgba(255,255,255,.08); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(229,171,72,.35); border-radius:16px; padding:18px 18px 6px;
   }
-  .floating-badge strong{ display:block; font-family:'Oswald',sans-serif; font-size:1.4rem; color:var(--navy); line-height:1; }
-  .floating-badge span{ font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); }
-  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
-
-  .floating-quote{ position:absolute; bottom:-34px; left:-28px; max-width:300px; padding:20px 22px; border-radius:16px; }
-  .floating-quote p{ color:var(--white); font-size:14px; line-height:1.55; font-style:italic; margin-bottom:12px; }
-  .floating-quote-author strong{ display:block; color:var(--gold); font-family:'Oswald',sans-serif; font-size:13px; }
-  .floating-quote-author span{ font-size:11px; color:rgba(255,255,255,.6); }
+  .hero-register-label{ font-family:'Oswald',sans-serif; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:12px; padding:0 4px; }
+  .hero-form-embed{ border-radius:10px; overflow:hidden; background:rgba(255,255,255,.97); }
+  .hero-form-embed iframe{ display:block; width:100%; min-height:420px; border:none; }
 
   .scroll-cue{
-    position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+    position:relative; z-index:2; align-self:center;
     display:flex; flex-direction:column; align-items:center; gap:8px;
-    color:rgba(255,255,255,.5); font-size:11px; letter-spacing:.25em; text-transform:uppercase;
-    z-index:1;
+    color:rgba(255,255,255,.5); font-size:11px; letter-spacing:.25em; text-transform:uppercase; margin-top:30px;
   }
-  .scroll-cue .line{ width:1px;height:36px; background:linear-gradient(var(--gold), transparent); animation:scrollLine 2s ease-in-out infinite; }
+  .scroll-cue .line{ width:1px;height:32px; background:linear-gradient(var(--gold), transparent); animation:scrollLine 2s ease-in-out infinite; }
   @keyframes scrollLine{0%{opacity:0; transform:scaleY(0); transform-origin:top;}50%{opacity:1; transform:scaleY(1); transform-origin:top;}100%{opacity:0; transform:scaleY(1); transform-origin:bottom;}}
 
-  @media (max-width:1024px){
-    .hero-grid{ grid-template-columns:1fr; gap:56px; }
-    .hero-title, .hero-lede, .hero-form-card{ margin-left:auto; margin-right:auto; }
-    .hero-title{ text-align:center; }
-    .hero-lede{ text-align:center; }
-    .floating-badge{ top:-14px; right:6px; }
-    .floating-quote{ position:static; margin:20px 8px 0; max-width:none; }
-    .scroll-cue{ display:none; }
-  }
   @media (max-width:640px){
-    .hero{ padding:130px 18px 70px; }
-    .hero-photo-frame img{ height:420px; }
-    .hero-form-card{ padding:22px 18px 18px; }
+    .hero{ padding:130px 0 32px; }
+    .hero-register{ margin:36px 5vw 0; }
   }
 
-  /* ================= MARQUEE ================= */
-  .marquee-strip{ background:var(--navy-deep); padding:20px 0; overflow:hidden; border-bottom:1px solid rgba(229,171,72,.15); }
-  .marquee-track{ display:flex; gap:16px; white-space:nowrap; width:max-content; animation:marqueeScroll 26s linear infinite; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.12em; font-size:13px; }
-  .marquee-track .mq-word{ color:rgba(255,255,255,.6); }
+  /* ================= MARQUEE (thin kinetic strip) ================= */
+  .marquee-strip{ background:var(--navy-deep); padding:14px 0; overflow:hidden; }
+  .marquee-track{ display:flex; gap:16px; white-space:nowrap; width:max-content; animation:marqueeScroll 30s linear infinite; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.14em; font-size:11.5px; }
+  .marquee-track .mq-word{ color:rgba(255,255,255,.45); }
   .marquee-track .mq-dot{ color:var(--gold); }
   @keyframes marqueeScroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
 
-  /* ================= ABOUT (editorial split) ================= */
-  .about-v2{ background:var(--cream); overflow:hidden; }
-  .about-v2-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:70px; align-items:center; }
-  .about-v2-media{ position:relative; }
-  .about-v2-photo{ border-radius:20px; overflow:hidden; box-shadow:var(--shadow-lg); }
-  .about-v2-photo img{ width:100%; height:560px; object-fit:cover; display:block; transition:transform .6s var(--ease); }
-  .about-v2-media:hover .about-v2-photo img{ transform:scale(1.04); }
-  .about-v2-badge{ position:absolute; bottom:-24px; right:-20px; padding:20px 26px; border-radius:14px; text-align:center; }
-  .about-v2-badge strong{ display:block; font-family:'Oswald',sans-serif; font-size:2rem; color:var(--gold); line-height:1; }
-  .about-v2-badge span{ font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7); }
-  .about-v2-copy h2{ font-size:clamp(2rem,3.4vw,2.7rem); line-height:1.15; margin:0 0 22px; }
-  .about-v2-quote{
-    font-family:'Oswald',sans-serif; font-size:1.2rem; color:var(--navy); line-height:1.4;
-    border-left:3px solid var(--gold); padding-left:20px; margin-bottom:22px; font-weight:500;
-  }
-  .about-v2-copy > p:not(.about-v2-quote){ color:var(--ink-soft); font-size:16px; margin-bottom:24px; }
-  .about-v2-stats{ display:flex; gap:30px; flex-wrap:wrap; }
-  .about-v2-stats strong{ display:block; font-family:'Oswald',sans-serif; font-size:1.9rem; color:var(--navy); }
-  .about-v2-stats span{ font-size:12px; color:var(--ink-soft); letter-spacing:.03em; }
-  @media (max-width:1024px){ .about-v2-grid{grid-template-columns:1fr; gap:56px;} .about-v2-photo img{height:420px;} .about-v2-badge{right:14px;} }
+  /* ================= QUOTE MOMENT (movement statement) ================= */
+  .quote-moment{ background:var(--navy); color:var(--white); }
+  .quote-moment-text{ font-family:'Fraunces',serif; font-weight:600; font-size:clamp(2.6rem,7vw,5.6rem); line-height:1.05; color:var(--white); }
+  .quote-moment-sub{ color:rgba(255,255,255,.68); font-size:17px; margin:34px auto 0; }
 
-  /* ================= STATEMENT (oversized) ================= */
-  .statement{ background:var(--navy); color:var(--white); overflow:hidden; }
-  .statement-text{ font-size:clamp(2.6rem,7vw,5.5rem); line-height:1.05; color:var(--white); }
-  .statement-text .gold{ color:var(--gold); }
-  .statement-sub{ color:rgba(255,255,255,.72); font-size:17px; margin:30px auto 0; }
-  .not-a-row{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:34px 0 26px; }
-  .not-a-pill{
-    font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:.08em; text-transform:uppercase;
-    padding:10px 20px; border-radius:100px; border:1px solid rgba(255,255,255,.2);
-    color:rgba(255,255,255,.5); text-decoration:line-through;
+  /* ================= ABOUT (full-bleed magazine cover) ================= */
+  .about-cover{ position:relative; min-height:100vh; display:flex; align-items:flex-end; overflow:hidden; color:var(--white); }
+  .about-cover::before{
+    content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(0deg, rgba(10,16,36,.94) 0%, rgba(10,16,36,.55) 48%, rgba(10,16,36,.15) 78%);
   }
-  .is-a-pill{
-    font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:.06em; text-transform:uppercase;
-    padding:14px 34px; border-radius:100px; background:linear-gradient(135deg,var(--gold),#d4933a);
-    color:var(--navy-deep); font-weight:700; display:inline-block; margin-top:4px;
-    box-shadow:0 15px 35px -8px rgba(229,171,72,.5);
+  .about-cover-content{ position:relative; z-index:2; padding:100px 6vw 90px; max-width:760px; }
+  .about-cover-headline{ font-family:'Fraunces',serif; font-weight:600; font-size:clamp(2.2rem,5.4vw,4rem); line-height:1.08; color:var(--white); margin:14px 0 24px; }
+  .about-cover-quote{ font-family:'Fraunces',serif; font-style:italic; font-weight:500; font-size:clamp(1.2rem,2.2vw,1.6rem); color:var(--gold-soft); line-height:1.4; max-width:560px; }
+  .about-cover-inset{
+    position:absolute; z-index:2; right:6vw; bottom:90px;
+    width:150px; height:190px; border-radius:14px; overflow:hidden;
+    border:3px solid var(--cream); box-shadow:var(--shadow-lg);
+    transform:rotate(3deg);
   }
+  .about-cover-inset img{ width:100%; height:100%; object-fit:cover; filter:none; }
+  .about-cover-caption{ position:relative; z-index:2; padding:0 6vw 34px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.5); }
+  @media (max-width:900px){ .about-cover-inset{ display:none; } }
+  @media (max-width:640px){ .about-cover-content{ padding:80px 5vw 60px; } }
 
-  /* ================= JOURNEY CAROUSEL ================= */
-  .journey-v2{ background:var(--white); }
-  .journey-v2-head{ display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px; margin-bottom:8px; }
-  .journey-v2-head h2{ font-size:clamp(2rem,3.4vw,2.7rem); }
-  .carousel-controls{ display:flex; gap:10px; }
-  .carousel-btn{
-    width:46px;height:46px;border-radius:50%; border:1px solid rgba(25,40,87,.15);
-    background:var(--white); color:var(--navy); font-size:18px; cursor:pointer;
-    transition:background .3s var(--ease), color .3s var(--ease), transform .3s var(--ease);
-  }
-  .carousel-btn:hover{ background:var(--navy); color:var(--gold); transform:scale(1.06); }
-  .journey-track-wrap{ overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding:24px 0 10px; scrollbar-width:none; }
-  .journey-track-wrap::-webkit-scrollbar{ display:none; }
-  .journey-track{ display:flex; gap:24px; padding:4px 24px 12px; width:max-content; }
-  .week-card-v2{
-    scroll-snap-align:center; flex:0 0 340px;
-    background:var(--cream); border-radius:20px; padding:36px 30px;
-    position:relative; overflow:hidden; border:1px solid rgba(25,40,87,.06);
-    transition:transform .4s var(--ease), box-shadow .4s var(--ease);
-  }
-  .week-card-v2:hover{ transform:translateY(-8px); box-shadow:var(--shadow-lg); }
-  .week-ghost{ position:absolute; top:-14px; right:14px; font-family:'Oswald',sans-serif; font-size:5.5rem; font-weight:700; color:rgba(25,40,87,.06); line-height:1; }
-  .week-card-v2 h3{ font-size:1.3rem; margin:14px 0 12px; line-height:1.25; position:relative; }
-  .week-card-v2 > p.week-desc-v2{ color:var(--ink-soft); font-size:14.5px; margin-bottom:18px; position:relative; }
-  .week-meta-v2{ border-top:1px dashed rgba(25,40,87,.15); padding-top:16px; position:relative; }
-  .week-meta-v2 p{ font-size:13px; margin-bottom:6px; color:var(--ink-soft); }
-  .week-meta-v2 strong{ color:var(--navy); font-weight:600; }
-  .carousel-dots{ display:flex; justify-content:center; gap:8px; margin-top:24px; }
-  .carousel-dot{ width:8px;height:8px;border-radius:50%; background:rgba(25,40,87,.2); border:none; cursor:pointer; transition:background .3s var(--ease), transform .3s var(--ease); padding:0; }
-  .carousel-dot.is-active{ background:var(--gold); transform:scale(1.35); }
-  @media (max-width:640px){ .week-card-v2{ flex-basis:82vw; } .carousel-controls{ display:none; } }
+  /* ================= CHAPTERS (six weekly challenges, one idea per screen) ================= */
+  .chapters-intro{ padding:110px 0 20px; background:var(--cream); }
+  @media (max-width:900px){ .chapters-intro{ padding:70px 0 10px; } }
+  .chapters-intro-heading{ font-family:'Fraunces',serif; font-weight:600; font-size:clamp(2rem,4.4vw,3.2rem); max-width:680px; margin:14px auto 0; line-height:1.15; }
 
-  /* ================= VERSUS (why different) ================= */
-  .versus{ background:var(--cream); }
-  .versus-grid{ display:grid; grid-template-columns:1fr auto 1fr; gap:0; max-width:920px; margin:50px auto 0; border-radius:24px; overflow:hidden; box-shadow:var(--shadow-lg); }
-  .versus-col{ padding:44px 36px; }
-  .versus-typical{ background:#efece4; }
-  .versus-ours{ background:linear-gradient(160deg,var(--navy),var(--navy-deep)); }
-  .versus-label{ display:block; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:13px; margin-bottom:22px; font-weight:600; }
-  .versus-typical .versus-label{ color:var(--ink-soft); }
-  .versus-ours .versus-label{ color:var(--gold); }
-  .versus-col ul{ list-style:none; padding:0; display:flex; flex-direction:column; gap:16px; }
-  .versus-col li{ font-size:15.5px; padding-left:26px; position:relative; text-align:left; }
-  .versus-typical li{ color:var(--ink-soft); }
-  .versus-ours li{ color:var(--white); }
-  .versus-typical li::before{ content:"—"; position:absolute; left:0; color:var(--ink-soft); }
-  .versus-ours li::before{ content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:700; }
-  .versus-vs{
-    display:flex; align-items:center; justify-content:center; background:var(--white); width:64px;
-    font-family:'Oswald',sans-serif; font-weight:700; color:var(--navy); font-size:14px; letter-spacing:.05em;
+  .chapter{ padding:110px 0; overflow:hidden; }
+  @media (max-width:900px){ .chapter{ padding:70px 0; } }
+  .chapter:nth-of-type(odd){ background:var(--cream); }
+  .chapter:nth-of-type(even){ background:var(--white); }
+  .chapter-grid{ position:relative; display:grid; grid-template-columns:.42fr .58fr; align-items:center; gap:30px; }
+  .chapter.chapter-reverse .chapter-grid{ grid-template-columns:.58fr .42fr; }
+  .chapter-num{
+    font-family:'Fraunces',serif; font-weight:600; font-size:clamp(6rem,15vw,12rem);
+    color:rgba(25,40,87,.07); line-height:1; user-select:none;
   }
-  @media (max-width:768px){ .versus-grid{ grid-template-columns:1fr; border-radius:20px; } .versus-vs{ width:100%; padding:10px 0; } }
-
-  /* ================= RECEIVE (bento) ================= */
-  .receive-v2{ background:var(--white); overflow:hidden; }
-  .receive-v2-bg{ position:absolute; inset:0; background:radial-gradient(circle at 15% 20%, rgba(229,171,72,.08), transparent 40%), radial-gradient(circle at 85% 80%, rgba(25,40,87,.06), transparent 40%); pointer-events:none; }
-  .bento{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:minmax(150px,auto); gap:20px; margin-top:20px; }
-  .bento-item{ grid-column:span 2; background:var(--cream); border-radius:20px; padding:30px 28px; transition:transform .4s var(--ease), box-shadow .4s var(--ease); }
-  .bento-item:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
-  .bento-lg{ grid-column:span 4; display:grid; grid-template-columns:auto 1fr; gap:24px; align-items:center; background:linear-gradient(135deg,var(--navy),var(--navy-soft)); color:var(--white); }
-  .bento-lg h3{ color:var(--white); } .bento-lg p{ color:rgba(255,255,255,.75); }
-  .bento-wide{ grid-column:span 4; }
-  .bento-icon{ width:56px;height:56px;border-radius:14px; background:linear-gradient(135deg,var(--navy),var(--navy-soft)); display:flex;align-items:center;justify-content:center; margin-bottom:16px; flex:none; }
-  .bento-lg .bento-icon{ margin-bottom:0; background:rgba(229,171,72,.15); }
-  .bento-icon svg{ width:26px;height:26px;color:var(--gold); }
-  .bento-item h3{ font-size:1.1rem; margin-bottom:8px; }
-  .bento-item p{ color:var(--ink-soft); font-size:14px; }
-  @media (max-width:900px){ .bento{grid-template-columns:repeat(2,1fr);} .bento-item{grid-column:span 2;} .bento-lg{grid-template-columns:1fr;} }
-  @media (max-width:560px){ .bento{grid-template-columns:1fr;} .bento-item, .bento-lg, .bento-wide{grid-column:span 1;} }
-
-  /* ================= SPOTLIGHT (testimonial) ================= */
-  .spotlight{ background:linear-gradient(160deg,var(--navy) 0%, var(--navy-deep) 100%); color:var(--white); overflow:hidden; }
-  .spotlight-bg{ position:absolute; inset:0; background:radial-gradient(circle at 50% 0%, rgba(229,171,72,.18), transparent 55%); }
-  .spotlight-quote-mark{ width:44px;height:44px; margin:0 auto 24px; }
-  .spotlight-text{ font-family:'Oswald',sans-serif; font-weight:500; font-size:clamp(1.4rem,2.6vw,2rem); line-height:1.45; color:var(--white); }
-  .spotlight-author{ display:flex; align-items:center; justify-content:center; gap:14px; margin-top:32px; }
-  .spotlight-avatar{ width:52px;height:52px;border-radius:50%; object-fit:cover; border:2px solid var(--gold); }
-  .spotlight-author strong{ display:block; color:var(--gold); font-family:'Oswald',sans-serif; font-size:15px; }
-  .spotlight-author span{ font-size:13px; color:rgba(255,255,255,.6); }
-
-  /* ================= WHO (chip cluster) ================= */
-  .who-v2{ background:var(--navy); color:var(--white); overflow:hidden; }
-  .who-v2 p.section-intro{ color:rgba(255,255,255,.72); }
-  .chip-cluster{ display:flex; flex-wrap:wrap; justify-content:center; gap:16px; max-width:760px; margin:50px auto 0; }
-  .chip-float{
-    padding:14px 26px; border-radius:100px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14);
-    font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:.02em; color:var(--white);
-    transition:transform .4s var(--ease), background .4s var(--ease), border-color .4s var(--ease);
-    animation:chipBob 6s ease-in-out infinite;
-  }
-  .chip-float:hover{ background:rgba(229,171,72,.12); border-color:rgba(229,171,72,.4); transform:translateY(-6px); }
-  @keyframes chipBob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
-
-  /* ================= ANNIVERSARY (stats + timeline) ================= */
-  .anniversary-v2{ background:var(--cream); text-align:center; }
-  .anniversary-v2-frame{
-    background:linear-gradient(135deg,var(--navy) 0%, var(--navy-deep) 100%);
-    border-radius:32px; padding:80px 40px; position:relative; overflow:hidden;
-    box-shadow:var(--shadow-lg); color:var(--white);
-  }
-  .anniversary-v2-frame::before{
-    content:""; position:absolute; inset:0;
-    background:radial-gradient(circle at 10% 15%, rgba(229,171,72,.18), transparent 40%), radial-gradient(circle at 90% 85%, rgba(229,171,72,.14), transparent 40%);
-  }
-  .anniversary-v2-frame > *{ position:relative; z-index:1; }
-  .stat-grid-v2{ display:grid; grid-template-columns:repeat(4,1fr); gap:30px; margin-top:56px; }
-  .stat-item-v2 strong{ display:block; font-family:'Oswald',sans-serif; font-size:clamp(2.6rem,5vw,4rem); color:var(--gold); line-height:1; }
-  .stat-item-v2 span{ display:block; margin-top:10px; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.65); }
-  .timeline{ display:flex; justify-content:space-between; margin-top:70px; position:relative; }
-  .timeline-line{ position:absolute; top:5px; left:0; right:0; height:1px; background:rgba(255,255,255,.2); }
-  .timeline-point{ flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; position:relative; }
-  .timeline-dot{ width:11px;height:11px;border-radius:50%; background:var(--gold); box-shadow:0 0 0 5px rgba(229,171,72,.2); margin-bottom:4px; }
-  .timeline-point strong{ font-family:'Oswald',sans-serif; color:var(--white); font-size:1.1rem; }
-  .timeline-point span{ font-size:12px; color:rgba(255,255,255,.6); text-align:center; max-width:140px; }
-  @media (max-width:768px){
-    .stat-grid-v2{grid-template-columns:repeat(2,1fr); row-gap:36px;}
-    .anniversary-v2-frame{ padding:52px 22px; }
-    .timeline{flex-direction:column; gap:24px; align-items:flex-start;}
-    .timeline-line{display:none;}
-    .timeline-point{flex-direction:row; align-items:center; text-align:left;}
-    .timeline-point span{ text-align:left; }
+  .chapter.chapter-reverse .chapter-num{ order:2; text-align:right; }
+  .chapter.chapter-reverse .chapter-copy{ order:1; }
+  .chapter-title{ font-family:'Fraunces',serif; font-weight:600; font-size:clamp(1.9rem,3.6vw,2.8rem); line-height:1.12; margin:10px 0 18px; }
+  .chapter-desc{ font-size:16.5px; color:var(--ink-soft); max-width:500px; margin-bottom:22px; }
+  .chapter-meta{ font-size:13.5px; color:var(--ink-soft); border-top:1px solid rgba(25,40,87,.12); padding-top:16px; max-width:500px; }
+  .chapter-meta strong{ color:var(--navy); }
+  @media (max-width:900px){
+    .chapter-grid{ grid-template-columns:1fr; gap:6px; }
+    .chapter-num{ font-size:4.4rem; opacity:.6; }
+    .chapter.chapter-reverse .chapter-num{ order:0; text-align:left; }
+    .chapter.chapter-reverse .chapter-copy{ order:1; }
   }
 
-  /* ================= FAQ (two-column cards) ================= */
-  .faq-v2{ background:var(--cream); overflow:hidden; }
-  .faq-v2-bg{ position:absolute; inset:0; background:radial-gradient(circle at 20% 10%, rgba(229,171,72,.08), transparent 40%); pointer-events:none; }
-  .faq-grid{ columns:2; column-gap:24px; margin-top:50px; position:relative; }
-  .faq-card{
-    break-inside:avoid; background:var(--white); border:1px solid rgba(25,40,87,.08);
-    border-radius:16px; padding:4px 22px; margin-bottom:20px; box-shadow:var(--shadow-md);
+  /* ================= CONTRAST (why different — pure typography) ================= */
+  .contrast{ background:var(--navy-deep); color:var(--white); }
+  .contrast-lines{ margin-top:50px; display:flex; flex-direction:column; }
+  .contrast-line{
+    font-family:'Fraunces',serif; font-size:clamp(1.3rem,3.2vw,2.2rem); font-weight:500;
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    border-top:1px solid rgba(255,255,255,.1); padding:26px 0;
   }
-  .faq-card summary{
-    list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:16px;
-    padding:20px 4px; font-family:'Oswald',sans-serif; font-size:15.5px; font-weight:500; color:var(--navy);
-  }
-  .faq-card summary::-webkit-details-marker{display:none;}
-  .faq-card summary:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; }
-  .faq-icon{
-    flex:none; width:28px;height:28px;border-radius:50%; background:var(--cream); color:var(--navy);
-    display:flex;align-items:center;justify-content:center; font-size:17px; line-height:1;
-    transition:transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
-  }
-  .faq-card[open] .faq-icon{ transform:rotate(45deg); background:var(--gold); color:var(--navy-deep); }
-  .faq-answer{ padding:0 4px 20px; color:var(--ink-soft); font-size:14.5px; }
-  @media (max-width:768px){ .faq-grid{ columns:1; } }
+  .contrast-lines .contrast-line:last-child{ border-bottom:1px solid rgba(255,255,255,.1); }
+  .contrast-line .strike{ color:rgba(255,255,255,.32); text-decoration:line-through; }
+  .contrast-line .arrow{ color:var(--gold); font-family:'Inter',sans-serif; font-size:1rem; }
 
-  /* ================= FINAL CTA ================= */
-  .final-v2{ background:var(--navy-deep); color:var(--white); overflow:hidden; }
-  .final-v2-headline{ font-size:clamp(2.2rem,5vw,3.8rem); color:var(--gold); line-height:1.12; }
-  .final-v2 p.final-body{ color:rgba(255,255,255,.75); font-size:17px; }
-  .final-v2 .btn{ margin-top:36px; }
+  /* ================= INDEX LIST (what you'll receive — no boxes) ================= */
+  .index-list{ background:var(--white); }
+  .index-heading{ font-family:'Fraunces',serif; font-weight:600; font-size:clamp(2rem,4vw,3rem); max-width:680px; margin:14px 0 0; line-height:1.15; }
+  .index-rows{ list-style:none; padding:0; margin:56px 0 0; }
+  .index-row{ display:flex; align-items:baseline; gap:30px; padding:28px 0; border-top:1px solid rgba(25,40,87,.1); transition:padding-left .35s var(--ease); }
+  .index-row:last-child{ border-bottom:1px solid rgba(25,40,87,.1); }
+  .index-row:hover{ padding-left:14px; }
+  .index-no{ font-family:'Fraunces',serif; font-size:1.3rem; color:rgba(25,40,87,.32); flex:none; width:40px; transition:color .35s var(--ease); }
+  .index-row:hover .index-no{ color:var(--gold); }
+  .index-row h3{ font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; margin-bottom:6px; }
+  .index-row p{ color:var(--ink-soft); font-size:15px; max-width:480px; }
+  @media (max-width:640px){ .index-row{ gap:16px; } }
+
+  /* ================= WHO (single flowing sentence) ================= */
+  .who-sentence{ background:var(--cream); }
+  .who-sentence-text{ font-family:'Fraunces',serif; font-size:clamp(1.6rem,3.6vw,2.7rem); line-height:1.4; color:var(--navy); font-weight:500; }
+
+  /* ================= MILESTONE (one giant number) ================= */
+  .milestone{ background:var(--white); }
+  .milestone-number{ font-family:'Fraunces',serif; font-weight:600; font-size:clamp(4.2rem,15vw,10.5rem); line-height:1; color:var(--navy); }
+  .milestone-label{ font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin-top:12px; }
+  .milestone-support{ font-size:13px; color:var(--ink-soft); opacity:.65; margin-top:32px; letter-spacing:.02em; }
+
+  /* ================= FAQ (minimal, single column) ================= */
+  .faq-minimal{ background:var(--cream); }
+  .faq-minimal-heading{ font-family:'Fraunces',serif; font-weight:600; font-size:clamp(1.9rem,3.4vw,2.6rem); margin:14px 0 44px; max-width:600px; line-height:1.15; }
+  .faq-minimal-list{ max-width:760px; }
+  .faq-min-item{ border-top:1px solid rgba(25,40,87,.14); }
+  .faq-min-item:last-child{ border-bottom:1px solid rgba(25,40,87,.14); }
+  .faq-min-item summary{ list-style:none; cursor:pointer; padding:26px 4px; display:flex; justify-content:space-between; gap:20px; font-family:'Fraunces',serif; font-size:1.12rem; color:var(--navy); }
+  .faq-min-item summary::-webkit-details-marker{display:none;}
+  .faq-min-item summary:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; }
+  .faq-min-icon{ font-family:'Inter',sans-serif; color:var(--gold); font-size:20px; flex:none; line-height:1; transition:transform .3s var(--ease); }
+  .faq-min-item[open] .faq-min-icon{ transform:rotate(45deg); }
+  .faq-min-answer{ padding:0 4px 26px; color:var(--ink-soft); font-size:15px; max-width:640px; }
+
+  /* ================= FINALE (cinematic close) ================= */
+  .finale{ position:relative; min-height:92vh; display:flex; align-items:center; overflow:hidden; color:var(--white); }
+  .finale::before{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(10,16,36,.86), rgba(10,16,36,.93)); pointer-events:none; }
+  .finale-content{ position:relative; z-index:2; width:100%; }
+  .finale-headline{ font-family:'Fraunces',serif; font-weight:600; font-size:clamp(2.1rem,5.2vw,3.9rem); color:var(--gold); line-height:1.15; }
+  .finale p.finale-body{ color:rgba(255,255,255,.72); font-size:16.5px; margin:22px auto 0; }
+  .finale .btn{ margin-top:36px; }
 
   .brand-close{ text-align:center; padding:40px 24px; background:var(--navy-deep); }
-  .brand-close img{ height:26px; margin:0 auto 10px; opacity:.85; }
+  .brand-close img{ height:24px; margin:0 auto 10px; opacity:.85; }
   .brand-close p{ font-size:12px; color:rgba(255,255,255,.4); letter-spacing:.04em; }
 
   /* ================= STICKY MOBILE CTA ================= */
@@ -516,8 +300,8 @@
   }
   .modal-overlay.is-visible .modal-box{transform:translateY(0) scale(1);}
   .modal-header{ background:linear-gradient(135deg,var(--navy),var(--navy-soft)); padding:26px 32px; text-align:center; }
-  .modal-header p.tag-pill{ margin-bottom:4px; }
-  .modal-header h3{color:var(--white);font-size:1.4rem;}
+  .modal-header .kicker{ margin-bottom:4px; }
+  .modal-header h3{ font-family:'Fraunces',serif; font-weight:600; color:var(--white); font-size:1.4rem; }
   .modal-close{
     position:absolute; top:16px; right:16px; width:36px;height:36px; border-radius:50%; border:none;
     background:rgba(255,255,255,.15); color:var(--white); display:flex;align-items:center;justify-content:center;
@@ -533,7 +317,6 @@
   /* ================= FOCUS ================= */
   a:focus-visible, button:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
 
-  /* ================= RESPONSIVE (global) ================= */
   @media (max-width: 640px){
     .container{padding:0 18px;}
     .modal-body{height:520px;}
@@ -546,81 +329,44 @@
 <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
 <!-- =============================================================
-     HERO — immersive dark aurora background, two-column, form embedded
-     directly so visitors can register without scrolling
+     HERO — full-bleed cinematic photo, asymmetric oversized type,
+     registration embedded as a quiet glass strip (not a competing card)
 ============================================================= -->
-<header class="hero" role="banner" aria-labelledby="hero-headline">
-  <div class="aurora" aria-hidden="true">
-    <span class="aurora-blob a1"></span>
-    <span class="aurora-blob a2"></span>
-    <span class="aurora-blob a3"></span>
+<header class="hero" id="hero" role="banner" aria-labelledby="hero-headline">
+  <div class="photo-duotone" id="hero-photo-parallax" aria-hidden="true">
+    <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg" alt="" />
   </div>
 
-  <div class="hero-grid container">
-    <div class="hero-copy">
-      <img class="hero-logo reveal is-visible" src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" />
+  <div class="hero-content">
+    <img class="hero-logo" src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" />
+    <p class="kicker reveal is-visible">20 Years &middot; 50,000+ Leaders Transformed</p>
+    <h1 id="hero-headline" class="hero-headline reveal is-visible">
+      Become the leader people <span class="mark-dark">choose</span> to follow.
+    </h1>
+    <p class="hero-lede reveal is-visible">
+      Not because of your title. Because of how you make people feel. Register below for
+      the FREE 6-week 5-Star Leader Challenge.
+    </p>
+  </div>
 
-      <p class="tag-pill reveal is-visible"><span class="dot"></span>20 Years &middot; 50,000+ Leaders Transformed</p>
-
-      <h1 id="hero-headline" class="hero-title reveal is-visible reveal-delay-1">
-        Become the Leader People <span class="gold">Choose</span> to Follow
-      </h1>
-
-      <p class="hero-lede reveal is-visible reveal-delay-2">
-        Not because of your title. Because of how you make people feel. Register below for
-        the FREE 6-week 5-Star Leader Challenge from Dr. Bryan K. Williams.
-      </p>
-
-      <div class="hero-form-card reveal is-visible reveal-delay-3">
-        <p class="hero-form-kicker">Reserve Your Spot — It's Free</p>
-        <div class="hero-form-embed">
-          <iframe src="https://link.thinkingcreatives.com/widget/form/ghNvm5EbEcY0qpupMGRK"
-            id="inline-ghNvm5EbEcY0qpupMGRK-hero"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="6 Week Challenge - Hero"
-            data-height="433"
-            data-layout-iframe-id="inline-ghNvm5EbEcY0qpupMGRK-hero"
-            data-form-id="ghNvm5EbEcY0qpupMGRK"
-            title="Join the 5-Star Leader Challenge">
-          </iframe>
-        </div>
-        <div class="hero-trust-row">
-          <div class="trust-chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <div><strong>6 Weeks</strong><span>Complete Program</span></div>
-          </div>
-          <div class="trust-chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <div><strong>Monday</strong><span>Next Cohort Starts</span></div>
-          </div>
-          <div class="trust-chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-            <div><strong>Free</strong><span>Always, No Card</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-visual reveal is-visible reveal-delay-2">
-      <div class="hero-photo-stack" id="hero-photo-stack">
-        <div class="hero-photo-frame">
-          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e78.jpg" alt="Dr. Bryan K. Williams, keynote speaker and leadership expert" />
-        </div>
-        <div class="floating-badge" aria-hidden="true">
-          <strong>50,000+</strong>
-          <span>Leaders Developed</span>
-        </div>
-        <div class="floating-quote glass-dark">
-          <p>&ldquo;Leadership isn't about the title you hold. It's about the trust you earn, one conversation at a time.&rdquo;</p>
-          <div class="floating-quote-author"><strong>Dr. Bryan K. Williams</strong><span>Leadership &amp; Service Excellence Authority</span></div>
-        </div>
-      </div>
+  <div class="hero-register reveal is-visible">
+    <p class="hero-register-label">Reserve your spot — six weeks, free</p>
+    <div class="hero-form-embed">
+      <iframe src="https://link.thinkingcreatives.com/widget/form/ghNvm5EbEcY0qpupMGRK"
+        id="inline-ghNvm5EbEcY0qpupMGRK-hero"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="6 Week Challenge - Hero"
+        data-height="420"
+        data-layout-iframe-id="inline-ghNvm5EbEcY0qpupMGRK-hero"
+        data-form-id="ghNvm5EbEcY0qpupMGRK"
+        title="Join the 5-Star Leader Challenge">
+      </iframe>
     </div>
   </div>
 
@@ -628,7 +374,7 @@
 </header>
 
 <!-- =============================================================
-     MARQUEE — industries served, constant subtle motion
+     MARQUEE — thin kinetic strip, texture not content
 ============================================================= -->
 <section class="marquee-strip" aria-label="Industries Dr. Bryan K. Williams has served">
   <div class="marquee-track" aria-hidden="true">
@@ -650,232 +396,156 @@
 <main id="main-content">
 
 <!-- =============================================================
-     ABOUT — editorial split, bleeding photo, pull-quote
+     QUOTE MOMENT — pure typography, replaces "movement" + testimonial
 ============================================================= -->
-<section class="about-v2 section-pad" aria-labelledby="about-heading">
-  <div class="container about-v2-grid">
-    <div class="about-v2-media reveal">
-      <div class="about-v2-photo">
-        <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg" alt="Dr. Bryan K. Williams speaking on stage" />
-      </div>
-      <div class="about-v2-badge glass-dark">
-        <strong>25+</strong>
-        <span>Years Experience</span>
-      </div>
-    </div>
-
-    <div class="about-v2-copy reveal reveal-delay-1">
-      <p class="tag-pill-light tag-pill"><span class="dot"></span>About Dr. Bryan</p>
-      <h2 id="about-heading">A Voice Leaders Have Trusted for Two Decades</h2>
-      <p class="about-v2-quote">&ldquo;Leadership that only shows up when it's easy isn't leadership. I built this challenge for leaders who want it to be real, every single week.&rdquo;</p>
-      <p>
-        For more than 25 years, Dr. Bryan K. Williams has helped leaders across the globe
-        stop managing people and start earning them — trading compliance for real trust.
-        His work has reshaped how leaders show up in healthcare, hospitality, luxury hotels,
-        government, and education.
-      </p>
-      <div class="about-v2-stats">
-        <div><strong>20+</strong><span>Industries Served</span></div>
-        <div><strong>6</strong><span>Continents Reached</span></div>
-        <div><strong>50K+</strong><span>Leaders Developed</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================================================
-     STATEMENT — oversized, minimal, cinematic
-============================================================= -->
-<section class="statement section-pad" aria-labelledby="statement-heading">
-  <div class="aurora" aria-hidden="true">
-    <span class="aurora-blob a1" style="width:480px;height:480px;"></span>
-    <span class="aurora-blob a2" style="width:420px;height:420px;"></span>
-  </div>
+<section class="quote-moment section-pad" aria-labelledby="quote-heading">
   <div class="container center reveal">
-    <p class="tag-pill"><span class="dot"></span>The 5-Star Leader Challenge</p>
-    <h2 id="statement-heading" class="statement-text">This is not a course.<br />This is <span class="gold">a movement.</span></h2>
-    <p class="max-680 statement-sub">
+    <p class="kicker">The 5-Star Leader Challenge</p>
+    <h2 id="quote-heading" class="quote-moment-text">
+      This is not a course.<br />This is <span class="mark-dark">a movement.</span>
+    </h2>
+    <p class="quote-moment-sub max-680">
       Every week for six weeks, one meaningful challenge — a single, focused shift designed
       to change how you lead the people in front of you, starting now.
     </p>
-    <div class="not-a-row" aria-hidden="true">
-      <span class="not-a-pill">Reading tips</span>
-      <span class="not-a-pill">Passive learning</span>
-      <span class="not-a-pill">Motivation</span>
-    </div>
-    <span class="is-a-pill">Actual practice. Weekly action. Real transformation.</span>
   </div>
 </section>
 
 <!-- =============================================================
-     THE 6 WEEK JOURNEY — horizontal scroll-snap carousel
+     ABOUT — full-bleed magazine cover, overlapping inset photo
 ============================================================= -->
-<section class="journey-v2 section-pad" aria-labelledby="journey-heading">
-  <div class="container">
-    <div class="journey-v2-head reveal">
-      <div>
-        <p class="tag-pill-light tag-pill"><span class="dot"></span>The Journey</p>
-        <h2 id="journey-heading">Six Weeks. Six Shifts in Who You Become.</h2>
-      </div>
-      <div class="carousel-controls">
-        <button type="button" class="carousel-btn" id="journey-prev" aria-label="Scroll to previous challenge">&larr;</button>
-        <button type="button" class="carousel-btn" id="journey-next" aria-label="Scroll to next challenge">&rarr;</button>
-      </div>
-    </div>
+<section class="about-cover" aria-labelledby="about-heading">
+  <div class="photo-duotone" id="about-photo-parallax" aria-hidden="true">
+    <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e78.jpg" alt="Dr. Bryan K. Williams speaking on stage" />
   </div>
-
-  <div class="journey-track-wrap" id="journey-track-wrap">
-    <div class="journey-track" id="journey-track">
-
-      <article class="week-card-v2">
-        <span class="week-ghost" aria-hidden="true">01</span>
-        <p class="tag-pill-light tag-pill">Week 1 &middot; Know Your Why</p>
-        <h3>The Leader With Unshakable Conviction</h3>
-        <p class="week-desc-v2">Every 5-star leader leads from conviction, not convenience. This week, trade vague motivation for a purpose strong enough to carry you through your hardest days.</p>
-        <div class="week-meta-v2">
-          <p><strong>Challenge:</strong> Define the "why" that will carry you through hard days.</p>
-          <p><strong>You'll Walk Away With:</strong> Your Leadership Why Worksheet</p>
-        </div>
-      </article>
-
-      <article class="week-card-v2">
-        <span class="week-ghost" aria-hidden="true">02</span>
-        <p class="tag-pill-light tag-pill">Week 2 &middot; See Your People</p>
-        <h3>The Leader People Trust Instantly</h3>
-        <p class="week-desc-v2">People don't follow titles — they follow leaders who truly see them. Learn the practice that builds instant trust and makes people want to bring you their best work.</p>
-        <div class="week-meta-v2">
-          <p><strong>Challenge:</strong> Have one intentional, fully-present conversation.</p>
-          <p><strong>You'll Walk Away With:</strong> The See-Your-People Guide</p>
-        </div>
-      </article>
-
-      <article class="week-card-v2">
-        <span class="week-ghost" aria-hidden="true">03</span>
-        <p class="tag-pill-light tag-pill">Week 3 &middot; Raise Your Standard</p>
-        <h3>The Leader Who Raises the Bar</h3>
-        <p class="week-desc-v2">Excellence is a decision, made daily. Discover how to raise the bar for yourself and your team — and become the leader whose standard people rise to meet.</p>
-        <div class="week-meta-v2">
-          <p><strong>Challenge:</strong> Identify and correct one "good enough" habit.</p>
-          <p><strong>You'll Walk Away With:</strong> The 5-Star Standard Checklist</p>
-        </div>
-      </article>
-
-      <article class="week-card-v2">
-        <span class="week-ghost" aria-hidden="true">04</span>
-        <p class="tag-pill-light tag-pill">Week 4 &middot; Develop Someone</p>
-        <h3>The Leader Who Builds Other Leaders</h3>
-        <p class="week-desc-v2">Legacy leaders build other leaders. This week, you become the reason someone else's career changes — the mentor people remember for the rest of theirs.</p>
-        <div class="week-meta-v2">
-          <p><strong>Challenge:</strong> Mentor one person through one real challenge.</p>
-          <p><strong>You'll Walk Away With:</strong> The Develop-Someone Action Plan</p>
-        </div>
-      </article>
-
-      <article class="week-card-v2">
-        <span class="week-ghost" aria-hidden="true">05</span>
-        <p class="tag-pill-light tag-pill">Week 5 &middot; Lead Through the Hard Stuff</p>
-        <h3>The Leader Who Doesn't Flinch</h3>
-        <p class="week-desc-v2">Anyone can lead when things are easy. This week, become the leader people trust to stay steady, honest, and kind when things aren't.</p>
-        <div class="week-meta-v2">
-          <p><strong>Challenge:</strong> Have the conversation you've been avoiding.</p>
-          <p><strong>You'll Walk Away With:</strong> The Difficult Conversations Framework</p>
-        </div>
-      </article>
-
-      <article class="week-card-v2">
-        <span class="week-ghost" aria-hidden="true">06</span>
-        <p class="tag-pill-light tag-pill">Week 6 &middot; Build What Lasts</p>
-        <h3>The Leader Who Leaves a Legacy</h3>
-        <p class="week-desc-v2">A true leader leaves something behind. Close the challenge as the leader who defined — and started living — the legacy they want to leave.</p>
-        <div class="week-meta-v2">
-          <p><strong>Challenge:</strong> Commit to one lasting leadership practice.</p>
-          <p><strong>You'll Walk Away With:</strong> Your Leadership Legacy Plan</p>
-        </div>
-      </article>
-
-    </div>
+  <div class="about-cover-inset reveal">
+    <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg" alt="" />
   </div>
-  <div class="carousel-dots" id="journey-dots"></div>
+  <div class="about-cover-content reveal">
+    <p class="kicker">About Dr. Bryan</p>
+    <h2 id="about-heading" class="about-cover-headline">Twenty years of earning trust, one leader at a time.</h2>
+    <p class="about-cover-quote">&ldquo;Leadership that only shows up when it's easy isn't leadership.&rdquo;</p>
+  </div>
+  <p class="about-cover-caption">25+ Years &middot; 20+ Industries &middot; 6 Continents</p>
 </section>
 
 <!-- =============================================================
-     WHY DIFFERENT — split-screen VS diptych
+     THE JOURNEY — six weekly challenges as full-width alternating
+     chapters, one idea per screen instead of a grid of cards
 ============================================================= -->
-<section class="versus section-pad" aria-labelledby="versus-heading">
+<section class="chapters-intro">
   <div class="container center reveal">
-    <p class="tag-pill-light tag-pill"><span class="dot"></span>Why This Is Different</p>
-    <h2 id="versus-heading">Wisdom Is Only Powerful When Practiced</h2>
+    <p class="kicker on-light">The Journey</p>
+    <h2 class="chapters-intro-heading">Six weeks. Six shifts in who you become.</h2>
   </div>
-  <div class="versus-grid reveal">
-    <div class="versus-col versus-typical">
-      <span class="versus-label">Typical Leadership Advice</span>
-      <ul>
-        <li>Reading leadership tips</li>
-        <li>Passive learning</li>
-        <li>Generic, one-size-fits-all advice</li>
-        <li>Motivation</li>
-      </ul>
+</section>
+
+<section class="chapter" aria-labelledby="week-1-heading">
+  <div class="container chapter-grid reveal">
+    <span class="chapter-num" aria-hidden="true">01</span>
+    <div class="chapter-copy">
+      <p class="kicker on-light">Week 1 &middot; Know Your Why</p>
+      <h3 id="week-1-heading" class="chapter-title">The Leader With Unshakable Conviction</h3>
+      <p class="chapter-desc">Every 5-star leader leads from conviction, not convenience. This week, trade vague motivation for a purpose strong enough to carry you through your hardest days.</p>
+      <p class="chapter-meta"><strong>Challenge:</strong> Define the "why" that will carry you through hard days. &nbsp;&middot;&nbsp; <strong>You'll walk away with:</strong> Your Leadership Why Worksheet</p>
     </div>
-    <div class="versus-vs" aria-hidden="true">VS</div>
-    <div class="versus-col versus-ours">
-      <span class="versus-label">The 5-Star Leader Challenge</span>
-      <ul>
-        <li>Actually practicing leadership</li>
-        <li>Weekly action</li>
-        <li>Personal, practical challenges</li>
-        <li>Transformation</li>
-      </ul>
+  </div>
+</section>
+
+<section class="chapter chapter-reverse" aria-labelledby="week-2-heading">
+  <div class="container chapter-grid reveal">
+    <span class="chapter-num" aria-hidden="true">02</span>
+    <div class="chapter-copy">
+      <p class="kicker on-light">Week 2 &middot; See Your People</p>
+      <h3 id="week-2-heading" class="chapter-title">The Leader People Trust Instantly</h3>
+      <p class="chapter-desc">People don't follow titles — they follow leaders who truly see them. Learn the practice that builds instant trust and makes people want to bring you their best work.</p>
+      <p class="chapter-meta"><strong>Challenge:</strong> Have one intentional, fully-present conversation. &nbsp;&middot;&nbsp; <strong>You'll walk away with:</strong> The See-Your-People Guide</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" aria-labelledby="week-3-heading">
+  <div class="container chapter-grid reveal">
+    <span class="chapter-num" aria-hidden="true">03</span>
+    <div class="chapter-copy">
+      <p class="kicker on-light">Week 3 &middot; Raise Your Standard</p>
+      <h3 id="week-3-heading" class="chapter-title">The Leader Who Raises the Bar</h3>
+      <p class="chapter-desc">Excellence is a decision, made daily. Discover how to raise the bar for yourself and your team — and become the leader whose standard people rise to meet.</p>
+      <p class="chapter-meta"><strong>Challenge:</strong> Identify and correct one "good enough" habit. &nbsp;&middot;&nbsp; <strong>You'll walk away with:</strong> The 5-Star Standard Checklist</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter chapter-reverse" aria-labelledby="week-4-heading">
+  <div class="container chapter-grid reveal">
+    <span class="chapter-num" aria-hidden="true">04</span>
+    <div class="chapter-copy">
+      <p class="kicker on-light">Week 4 &middot; Develop Someone</p>
+      <h3 id="week-4-heading" class="chapter-title">The Leader Who Builds Other Leaders</h3>
+      <p class="chapter-desc">Legacy leaders build other leaders. This week, you become the reason someone else's career changes — the mentor people remember for the rest of theirs.</p>
+      <p class="chapter-meta"><strong>Challenge:</strong> Mentor one person through one real challenge. &nbsp;&middot;&nbsp; <strong>You'll walk away with:</strong> The Develop-Someone Action Plan</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" aria-labelledby="week-5-heading">
+  <div class="container chapter-grid reveal">
+    <span class="chapter-num" aria-hidden="true">05</span>
+    <div class="chapter-copy">
+      <p class="kicker on-light">Week 5 &middot; Lead Through the Hard Stuff</p>
+      <h3 id="week-5-heading" class="chapter-title">The Leader Who Doesn't Flinch</h3>
+      <p class="chapter-desc">Anyone can lead when things are easy. This week, become the leader people trust to stay steady, honest, and kind when things aren't.</p>
+      <p class="chapter-meta"><strong>Challenge:</strong> Have the conversation you've been avoiding. &nbsp;&middot;&nbsp; <strong>You'll walk away with:</strong> The Difficult Conversations Framework</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter chapter-reverse" aria-labelledby="week-6-heading">
+  <div class="container chapter-grid reveal">
+    <span class="chapter-num" aria-hidden="true">06</span>
+    <div class="chapter-copy">
+      <p class="kicker on-light">Week 6 &middot; Build What Lasts</p>
+      <h3 id="week-6-heading" class="chapter-title">The Leader Who Leaves a Legacy</h3>
+      <p class="chapter-desc">A true leader leaves something behind. Close the challenge as the leader who defined — and started living — the legacy they want to leave.</p>
+      <p class="chapter-meta"><strong>Challenge:</strong> Commit to one lasting leadership practice. &nbsp;&middot;&nbsp; <strong>You'll walk away with:</strong> Your Leadership Legacy Plan</p>
     </div>
   </div>
 </section>
 
 <!-- =============================================================
-     WHAT YOU'LL RECEIVE — bento grid
+     CONTRAST — why this is different, told purely in typography
 ============================================================= -->
-<section class="receive-v2 section-pad" aria-labelledby="receive-heading">
-  <div class="receive-v2-bg" aria-hidden="true"></div>
+<section class="contrast section-pad" aria-labelledby="contrast-heading">
+  <div class="container reveal">
+    <p class="kicker">Why This Is Different</p>
+    <h2 id="contrast-heading" class="serif" style="color:var(--white); font-size:clamp(1.8rem,3.6vw,2.6rem); margin-bottom:8px;">Wisdom is only powerful when practiced.</h2>
+    <div class="contrast-lines">
+      <p class="contrast-line"><span class="strike">Reading leadership tips</span><span class="arrow">&rarr;</span><span class="mark-dark">Actually practicing leadership</span></p>
+      <p class="contrast-line"><span class="strike">Passive learning</span><span class="arrow">&rarr;</span><span class="mark-dark">Weekly action</span></p>
+      <p class="contrast-line"><span class="strike">Generic, one-size-fits-all advice</span><span class="arrow">&rarr;</span><span class="mark-dark">Personal, practical challenges</span></p>
+      <p class="contrast-line"><span class="strike">Motivation</span><span class="arrow">&rarr;</span><span class="mark-dark">Transformation</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================================
+     INDEX LIST — what you'll receive, as an editorial index not a grid
+============================================================= -->
+<section class="index-list section-pad" aria-labelledby="index-heading">
   <div class="container">
-    <div class="center reveal">
-      <p class="tag-pill-light tag-pill"><span class="dot"></span>What You'll Receive</p>
-      <h2 id="receive-heading">Everything You Need to Actually Become That Leader</h2>
-    </div>
+    <p class="kicker on-light">What You'll Receive</p>
+    <h2 id="index-heading" class="index-heading">Everything you need to actually become that leader.</h2>
 
-    <div class="bento reveal">
-      <div class="bento-item bento-lg">
-        <div class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-        <div>
-          <h3>6 Leadership Challenges</h3>
-          <p>One focused, real-world challenge delivered every Monday for six weeks — each a deliberate step toward the leader you want to become.</p>
-        </div>
-      </div>
-      <div class="bento-item">
-        <div class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="4" width="16" height="18" rx="2"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="16" y2="15"/></svg></div>
-        <h3>6 Worksheets</h3>
-        <p>Keepsake handouts documenting your growth, yours to revisit for the rest of your career.</p>
-      </div>
-      <div class="bento-item">
-        <div class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-        <h3>Real Exercises</h3>
-        <p>Actions to take with your team this week, not just ideas to think about.</p>
-      </div>
-      <div class="bento-item">
-        <div class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
-        <h3>Reflection Guides</h3>
-        <p>Prompts that help the shift actually stick, so it becomes who you are.</p>
-      </div>
-      <div class="bento-item">
-        <div class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div>
-        <h3>Weekly Emails</h3>
-        <p>No logins, no clutter — just show up every Monday and lead.</p>
-      </div>
-      <div class="bento-item bento-wide">
-        <div class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Community Invitation</h3>
-        <p>An invitation into the BW Leadership Community — leaders on the same journey, cheering each other on, not doing this alone.</p>
-      </div>
-    </div>
+    <ol class="index-rows">
+      <li class="index-row"><span class="index-no">01</span><div><h3>6 Leadership Challenges</h3><p>One focused, real-world challenge delivered every Monday for six weeks.</p></div></li>
+      <li class="index-row"><span class="index-no">02</span><div><h3>6 Worksheets</h3><p>Keepsake handouts documenting your growth, yours to revisit for years.</p></div></li>
+      <li class="index-row"><span class="index-no">03</span><div><h3>Real Exercises</h3><p>Actions to take with your team this week, not just ideas to think about.</p></div></li>
+      <li class="index-row"><span class="index-no">04</span><div><h3>Reflection Guides</h3><p>Prompts that help the shift actually stick, so it becomes who you are.</p></div></li>
+      <li class="index-row"><span class="index-no">05</span><div><h3>Weekly Emails</h3><p>No logins, no clutter — just show up every Monday and lead.</p></div></li>
+      <li class="index-row"><span class="index-no">06</span><div><h3>Community Invitation</h3><p>Leaders on the same journey, cheering each other on, not doing this alone.</p></div></li>
+    </ol>
 
-    <div class="center reveal" style="margin-top:48px;">
+    <div class="center reveal" style="margin-top:56px;">
       <button type="button" class="btn btn-gold js-open-modal">Join the FREE 5-Star Leader Challenge →</button>
       <p class="micro-copy">New challenges go out every Monday — join today and your first one can be waiting in your inbox this week.</p>
     </div>
@@ -883,143 +553,92 @@
 </section>
 
 <!-- =============================================================
-     TESTIMONIAL SPOTLIGHT
+     WHO — one flowing sentence, no chips, no grid
 ============================================================= -->
-<section class="spotlight section-pad" aria-label="Dr. Bryan K. Williams on leadership">
-  <div class="spotlight-bg" aria-hidden="true"></div>
+<section class="who-sentence section-pad" aria-labelledby="who-heading">
   <div class="container center reveal">
-    <svg class="spotlight-quote-mark" viewBox="0 0 24 24" fill="var(--gold)" aria-hidden="true"><path d="M7.17 6A5.17 5.17 0 0 0 2 11.17V18h6.83v-6.83H4.65a2.48 2.48 0 0 1 2.52-2.48V6zm10 0A5.17 5.17 0 0 0 12 11.17V18h6.83v-6.83h-4.18a2.48 2.48 0 0 1 2.52-2.48V6z"/></svg>
-    <p class="spotlight-text max-720">
-      Leadership isn't about the title you hold. It's about the trust you earn, one
-      conversation at a time — and that trust is built one Monday at a time, not once a
-      year in a conference room.
+    <p class="kicker on-light">Who This Is For</p>
+    <p id="who-heading" class="who-sentence-text max-720">
+      Whether you lead a <span class="mark-light">hotel</span>, a <span class="mark-light">hospital floor</span>,
+      a <span class="mark-light">boardroom</span>, or a <span class="mark-light">team of one</span> — you don't
+      need a corner office to lead like a 5-star leader. You need a decision.
     </p>
-    <div class="spotlight-author">
-      <img class="spotlight-avatar" src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e78.jpg" alt="" />
-      <div><strong>Dr. Bryan K. Williams</strong><span>Leadership &amp; Service Excellence Authority</span></div>
-    </div>
   </div>
 </section>
 
 <!-- =============================================================
-     WHO SHOULD JOIN — floating chip cluster
+     MILESTONE — one giant number, not four equal stat boxes
 ============================================================= -->
-<section class="who-v2 section-pad" aria-labelledby="who-heading">
+<section class="milestone section-pad" aria-labelledby="milestone-heading">
   <div class="container center reveal">
-    <p class="tag-pill"><span class="dot"></span>Who This Is For</p>
-    <h2 id="who-heading">Built for Leaders at Every Level</h2>
-    <p class="section-intro max-560" style="margin:16px auto 0;">
-      You don't need a corner office to lead like a 5-star leader. You need a decision.
-    </p>
-  </div>
-  <div class="chip-cluster reveal" role="list" aria-label="Who this challenge is for">
-    <span class="chip-float" role="listitem">Hotel Leaders</span>
-    <span class="chip-float" role="listitem">Healthcare Leaders</span>
-    <span class="chip-float" role="listitem">Managers</span>
-    <span class="chip-float" role="listitem">Supervisors</span>
-    <span class="chip-float" role="listitem">Directors</span>
-    <span class="chip-float" role="listitem">Service Professionals</span>
-    <span class="chip-float" role="listitem">Aspiring Leaders</span>
-    <span class="chip-float" role="listitem">Team Leaders</span>
+    <p class="kicker on-light">A Milestone Worth Celebrating</p>
+    <p id="milestone-heading" class="milestone-number"><span class="js-counter" data-target="50000">0</span><span class="mark-light">+</span></p>
+    <p class="milestone-label">Leaders developed over 20 years</p>
+    <p class="milestone-support">500+ organizations &middot; 20+ industries &middot; 6 continents</p>
   </div>
 </section>
 
 <!-- =============================================================
-     ANNIVERSARY — stats + timeline
+     FAQ — minimal single column, no cards
 ============================================================= -->
-<section class="anniversary-v2 section-pad" aria-labelledby="anniversary-heading">
+<section class="faq-minimal section-pad" aria-labelledby="faq-heading">
   <div class="container">
-    <div class="anniversary-v2-frame reveal">
-      <p class="tag-pill"><span class="dot"></span>A Milestone Worth Celebrating</p>
-      <h2 id="anniversary-heading">20 Years of Leadership Excellence</h2>
-      <p class="max-720" style="margin:16px auto 0;color:rgba(255,255,255,.72);">
-        Two decades of showing up for leaders who refuse to settle for average. This
-        challenge is our way of celebrating that legacy — and inviting you to be part of what's next.
-      </p>
+    <p class="kicker on-light">Common Questions</p>
+    <h2 id="faq-heading" class="faq-minimal-heading">Everything you're wondering, answered.</h2>
 
-      <div class="stat-grid-v2">
-        <div class="stat-item-v2"><strong class="js-counter" data-target="50000">0</strong><span>Leaders Reached</span></div>
-        <div class="stat-item-v2"><strong class="js-counter" data-target="500">0</strong><span>Organizations Served</span></div>
-        <div class="stat-item-v2"><strong class="js-counter" data-target="20">0</strong><span>Industries</span></div>
-        <div class="stat-item-v2"><strong class="js-counter" data-target="6">0</strong><span>Continents</span></div>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-line" aria-hidden="true"></div>
-        <div class="timeline-point"><span class="timeline-dot" aria-hidden="true"></span><strong>2006</strong><span>The Work Begins</span></div>
-        <div class="timeline-point"><span class="timeline-dot" aria-hidden="true"></span><strong>2015</strong><span>25,000+ Leaders Reached</span></div>
-        <div class="timeline-point"><span class="timeline-dot" aria-hidden="true"></span><strong>2026</strong><span>20 Years &middot; 50,000+ Leaders</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================================================
-     FAQ — two-column cards
-============================================================= -->
-<section class="faq-v2 section-pad" aria-labelledby="faq-heading">
-  <div class="faq-v2-bg" aria-hidden="true"></div>
-  <div class="container">
-    <div class="center reveal">
-      <p class="tag-pill-light tag-pill"><span class="dot"></span>Common Questions</p>
-      <h2 id="faq-heading">Everything You're Wondering, Answered</h2>
-    </div>
-
-    <div class="faq-grid reveal">
-      <details class="faq-card">
-        <summary>How much time does this take each week?<span class="faq-icon" aria-hidden="true">+</span></summary>
-        <p class="faq-answer">About 10–15 minutes to read your Monday challenge, plus the time it takes to actually lead — one intentional conversation, one small shift in how you show up. No homework piles, no long courses to binge.</p>
+    <div class="faq-minimal-list reveal">
+      <details class="faq-min-item">
+        <summary>How much time does this take each week?<span class="faq-min-icon" aria-hidden="true">+</span></summary>
+        <p class="faq-min-answer">About 10–15 minutes to read your Monday challenge, plus the time it takes to actually lead — one intentional conversation, one small shift in how you show up. No homework piles, no long courses to binge.</p>
       </details>
-      <details class="faq-card">
-        <summary>Do I get lifetime access?<span class="faq-icon" aria-hidden="true">+</span></summary>
-        <p class="faq-answer">Yes. Every challenge and handout is yours to keep and revisit for as long as you lead people — this isn't a course that disappears after a deadline.</p>
+      <details class="faq-min-item">
+        <summary>Do I get lifetime access?<span class="faq-min-icon" aria-hidden="true">+</span></summary>
+        <p class="faq-min-answer">Yes. Every challenge and handout is yours to keep and revisit for as long as you lead people — this isn't a course that disappears after a deadline.</p>
       </details>
-      <details class="faq-card">
-        <summary>Who is this challenge for?<span class="faq-icon" aria-hidden="true">+</span></summary>
-        <p class="faq-answer">Any leader who wants their team to follow them by choice, not obligation — new managers, seasoned executives, hotel and healthcare leaders, or anyone responsible for even one other person.</p>
+      <details class="faq-min-item">
+        <summary>Who is this challenge for?<span class="faq-min-icon" aria-hidden="true">+</span></summary>
+        <p class="faq-min-answer">Any leader who wants their team to follow them by choice, not obligation — new managers, seasoned executives, hotel and healthcare leaders, or anyone responsible for even one other person.</p>
       </details>
-      <details class="faq-card">
-        <summary>What if I miss a week?<span class="faq-icon" aria-hidden="true">+</span></summary>
-        <p class="faq-answer">Every email stays in your inbox. Pick up exactly where you left off — there's no falling behind, only picking back up whenever you're ready.</p>
+      <details class="faq-min-item">
+        <summary>What if I miss a week?<span class="faq-min-icon" aria-hidden="true">+</span></summary>
+        <p class="faq-min-answer">Every email stays in your inbox. Pick up exactly where you left off — there's no falling behind, only picking back up whenever you're ready.</p>
       </details>
-      <details class="faq-card">
-        <summary>Is there a cost, and what's the refund policy?<span class="faq-icon" aria-hidden="true">+</span></summary>
-        <p class="faq-answer">It's 100% free — always has been. There's nothing to buy and nothing to refund. This challenge is our gift as we celebrate 20 years of this work.</p>
+      <details class="faq-min-item">
+        <summary>Is there a cost, and what's the refund policy?<span class="faq-min-icon" aria-hidden="true">+</span></summary>
+        <p class="faq-min-answer">It's 100% free — always has been. There's nothing to buy and nothing to refund. This challenge is our gift as we celebrate 20 years of this work.</p>
       </details>
-      <details class="faq-card">
-        <summary>Do I get community access?<span class="faq-icon" aria-hidden="true">+</span></summary>
-        <p class="faq-answer">Yes. You'll be invited into the BW Leadership Community, where leaders taking the same challenge each week support and learn from one another.</p>
+      <details class="faq-min-item">
+        <summary>Do I get community access?<span class="faq-min-icon" aria-hidden="true">+</span></summary>
+        <p class="faq-min-answer">Yes. You'll be invited into the BW Leadership Community, where leaders taking the same challenge each week support and learn from one another.</p>
       </details>
-      <details class="faq-card">
-        <summary>Can I do this from my phone?<span class="faq-icon" aria-hidden="true">+</span></summary>
-        <p class="faq-answer">Yes. Every challenge and handout is built to read and complete from your phone — no app, no login, nothing to install.</p>
+      <details class="faq-min-item">
+        <summary>Can I do this from my phone?<span class="faq-min-icon" aria-hidden="true">+</span></summary>
+        <p class="faq-min-answer">Yes. Every challenge and handout is built to read and complete from your phone — no app, no login, nothing to install.</p>
       </details>
-      <details class="faq-card">
-        <summary>Do I get a certificate?<span class="faq-icon" aria-hidden="true">+</span></summary>
-        <p class="faq-answer">You'll build your own Leadership Legacy Plan in Week 6 — proof of real work, not just a PDF with your name on it. If your organization needs a completion certificate, just reply to any challenge email and we'll send one.</p>
+      <details class="faq-min-item">
+        <summary>Do I get a certificate?<span class="faq-min-icon" aria-hidden="true">+</span></summary>
+        <p class="faq-min-answer">You'll build your own Leadership Legacy Plan in Week 6 — proof of real work, not just a PDF with your name on it. If your organization needs a completion certificate, just reply to any challenge email and we'll send one.</p>
       </details>
     </div>
   </div>
 </section>
 
 <!-- =============================================================
-     FINAL CTA — immersive, emotional close
+     FINALE — cinematic full-bleed close, bookends the hero
 ============================================================= -->
-<section class="final-v2 section-pad" aria-labelledby="final-cta-heading">
-  <div class="aurora" aria-hidden="true">
-    <span class="aurora-blob a1" style="width:520px;height:520px;"></span>
-    <span class="aurora-blob a2" style="width:440px;height:440px;"></span>
+<section class="finale" aria-labelledby="finale-heading">
+  <div class="photo-duotone" id="finale-photo-parallax" aria-hidden="true">
+    <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cd7a708c41d4df761e7d.jpg" alt="" />
   </div>
-  <div class="container center reveal">
-    <p class="tag-pill"><span class="dot"></span>Six Weeks From Now</p>
-    <h2 id="final-cta-heading" class="final-v2-headline">You'll Either Be Leading the Same Way...<br />Or You Won't Recognize Yourself.</h2>
-    <p class="final-body max-560" style="margin:20px auto 0;">
-      Six weeks from now, you can be leading exactly like you are today — same habits, same
-      results, same distance between you and the leader you know you could be. Or you can be
-      six Mondays into becoming the leader your team actually wants to follow. New cohorts
-      begin every Monday — the sooner you join, the sooner your first challenge arrives.
+  <div class="container finale-content center reveal">
+    <p class="kicker">Six Weeks From Now</p>
+    <h2 id="finale-heading" class="finale-headline">You'll either be leading the same way...<br />or you won't recognize yourself.</h2>
+    <p class="finale-body max-560">
+      Six weeks from now, you can be leading exactly like you are today. Or you can be six
+      Mondays into becoming the leader your team actually wants to follow. New cohorts begin
+      every Monday — the sooner you join, the sooner your first challenge arrives.
     </p>
-    <button type="button" class="btn btn-gold js-open-modal">Yes — Start My FREE Challenge →</button>
+    <button type="button" class="btn btn-gold js-open-modal">Start My FREE Challenge →</button>
     <p class="micro-copy light">Join 50,000+ leaders who decided six weeks was worth it. No cost, no catch, no credit card.</p>
   </div>
 </section>
@@ -1051,7 +670,7 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <div class="modal-header">
-      <p class="tag-pill" style="margin-bottom:4px;"><span class="dot"></span>Celebrating 20 Years</p>
+      <p class="kicker" style="margin-bottom:4px;">Celebrating 20 Years</p>
       <h3 id="modal-title">Join the FREE 6-Week Challenge</h3>
     </div>
     <div class="modal-body">
@@ -1087,8 +706,8 @@
    working regardless of how/when GHL renders or duplicates CTAs, and a
    global init flag guards against the script running twice if a block
    gets pasted more than once in the builder. Every enhancement below is
-   isolated in its own try/catch so a failure in one (e.g. the carousel)
-   can never take down another (e.g. the modal).
+   isolated in its own try/catch so a failure in one can never take
+   down another (especially the modal, which must always work).
 ============================================================= */
 (function () {
   "use strict";
@@ -1126,21 +745,24 @@
       }
     } catch (err) {}
 
-    /* ---------- Hero photo mouse-tilt (desktop pointer only, respects reduced motion) ---------- */
+    /* ---------- Subtle parallax on the three full-bleed photo moments
+       (desktop pointer/no-reduced-motion only; purely decorative) ---------- */
     try {
-      var stack = document.getElementById('hero-photo-stack');
       var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var isFinePointer = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-      if (stack && !prefersReduced && isFinePointer) {
-        stack.addEventListener('mousemove', function (e) {
-          var rect = stack.getBoundingClientRect();
-          var px = (e.clientX - rect.left) / rect.width - 0.5;
-          var py = (e.clientY - rect.top) / rect.height - 0.5;
-          stack.style.transform = 'rotateY(' + (px * 6) + 'deg) rotateX(' + (py * -6) + 'deg)';
-        });
-        stack.addEventListener('mouseleave', function () {
-          stack.style.transform = 'rotateY(0) rotateX(0)';
-        });
+      if (!prefersReduced) {
+        var parallaxEls = document.querySelectorAll('#hero-photo-parallax img, #about-photo-parallax img, #finale-photo-parallax img');
+        if (parallaxEls.length) {
+          var onScrollParallax = function () {
+            var y = window.pageYOffset || document.documentElement.scrollTop;
+            parallaxEls.forEach(function (img) {
+              var rect = img.parentElement.getBoundingClientRect();
+              var offset = rect.top * 0.12;
+              img.style.transform = 'translateY(' + offset + 'px) scale(1.12)';
+            });
+          };
+          document.addEventListener('scroll', onScrollParallax, { passive: true });
+          onScrollParallax();
+        }
       }
     } catch (err) {}
 
@@ -1224,7 +846,7 @@
 
     /* ---------- Sticky mobile CTA (shows once hero scrolls out of view) ---------- */
     try {
-      var heroEl = document.querySelector('.hero');
+      var heroEl = document.getElementById('hero');
       var stickyCta = document.getElementById('sticky-cta');
       if (heroEl && stickyCta && 'IntersectionObserver' in window) {
         var heroIO = new IntersectionObserver(function (entries) {
@@ -1233,43 +855,6 @@
           });
         }, { threshold: 0 });
         heroIO.observe(heroEl);
-      }
-    } catch (err) {}
-
-    /* ---------- Journey carousel (dots + prev/next) ---------- */
-    try {
-      var track = document.getElementById('journey-track');
-      var trackWrap = document.getElementById('journey-track-wrap');
-      var prevBtn = document.getElementById('journey-prev');
-      var nextBtn = document.getElementById('journey-next');
-      var dotsWrap = document.getElementById('journey-dots');
-      if (track && trackWrap && dotsWrap) {
-        var cards = track.querySelectorAll('.week-card-v2');
-        cards.forEach(function (card, i) {
-          var dot = document.createElement('button');
-          dot.type = 'button';
-          dot.className = 'carousel-dot' + (i === 0 ? ' is-active' : '');
-          dot.setAttribute('aria-label', 'Go to week ' + (i + 1));
-          dot.addEventListener('click', function () {
-            card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-          });
-          dotsWrap.appendChild(dot);
-        });
-        var dots = dotsWrap.querySelectorAll('.carousel-dot');
-        if ('IntersectionObserver' in window) {
-          var cardIO = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              var idx = Array.prototype.indexOf.call(cards, entry.target);
-              if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
-                dots.forEach(function (d) { d.classList.remove('is-active'); });
-                if (dots[idx]) dots[idx].classList.add('is-active');
-              }
-            });
-          }, { root: trackWrap, threshold: [0.6] });
-          cards.forEach(function (c) { cardIO.observe(c); });
-        }
-        if (prevBtn) prevBtn.addEventListener('click', function () { trackWrap.scrollBy({ left: -364, behavior: 'smooth' }); });
-        if (nextBtn) nextBtn.addEventListener('click', function () { trackWrap.scrollBy({ left: 364, behavior: 'smooth' }); });
       }
     } catch (err) {}
 
@@ -1291,24 +876,21 @@
       }
     } catch (err) {}
 
-    /* ---------- Counter animation ---------- */
+    /* ---------- Counter animation (single milestone number) ---------- */
     try {
       var counters = document.querySelectorAll('.js-counter');
       function animateCounter(el) {
         var target = parseInt(el.getAttribute('data-target'), 10) || 0;
-        var duration = 1800;
+        var duration = 2000;
         var start = null;
         function step(ts) {
           if (!start) start = ts;
           var progress = Math.min((ts - start) / duration, 1);
           var eased = 1 - Math.pow(1 - progress, 3);
           var value = Math.floor(eased * target);
-          el.textContent = value.toLocaleString() + (progress >= 1 ? '+' : '');
-          if (progress < 1) {
-            requestAnimationFrame(step);
-          } else {
-            el.textContent = target.toLocaleString() + '+';
-          }
+          el.textContent = value.toLocaleString();
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = target.toLocaleString();
         }
         requestAnimationFrame(step);
       }
@@ -1323,7 +905,7 @@
         }, { threshold: 0.4 });
         counters.forEach(function (el) { counterIO.observe(el); });
       } else {
-        counters.forEach(function (el) { el.textContent = el.getAttribute('data-target') + '+'; });
+        counters.forEach(function (el) { el.textContent = el.getAttribute('data-target'); });
       }
     } catch (err) {}
   });
