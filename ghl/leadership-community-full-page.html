@@ -300,6 +300,7 @@ p{margin:0;}
 ============================================================ */
 .community-section{overflow:hidden;}
 .community-stage{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;margin-top:56px;}
+.community-left{display:flex;flex-direction:column;gap:28px;}
 
 .community-collage{position:relative;min-height:480px;}
 .cc-tile{position:absolute;border-radius:18px;overflow:hidden;box-shadow:0 20px 46px rgba(22,36,63,0.18);border:4px solid var(--white);}
@@ -321,6 +322,20 @@ p{margin:0;}
 @keyframes ccPulseGold{0%{box-shadow:0 0 0 0 rgba(200,147,43,0.55);}70%{box-shadow:0 0 0 9px rgba(200,147,43,0);}100%{box-shadow:0 0 0 0 rgba(200,147,43,0);}}
 
 @keyframes ccPulseGreen{0%{box-shadow:0 0 0 0 rgba(63,174,92,0.5);}70%{box-shadow:0 0 0 8px rgba(63,174,92,0);}100%{box-shadow:0 0 0 0 rgba(63,174,92,0);}}
+
+/* ---------- Member spotlight — fills the space under the collage ---------- */
+.community-spotlight{
+  position:relative;background:var(--white);border:1px solid var(--line);border-radius:22px;
+  padding:34px 32px;box-shadow:0 14px 36px rgba(22,36,63,0.08);
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+}
+.community-spotlight-mark{font-family:'League Gothic';font-size:60px;color:var(--gold);opacity:0.28;line-height:1;position:absolute;top:20px;right:26px;}
+.community-spotlight-label{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;position:relative;z-index:1;}
+.community-spotlight p.quote{font-size:16px;color:var(--ink);line-height:1.7;position:relative;z-index:1;margin-bottom:22px;}
+.community-spotlight footer{display:flex;align-items:center;gap:12px;position:relative;z-index:1;}
+.community-spotlight .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy-mid));color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0;}
+.community-spotlight .who strong{display:block;color:var(--navy);font-size:14.5px;font-weight:700;}
+.community-spotlight .who span{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:1px;}
 
 /* ---------- "Step Inside The Community" app-window mockup ---------- */
 .community-window{background:var(--white);border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow-lift);overflow:hidden;}
@@ -406,7 +421,7 @@ p{margin:0;}
 
 @media (max-width:920px){
   .community-stage{grid-template-columns:1fr;}
-  .community-collage{min-height:380px;margin-bottom:24px;}
+  .community-collage{min-height:380px;}
 }
 @media (max-width:768px){
   .belonging-compare{flex-direction:column;}
@@ -678,20 +693,38 @@ p{margin:0;}
     </div>
 
     <div class="community-stage reveal reveal-delay-3">
-      <div class="community-collage">
-        <div class="cc-tile cc-tile-1">
-          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0dd8ffd1870ca2d55.jpg" alt="Leaders connecting in the community" />
+      <div class="community-left">
+        <div class="community-collage">
+          <div class="cc-tile cc-tile-1">
+            <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0dd8ffd1870ca2d55.jpg" alt="Leaders connecting in the community" />
+          </div>
+          <div class="cc-tile cc-tile-2">
+            <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0e4e420b6ec15facb.jpg" alt="A community gathering and learning together" />
+          </div>
+          <div class="cc-tile cc-tile-3">
+            <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a028b4c07e403605e7.jpg" alt="Leaders learning together in the community" />
+          </div>
+          <div class="cc-avatar cc-avatar-1" style="--bg:#C8932B;">DA</div>
+          <div class="cc-avatar cc-avatar-2" style="--bg:#1e3156;">JM</div>
+          <div class="cc-avatar cc-avatar-3" style="--bg:#8a5a2b;">KR</div>
+          <div class="cc-pulse-pill"><span class="dot"></span>New conversations, every week</div>
         </div>
-        <div class="cc-tile cc-tile-2">
-          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0e4e420b6ec15facb.jpg" alt="A community gathering and learning together" />
+
+        <div class="community-spotlight reveal reveal-delay-4">
+          <span class="community-spotlight-mark" aria-hidden="true">&rdquo;</span>
+          <span class="community-spotlight-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            Member Spotlight
+          </span>
+          <p class="quote">"You are an AMAZING facilitator – your energy and ability to connect with people is truly a gift."</p>
+          <footer>
+            <span class="avatar">RW</span>
+            <span class="who">
+              <strong>Rockelle Ward</strong>
+              <span>Director of Global Accreditation, ICF Coaching Federation</span>
+            </span>
+          </footer>
         </div>
-        <div class="cc-tile cc-tile-3">
-          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a028b4c07e403605e7.jpg" alt="Leaders learning together in the community" />
-        </div>
-        <div class="cc-avatar cc-avatar-1" style="--bg:#C8932B;">DA</div>
-        <div class="cc-avatar cc-avatar-2" style="--bg:#1e3156;">JM</div>
-        <div class="cc-avatar cc-avatar-3" style="--bg:#8a5a2b;">KR</div>
-        <div class="cc-pulse-pill"><span class="dot"></span>New conversations, every week</div>
       </div>
 
       <div class="community-window">
