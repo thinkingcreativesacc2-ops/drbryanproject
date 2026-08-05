@@ -337,6 +337,24 @@ p{margin:0;}
 .community-spotlight .who strong{display:block;color:var(--navy);font-size:14.5px;font-weight:700;}
 .community-spotlight .who span{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:1px;}
 
+/* ---------- Welcome note from Dr. Bryan — dark card, pairs with the white spotlight above ---------- */
+.community-welcome{
+  position:relative;overflow:hidden;flex:1;display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(155deg,var(--navy) 0%,var(--navy-deep) 100%);
+  border-radius:22px;padding:34px 32px;box-shadow:var(--shadow-soft);
+}
+.community-welcome::before{
+  content:"";position:absolute;width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,147,43,0.20),transparent 65%);top:-120px;right:-100px;
+}
+.cw-welcome-top{display:flex;align-items:center;gap:14px;position:relative;z-index:1;margin-bottom:18px;}
+.cw-welcome-photo{width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(227,181,99,0.5);}
+.cw-welcome-photo img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.cw-welcome-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);}
+.cw-welcome-name{font-size:14.5px;font-weight:700;color:var(--white);margin-top:2px;}
+.community-welcome p.msg{font-size:16px;color:rgba(255,255,255,0.9);line-height:1.7;position:relative;z-index:1;font-style:italic;}
+.community-welcome p.sig{margin-top:16px;font-size:12.5px;font-weight:700;letter-spacing:0.4px;color:rgba(255,255,255,0.55);position:relative;z-index:1;}
+
 /* ---------- "Step Inside The Community" app-window mockup ---------- */
 .community-window{background:var(--white);border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow-lift);overflow:hidden;}
 .cw-titlebar{display:flex;align-items:center;gap:8px;padding:15px 20px;background:var(--cream-deep);border-bottom:1px solid var(--line);}
@@ -724,6 +742,20 @@ p{margin:0;}
               <span>Director of Global Accreditation, ICF Coaching Federation</span>
             </span>
           </footer>
+        </div>
+
+        <div class="community-welcome reveal reveal-delay-4">
+          <div class="cw-welcome-top">
+            <div class="cw-welcome-photo">
+              <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5a14711097b81195c54f43.png" alt="Dr. Bryan K. Williams" />
+            </div>
+            <div>
+              <p class="cw-welcome-label">A Note From Dr. Bryan</p>
+              <p class="cw-welcome-name">Dr. Bryan K. Williams</p>
+            </div>
+          </div>
+          <p class="msg">"I read every post. I show up to every call. This isn't a community I built and stepped away from — it's one I'm in, every single week, with you."</p>
+          <p class="sig">— Founder, The Leadership Community</p>
         </div>
       </div>
 
