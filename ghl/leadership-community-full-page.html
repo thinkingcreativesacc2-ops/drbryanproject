@@ -146,11 +146,8 @@ p{margin:0;}
 .hero-ctawrap{display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
 .hero-microcopy{font-size:13px;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:8px;}
 .hero-photo-col{position:relative;}
-.hero-collage{position:relative;min-height:600px;}
-.hero-collage .cc-tile-1{height:340px;}
-.hero-collage .cc-tile-2{height:260px;top:230px;}
-.hero-collage .cc-tile-3{height:230px;}
-.hero-collage .cc-avatar-2{top:16px;left:-14px;bottom:auto;}
+.hero-video-frame{position:relative;width:100%;border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lift);border:1px solid rgba(255,255,255,0.14);aspect-ratio:16/9;background:#000;}
+.hero-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
 .hero-badge{position:absolute;left:-26px;bottom:34px;background:rgba(12,21,38,0.82);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.16);border-radius:16px;padding:18px 22px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow-soft);z-index:6;}
 .hero-badge .num{font-family:'League Gothic','Lato',sans-serif;font-size:34px;color:var(--gold-light);line-height:1;}
 .hero-badge .lbl{font-size:12px;color:rgba(255,255,255,0.75);line-height:1.3;max-width:150px;}
@@ -163,11 +160,7 @@ p{margin:0;}
   .hero-inner{grid-template-columns:1fr;text-align:center;}
   .hero-ctawrap{align-items:center;width:100%;}
   .hero-sub{margin-left:auto;margin-right:auto;}
-  .hero-photo-col{order:-1;max-width:340px;margin:0 auto;}
-  .hero-collage{min-height:380px;}
-  .hero-collage .cc-tile-1{height:290px;}
-  .hero-collage .cc-tile-2{height:230px;top:190px;}
-  .hero-collage .cc-tile-3{height:200px;}
+  .hero-photo-col{order:-1;}
   .hero-badge{left:50%;transform:translateX(-50%);bottom:-24px;}
 }
 
@@ -705,19 +698,8 @@ p{margin:0;}
     </div>
 
     <div class="hero-photo-col">
-      <div class="hero-collage">
-        <div class="cc-tile cc-tile-1">
-          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0dd8ffd1870ca2d55.jpg" alt="Leaders connecting in the community" />
-        </div>
-        <div class="cc-tile cc-tile-2">
-          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0e4e420b6ec15facb.jpg" alt="A community gathering and learning together" />
-        </div>
-        <div class="cc-tile cc-tile-3">
-          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a028b4c07e403605e7.jpg" alt="Leaders learning together in the community" />
-        </div>
-        <div class="cc-avatar cc-avatar-1" style="--bg:#C8932B;">DA</div>
-        <div class="cc-avatar cc-avatar-2" style="--bg:#1e3156;">JM</div>
-        <div class="cc-avatar cc-avatar-3" style="--bg:#8a5a2b;">KR</div>
+      <div class="hero-video-frame">
+        <iframe src="https://www.youtube.com/embed/Hpr-E1NvnyY" title="Dr. Bryan K. Williams — The Leadership Community" frameborder="0" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
       <div class="hero-badge">
         <span class="num" data-count-to="1700" data-suffix="+">1,700+</span>
