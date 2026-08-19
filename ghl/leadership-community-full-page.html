@@ -291,17 +291,34 @@ p{margin:0;}
 .transform-col.after .item{color:rgba(255,255,255,0.88);}
 .transform-list svg{flex-shrink:0;margin-top:2px;}
 
-/* ---------- inline proof chip (repositioned testimonials) ---------- */
-.proof-chip{max-width:660px;margin:40px auto 0;padding:26px 32px;background:var(--white);border-left:3px solid var(--gold);border-radius:0 16px 16px 0;box-shadow:0 10px 30px rgba(22,36,63,0.06);}
-.proof-chip p.quote{font-style:italic;color:var(--navy);font-size:16px;line-height:1.7;}
-.proof-chip .who{margin-top:10px;font-size:13.5px;font-weight:700;color:var(--ink-soft);}
-
 @media (max-width:820px){.transform-grid{grid-template-columns:1fr;}}
 
 /* ============================================================
-   IMMERSIVE COMMUNITY (belonging) — sits directly under the hero
+   WHAT IS THE LEADERSHIP COMMUNITY? — sits directly under the hero
+============================================================ */
+.whatis-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.whatis-list{display:flex;flex-direction:column;gap:14px;margin:26px 0;}
+.whatis-list .row{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--ink-soft);}
+.whatis-list svg{flex-shrink:0;margin-top:3px;color:var(--gold);}
+.whatis-highlight{margin:22px 0;padding:22px 26px;background:var(--white);border-left:3px solid var(--gold);border-radius:0 14px 14px 0;font-family:'League Gothic','Lato',sans-serif;font-size:clamp(19px,2vw,23px);color:var(--navy);line-height:1.35;box-shadow:0 10px 30px rgba(22,36,63,0.06);}
+.whatis-purpose{font-size:15.5px;color:var(--ink-soft);font-style:italic;}
+.whatis-video-col{position:relative;}
+.whatis-video-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lift);background:var(--navy-deep);}
+.whatis-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.whatis-video-label{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:12.5px;font-weight:700;letter-spacing:0.5px;color:var(--ink-soft);}
+.whatis-video-label svg{color:var(--gold);flex-shrink:0;}
+
+@media (max-width:920px){
+  .whatis-grid{grid-template-columns:1fr;gap:36px;}
+  .whatis-video-col{order:2;}
+}
+
+/* ============================================================
+   COMMUNITY EXPERIENCE — the collage + live app-mockup, trimmed
 ============================================================ */
 .community-section{overflow:hidden;}
+.community-copy{max-width:460px;}
+.community-copy p{font-size:16px;color:var(--ink-soft);line-height:1.7;}
 .community-stage{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;margin-top:56px;}
 .community-left{display:flex;flex-direction:column;gap:28px;}
 
@@ -325,38 +342,6 @@ p{margin:0;}
 @keyframes ccPulseGold{0%{box-shadow:0 0 0 0 rgba(200,147,43,0.55);}70%{box-shadow:0 0 0 9px rgba(200,147,43,0);}100%{box-shadow:0 0 0 0 rgba(200,147,43,0);}}
 
 @keyframes ccPulseGreen{0%{box-shadow:0 0 0 0 rgba(63,174,92,0.5);}70%{box-shadow:0 0 0 8px rgba(63,174,92,0);}100%{box-shadow:0 0 0 0 rgba(63,174,92,0);}}
-
-/* ---------- Member spotlight — fills the space under the collage ---------- */
-.community-spotlight{
-  position:relative;background:var(--white);border:1px solid var(--line);border-radius:22px;
-  padding:34px 32px;box-shadow:0 14px 36px rgba(22,36,63,0.08);
-  flex:1;display:flex;flex-direction:column;justify-content:center;
-}
-.community-spotlight-mark{font-family:'League Gothic','Lato',sans-serif;font-size:60px;color:var(--gold);opacity:0.28;line-height:1;position:absolute;top:20px;right:26px;}
-.community-spotlight-label{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;position:relative;z-index:1;}
-.community-spotlight p.quote{font-size:16px;color:var(--ink);line-height:1.7;position:relative;z-index:1;margin-bottom:22px;}
-.community-spotlight footer{display:flex;align-items:center;gap:12px;position:relative;z-index:1;}
-.community-spotlight .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy-mid));color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0;}
-.community-spotlight .who strong{display:block;color:var(--navy);font-size:14.5px;font-weight:700;}
-.community-spotlight .who span{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:1px;}
-
-/* ---------- Welcome note from Dr. Bryan — dark card, pairs with the white spotlight above ---------- */
-.community-welcome{
-  position:relative;overflow:hidden;flex:1;display:flex;flex-direction:column;justify-content:center;
-  background:linear-gradient(155deg,var(--navy) 0%,var(--navy-deep) 100%);
-  border-radius:22px;padding:34px 32px;box-shadow:var(--shadow-soft);
-}
-.community-welcome::before{
-  content:"";position:absolute;width:280px;height:280px;border-radius:50%;
-  background:radial-gradient(circle,rgba(200,147,43,0.20),transparent 65%);top:-120px;right:-100px;
-}
-.cw-welcome-top{display:flex;align-items:center;gap:14px;position:relative;z-index:1;margin-bottom:18px;}
-.cw-welcome-photo{width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(227,181,99,0.5);}
-.cw-welcome-photo img{width:100%;height:100%;object-fit:cover;object-position:top;}
-.cw-welcome-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);}
-.cw-welcome-name{font-size:14.5px;font-weight:700;color:var(--white);margin-top:2px;}
-.community-welcome p.msg{font-size:16px;color:rgba(255,255,255,0.9);line-height:1.7;position:relative;z-index:1;font-style:italic;}
-.community-welcome p.sig{margin-top:16px;font-size:12.5px;font-weight:700;letter-spacing:0.4px;color:rgba(255,255,255,0.55);position:relative;z-index:1;}
 
 /* ---------- "Step Inside The Community" app-window mockup ---------- */
 .community-window{background:var(--white);border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow-lift);overflow:hidden;}
@@ -420,46 +405,13 @@ p{margin:0;}
   .cw-cd-seg{min-width:44px;padding:6px 6px;}
 }
 
-.belonging-compare{display:flex;align-items:stretch;gap:0;margin-top:76px;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-soft);}
-.bc-side{flex:1;padding:36px 34px;display:flex;flex-direction:column;gap:14px;}
-.bc-alone{background:var(--cream-deep);}
-.bc-inside{background:linear-gradient(160deg,var(--navy),var(--navy-deep));}
-.bc-label{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px;}
-.bc-inside .bc-label{color:var(--gold-light);}
-.bc-chip{display:inline-block;padding:12px 18px;border-radius:12px;font-size:14.5px;background:rgba(22,36,63,0.05);color:var(--ink-soft);}
-.bc-inside .bc-chip{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.88);}
-.bc-vs{flex-shrink:0;width:56px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy-deep);font-family:'League Gothic','Lato',sans-serif;font-size:20px;letter-spacing:1px;}
-
-.belonging-timeline{position:relative;display:flex;justify-content:space-between;gap:20px;margin-top:76px;padding-top:6px;}
-.bt-track{position:absolute;top:9px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line) 10%,var(--line) 90%,transparent);}
-.bt-progress{position:absolute;top:9px;left:0;height:1px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width 1.7s cubic-bezier(.2,.7,.2,1) .2s;}
-.belonging-timeline.in .bt-progress{width:88%;}
-.bt-stop{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;}
-.bt-dot{width:18px;height:18px;border-radius:50%;background:var(--white);border:3px solid var(--gold);position:relative;z-index:1;transition:box-shadow .3s ease .8s;}
-.belonging-timeline.in .bt-dot{box-shadow:0 0 0 5px rgba(200,147,43,0.16);}
-.bt-when{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);}
-.bt-what{font-size:14.5px;color:var(--ink-soft);max-width:190px;}
-
 @media (max-width:920px){
   .community-stage{grid-template-columns:1fr;}
   .community-collage{min-height:380px;}
 }
-@media (max-width:768px){
-  .belonging-compare{flex-direction:column;}
-  .bc-vs{width:100%;height:40px;}
-}
-@media (max-width:820px){
-  .belonging-timeline{flex-direction:column;align-items:flex-start;gap:28px;padding-left:20px;}
-  .bt-track{top:0;bottom:0;left:8px;right:auto;width:1px;height:auto;background:linear-gradient(180deg,transparent,var(--line) 10%,var(--line) 90%,transparent);}
-  .bt-progress{top:0;left:8px;width:1px;height:0;background:linear-gradient(180deg,var(--gold),var(--gold-light));transition:height 1.7s cubic-bezier(.2,.7,.2,1) .2s;}
-  .belonging-timeline.in .bt-progress{width:1px;height:88%;}
-  .bt-stop{flex-direction:row;text-align:left;align-items:flex-start;gap:16px;}
-  .bt-dot{margin-top:2px;}
-  .bt-what{max-width:none;}
-}
 
 /* ============================================================
-   EVERYTHING INCLUDED — cards
+   BENEFITS — outcome cards (reuses the "included" card system)
 ============================================================ */
 .included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
 .included-card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px 30px;box-shadow:0 10px 30px rgba(22,36,63,0.05);transition:transform .4s ease,box-shadow .4s ease;}
@@ -471,46 +423,6 @@ p{margin:0;}
 
 @media (max-width:920px){.included-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:620px){.included-grid{grid-template-columns:1fr;}}
-
-/* ============================================================
-   VALUE STACK
-============================================================ */
-.stack-wrap{max-width:760px;margin:0 auto;}
-.stack-item{display:grid;grid-template-columns:74px 1fr auto;gap:22px;align-items:center;padding:26px 8px;border-bottom:1px solid var(--line);}
-.stack-item:last-of-type{border-bottom:none;}
-.stack-icon{width:74px;height:74px;border-radius:16px;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;color:var(--navy);}
-.stack-info h4{font-size:19px;color:var(--navy);margin-bottom:5px;font-family:'Lato';font-weight:700;}
-.stack-info p{font-size:14.5px;color:var(--ink-soft);}
-.stack-price{text-align:right;white-space:nowrap;}
-.stack-price .was{display:block;font-size:14px;color:#9aa0aa;text-decoration:line-through;}
-.stack-price .free{display:block;font-family:'League Gothic','Lato',sans-serif;font-size:24px;color:var(--gold);}
-.stack-total{margin-top:30px;padding:34px;border-radius:20px;background:linear-gradient(135deg,var(--navy),var(--navy-deep));color:var(--white);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;box-shadow:var(--shadow-soft);}
-.stack-total .label{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.65);}
-.stack-total .amount{font-family:'League Gothic','Lato',sans-serif;font-size:44px;color:var(--gold-light);}
-.stack-reframe{text-align:center;margin-top:22px;font-size:15.5px;color:var(--ink-soft);}
-.stack-reframe strong{color:var(--navy);}
-.stack-reframe .price-highlight{color:var(--gold);font-weight:800;font-size:1.2em;}
-
-.value-strip{display:flex;align-items:stretch;margin-top:18px;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-soft);}
-.vs-side{flex:1;padding:26px 32px;display:flex;flex-direction:column;justify-content:center;gap:6px;}
-.vs-was{background:var(--cream-deep);}
-.vs-now{background:linear-gradient(135deg,#FBF3DE,var(--white));}
-.vs-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);}
-.vs-was .vs-amount{font-family:'League Gothic','Lato',sans-serif;font-size:32px;color:#9aa0aa;text-decoration:line-through;line-height:1;margin-top:4px;}
-.vs-now .vs-amount{font-family:'League Gothic','Lato',sans-serif;font-size:42px;color:var(--gold);line-height:1;margin-top:4px;}
-.vs-now .vs-amount small{font-family:'Lato';font-weight:700;font-size:14px;color:var(--ink-soft);margin-left:5px;}
-.vs-arrow{flex-shrink:0;width:60px;display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--gold-light);}
-
-@media (max-width:620px){
-  .value-strip{flex-direction:column;}
-  .vs-arrow{width:100%;height:34px;}
-  .vs-arrow svg{transform:rotate(90deg);}
-}
-
-@media (max-width:620px){
-  .stack-item{grid-template-columns:56px 1fr;}
-  .stack-price{grid-column:1/3;text-align:left;display:flex;gap:12px;align-items:baseline;}
-}
 
 /* ============================================================
    TESTIMONIALS — masonry social-proof wall
@@ -652,12 +564,12 @@ p{margin:0;}
     </a>
     <div class="nav-links">
       <a href="#experience">The Community</a>
-      <a href="#included">What You Get</a>
+      <a href="#benefits">What You Get</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
-      <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold">Join the Community</a>
+      <a href="#benefits" class="btn btn-gold">Join the Community</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -668,10 +580,10 @@ p{margin:0;}
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
   <a href="#experience" class="mobile-link">The Community</a>
-  <a href="#included" class="mobile-link">What You Get</a>
+  <a href="#benefits" class="mobile-link">What You Get</a>
   <a href="#pricing" class="mobile-link">Pricing</a>
   <a href="#faq" class="mobile-link">FAQ</a>
-  <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg">Join the Community</a>
+  <a href="#benefits" class="btn btn-gold btn-lg">Join the Community</a>
 </div>
 
 <!-- ============================================================
@@ -692,8 +604,8 @@ p{margin:0;}
         Dr. Bryan K. Williams built this private community for one reason: the leaders who keep growing aren't the ones with the most talent — they're the ones who never went back to figuring it out alone. Weekly coaching. Monthly live calls. A room full of leaders who won't let you quietly settle back into old habits.
       </p>
       <div class="hero-ctawrap">
-        <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg btn-glow">
-          Yes, Lock In My Founding Rate
+        <a href="#benefits" class="btn btn-gold btn-lg btn-glow">
+          Join the Community
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
         </a>
         <p class="hero-microcopy">
@@ -726,181 +638,41 @@ p{margin:0;}
 </header>
 
 <!-- ============================================================
-     IMMERSIVE COMMUNITY (belonging) — first thing after the hero
+     WHAT IS THE LEADERSHIP COMMUNITY? — first thing after the hero
 ============================================================ -->
-<section class="section section-cream community-section texture-dots" id="experience" aria-labelledby="community-heading">
+<section class="section section-cream texture-dots" id="experience" aria-labelledby="whatis-heading">
   <div class="chapter-glow chapter-glow-gold" style="width:560px;height:560px;top:-220px;left:-160px;" aria-hidden="true"></div>
   <div class="chapter-glow chapter-glow-navy" style="width:460px;height:460px;bottom:-200px;right:-140px;" aria-hidden="true"></div>
   <div class="container">
-    <div class="section-header text-center max-720">
-      <div class="section-mark" aria-hidden="true"><span></span></div>
-      <p class="eyebrow reveal">Step Inside The Community</p>
-      <h2 id="community-heading" class="h-lg reveal reveal-delay-1">These Are Your People. This Is Already Happening.</h2>
-      <p class="lede reveal reveal-delay-2" style="color:var(--ink-soft);margin-top:18px;">
-        Not a brochure. Not a promise. This is what's on the other side of the login screen right now — the feed, the challenge, the reply from Dr. Bryan himself, waiting for you.
-      </p>
-    </div>
+    <div class="whatis-grid">
+      <div class="reveal">
+        <p class="eyebrow">The Community</p>
+        <h2 id="whatis-heading" class="h-lg">What Is The Leadership Community?</h2>
+        <p class="lede" style="color:var(--ink-soft);margin-top:18px;">
+          The Leadership Community is an experience designed for leaders who know they're capable of more — and are ready to intentionally grow into the leader they're meant to become. This isn't just about leadership content. It's about the leader. The community gives members an environment to learn, connect, reflect, and put leadership principles into action alongside other leaders who are committed to growing.
+        </p>
 
-    <div class="community-stage reveal reveal-delay-3">
-      <div class="community-left">
-        <div class="community-collage">
-          <div class="cc-tile cc-tile-1">
-            <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0dd8ffd1870ca2d55.jpg" alt="Leaders connecting in the community" />
-          </div>
-          <div class="cc-tile cc-tile-2">
-            <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0e4e420b6ec15facb.jpg" alt="A community gathering and learning together" />
-          </div>
-          <div class="cc-tile cc-tile-3">
-            <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a028b4c07e403605e7.jpg" alt="Leaders learning together in the community" />
-          </div>
-          <div class="cc-avatar cc-avatar-1" style="--bg:#C8932B;">DA</div>
-          <div class="cc-avatar cc-avatar-2" style="--bg:#1e3156;">JM</div>
-          <div class="cc-avatar cc-avatar-3" style="--bg:#8a5a2b;">KR</div>
-          <div class="cc-pulse-pill"><span class="dot"></span>New conversations, every week</div>
+        <p style="margin-top:28px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);">Inside the community, you'll:</p>
+        <div class="whatis-list">
+          <div class="row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><p>Develop practical leadership skills you can apply immediately</p></div>
+          <div class="row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><p>Connect with other leaders who understand the challenges of leadership</p></div>
+          <div class="row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><p>Gain new perspectives through meaningful conversations and shared experiences</p></div>
+          <div class="row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><p>Access resources designed to help you lead with greater confidence, clarity, and impact</p></div>
         </div>
 
-        <div class="community-spotlight reveal reveal-delay-4">
-          <span class="community-spotlight-mark" aria-hidden="true">&rdquo;</span>
-          <span class="community-spotlight-label">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            Member Spotlight
-          </span>
-          <p class="quote">"You are an AMAZING facilitator – your energy and ability to connect with people is truly a gift."</p>
-          <footer>
-            <span class="avatar">RW</span>
-            <span class="who">
-              <strong>Rockelle Ward</strong>
-              <span>Director of Global Accreditation, ICF Coaching Federation</span>
-            </span>
-          </footer>
-        </div>
-
-        <div class="community-welcome reveal reveal-delay-4">
-          <div class="cw-welcome-top">
-            <div class="cw-welcome-photo">
-              <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5a14711097b81195c54f43.png" alt="Dr. Bryan K. Williams" />
-            </div>
-            <div>
-              <p class="cw-welcome-label">A Note From Dr. Bryan</p>
-              <p class="cw-welcome-name">Dr. Bryan K. Williams</p>
-            </div>
-          </div>
-          <p class="msg">"I read every post. I show up to every call. This isn't a community I built and stepped away from — it's one I'm in, every single week, with you."</p>
-          <p class="sig">— Founder, The Leadership Community</p>
-        </div>
+        <div class="whatis-highlight">Your growth as a leader doesn't happen by accident. It happens by intention.</div>
+        <p class="whatis-purpose">Our purpose is to help develop leaders who create meaningful impact wherever they lead.</p>
       </div>
 
-      <div class="community-window">
-        <div class="cw-titlebar">
-          <span class="cw-dot cw-dot-r"></span><span class="cw-dot cw-dot-a"></span><span class="cw-dot cw-dot-g"></span>
-          <span class="cw-titlebar-label">The Leadership Community — Feed</span>
+      <div class="whatis-video-col reveal reveal-delay-2">
+        <div class="whatis-video-frame">
+          <iframe src="https://www.youtube.com/embed/Hpr-E1NvnyY" title="See What The Leadership Community Is All About" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-        <div class="cw-tabs">
-          <span class="cw-tab active">Feed</span>
-          <span class="cw-tab">Classroom</span>
-          <span class="cw-tab">Calendar</span>
-          <span class="cw-tab">Members</span>
-        </div>
-
-        <div class="cw-body">
-          <div class="cw-card cw-countdown-card">
-            <div class="cw-countdown-top"><span class="cw-live-dot"></span>Next Live Session</div>
-            <div class="cw-countdown-title">The September Leadership Sprint</div>
-            <p class="cw-countdown-sub">Live with Dr. Bryan on September 17 — bring your hardest question.</p>
-            <div class="cw-countdown-nums" id="webinarCountdown">
-              <div class="cw-cd-seg"><b id="wdDays">00</b><small>Days</small></div>
-              <div class="cw-cd-seg"><b id="wdHours">00</b><small>Hrs</small></div>
-              <div class="cw-cd-seg"><b id="wdMins">00</b><small>Min</small></div>
-              <div class="cw-cd-seg"><b id="wdSecs">00</b><small>Sec</small></div>
-            </div>
-            <p class="cw-countdown-note">Members get the calendar invite and replay automatically. Exact time confirmed in your welcome email.</p>
-          </div>
-
-          <div class="cw-card cw-post-card">
-            <div class="cw-host-row">
-              <div class="cw-host-avatar">BW</div>
-              <div>
-                <p class="cw-host-name">Dr. Bryan K. Williams <span class="cw-host-badge">Host</span></p>
-                <p class="cw-post-time">Posted this morning</p>
-              </div>
-              <span class="cw-pin">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 0 0-5 5c0 2.4 1.6 4.9 3 6.6L12 22l2-8.4c1.4-1.7 3-4.2 3-6.6a5 5 0 0 0-5-5z"/></svg>
-                Pinned
-              </span>
-            </div>
-            <p class="cw-post-text">This week's challenge: have the conversation you've been avoiding. Reply below and tell me how it goes — I read every one.</p>
-            <div class="cw-reactions">
-              <span class="cw-chip">👏 24</span>
-              <span class="cw-chip">🙌 9</span>
-              <span class="cw-chip">💬 16 replies</span>
-            </div>
-          </div>
-
-          <div class="cw-card cw-thread-card">
-            <div class="cf-item cw-thread-q">
-              <div class="cf-avatar" style="--bg:#1e3156;">T</div>
-              <div class="cf-body">
-                <p class="cf-meta"><strong>Terrence</strong> · Director of Guest Experience</p>
-                <p class="cf-text">How do you handle a manager who's great with guests but keeps missing deadlines?</p>
-                <p class="cf-time">3 hours ago</p>
-              </div>
-            </div>
-            <div class="cw-reply">
-              <div class="cw-host-avatar" style="width:32px;height:32px;font-size:12px;">BW</div>
-              <div class="cf-body">
-                <p class="cf-meta"><strong>Dr. Bryan</strong> <span class="cw-host-badge">Host</span></p>
-                <p class="cf-text">Separate the two conversations. Praise the guest instinct on Monday, address the deadline pattern on Tuesday. Never stack them in the same breath — one erases the other.</p>
-                <p class="cf-time">Replied 2 hours ago</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="cw-card cw-win-card">
-            <div class="cf-item">
-              <div class="cf-avatar" style="--bg:#8a5a2b;">K</div>
-              <div class="cf-body">
-                <p class="cf-meta"><strong>Keisha</strong> · Regional Director</p>
-                <p class="cf-text">Just got the Regional Director role I've been working toward all year. Started this journey rewatching Sprint calls on my lunch break.</p>
-                <p class="cf-time">Posted in Wins · 1 day ago</p>
-              </div>
-            </div>
-            <div class="cw-reactions">
-              <span class="cw-chip">🎉 31</span>
-              <span class="cw-chip">👏 18</span>
-              <span class="cw-chip">🔥 7</span>
-            </div>
-          </div>
-        </div>
+        <p class="whatis-video-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8z"/></svg>
+          See What The Leadership Community Is All About
+        </p>
       </div>
-    </div>
-
-    <div class="belonging-compare reveal reveal-delay-4">
-      <div class="bc-side bc-alone">
-        <span class="bc-label">Leading It Alone</span>
-        <span class="bc-chip">Rehearsing the hard talk in your head</span>
-        <span class="bc-chip">Second-guessing every call you make</span>
-        <span class="bc-chip">One workshop, then silence</span>
-      </div>
-      <div class="bc-vs">VS</div>
-      <div class="bc-side bc-inside">
-        <span class="bc-label">Leading Inside The Community</span>
-        <span class="bc-chip">A room that talks you through it</span>
-        <span class="bc-chip">A coach who actually answers back</span>
-        <span class="bc-chip">A new challenge, every single week</span>
-      </div>
-    </div>
-
-    <div class="belonging-timeline reveal reveal-delay-4">
-      <div class="bt-track" aria-hidden="true"></div>
-      <div class="bt-progress" aria-hidden="true"></div>
-      <div class="bt-stop"><span class="bt-dot"></span><span class="bt-when">Week 1</span><span class="bt-what">You show up. You're not alone anymore.</span></div>
-      <div class="bt-stop"><span class="bt-dot"></span><span class="bt-when">Month 1</span><span class="bt-what">You bring your first real problem to the room.</span></div>
-      <div class="bt-stop"><span class="bt-dot"></span><span class="bt-when">Month 3</span><span class="bt-what">You stop rehearsing. You start leading.</span></div>
-      <div class="bt-stop"><span class="bt-dot"></span><span class="bt-when">Month 12</span><span class="bt-what">Other leaders start asking how you do it.</span></div>
-    </div>
-
-    <div class="text-center reveal reveal-delay-4" style="margin-top:52px;">
-      <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg">I Want In</a>
     </div>
   </div>
 </section>
@@ -921,19 +693,11 @@ p{margin:0;}
       <div class="gap-copy">
         <div class="gap-step reveal">
           <span class="mark">1</span>
-          <p><strong>You sat in the room.</strong> The energy was real. Dr. Bryan called people by name. You filled pages of notes you actually meant to use.</p>
+          <p><strong>You left inspired.</strong> The energy was real, the notes were real — for a few days, you were already the leader you saw yourself becoming.</p>
         </div>
         <div class="gap-step reveal reveal-delay-1">
           <span class="mark">2</span>
-          <p><strong>You left inspired.</strong> For a few days, you were already the leader you saw yourself becoming.</p>
-        </div>
-        <div class="gap-step reveal reveal-delay-2">
-          <span class="mark">3</span>
-          <p><strong>Then Monday happened.</strong> Meetings stacked up. A conflict you'd been avoiding got louder. The notebook closed and stayed closed.</p>
-        </div>
-        <div class="gap-step reveal reveal-delay-3">
-          <span class="mark">4</span>
-          <p><strong>And the old you crept back in.</strong> Not because you didn't care. Because inspiration was never built to survive contact with a normal week — no one ever gave you a way to keep it going.</p>
+          <p><strong>Then Monday happened.</strong> Meetings stacked up, the hard conversation got avoided again, and the old you crept back in — not because you didn't care, but because no one ever gave you a way to keep growing after the workshop ended.</p>
         </div>
       </div>
 
@@ -1059,226 +823,188 @@ p{margin:0;}
       </div>
     </div>
 
-    <div class="proof-chip reveal reveal-delay-3">
-      <span class="tm-quote-mark" style="position:static;display:block;font-size:44px;opacity:0.4;">&rdquo;</span>
-      <p class="quote">"I'm realizing now how much I needed this for my own personal growth as a leader."</p>
-      <p class="who">— Dell Anderson, M.Ed, LMHC, Executive Director, Grant Behavioral Health &amp; Wellness</p>
-    </div>
-
     <div class="mini-cta-wrap reveal reveal-delay-3">
-      <a href="#included" class="mini-cta">See everything that's included<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <a href="#benefits" class="mini-cta">See everything you get<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     EVERYTHING INCLUDED
+     BENEFITS / WHAT YOU GET — the core of the page
 ============================================================ -->
-<section class="section section-beige texture-diagonal" id="included" aria-labelledby="included-heading">
+<section class="section section-beige texture-diagonal" id="benefits" aria-labelledby="benefits-heading">
   <div class="container">
     <div class="section-header text-center max-720">
       <div class="section-mark" aria-hidden="true"><span></span></div>
-      <p class="eyebrow reveal">Everything Included</p>
-      <h2 id="included-heading" class="h-lg reveal reveal-delay-1">One Membership. Everything You Need To Keep Becoming That Leader.</h2>
+      <p class="eyebrow reveal">Join The Community</p>
+      <h2 id="benefits-heading" class="h-lg reveal reveal-delay-1">Everything You Need To Keep Growing As A Leader.</h2>
     </div>
 
     <div class="included-grid">
       <div class="included-card reveal">
         <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <span class="so-what">So You Never Go A Week Without Moving Forward</span>
-        <h4>Weekly Leadership Tip &amp; Challenge</h4>
-        <p>One sharp insight and one real challenge, every week — so growth doesn't wait for the next live call.</p>
+        <h4>Leadership Development</h4>
+        <p>Practical insights and resources to help you become a more confident and effective leader.</p>
       </div>
       <div class="included-card reveal reveal-delay-1">
+        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>A Community Of Leaders</h4>
+        <p>Connect with people who are also committed to growing, leading, and making an impact.</p>
+      </div>
+      <div class="included-card reveal reveal-delay-2">
         <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
-        <span class="so-what">So You Have Somewhere To Bring The Hard Question</span>
-        <h4>Monthly Leadership Lounge Call</h4>
-        <p>Live, monthly, direct access to Dr. Bryan — ask the thing you haven't said out loud yet.</p>
+        <h4>Real Conversations</h4>
+        <p>Learn through meaningful discussions, shared experiences, and perspectives from other leaders.</p>
+      </div>
+      <div class="included-card reveal">
+        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <h4>Practical Resources</h4>
+        <p>Tools, training, and resources you can use in your leadership journey.</p>
+      </div>
+      <div class="included-card reveal reveal-delay-1">
+        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h4>Ongoing Growth</h4>
+        <p>Keep developing beyond a single course, event, or training session.</p>
       </div>
       <div class="included-card reveal reveal-delay-2">
         <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg></div>
-        <span class="so-what">So You Walk In Prepared, Not Hopeful</span>
-        <h4>Monthly Leadership Sprint Call</h4>
-        <p>Deep coaching built around real conflict and real scenarios, so you practice the hard conversation before you have it.</p>
-      </div>
-      <div class="included-card reveal">
-        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-        <span class="so-what">So You Can Go Back To The Room Whenever You Need It</span>
-        <h4>BWTV — The Complete Video Library</h4>
-        <p>Dr. Bryan's full leadership series, recorded live in front of more than 1,700 attendees — yours to rewatch anytime.</p>
-      </div>
-      <div class="included-card reveal reveal-delay-1">
-        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
-        <span class="so-what">So You Skip The Blank Page</span>
-        <h4>Leadership Templates &amp; Resources</h4>
-        <p>Frameworks built to be used the same day you receive them — not homework, tools.</p>
-      </div>
-      <div class="included-card reveal reveal-delay-2">
-        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <span class="so-what">So You're Never Leading Alone Again</span>
-        <h4>Private Community &amp; Networking</h4>
-        <p>Direct access to a private group of leaders for discussion, accountability, and support — on call between events.</p>
+        <h4>Leadership Perspective</h4>
+        <p>Gain insights that help you navigate real leadership challenges with greater clarity.</p>
       </div>
     </div>
 
-    <div class="text-center reveal" style="margin-top:52px;">
-      <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg">Reserve My Founding Member Spot</a>
+    <div class="mini-cta-wrap reveal" style="margin-top:44px;">
+      <a href="#pricing" class="mini-cta">See pricing &amp; what's included<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     VALUE STACK
+     COMMUNITY EXPERIENCE — what it actually feels like inside
 ============================================================ -->
-<section class="section section-white" aria-labelledby="value-heading">
+<section class="section section-cream community-section texture-dots" aria-labelledby="community-heading">
+  <div class="chapter-glow chapter-glow-gold" style="width:560px;height:560px;top:-220px;left:-160px;" aria-hidden="true"></div>
+  <div class="chapter-glow chapter-glow-navy" style="width:460px;height:460px;bottom:-200px;right:-140px;" aria-hidden="true"></div>
   <div class="container">
     <div class="section-header text-center max-720">
-      <p class="eyebrow reveal">What It Would Cost À La Carte</p>
-      <h2 id="value-heading" class="h-lg reveal reveal-delay-1">Everything Below Is Included In Your Membership.</h2>
+      <div class="section-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow reveal">Step Inside The Community</p>
+      <h2 id="community-heading" class="h-lg reveal reveal-delay-1">This Is Already Happening.</h2>
+      <p class="lede reveal reveal-delay-2" style="color:var(--ink-soft);margin-top:18px;">
+        Not a brochure. Not a promise. This is what's on the other side of the login screen right now — the feed, the challenge, the reply from Dr. Bryan himself.
+      </p>
     </div>
 
-    <div class="stack-wrap reveal reveal-delay-2 stagger-children">
-      <div class="stack-item">
-        <div class="stack-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-        <div class="stack-info">
-          <h4>BWTV — The Complete Leadership Series</h4>
-          <p>A full leadership video series, recorded live in front of more than 1,700 attendees.</p>
-        </div>
-        <div class="stack-price"><span class="was">$795 value</span><span class="free">FREE</span></div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
-        <div class="stack-info">
-          <h4>The Leadership Lounge — Monthly</h4>
-          <p>12 live coaching calls per year at a $249 per-session value.</p>
-        </div>
-        <div class="stack-price"><span class="was">$2,988 value</span><span class="free">Included</span></div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg></div>
-        <div class="stack-info">
-          <h4>The Leadership Sprint — Monthly</h4>
-          <p>12 deep-dive coaching sessions per year at a $497 per-session value.</p>
-        </div>
-        <div class="stack-price"><span class="was">$5,964 value</span><span class="free">Included</span></div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <div class="stack-info">
-          <h4>Weekly Tips, Templates &amp; The Private Community</h4>
-          <p>Every week's leadership challenge, downloadable resources, and full community access.</p>
-        </div>
-        <div class="stack-price"><span class="free">Included</span></div>
-      </div>
-
-      <div class="stack-total">
-        <span class="label">Total Annual Value</span>
-        <span class="amount" data-count-to="9747" data-prefix="$" data-suffix="+">$9,747+</span>
-      </div>
-
-      <div class="value-strip">
-        <div class="vs-side vs-was">
-          <span class="vs-label">Total Value</span>
-          <span class="vs-amount">$9,747</span>
-        </div>
-        <div class="vs-arrow">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-        </div>
-        <div class="vs-side vs-now">
-          <span class="vs-label">Your Price</span>
-          <span class="vs-amount">$249<small>/year</small></span>
-        </div>
-      </div>
-
-      <p class="stack-reframe">That's <strong>$9,747 in value</strong> for leaders who treat growth like a hobby. For <span class="price-highlight">$249</span>, treat it like a career.</p>
-
-      <div class="text-center" style="margin-top:32px;">
-        <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg btn-glow">Join the Community for $249</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PRICING
-============================================================ -->
-<section class="section section-navy section-glow" id="pricing" aria-labelledby="pricing-heading">
-  <div class="chapter-curve" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 Q720,0 1440,80 L1440,80 L0,80 Z" style="fill:var(--navy);"/></svg></div>
-  <div class="chapter-glow chapter-glow-gold" style="width:640px;height:640px;top:-260px;left:50%;transform:translateX(-50%);" aria-hidden="true"></div>
-  <div class="container">
-    <div class="section-header text-center max-720">
-      <div class="section-mark on-dark" aria-hidden="true"><span></span></div>
-      <p class="eyebrow on-dark reveal">Membership</p>
-      <h2 id="pricing-heading" class="h-lg on-dark reveal reveal-delay-1">One Membership. Everything Included.</h2>
-      <p class="lede on-dark reveal reveal-delay-2" style="margin-top:16px;">No tiers to compare. No add-ons to upsell. Just full access to everything, for a full year.</p>
-    </div>
-
-    <div class="pricing-wrap reveal reveal-delay-3">
-      <div class="countdown-wrap">
-        <p class="countdown-label">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          Founding Member Pricing Ends In
-        </p>
-        <div class="countdown" id="countdown">
-          <div class="countdown-seg"><span class="cd-num" id="cdDays">00</span><span class="cd-label">Days</span></div>
-          <span class="cd-colon">:</span>
-          <div class="countdown-seg"><span class="cd-num" id="cdHours">00</span><span class="cd-label">Hours</span></div>
-          <span class="cd-colon">:</span>
-          <div class="countdown-seg"><span class="cd-num" id="cdMins">00</span><span class="cd-label">Minutes</span></div>
-          <span class="cd-colon">:</span>
-          <div class="countdown-seg"><span class="cd-num" id="cdSecs">00</span><span class="cd-label">Seconds</span></div>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <div class="price-card-top">
-          <div class="price-plan-name">Annual Membership</div>
-          <div class="price-figures">
-            <span class="price-was">$497</span>
-            <span class="price-now">$249</span>
+    <div class="community-stage reveal reveal-delay-3">
+      <div class="community-left">
+        <div class="community-collage">
+          <div class="cc-tile cc-tile-1">
+            <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0dd8ffd1870ca2d55.jpg" alt="Leaders connecting in the community" />
           </div>
-          <div class="price-per">per year</div>
-          <div class="price-savings">Founding Member pricing — save $248</div>
-          <div class="price-perday">That's less than $21/month to keep becoming the leader you saw in that room.</div>
+          <div class="cc-tile cc-tile-2">
+            <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0e4e420b6ec15facb.jpg" alt="A community gathering and learning together" />
+          </div>
+          <div class="cc-tile cc-tile-3">
+            <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a028b4c07e403605e7.jpg" alt="Leaders learning together in the community" />
+          </div>
+          <div class="cc-avatar cc-avatar-1" style="--bg:#C8932B;">DA</div>
+          <div class="cc-avatar cc-avatar-2" style="--bg:#1e3156;">JM</div>
+          <div class="cc-avatar cc-avatar-3" style="--bg:#8a5a2b;">KR</div>
+          <div class="cc-pulse-pill"><span class="dot"></span>New conversations, every week</div>
+        </div>
+        <div class="community-copy reveal reveal-delay-4">
+          <p>Weekly tips, monthly live calls, and a private feed where members bring their real leadership questions — and Dr. Bryan actually replies.</p>
+        </div>
+      </div>
+
+      <div class="community-window">
+        <div class="cw-titlebar">
+          <span class="cw-dot cw-dot-r"></span><span class="cw-dot cw-dot-a"></span><span class="cw-dot cw-dot-g"></span>
+          <span class="cw-titlebar-label">The Leadership Community — Feed</span>
+        </div>
+        <div class="cw-tabs">
+          <span class="cw-tab active">Feed</span>
+          <span class="cw-tab">Classroom</span>
+          <span class="cw-tab">Calendar</span>
+          <span class="cw-tab">Members</span>
         </div>
 
-        <div class="price-features">
-          <div class="pf-item">
-            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Weekly Leadership Tip &amp; Challenge</span>
-            <span class="pf-tag"><span class="included">Included</span></span>
+        <div class="cw-body">
+          <div class="cw-card cw-countdown-card">
+            <div class="cw-countdown-top"><span class="cw-live-dot"></span>Next Live Session</div>
+            <div class="cw-countdown-title">The September Leadership Sprint</div>
+            <p class="cw-countdown-sub">Live with Dr. Bryan on September 17 — bring your hardest question.</p>
+            <div class="cw-countdown-nums" id="webinarCountdown">
+              <div class="cw-cd-seg"><b id="wdDays">00</b><small>Days</small></div>
+              <div class="cw-cd-seg"><b id="wdHours">00</b><small>Hrs</small></div>
+              <div class="cw-cd-seg"><b id="wdMins">00</b><small>Min</small></div>
+              <div class="cw-cd-seg"><b id="wdSecs">00</b><small>Sec</small></div>
+            </div>
+            <p class="cw-countdown-note">Members get the calendar invite and replay automatically. Exact time confirmed in your welcome email.</p>
           </div>
-          <div class="pf-item">
-            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Monthly Leadership Lounge Call</span>
-            <span class="pf-tag"><span class="was">$2,988 value</span><span class="included">Included</span></span>
+
+          <div class="cw-card cw-post-card">
+            <div class="cw-host-row">
+              <div class="cw-host-avatar">BW</div>
+              <div>
+                <p class="cw-host-name">Dr. Bryan K. Williams <span class="cw-host-badge">Host</span></p>
+                <p class="cw-post-time">Posted this morning</p>
+              </div>
+              <span class="cw-pin">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 0 0-5 5c0 2.4 1.6 4.9 3 6.6L12 22l2-8.4c1.4-1.7 3-4.2 3-6.6a5 5 0 0 0-5-5z"/></svg>
+                Pinned
+              </span>
+            </div>
+            <p class="cw-post-text">This week's challenge: have the conversation you've been avoiding. Reply below and tell me how it goes — I read every one.</p>
+            <div class="cw-reactions">
+              <span class="cw-chip">👏 24</span>
+              <span class="cw-chip">🙌 9</span>
+              <span class="cw-chip">💬 16 replies</span>
+            </div>
           </div>
-          <div class="pf-item">
-            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Monthly Leadership Sprint Call</span>
-            <span class="pf-tag"><span class="was">$5,964 value</span><span class="included">Included</span></span>
+
+          <div class="cw-card cw-thread-card">
+            <div class="cf-item cw-thread-q">
+              <div class="cf-avatar" style="--bg:#1e3156;">T</div>
+              <div class="cf-body">
+                <p class="cf-meta"><strong>Terrence</strong> · Director of Guest Experience</p>
+                <p class="cf-text">How do you handle a manager who's great with guests but keeps missing deadlines?</p>
+                <p class="cf-time">3 hours ago</p>
+              </div>
+            </div>
+            <div class="cw-reply">
+              <div class="cw-host-avatar" style="width:32px;height:32px;font-size:12px;">BW</div>
+              <div class="cf-body">
+                <p class="cf-meta"><strong>Dr. Bryan</strong> <span class="cw-host-badge">Host</span></p>
+                <p class="cf-text">Separate the two conversations. Praise the guest instinct on Monday, address the deadline pattern on Tuesday. Never stack them in the same breath — one erases the other.</p>
+                <p class="cf-time">Replied 2 hours ago</p>
+              </div>
+            </div>
           </div>
-          <div class="pf-item">
-            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>BWTV — Full Video Library</span>
-            <span class="pf-tag"><span class="was">$795 value</span><span class="included">Included</span></span>
-          </div>
-          <div class="pf-item">
-            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Leadership templates, downloads &amp; resources</span>
-            <span class="pf-tag"><span class="included">Included</span></span>
-          </div>
-          <div class="pf-item">
-            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Private community &amp; networking access</span>
-            <span class="pf-tag"><span class="included">Included</span></span>
+
+          <div class="cw-card cw-win-card">
+            <div class="cf-item">
+              <div class="cf-avatar" style="--bg:#8a5a2b;">K</div>
+              <div class="cf-body">
+                <p class="cf-meta"><strong>Keisha</strong> · Regional Director</p>
+                <p class="cf-text">Just got the Regional Director role I've been working toward all year. Started this journey rewatching Sprint calls on my lunch break.</p>
+                <p class="cf-time">Posted in Wins · 1 day ago</p>
+              </div>
+            </div>
+            <div class="cw-reactions">
+              <span class="cw-chip">🎉 31</span>
+              <span class="cw-chip">👏 18</span>
+              <span class="cw-chip">🔥 7</span>
+            </div>
           </div>
         </div>
-
-        <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg btn-full btn-glow">Yes — Lock In My $249 Rate</a>
-        <p class="price-deadline">Join before <strong>September 30</strong> to secure Founding Member pricing before the membership increases to $497/year. Waiting doesn't just cost $248 — it costs another year leading exactly the way you are today.</p>
-        <p class="price-risk">No contracts. Cancel anytime at renewal. Just a decision to keep growing.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     TESTIMONIALS — masonry social-proof wall
+     SOCIAL PROOF — testimonials masonry wall
 ============================================================ -->
 <section class="section section-cream" aria-labelledby="testi-heading">
   <div class="chapter-curve" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 Q720,0 1440,80 L1440,80 L0,80 Z" style="fill:var(--cream);"/></svg></div>
@@ -1357,6 +1083,85 @@ p{margin:0;}
 </section>
 
 <!-- ============================================================
+     PRICING
+============================================================ -->
+<section class="section section-navy section-glow" id="pricing" aria-labelledby="pricing-heading">
+  <div class="chapter-curve" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 Q720,0 1440,80 L1440,80 L0,80 Z" style="fill:var(--navy);"/></svg></div>
+  <div class="chapter-glow chapter-glow-gold" style="width:640px;height:640px;top:-260px;left:50%;transform:translateX(-50%);" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-header text-center max-720">
+      <div class="section-mark on-dark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow on-dark reveal">Membership</p>
+      <h2 id="pricing-heading" class="h-lg on-dark reveal reveal-delay-1">One Membership. Everything Included.</h2>
+      <p class="lede on-dark reveal reveal-delay-2" style="margin-top:16px;">No tiers to compare. No add-ons to upsell. Just full access to everything, for a full year.</p>
+    </div>
+
+    <div class="pricing-wrap reveal reveal-delay-3">
+      <div class="countdown-wrap">
+        <p class="countdown-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Founding Member Pricing Ends In
+        </p>
+        <div class="countdown" id="countdown">
+          <div class="countdown-seg"><span class="cd-num" id="cdDays">00</span><span class="cd-label">Days</span></div>
+          <span class="cd-colon">:</span>
+          <div class="countdown-seg"><span class="cd-num" id="cdHours">00</span><span class="cd-label">Hours</span></div>
+          <span class="cd-colon">:</span>
+          <div class="countdown-seg"><span class="cd-num" id="cdMins">00</span><span class="cd-label">Minutes</span></div>
+          <span class="cd-colon">:</span>
+          <div class="countdown-seg"><span class="cd-num" id="cdSecs">00</span><span class="cd-label">Seconds</span></div>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-top">
+          <div class="price-plan-name">Annual Membership</div>
+          <div class="price-figures">
+            <span class="price-was">$497</span>
+            <span class="price-now">$249</span>
+          </div>
+          <div class="price-per">per year</div>
+          <div class="price-savings">Founding Member pricing — save $248</div>
+          <div class="price-perday">That's less than $21/month to keep becoming the leader you saw in that room.</div>
+          <div class="price-perday">Total value of everything below: <strong style="color:var(--gold-light);">$9,747+</strong> — yours for $249/year.</div>
+        </div>
+
+        <div class="price-features">
+          <div class="pf-item">
+            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Weekly Leadership Tip &amp; Challenge</span>
+            <span class="pf-tag"><span class="included">Included</span></span>
+          </div>
+          <div class="pf-item">
+            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Monthly Leadership Lounge Call</span>
+            <span class="pf-tag"><span class="was">$2,988 value</span><span class="included">Included</span></span>
+          </div>
+          <div class="pf-item">
+            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Monthly Leadership Sprint Call</span>
+            <span class="pf-tag"><span class="was">$5,964 value</span><span class="included">Included</span></span>
+          </div>
+          <div class="pf-item">
+            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>BWTV — Full Video Library</span>
+            <span class="pf-tag"><span class="was">$795 value</span><span class="included">Included</span></span>
+          </div>
+          <div class="pf-item">
+            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Leadership templates, downloads &amp; resources</span>
+            <span class="pf-tag"><span class="included">Included</span></span>
+          </div>
+          <div class="pf-item">
+            <span class="pf-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Private community &amp; networking access</span>
+            <span class="pf-tag"><span class="included">Included</span></span>
+          </div>
+        </div>
+
+        <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg btn-full btn-glow">Yes — Lock In My $249 Rate</a>
+        <p class="price-deadline">Join before <strong>September 30</strong> to secure Founding Member pricing before the membership increases to $497/year. Waiting doesn't just cost $248 — it costs another year leading exactly the way you are today.</p>
+        <p class="price-risk">No contracts. Cancel anytime at renewal. Just a decision to keep growing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      FAQ
 ============================================================ -->
 <section class="section section-white" id="faq" aria-labelledby="faq-heading">
@@ -1376,14 +1181,6 @@ p{margin:0;}
       <div class="faq-item">
         <button class="faq-q">I'm already stretched thin. Do I actually have time for this?<span class="icon"></span></button>
         <div class="faq-a"><div class="faq-a-inner">Most members spend 15–20 minutes a week on the tip and challenge, plus two live calls a month (roughly 60–90 minutes each). It's built to fit inside a busy leadership schedule, not compete with it — and every call is recorded if the week gets away from you.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">What if I'm the only one who still feels like I don't have this figured out?<span class="icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner">You won't be. Many members are newly promoted leaders looking for a foundation; others are seasoned executives sharpening their edge. Every leader in this room has asked themselves the same question you're asking right now. That's exactly why the community exists.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Is this a coaching program or a course?<span class="icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Neither, exactly. It's a community — ongoing coaching, live conversation, peer support, and practical resources, built around the same relationship-driven approach Dr. Bryan uses in his live workshops.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">What if I can't make the live calls?<span class="icon"></span></button>
