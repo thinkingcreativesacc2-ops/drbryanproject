@@ -365,21 +365,31 @@ p{margin:0;}
 }
 
 /* ============================================================
-   SOCIAL PROOF — trimmed to two testimonials, side by side
+   SOCIAL PROOF — full testimonial wall
 ============================================================ */
+.tm-masonry{columns:3 300px;column-gap:26px;margin-top:8px;}
+.tm-masonry > *{break-inside:avoid;-webkit-column-break-inside:avoid;margin:0 0 26px;}
+
 .tm-video{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:#000;box-shadow:0 14px 36px rgba(22,36,63,0.14);transition:transform .4s ease,box-shadow .4s ease;}
 .tm-video:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(22,36,63,0.2);}
 .tm-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
 
-.tm-quote{background:var(--white);border-radius:20px;padding:30px 30px;box-shadow:0 14px 36px rgba(22,36,63,0.07);border:1px solid var(--line);position:relative;}
-.tm-quote-mark{font-family:'League Gothic','Lato',sans-serif;font-size:56px;color:var(--gold);opacity:0.28;line-height:1;position:absolute;top:14px;right:22px;}
-.tm-quote p.quote{font-size:15.5px;color:var(--ink);line-height:1.7;margin-bottom:18px;position:relative;z-index:1;}
+.tm-quote{background:var(--white);border-radius:22px;padding:40px 36px;box-shadow:0 14px 36px rgba(22,36,63,0.07);border:1px solid var(--line);position:relative;transition:transform .4s ease,box-shadow .4s ease;}
+.tm-quote:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(22,36,63,0.12);}
+.tm-quote-lg{padding:46px 40px;}
+.tm-quote-mark{font-family:'League Gothic','Lato',sans-serif;font-size:70px;color:var(--gold);opacity:0.28;line-height:1;position:absolute;top:20px;right:30px;}
+.tm-quote p.quote{font-size:16px;color:var(--ink);line-height:1.75;margin-bottom:24px;position:relative;z-index:1;}
 .tm-quote figcaption{display:flex;flex-direction:column;}
-.tm-name{font-weight:700;color:var(--navy);font-size:14.5px;}
-.tm-role{font-size:13px;color:var(--ink-soft);margin-top:2px;}
+.tm-name{font-weight:700;color:var(--navy);font-size:15.5px;}
+.tm-role{font-size:13.5px;color:var(--ink-soft);margin-top:2px;}
 
-.testimonial-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px;}
-@media (max-width:768px){.testimonial-row{grid-template-columns:1fr;}}
+.tm-stat{background:linear-gradient(155deg,var(--navy),var(--navy-deep));border-radius:22px;padding:38px 34px;color:var(--white);box-shadow:var(--shadow-soft);text-align:center;}
+.tm-stat-alt{background:linear-gradient(155deg,var(--navy-mid),var(--navy));}
+.tm-stat-num{display:block;font-family:'League Gothic','Lato',sans-serif;font-size:52px;color:var(--gold-light);line-height:1;margin-bottom:14px;}
+.tm-stat p{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.6;}
+
+@media (max-width:920px){.tm-masonry{columns:2 260px;}}
+@media (max-width:620px){.tm-masonry{columns:1;}}
 
 /* ============================================================
    HOW IT WORKS — 3-step layout
@@ -734,25 +744,90 @@ p{margin:0;}
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="testimonial-row reveal reveal-delay-4">
+<!-- ============================================================
+     SECTION 7 — SOCIAL PROOF (full testimonial wall)
+============================================================ -->
+<section class="section section-cream-deep" aria-labelledby="testi-heading">
+  <div class="chapter-curve" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 Q720,0 1440,80 L1440,80 L0,80 Z" style="fill:var(--cream-deep);"/></svg></div>
+  <div class="container">
+    <div class="section-header text-center max-720">
+      <div class="section-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow reveal">Real Leaders. Real Growth.</p>
+      <h2 id="testi-heading" class="h-lg reveal reveal-delay-1">Leaders Who Refused To Let The Workshop Be The Finish Line.</h2>
+      <p class="lede reveal reveal-delay-2" style="color:var(--ink-soft);margin-top:16px;">Hear it directly from the leaders who've experienced Dr. Bryan — and what happened when they didn't stop.</p>
+    </div>
+
+    <div class="tm-masonry reveal reveal-delay-3">
+
       <div class="tm-video">
         <iframe src="https://player.vimeo.com/video/1125329664?h=85de2af59b&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
       </div>
-      <figure class="tm-quote">
+
+      <figure class="tm-quote tm-quote-lg">
         <span class="tm-quote-mark">&rdquo;</span>
-        <p class="quote">I'm realizing now how much I needed this for my own personal growth as a leader. This really was a world class experience.</p>
+        <p class="quote">I genuinely appreciated and am so thankful to have attended the Manager Skills Workshop, and our all staff presentation on, "Work Like You Own It." This really was a world class experience. I'm realizing now how much I needed this for my own personal growth as a leader as well. I'm blown away by how well you knew everyone's names and even remembered them as you called them out during the all-staff presentation as well.</p>
         <figcaption>
           <span class="tm-name">Dell Anderson, M.Ed, LMHC</span>
           <span class="tm-role">Executive Director, Grant Behavioral Health &amp; Wellness</span>
         </figcaption>
       </figure>
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125323208?h=ace35ef467&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+      <div class="tm-stat">
+        <span class="tm-stat-num" data-count-to="1700" data-suffix="+">1,700+</span>
+        <p>Leaders sat in that room together. Now the conversation continues every month — not once a year.</p>
+      </div>
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125322589?h=d3a29d9359&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+      <figure class="tm-quote">
+        <span class="tm-quote-mark">&rdquo;</span>
+        <p class="quote">I wanted to send you a quick note and thank you for last week's Managers Workshop through Commerce Lexington. The content was superb, you are an AMAZING facilitator – your energy and ability to connect with people is truly a gift.</p>
+        <figcaption>
+          <span class="tm-name">Rockelle Ward</span>
+          <span class="tm-role">Director of Global Accreditation, ICF Coaching Federation</span>
+        </figcaption>
+      </figure>
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125322439?h=662c71e37f&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+      <div class="tm-stat tm-stat-alt">
+        <span class="tm-stat-num" data-count-to="25" data-suffix="+">25+</span>
+        <p>Years turning one day of inspiration into a lifetime of leadership habits.</p>
+      </div>
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125322807?h=0157034cb5&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125321962?h=9da397f887&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125321782?h=821ff289f3&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+    </div>
+
+    <div class="mini-cta-wrap reveal">
+      <a href="#benefits" class="mini-cta">Ready to be next? See membership details<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     SECTION 7 — HOW IT WORKS
+     SECTION 8 — HOW IT WORKS
 ============================================================ -->
 <section class="section section-tight section-white" aria-labelledby="how-heading">
   <div class="container">
@@ -783,7 +858,7 @@ p{margin:0;}
 </section>
 
 <!-- ============================================================
-     SECTION 8 — FINAL CTA
+     SECTION 9 — FINAL CTA
 ============================================================ -->
 <section class="section final-cta">
   <div class="final-cta-bg" aria-hidden="true"></div>
