@@ -338,30 +338,32 @@ p{margin:0;}
 }
 
 /* ============================================================
-   EVERYTHING YOU GET — benefits grid (moved up, priority section)
+   EVERYTHING YOU GET — photos left, benefits + price right
 ============================================================ */
-.included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
-.included-card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:32px 28px;box-shadow:0 10px 30px rgba(22,36,63,0.05);transition:transform .4s ease,box-shadow .4s ease;}
-.included-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(22,36,63,0.12);}
-.included-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--navy-mid));display:flex;align-items:center;justify-content:center;color:var(--gold-light);margin-bottom:20px;}
-.included-card h4{font-size:19px;color:var(--navy);font-family:'Lato';font-weight:700;line-height:1.3;}
-.benefit-tag{display:flex;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap;}
-.benefit-value{font-size:12.5px;color:var(--ink-soft);opacity:0.75;}
-.included-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:0.4px;color:var(--navy-deep);background:linear-gradient(135deg,var(--gold-light),var(--gold));padding:5px 12px;border-radius:100px;}
+.benefits-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
 
-@media (max-width:920px){.included-grid{grid-template-columns:1fr 1fr;}}
-@media (max-width:620px){.included-grid{grid-template-columns:1fr;}}
+.benefit-list{display:flex;flex-direction:column;}
+.benefit-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);}
+.benefit-row:last-child{border-bottom:none;}
+.b-icon{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy-mid));color:var(--gold-light);display:flex;align-items:center;justify-content:center;}
+.b-text{flex:1;min-width:0;}
+.b-text h4{font-size:16px;color:var(--navy);font-family:'Lato';font-weight:700;line-height:1.3;}
+.benefit-value{display:block;font-size:12.5px;color:var(--ink-soft);opacity:0.75;margin-top:2px;}
+.included-badge{flex-shrink:0;display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:0.4px;color:var(--navy-deep);background:linear-gradient(135deg,var(--gold-light),var(--gold));padding:5px 12px;border-radius:100px;}
 
-/* ---------- condensed price strip (closes the benefits section) ---------- */
-.price-strip{margin-top:44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;padding:34px 40px;border-radius:22px;background:linear-gradient(135deg,var(--navy),var(--navy-deep));color:var(--white);box-shadow:var(--shadow-soft);}
-.price-strip-info .label{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);}
-.price-strip-info .value{font-family:'League Gothic','Lato',sans-serif;font-size:36px;color:var(--gold-light);line-height:1;margin-top:6px;}
-.price-strip-info .value .was{font-family:'Lato';font-size:16px;color:rgba(255,255,255,0.4);text-decoration:line-through;margin-right:8px;}
-.price-strip-info .value small{font-family:'Lato';font-size:14px;color:rgba(255,255,255,0.6);font-weight:700;margin-left:6px;}
-.price-strip-note{margin-top:6px;font-size:12.5px;color:rgba(255,255,255,0.5);}
+/* ---------- price block (closes the benefits column) ---------- */
+.price-block{margin-top:32px;padding:30px 32px;border-radius:22px;background:linear-gradient(135deg,var(--navy),var(--navy-deep));color:var(--white);box-shadow:var(--shadow-soft);}
+.price-block .label{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);}
+.price-block .figures{display:flex;align-items:baseline;gap:14px;margin-top:8px;flex-wrap:wrap;}
+.price-block .was{font-family:'League Gothic','Lato',sans-serif;font-size:26px;color:rgba(255,255,255,0.4);text-decoration:line-through;}
+.price-block .now{font-family:'League Gothic','Lato',sans-serif;font-size:46px;color:var(--gold-light);line-height:1;}
+.price-block .now small{font-family:'Lato';font-size:14px;color:rgba(255,255,255,0.6);font-weight:700;margin-left:4px;}
+.price-block .note{margin-top:10px;font-size:12.5px;color:rgba(255,255,255,0.5);}
+.price-block .btn{margin-top:22px;}
 
-@media (max-width:620px){
-  .price-strip{flex-direction:column;text-align:center;padding:30px 26px;}
+@media (max-width:920px){
+  .benefits-grid{grid-template-columns:1fr;gap:36px;}
+  .benefits-grid .community-collage{order:-1;}
 }
 
 /* ============================================================
@@ -608,56 +610,73 @@ p{margin:0;}
 </section>
 
 <!-- ============================================================
-     SECTION 5 — EVERYTHING YOU GET INSIDE THE ACADEMY
+     SECTION 5 — EVERYTHING YOU GET INSIDE THE COMMUNITY
 ============================================================ -->
 <section class="section section-white" id="benefits" aria-labelledby="benefits-heading">
   <div class="container">
     <div class="section-header text-center max-720">
       <div class="section-mark" aria-hidden="true"><span></span></div>
       <p class="eyebrow reveal">Everything Included</p>
-      <h2 id="benefits-heading" class="h-lg reveal reveal-delay-1">Everything You Get Inside The Academy.</h2>
+      <h2 id="benefits-heading" class="h-lg reveal reveal-delay-1">Everything You Get Inside The Community.</h2>
     </div>
 
-    <div class="included-grid">
-      <div class="included-card reveal">
-        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <h4>Weekly Leadership Tip &amp; Challenge</h4>
-        <div class="benefit-tag"><span class="included-badge">Included</span></div>
+    <div class="benefits-grid">
+      <div class="community-collage reveal">
+        <div class="cc-tile cc-tile-1">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0dd8ffd1870ca2d55.jpg" alt="Leaders connecting in the community" />
+        </div>
+        <div class="cc-tile cc-tile-2">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0e4e420b6ec15facb.jpg" alt="A community gathering and learning together" />
+        </div>
+        <div class="cc-tile cc-tile-3">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a028b4c07e403605e7.jpg" alt="Leaders learning together in the community" />
+        </div>
       </div>
-      <div class="included-card reveal reveal-delay-1">
-        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
-        <h4>Monthly Leadership Lounge Call</h4>
-        <div class="benefit-tag"><span class="benefit-value">$2,988 value</span><span class="included-badge">Included</span></div>
-      </div>
-      <div class="included-card reveal reveal-delay-2">
-        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg></div>
-        <h4>Monthly Leadership Sprint Call</h4>
-        <div class="benefit-tag"><span class="benefit-value">$5,964 value</span><span class="included-badge">Included</span></div>
-      </div>
-      <div class="included-card reveal">
-        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-        <h4>BWTV — Full Video Library</h4>
-        <div class="benefit-tag"><span class="benefit-value">$795 value</span><span class="included-badge">Included</span></div>
-      </div>
-      <div class="included-card reveal reveal-delay-1">
-        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
-        <h4>Leadership Templates, Downloads &amp; Resources</h4>
-        <div class="benefit-tag"><span class="included-badge">Included</span></div>
-      </div>
-      <div class="included-card reveal reveal-delay-2">
-        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h4>Private Community &amp; Networking Access</h4>
-        <div class="benefit-tag"><span class="included-badge">Included</span></div>
-      </div>
-    </div>
 
-    <div class="price-strip reveal">
-      <div class="price-strip-info">
-        <div class="label">Founding Member Rate</div>
-        <div class="value"><span class="was">$497</span>$249<small>/year</small></div>
-        <div class="price-strip-note">Total value above: $9,747+ — before September 30</div>
+      <div class="reveal reveal-delay-1">
+        <div class="benefit-list">
+          <div class="benefit-row">
+            <div class="b-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="b-text"><h4>Weekly Leadership Tip &amp; Challenge</h4></div>
+            <span class="included-badge">Included</span>
+          </div>
+          <div class="benefit-row">
+            <div class="b-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+            <div class="b-text"><h4>Monthly Leadership Lounge Call</h4><span class="benefit-value">$2,988 value</span></div>
+            <span class="included-badge">Included</span>
+          </div>
+          <div class="benefit-row">
+            <div class="b-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg></div>
+            <div class="b-text"><h4>Monthly Leadership Sprint Call</h4><span class="benefit-value">$5,964 value</span></div>
+            <span class="included-badge">Included</span>
+          </div>
+          <div class="benefit-row">
+            <div class="b-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+            <div class="b-text"><h4>BWTV — Full Video Library</h4><span class="benefit-value">$795 value</span></div>
+            <span class="included-badge">Included</span>
+          </div>
+          <div class="benefit-row">
+            <div class="b-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+            <div class="b-text"><h4>Leadership Templates, Downloads &amp; Resources</h4></div>
+            <span class="included-badge">Included</span>
+          </div>
+          <div class="benefit-row">
+            <div class="b-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="b-text"><h4>Private Community &amp; Networking Access</h4></div>
+            <span class="included-badge">Included</span>
+          </div>
+        </div>
+
+        <div class="price-block">
+          <div class="label">Total Value vs. Your Founding Member Rate</div>
+          <div class="figures">
+            <span class="was">$9,747</span>
+            <span class="now">$249<small>/year</small></span>
+          </div>
+          <p class="note">Founding Member pricing — locked in for life, before it becomes $497 on September 30.</p>
+          <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg btn-full btn-glow">Join the Community</a>
+        </div>
       </div>
-      <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg btn-glow">Join the Community</a>
     </div>
   </div>
 </section>
@@ -840,7 +859,7 @@ p{margin:0;}
     <div class="steps-grid">
       <div class="step-card reveal">
         <div class="step-num">1</div>
-        <h4>Join The Academy</h4>
+        <h4>Join The Community</h4>
         <p>Lock in your Founding Member rate in less than two minutes.</p>
       </div>
       <div class="step-card reveal reveal-delay-1">
@@ -871,7 +890,7 @@ p{margin:0;}
     <p class="lede on-dark max-540 reveal reveal-delay-2" style="margin:0 auto 8px;">The leader you saw in that workshop is still available. Go get them.</p>
 
     <div class="reveal reveal-delay-3">
-      <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg btn-glow" style="margin-top:20px;">Join The BW Leadership Academy</a>
+      <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg btn-glow" style="margin-top:20px;">Join The BW Leadership Community</a>
       <p class="final-cta-note">Founding Member pricing ends September 30</p>
       <p class="final-cta-risk">No contracts. Cancel anytime. Just a decision to keep growing.</p>
     </div>
