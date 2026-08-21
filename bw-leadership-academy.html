@@ -382,6 +382,20 @@ p{margin:0;}
 }
 
 /* ============================================================
+   EVERYTHING INCLUDED — detailed "so what" card grid
+============================================================ */
+.included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.included-card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px 30px;box-shadow:0 10px 30px rgba(22,36,63,0.05);transition:transform .4s ease,box-shadow .4s ease;}
+.included-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(22,36,63,0.12);}
+.included-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--navy-mid));display:flex;align-items:center;justify-content:center;color:var(--gold-light);margin-bottom:22px;}
+.included-card h4{font-size:20px;color:var(--navy);margin-bottom:10px;font-family:'Lato';font-weight:700;}
+.included-card .so-what{display:block;font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.included-card p{font-size:15px;color:var(--ink-soft);}
+
+@media (max-width:920px){.included-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:620px){.included-grid{grid-template-columns:1fr;}}
+
+/* ============================================================
    SOCIAL PROOF — full testimonial wall
 ============================================================ */
 .tm-masonry{columns:3 300px;column-gap:26px;margin-top:8px;}
@@ -700,7 +714,63 @@ p{margin:0;}
 </section>
 
 <!-- ============================================================
-     SECTION 6 — SEE THE COMMUNITY IN ACTION
+     SECTION 6 — EVERYTHING INCLUDED (detailed card grid)
+============================================================ -->
+<section class="section section-beige texture-diagonal" aria-labelledby="included-heading">
+  <div class="container">
+    <div class="section-header text-center max-720">
+      <div class="section-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow reveal">Everything Included</p>
+      <h2 id="included-heading" class="h-lg reveal reveal-delay-1">One Membership. Everything You Need To Keep Becoming That Leader.</h2>
+    </div>
+
+    <div class="included-grid">
+      <div class="included-card reveal">
+        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <span class="so-what">So You Never Go A Week Without Moving Forward</span>
+        <h4>Weekly Leadership Tip &amp; Challenge</h4>
+        <p>One sharp insight and one real challenge, every week — so growth doesn't wait for the next live call.</p>
+      </div>
+      <div class="included-card reveal reveal-delay-1">
+        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <span class="so-what">So You Have Somewhere To Bring The Hard Question</span>
+        <h4>Monthly Leadership Lounge Call</h4>
+        <p>Live, monthly, direct access to Dr. Bryan — ask the thing you haven't said out loud yet.</p>
+      </div>
+      <div class="included-card reveal reveal-delay-2">
+        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg></div>
+        <span class="so-what">So You Walk In Prepared, Not Hopeful</span>
+        <h4>Monthly Leadership Sprint Call</h4>
+        <p>Deep coaching built around real conflict and real scenarios, so you practice the hard conversation before you have it.</p>
+      </div>
+      <div class="included-card reveal">
+        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <span class="so-what">So You Can Go Back To The Room Whenever You Need It</span>
+        <h4>BWTV — The Complete Video Library</h4>
+        <p>Dr. Bryan's full leadership series, recorded live in front of more than 1,700 attendees — yours to rewatch anytime.</p>
+      </div>
+      <div class="included-card reveal reveal-delay-1">
+        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <span class="so-what">So You Skip The Blank Page</span>
+        <h4>Leadership Templates &amp; Resources</h4>
+        <p>Frameworks built to be used the same day you receive them — not homework, tools.</p>
+      </div>
+      <div class="included-card reveal reveal-delay-2">
+        <div class="included-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <span class="so-what">So You're Never Leading Alone Again</span>
+        <h4>Private Community &amp; Networking</h4>
+        <p>Direct access to a private group of leaders for discussion, accountability, and support — on call between events.</p>
+      </div>
+    </div>
+
+    <div class="text-center reveal" style="margin-top:52px;">
+      <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg">Reserve My Founding Member Spot</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7 — SEE THE COMMUNITY IN ACTION
 ============================================================ -->
 <section class="section section-cream texture-dots" id="community" aria-labelledby="community-heading">
   <div class="chapter-glow chapter-glow-gold" style="width:560px;height:560px;top:-220px;left:-160px;" aria-hidden="true"></div>
@@ -785,7 +855,7 @@ p{margin:0;}
 </section>
 
 <!-- ============================================================
-     SECTION 7 — SOCIAL PROOF (full testimonial wall)
+     SECTION 8 — SOCIAL PROOF (full testimonial wall)
 ============================================================ -->
 <section class="section section-cream-deep" aria-labelledby="testi-heading">
   <div class="chapter-curve" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 Q720,0 1440,80 L1440,80 L0,80 Z" style="fill:var(--cream-deep);"/></svg></div>
@@ -864,7 +934,7 @@ p{margin:0;}
 </section>
 
 <!-- ============================================================
-     SECTION 8 — HOW IT WORKS
+     SECTION 9 — HOW IT WORKS
 ============================================================ -->
 <section class="section section-tight section-white" aria-labelledby="how-heading">
   <div class="container">
@@ -895,7 +965,7 @@ p{margin:0;}
 </section>
 
 <!-- ============================================================
-     SECTION 9 — FINAL CTA
+     SECTION 10 — FINAL CTA
 ============================================================ -->
 <section class="section final-cta">
   <div class="final-cta-bg" aria-hidden="true"></div>
