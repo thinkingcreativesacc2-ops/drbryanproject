@@ -266,6 +266,21 @@ p{margin:0;}
 .cc-tile-2{width:52%;height:220px;top:170px;right:0;transform:rotate(4deg);z-index:3;}
 .cc-tile-3{width:46%;height:190px;bottom:0;left:8%;transform:rotate(2deg);z-index:1;}
 
+/* ---------- 4-photo variant (benefits section collage) ---------- */
+.benefits-photos{min-height:490px;}
+.benefits-photos .cc-tile-1{width:56%;height:220px;top:0;left:0;transform:rotate(-3deg);z-index:2;}
+.benefits-photos .cc-tile-2{width:44%;height:180px;top:20px;right:0;transform:rotate(4deg);z-index:3;}
+.benefits-photos .cc-tile-3{width:42%;height:180px;bottom:0;left:2%;transform:rotate(3deg);z-index:1;}
+.benefits-photos .cc-tile-4{width:46%;height:200px;bottom:30px;right:4%;transform:rotate(-3deg);z-index:4;}
+
+@media (max-width:560px){
+  .benefits-photos{min-height:420px;}
+  .benefits-photos .cc-tile-1{height:190px;}
+  .benefits-photos .cc-tile-2{height:150px;}
+  .benefits-photos .cc-tile-3{height:150px;}
+  .benefits-photos .cc-tile-4{height:170px;}
+}
+
 .cc-avatar{position:absolute;width:56px;height:56px;border-radius:50%;background:var(--bg,var(--navy));color:var(--white);display:flex;align-items:center;justify-content:center;font-family:'Lato';font-weight:700;font-size:15px;border:3px solid var(--white);box-shadow:0 10px 24px rgba(22,36,63,0.22);z-index:4;animation:ccFloat 5s ease-in-out infinite;}
 .cc-avatar-1{top:30px;right:12%;animation-delay:0s;}
 .cc-avatar-2{bottom:56px;left:0;animation-delay:1.2s;}
@@ -621,7 +636,7 @@ p{margin:0;}
     </div>
 
     <div class="benefits-grid">
-      <div class="community-collage reveal">
+      <div class="community-collage benefits-photos reveal">
         <div class="cc-tile cc-tile-1">
           <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0dd8ffd1870ca2d55.jpg" alt="Leaders connecting in the community" />
         </div>
@@ -630,6 +645,9 @@ p{margin:0;}
         </div>
         <div class="cc-tile cc-tile-3">
           <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a028b4c07e403605e7.jpg" alt="Leaders learning together in the community" />
+        </div>
+        <div class="cc-tile cc-tile-4">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a03db5490e90701146.jpg" alt="Leaders in real conversation inside the community" />
         </div>
       </div>
 
