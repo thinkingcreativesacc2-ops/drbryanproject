@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The workshop was never the finish line. Join Dr. Bryan K. Williams' private leadership community for weekly coaching, monthly live calls, and the accountability to keep becoming the leader you saw in that room." />
+<title>The Leadership Community | Dr. Bryan K. Williams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Lato:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#16243F;
+  --navy-deep:#0c1526;
+  --navy-mid:#1e3156;
+  --gold:#C8932B;
+  --gold-light:#E3B563;
+  --cream:#F7F2E9;
+  --cream-deep:#F0E9DA;
+  --beige:#EAE0C6;
+  --beige-deep:#E1D3AC;
+  --ink:#1c1c1c;
+  --ink-soft:#4a4f58;
+  --white:#ffffff;
+  --line:rgba(22,36,63,0.10);
+  --shadow-soft:0 20px 60px rgba(12,21,38,0.10);
+  --shadow-lift:0 30px 80px rgba(12,21,38,0.18);
+  --radius:20px;
+  --radius-sm:12px;
+  --maxw:1180px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:'Lato',sans-serif;font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+h1,h2,h3,h4{font-family:'League Gothic','Lato',sans-serif;font-weight:400;letter-spacing:0.3px;margin:0;text-transform:none;}
+p{margin:0;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+.max-720{max-width:720px;margin-left:auto;margin-right:auto;}
+.max-620{max-width:620px;margin-left:auto;margin-right:auto;}
+.max-540{max-width:540px;margin-left:auto;margin-right:auto;}
+.text-center{text-align:center;}
+
+/* ---------- Type scale ---------- */
+.eyebrow{display:inline-block;font-family:'Lato',sans-serif;font-weight:700;font-size:12px;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.eyebrow.on-dark{color:var(--gold-light);}
+.h-xl{font-size:clamp(40px,6vw,76px);line-height:1.03;color:var(--navy);}
+.h-lg{font-size:clamp(32px,4.4vw,52px);line-height:1.08;color:var(--navy);}
+.h-md{font-size:clamp(26px,3vw,36px);line-height:1.15;color:var(--navy);}
+.on-dark{color:var(--white);}
+.accent{color:var(--gold);}
+.lede{font-size:clamp(17px,1.7vw,20px);color:var(--ink-soft);line-height:1.7;font-weight:400;}
+.lede.on-dark{color:rgba(255,255,255,0.78);}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Lato',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.4px;padding:19px 38px;border-radius:100px;border:none;cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,background .35s ease;white-space:nowrap;}
+.btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold) 60%);color:var(--navy-deep);box-shadow:0 14px 34px rgba(200,147,43,0.38);}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 20px 46px rgba(200,147,43,0.48);}
+.btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,0.55);color:var(--white);}
+.btn-outline:hover{background:rgba(255,255,255,0.1);}
+.btn-lg{padding:22px 46px;font-size:16px;}
+.btn-full{width:100%;}
+.btn svg{flex-shrink:0;}
+
+/* ---------- Reveal-on-scroll ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+.reveal-delay-3{transition-delay:.3s;}
+.reveal-delay-4{transition-delay:.4s;}
+
+/* ---------- Premium polish utilities ---------- */
+.section-mark{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;}
+.section-mark::before,.section-mark::after{content:"";height:1px;width:34px;background:linear-gradient(90deg,transparent,var(--line));}
+.section-mark::after{background:linear-gradient(90deg,var(--line),transparent);}
+.section-mark span{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.section-mark.on-dark::before,.section-mark.on-dark::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18));}
+.section-mark.on-dark::after{background:linear-gradient(90deg,rgba(255,255,255,0.18),transparent);}
+
+.mini-cta{display:inline-flex;align-items:center;gap:8px;margin-top:44px;font-size:13px;font-weight:700;letter-spacing:0.5px;color:var(--navy);border-bottom:1px solid var(--line);padding-bottom:4px;transition:border-color .3s ease,color .3s ease,gap .3s ease;}
+.mini-cta:hover{gap:12px;border-color:var(--gold);color:var(--gold);}
+.mini-cta.on-dark{color:var(--gold-light);border-bottom:1px solid rgba(227,181,99,0.4);}
+.mini-cta.on-dark:hover{border-color:var(--gold-light);color:var(--white);}
+.mini-cta svg{flex-shrink:0;transition:transform .3s ease;}
+.mini-cta:hover svg{transform:translateX(3px);}
+.mini-cta-wrap{text-align:center;}
+
+.btn-gold.btn-glow{animation:btnGlow 3.2s ease-in-out infinite;}
+@keyframes btnGlow{0%,100%{box-shadow:0 14px 34px rgba(200,147,43,0.38);}50%{box-shadow:0 14px 44px rgba(200,147,43,0.62),0 0 0 6px rgba(200,147,43,0.08);}}
+
+.zoom-frame{overflow:hidden;}
+.zoom-frame img{transition:transform .8s cubic-bezier(.2,.7,.2,1);}
+.zoom-frame:hover img{transform:scale(1.06);}
+
+[data-count]{font-variant-numeric:tabular-nums;}
+
+/* Staggered children reveal (keys off ancestor .reveal.in) */
+.stagger-children > *{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);}
+.stagger-children.in > *{opacity:1;transform:translateY(0);}
+.stagger-children.in > *:nth-child(1){transition-delay:.05s;}
+.stagger-children.in > *:nth-child(2){transition-delay:.14s;}
+.stagger-children.in > *:nth-child(3){transition-delay:.23s;}
+.stagger-children.in > *:nth-child(4){transition-delay:.32s;}
+.stagger-children.in > *:nth-child(5){transition-delay:.41s;}
+.stagger-children.in > *:nth-child(6){transition-delay:.5s;}
+
+/* ============================================================
+   NAV
+============================================================ */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:background .4s ease,padding .4s ease,box-shadow .4s ease;background:transparent;}
+.site-nav.scrolled{background:rgba(12,21,38,0.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:13px 0;box-shadow:0 8px 30px rgba(0,0,0,0.25);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.nav-logo img{height:34px;width:auto;}
+.nav-links{display:flex;align-items:center;gap:34px;}
+.nav-links a{font-size:14px;font-weight:700;letter-spacing:0.4px;color:rgba(255,255,255,0.85);transition:color .25s ease;}
+.nav-links a:hover{color:var(--gold-light);}
+.nav-cta{display:flex;align-items:center;gap:22px;}
+.nav-cta .btn{padding:13px 28px;font-size:13px;}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;}
+.nav-toggle span{display:block;width:26px;height:2px;background:var(--white);border-radius:2px;transition:transform .3s ease,opacity .3s ease;}
+.mobile-menu{position:fixed;inset:0;background:var(--navy-deep);z-index:1200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;opacity:0;pointer-events:none;transition:opacity .35s ease;}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{font-family:'League Gothic','Lato',sans-serif;font-size:32px;color:var(--white);}
+.mobile-menu .btn{margin-top:10px;}
+.mobile-close{position:absolute;top:26px;right:26px;background:none;border:none;color:var(--white);font-size:30px;cursor:pointer;line-height:1;}
+
+@media (max-width:920px){
+  .nav-links{display:none;}
+  .nav-cta .btn{display:none;}
+  .nav-toggle{display:flex;}
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:radial-gradient(120% 120% at 15% 0%,#213863 0%,var(--navy) 46%,var(--navy-deep) 100%);overflow:hidden;padding:170px 0 100px;}
+.hero-bg-fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,21,38,0.35) 0%,rgba(12,21,38,0.7) 60%,var(--navy-deep) 100%);}
+.hero-glow{position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(200,147,43,0.20) 0%,rgba(200,147,43,0) 65%);top:-320px;right:-260px;pointer-events:none;}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;}
+.hero-headline{margin-bottom:26px;}
+.hero-headline .line1{display:block;}
+.hero-sub{margin-bottom:38px;max-width:560px;}
+.hero-ctawrap{display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
+.hero-microcopy{font-size:13px;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:8px;}
+.hero-photo-col{position:relative;}
+.hero-collage{position:relative;min-height:600px;}
+.hero-collage .cc-tile-1{height:340px;}
+.hero-collage .cc-tile-2{height:260px;top:230px;}
+.hero-collage .cc-tile-3{height:230px;}
+.hero-badge{position:absolute;left:-26px;bottom:34px;background:rgba(12,21,38,0.82);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.16);border-radius:16px;padding:18px 22px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow-soft);z-index:6;}
+.hero-badge .num{font-family:'League Gothic','Lato',sans-serif;font-size:34px;color:var(--gold-light);line-height:1;}
+.hero-badge .lbl{font-size:12px;color:rgba(255,255,255,0.75);line-height:1.3;max-width:150px;}
+.scroll-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:11px;letter-spacing:2px;text-transform:uppercase;z-index:2;}
+.scroll-cue .dot{width:1px;height:34px;background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent);animation:scrollpulse 2s ease-in-out infinite;}
+@keyframes scrollpulse{0%,100%{opacity:0.3;}50%{opacity:1;}}
+
+@media (max-width:920px){
+  .hero{padding:150px 0 90px;}
+  .hero-inner{grid-template-columns:1fr;text-align:center;}
+  .hero-ctawrap{align-items:center;width:100%;}
+  .hero-sub{margin-left:auto;margin-right:auto;}
+  .hero-photo-col{order:-1;}
+  .hero-collage{min-height:380px;}
+  .hero-collage .cc-tile-1{height:290px;}
+  .hero-collage .cc-tile-2{height:230px;top:190px;}
+  .hero-collage .cc-tile-3{height:200px;}
+  .hero-badge{left:50%;transform:translateX(-50%);bottom:-24px;}
+}
+
+/* ============================================================
+   SECTION SHELLS
+============================================================ */
+.section{padding:110px 0;position:relative;}
+.section-tight{padding:80px 0;}
+.section-compact{padding:56px 0;}
+.section-cream{background:var(--cream);}
+.section-cream-deep{background:var(--cream-deep);}
+.section-beige{background:var(--beige);}
+.section-navy{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);}
+.section-white{background:var(--white);}
+.section-header{margin-bottom:56px;}
+.divider-fade{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);}
+
+/* ---------- Chapter rhythm: curved dividers, textures, glows ---------- */
+.chapter-curve{position:absolute;top:0;left:0;width:100%;line-height:0;transform:translateY(-99%);z-index:2;pointer-events:none;}
+.chapter-curve svg{display:block;width:100%;height:56px;}
+@media (max-width:768px){.chapter-curve svg{height:34px;}}
+
+.chapter-seam{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:12px;padding-top:56px;margin-bottom:-32px;}
+.chapter-seam::before,.chapter-seam::after{content:"";height:1px;width:52px;background:linear-gradient(90deg,transparent,rgba(227,181,99,0.4));}
+.chapter-seam::after{background:linear-gradient(90deg,rgba(227,181,99,0.4),transparent);}
+.chapter-seam span{width:7px;height:7px;transform:rotate(45deg);background:var(--gold);flex-shrink:0;}
+
+.texture-dots{position:relative;}
+.texture-dots::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(22,36,63,0.07) 1.4px,transparent 1.4px);background-size:26px 26px;opacity:0.6;pointer-events:none;z-index:0;}
+
+.texture-diagonal{position:relative;}
+.texture-diagonal::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(22,36,63,0.045) 0px,rgba(22,36,63,0.045) 1px,transparent 1px,transparent 14px);pointer-events:none;z-index:0;}
+
+.chapter-glow{position:absolute;border-radius:50%;pointer-events:none;z-index:0;}
+.chapter-glow-gold{background:radial-gradient(circle,rgba(200,147,43,0.16) 0%,rgba(200,147,43,0) 65%);}
+.chapter-glow-navy{background:radial-gradient(circle,rgba(22,36,63,0.08) 0%,rgba(22,36,63,0) 65%);}
+
+.texture-dots > .container,.texture-diagonal > .container,.section-glow > .container{position:relative;z-index:1;}
+
+/* ============================================================
+   WHAT IS THE LEADERSHIP COMMUNITY? — sits directly under the hero
+============================================================ */
+.whatis-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.whatis-list{display:flex;flex-direction:column;gap:14px;margin:26px 0;}
+.whatis-list .row{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--ink-soft);}
+.whatis-list svg{flex-shrink:0;margin-top:3px;color:var(--gold);}
+.whatis-highlight{margin:22px 0;padding:22px 26px;background:var(--white);border-left:3px solid var(--gold);border-radius:0 14px 14px 0;font-family:'League Gothic','Lato',sans-serif;font-size:clamp(19px,2vw,23px);color:var(--navy);line-height:1.35;box-shadow:0 10px 30px rgba(22,36,63,0.06);}
+.whatis-purpose{font-size:15.5px;color:var(--ink-soft);font-style:italic;}
+.whatis-video-col{position:sticky;top:110px;align-self:start;}
+.whatis-video-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lift);background:var(--navy-deep);}
+.whatis-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.whatis-video-label{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:12.5px;font-weight:700;letter-spacing:0.5px;color:var(--ink-soft);}
+.whatis-video-label svg{color:var(--gold);flex-shrink:0;}
+
+@media (max-width:920px){
+  .whatis-grid{grid-template-columns:1fr;gap:36px;}
+  .whatis-video-col{order:2;position:static;top:auto;}
+}
+
+/* ============================================================
+   THE PROBLEM / THE LEADERSHIP GAP — short, image-led
+============================================================ */
+.problem-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
+.problem-photo{border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lift);}
+.problem-photo img{width:100%;height:440px;object-fit:cover;object-position:top center;}
+
+@media (max-width:920px){
+  .problem-grid{grid-template-columns:1fr;gap:32px;}
+  .problem-photo{order:-1;max-width:420px;margin:0 auto;}
+  .problem-photo img{height:320px;}
+}
+
+/* ============================================================
+   THE BW LEADERSHIP EXPERIENCE — visual-first, dark
+============================================================ */
+.experience-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.experience-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+.experience-chip{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:100px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);color:rgba(255,255,255,0.88);font-size:13.5px;font-weight:700;}
+.experience-chip svg{color:var(--gold-light);flex-shrink:0;}
+.experience-credit{margin-top:22px;font-size:13.5px;color:rgba(255,255,255,0.55);}
+.experience-credit strong{color:rgba(255,255,255,0.85);}
+
+@media (max-width:920px){
+  .experience-grid{grid-template-columns:1fr;gap:36px;}
+  .experience-grid .community-collage{order:-1;}
+}
+
+/* ============================================================
+   COMMUNITY (collage + live app-mockup, shared visual system)
+============================================================ */
+.community-collage{position:relative;min-height:440px;}
+.cc-tile{position:absolute;border-radius:18px;overflow:hidden;box-shadow:0 20px 46px rgba(22,36,63,0.18);border:4px solid var(--white);}
+.cc-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1);}
+.cc-tile:hover img{transform:scale(1.08);}
+.cc-tile:hover{z-index:5 !important;}
+.cc-tile-1{width:62%;height:270px;top:0;left:0;transform:rotate(-3deg);z-index:2;}
+.cc-tile-2{width:52%;height:220px;top:170px;right:0;transform:rotate(4deg);z-index:3;}
+.cc-tile-3{width:46%;height:190px;bottom:0;left:8%;transform:rotate(2deg);z-index:1;}
+
+/* ---------- 4-photo variant (benefits section collage) ---------- */
+.benefits-photos{min-height:490px;}
+.benefits-photos .cc-tile-1{width:56%;height:220px;top:0;left:0;transform:rotate(-3deg);z-index:2;}
+.benefits-photos .cc-tile-2{width:44%;height:180px;top:20px;right:0;transform:rotate(4deg);z-index:3;}
+.benefits-photos .cc-tile-3{width:42%;height:180px;bottom:0;left:2%;transform:rotate(3deg);z-index:1;}
+.benefits-photos .cc-tile-4{width:46%;height:200px;bottom:30px;right:4%;transform:rotate(-3deg);z-index:4;}
+
+@media (max-width:560px){
+  .benefits-photos{min-height:420px;}
+  .benefits-photos .cc-tile-1{height:190px;}
+  .benefits-photos .cc-tile-2{height:150px;}
+  .benefits-photos .cc-tile-3{height:150px;}
+  .benefits-photos .cc-tile-4{height:170px;}
+}
+
+.cc-avatar{position:absolute;width:56px;height:56px;border-radius:50%;background:var(--bg,var(--navy));color:var(--white);display:flex;align-items:center;justify-content:center;font-family:'Lato';font-weight:700;font-size:15px;border:3px solid var(--white);box-shadow:0 10px 24px rgba(22,36,63,0.22);z-index:4;animation:ccFloat 5s ease-in-out infinite;}
+.cc-avatar-1{top:30px;right:12%;animation-delay:0s;}
+.cc-avatar-2{bottom:56px;left:0;animation-delay:1.2s;}
+.cc-avatar-3{top:44%;right:2%;animation-delay:2.1s;}
+@keyframes ccFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+
+.cc-pulse-pill{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);background:var(--white);border:1px solid var(--line);border-radius:100px;padding:10px 20px;display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;color:var(--navy);box-shadow:var(--shadow-soft);z-index:5;white-space:nowrap;}
+.cc-pulse-pill .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:ccPulseGold 1.8s ease-out infinite;flex-shrink:0;}
+@keyframes ccPulseGold{0%{box-shadow:0 0 0 0 rgba(200,147,43,0.55);}70%{box-shadow:0 0 0 9px rgba(200,147,43,0);}100%{box-shadow:0 0 0 0 rgba(200,147,43,0);}}
+
+@keyframes ccPulseGreen{0%{box-shadow:0 0 0 0 rgba(63,174,92,0.5);}70%{box-shadow:0 0 0 8px rgba(63,174,92,0);}100%{box-shadow:0 0 0 0 rgba(63,174,92,0);}}
+
+/* ---------- "See The Community In Action" app-window mockup ---------- */
+.community-window{background:var(--white);border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow-lift);overflow:hidden;}
+.cw-titlebar{display:flex;align-items:center;gap:8px;padding:15px 20px;background:var(--cream-deep);border-bottom:1px solid var(--line);}
+.cw-dot{width:9px;height:9px;border-radius:50%;}
+.cw-dot-r{background:#e6675f;}
+.cw-dot-a{background:#e8b04b;}
+.cw-dot-g{background:#57b872;}
+.cw-titlebar-label{margin-left:8px;font-size:12px;font-weight:700;color:var(--ink-soft);letter-spacing:0.3px;}
+.cw-tabs{display:flex;align-items:center;gap:22px;padding:14px 20px;border-bottom:1px solid var(--line);overflow-x:auto;}
+.cw-tab{font-size:13px;font-weight:700;color:#9aa0aa;white-space:nowrap;padding-bottom:4px;flex-shrink:0;}
+.cw-tab.active{color:var(--navy);border-bottom:2px solid var(--gold);}
+.cw-body{display:flex;flex-direction:column;gap:16px;padding:20px;}
+
+.cw-card{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--white);opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease;}
+.community-window.in .cw-card{opacity:1;transform:translateY(0);}
+.community-window.in .cw-card:nth-child(1){transition-delay:.15s;}
+.community-window.in .cw-card:nth-child(2){transition-delay:.3s;}
+.community-window.in .cw-card:nth-child(3){transition-delay:.45s;}
+.cw-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(22,36,63,0.1);}
+
+.cw-countdown-card{background:linear-gradient(155deg,var(--navy),var(--navy-deep));border:1px solid rgba(200,147,43,0.3);color:var(--white);position:relative;overflow:hidden;}
+.cw-countdown-card::before{content:"";position:absolute;width:220px;height:220px;background:radial-gradient(circle,rgba(200,147,43,0.25),transparent 65%);top:-90px;right:-70px;pointer-events:none;}
+.cw-countdown-top{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);position:relative;z-index:1;}
+.cw-live-dot{width:8px;height:8px;border-radius:50%;background:#57d97a;animation:ccPulseGreen 1.8s ease-out infinite;flex-shrink:0;}
+.cw-countdown-title{font-family:'League Gothic','Lato',sans-serif;font-size:23px;margin-top:9px;position:relative;z-index:1;}
+.cw-countdown-sub{font-size:13.5px;color:rgba(255,255,255,0.7);margin-top:4px;position:relative;z-index:1;}
+.cw-countdown-nums{display:flex;gap:10px;margin-top:16px;position:relative;z-index:1;}
+.cw-cd-seg{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:8px 10px;min-width:52px;text-align:center;backdrop-filter:blur(6px);}
+.cw-cd-seg b{display:block;font-family:'League Gothic','Lato',sans-serif;font-size:22px;color:var(--gold-light);font-variant-numeric:tabular-nums;}
+.cw-cd-seg small{display:block;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-top:2px;}
+.cw-countdown-note{margin-top:14px;font-size:12px;color:rgba(255,255,255,0.5);position:relative;z-index:1;}
+
+.cw-host-row{display:flex;align-items:center;gap:10px;}
+.cw-host-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold-light),var(--gold));display:flex;align-items:center;justify-content:center;color:var(--navy-deep);font-weight:700;font-size:14px;flex-shrink:0;}
+.cw-host-name{font-size:14px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.cw-host-badge{display:inline-flex;align-items:center;gap:3px;background:var(--navy);color:var(--gold-light);font-size:9.5px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:3px 8px;border-radius:100px;}
+.cw-post-time{font-size:12px;color:#9aa0aa;margin-top:1px;}
+.cw-post-text{font-size:15px;color:var(--ink);line-height:1.6;margin-top:12px;}
+.cw-pin{margin-left:auto;font-size:11px;color:var(--gold);font-weight:700;display:flex;align-items:center;gap:4px;flex-shrink:0;}
+
+.cw-reactions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+.cw-chip{display:inline-flex;align-items:center;gap:5px;background:var(--cream-deep);border-radius:100px;padding:5px 12px;font-size:12.5px;font-weight:700;color:var(--ink-soft);transition:transform .25s ease,background .25s ease;}
+.cw-chip:hover{transform:translateY(-2px);background:#f0e2c4;}
+
+.cf-item{display:flex;gap:14px;align-items:flex-start;}
+.cf-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--bg,var(--navy));color:var(--white);display:flex;align-items:center;justify-content:center;font-family:'Lato';font-weight:700;font-size:14px;}
+.cf-meta{font-size:13.5px;color:var(--ink-soft);}
+.cf-meta strong{color:var(--navy);}
+.cf-text{font-size:15px;color:var(--ink);margin-top:4px;line-height:1.55;}
+.cf-time{font-size:12px;color:#9aa0aa;margin-top:6px;}
+
+.cw-reply{display:flex;gap:10px;margin-top:14px;margin-left:20px;padding:14px 0 0 16px;border-left:2px solid var(--gold);}
+
+@media (max-width:480px){
+  .cw-tabs{gap:16px;}
+  .cw-countdown-nums{gap:6px;}
+  .cw-cd-seg{min-width:44px;padding:6px 6px;}
+}
+
+/* ============================================================
+   EVERYTHING YOU GET — photos left, benefits + price right
+============================================================ */
+.benefits-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
+
+.benefit-list{display:flex;flex-direction:column;}
+.benefit-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);}
+.benefit-row:last-child{border-bottom:none;}
+.b-icon{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy-mid));color:var(--gold-light);display:flex;align-items:center;justify-content:center;}
+.b-text{flex:1;min-width:0;}
+.b-text h4{font-size:16px;color:var(--navy);font-family:'Lato';font-weight:700;line-height:1.3;}
+.benefit-value{display:block;font-size:12.5px;color:var(--ink-soft);opacity:0.75;margin-top:2px;}
+.included-badge{flex-shrink:0;display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:0.4px;color:var(--navy-deep);background:linear-gradient(135deg,var(--gold-light),var(--gold));padding:5px 12px;border-radius:100px;}
+
+/* ---------- price block (closes the benefits column) ---------- */
+.price-block{margin-top:32px;padding:30px 32px;border-radius:22px;background:linear-gradient(135deg,var(--navy),var(--navy-deep));color:var(--white);box-shadow:var(--shadow-soft);}
+.price-block .label{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);}
+.price-block .figures{display:flex;align-items:baseline;gap:14px;margin-top:8px;flex-wrap:wrap;}
+.price-block .was{font-family:'League Gothic','Lato',sans-serif;font-size:26px;color:rgba(255,255,255,0.4);text-decoration:line-through;}
+.price-block .now{font-family:'League Gothic','Lato',sans-serif;font-size:46px;color:var(--gold-light);line-height:1;}
+.price-block .now small{font-family:'Lato';font-size:14px;color:rgba(255,255,255,0.6);font-weight:700;margin-left:4px;}
+.price-block .note{margin-top:10px;font-size:12.5px;color:rgba(255,255,255,0.5);}
+.price-block .btn{margin-top:22px;}
+
+@media (max-width:920px){
+  .benefits-grid{grid-template-columns:1fr;gap:36px;}
+  .benefits-grid .community-collage{order:-1;}
+}
+
+/* ============================================================
+   SOCIAL PROOF — full testimonial wall
+============================================================ */
+.tm-masonry{columns:3 300px;column-gap:26px;margin-top:8px;}
+.tm-masonry > *{break-inside:avoid;-webkit-column-break-inside:avoid;margin:0 0 26px;}
+
+.tm-video{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:#000;box-shadow:0 14px 36px rgba(22,36,63,0.14);transition:transform .4s ease,box-shadow .4s ease;}
+.tm-video:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(22,36,63,0.2);}
+.tm-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
+
+.tm-quote{background:var(--white);border-radius:22px;padding:40px 36px;box-shadow:0 14px 36px rgba(22,36,63,0.07);border:1px solid var(--line);position:relative;transition:transform .4s ease,box-shadow .4s ease;}
+.tm-quote:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(22,36,63,0.12);}
+.tm-quote-lg{padding:46px 40px;}
+.tm-quote-mark{font-family:'League Gothic','Lato',sans-serif;font-size:70px;color:var(--gold);opacity:0.28;line-height:1;position:absolute;top:20px;right:30px;}
+.tm-quote p.quote{font-size:16px;color:var(--ink);line-height:1.75;margin-bottom:24px;position:relative;z-index:1;}
+.tm-quote figcaption{display:flex;flex-direction:column;}
+.tm-name{font-weight:700;color:var(--navy);font-size:15.5px;}
+.tm-role{font-size:13.5px;color:var(--ink-soft);margin-top:2px;}
+
+.tm-stat{background:linear-gradient(155deg,var(--navy),var(--navy-deep));border-radius:22px;padding:38px 34px;color:var(--white);box-shadow:var(--shadow-soft);text-align:center;}
+.tm-stat-alt{background:linear-gradient(155deg,var(--navy-mid),var(--navy));}
+.tm-stat-num{display:block;font-family:'League Gothic','Lato',sans-serif;font-size:52px;color:var(--gold-light);line-height:1;margin-bottom:14px;}
+.tm-stat p{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.6;}
+
+@media (max-width:920px){.tm-masonry{columns:2 260px;}}
+@media (max-width:620px){.tm-masonry{columns:1;}}
+
+/* ============================================================
+   HOW IT WORKS — 3-step layout
+============================================================ */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:12px;}
+.step-card{text-align:center;padding:8px;}
+.step-num{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy-mid));color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-family:'League Gothic','Lato',sans-serif;font-size:24px;margin:0 auto 18px;}
+.step-card h4{font-size:19px;color:var(--navy);margin-bottom:8px;font-family:'Lato';font-weight:700;letter-spacing:0.3px;}
+.step-card p{font-size:15px;color:var(--ink-soft);}
+
+@media (max-width:768px){.steps-grid{grid-template-columns:1fr;gap:32px;}}
+
+/* ============================================================
+   FINAL CTA
+============================================================ */
+.final-cta{position:relative;background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);text-align:center;overflow:hidden;}
+.final-cta-bg{position:absolute;inset:0;background-image:url('https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0f8478ee0ed74a7cc.jpg');background-size:cover;background-position:center;opacity:0.14;}
+.final-cta-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,147,43,0.22),transparent 65%);bottom:-320px;left:50%;transform:translateX(-50%);}
+.final-cta-glow-2{position:absolute;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(200,147,43,0.14),transparent 65%);top:-180px;right:-120px;}
+.final-cta-inner{position:relative;z-index:1;}
+.final-cta-note{margin-top:20px;font-size:13px;font-weight:700;letter-spacing:0.3px;color:var(--gold-light);}
+.final-cta-risk{margin-top:14px;font-size:12.5px;color:rgba(255,255,255,0.45);position:relative;z-index:1;}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.site-footer{background:var(--navy-deep);padding:56px 0 34px;text-align:center;}
+.footer-logo{height:30px;width:auto;margin:0 auto 20px;}
+.footer-tagline{color:rgba(255,255,255,0.55);font-size:13.5px;margin-bottom:22px;}
+.footer-copy{color:rgba(255,255,255,0.35);font-size:12.5px;}
+
+/* ---------- General mobile section spacing ---------- */
+@media (max-width:920px){
+  .section{padding:72px 0;}
+  .section-header{margin-bottom:40px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+============================================================ -->
+<nav class="site-nav" id="siteNav">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-logo">
+      <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" />
+    </a>
+    <div class="nav-links">
+      <a href="#experience">What Is It</a>
+      <a href="#benefits">What You Get</a>
+      <a href="#community">Community</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#benefits" class="btn btn-gold">Join the Community</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="#experience" class="mobile-link">What Is It</a>
+  <a href="#benefits" class="mobile-link">What You Get</a>
+  <a href="#community" class="mobile-link">Community</a>
+  <a href="#benefits" class="btn btn-gold btn-lg">Join the Community</a>
+</div>
+
+<!-- ============================================================
+     SECTION 1 — HERO
+============================================================ -->
+<header class="hero" id="top">
+  <div class="hero-bg-fade" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow on-dark">For Leaders Who Refuse To Peak In One Workshop</p>
+      <h1 class="h-xl on-dark hero-headline">
+        <span class="line1">You Left The Room Ready To Lead Differently.</span>
+        <span class="line1 accent">Don't Let Monday Undo It.</span>
+      </h1>
+      <p class="lede on-dark hero-sub">
+        Dr. Bryan K. Williams built this private community for one reason: the leaders who keep growing aren't the ones with the most talent — they're the ones who never went back to figuring it out alone. Weekly coaching. Monthly live calls. A room full of leaders who won't let you quietly settle back into old habits.
+      </p>
+      <div class="hero-ctawrap">
+        <a href="#benefits" class="btn btn-gold btn-lg btn-glow">
+          Join the Community
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <p class="hero-microcopy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          Locks in $249/year for life — before it becomes $497 on September 30
+        </p>
+      </div>
+    </div>
+
+    <div class="hero-photo-col">
+      <div class="hero-collage">
+        <div class="cc-tile cc-tile-1">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0dd8ffd1870ca2d55.jpg" alt="Leaders connecting in the community" />
+        </div>
+        <div class="cc-tile cc-tile-2">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0e4e420b6ec15facb.jpg" alt="A community gathering and learning together" />
+        </div>
+        <div class="cc-tile cc-tile-3">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a028b4c07e403605e7.jpg" alt="Leaders learning together in the community" />
+        </div>
+      </div>
+      <div class="hero-badge">
+        <span class="num" data-count-to="1700" data-suffix="+">1,700+</span>
+        <span class="lbl">Leaders have sat in this room. Some kept growing. Will you?</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll</span><span class="dot"></span></div>
+</header>
+
+<!-- ============================================================
+     SECTION 2 — WHAT IS THE LEADERSHIP COMMUNITY?
+============================================================ -->
+<section class="section section-cream texture-dots" id="experience" aria-labelledby="whatis-heading">
+  <div class="chapter-glow chapter-glow-gold" style="width:560px;height:560px;top:-220px;left:-160px;" aria-hidden="true"></div>
+  <div class="chapter-glow chapter-glow-navy" style="width:460px;height:460px;bottom:-200px;right:-140px;" aria-hidden="true"></div>
+  <div class="container">
+    <div class="whatis-grid">
+      <div class="reveal">
+        <p class="eyebrow">The Community</p>
+        <h2 id="whatis-heading" class="h-lg">What Is The Leadership Community?</h2>
+        <p class="lede" style="color:var(--ink-soft);margin-top:18px;">
+          The Leadership Community is an experience designed for leaders who know they're capable of more — and are ready to intentionally grow into the leader they're meant to become. This isn't just about leadership content. It's about the leader. The community gives members an environment to learn, connect, reflect, and put leadership principles into action alongside other leaders who are committed to growing.
+        </p>
+
+        <p style="margin-top:28px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);">Inside the community, you'll:</p>
+        <div class="whatis-list">
+          <div class="row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><p>Develop practical leadership skills you can apply immediately</p></div>
+          <div class="row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><p>Connect with other leaders who understand the challenges of leadership</p></div>
+          <div class="row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><p>Gain new perspectives through meaningful conversations and shared experiences</p></div>
+          <div class="row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><p>Access resources designed to help you lead with greater confidence, clarity, and impact</p></div>
+        </div>
+
+        <div class="whatis-highlight">Your growth as a leader doesn't happen by accident. It happens by intention.</div>
+        <p class="whatis-purpose">Our purpose is to help develop leaders who create meaningful impact wherever they lead.</p>
+      </div>
+
+      <div class="whatis-video-col reveal reveal-delay-2">
+        <div class="whatis-video-frame">
+          <iframe src="https://www.youtube.com/embed/Hpr-E1NvnyY" title="See What The Leadership Community Is All About" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <p class="whatis-video-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8z"/></svg>
+          See What The Leadership Community Is All About
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — THE PROBLEM / THE LEADERSHIP GAP
+============================================================ -->
+<section class="section section-tight section-beige" aria-labelledby="problem-heading">
+  <div class="chapter-curve" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 Q720,0 1440,80 L1440,80 L0,80 Z" style="fill:var(--beige);"/></svg></div>
+  <div class="container">
+    <div class="problem-grid">
+      <div class="problem-photo reveal">
+        <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a841bea81b49c99f2167e85.jpg" alt="A thoughtful leader considering what's next" />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <p class="eyebrow">Sound Familiar?</p>
+        <h2 id="problem-heading" class="h-lg">You're Already A Leader. But What's Next?</h2>
+        <p class="lede" style="color:var(--ink-soft);margin-top:18px;">
+          You've built real results, and people already look to you. But somewhere along the way, the growth started to plateau — not for lack of effort, but because becoming a next-level leader takes more than more leadership advice. It takes developing the leader underneath the title.
+        </p>
+        <p class="lede" style="color:var(--ink-soft);margin-top:14px;font-weight:700;">That's exactly what the Leadership Community was built for.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 — THE BW LEADERSHIP EXPERIENCE
+============================================================ -->
+<section class="section section-navy" aria-labelledby="experience-heading">
+  <div class="container">
+    <div class="experience-grid">
+      <div class="community-collage reveal">
+        <div class="cc-tile cc-tile-1">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a8c46aacdd4b797a31e4541.jpg" alt="Leaders in discussion during a community session" />
+        </div>
+        <div class="cc-tile cc-tile-2">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a8c46aa4ee4e7911d430970.jpg" alt="Leaders engaged in a live coaching moment" />
+        </div>
+        <div class="cc-tile cc-tile-3">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a03db5490e90701146.jpg" alt="Leaders in real conversation inside the community" />
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <p class="eyebrow on-dark">The BW Leadership Experience</p>
+        <h2 id="experience-heading" class="h-lg on-dark">Growth Isn't Something You Attend. It's Something You Practice — With People Who Get It.</h2>
+        <div class="experience-chips">
+          <span class="experience-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Leadership Growth</span>
+          <span class="experience-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Community</span>
+          <span class="experience-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Connection</span>
+          <span class="experience-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg>Practical Development</span>
+          <span class="experience-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Ongoing Support</span>
+        </div>
+        <p class="experience-credit">Led by Dr. Bryan K. Williams — <strong><span data-count-to="25" data-suffix="+">25+</span> years</strong> developing leaders inside <strong><span data-count-to="500" data-suffix="+">500+</span> organizations</strong>, including a single room of <strong><span data-count-to="1700" data-suffix="+">1,700+</span></strong> at once.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5 — EVERYTHING YOU GET INSIDE THE COMMUNITY
+============================================================ -->
+<section class="section section-white" id="benefits" aria-labelledby="benefits-heading">
+  <div class="container">
+    <div class="section-header text-center max-720">
+      <div class="section-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow reveal">Everything Included</p>
+      <h2 id="benefits-heading" class="h-lg reveal reveal-delay-1">Everything You Get Inside The Community.</h2>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="community-collage benefits-photos reveal">
+        <div class="cc-tile cc-tile-1">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a0dd8ffd1870ca2d55.jpg" alt="Leaders connecting in the community" />
+        </div>
+        <div class="cc-tile cc-tile-2">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a028b4c07e403605e7.jpg" alt="Leaders learning together in the community" />
+        </div>
+        <div class="cc-tile cc-tile-3">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a8c46aacdd4b797a31e4541.jpg" alt="Leaders in discussion during a community session" />
+        </div>
+        <div class="cc-tile cc-tile-4">
+          <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a8c46aa4ee4e7911d430970.jpg" alt="Leaders engaged in a live coaching moment" />
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="benefit-list">
+          <div class="benefit-row">
+            <div class="b-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="b-text"><h4>Weekly Leadership Tip &amp; Challenge</h4></div>
+            <span class="included-badge">Included</span>
+          </div>
+          <div class="benefit-row">
+            <div class="b-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+            <div class="b-text"><h4>Monthly Leadership Lounge Call</h4><span class="benefit-value">$2,988 value</span></div>
+            <span class="included-badge">Included</span>
+          </div>
+          <div class="benefit-row">
+            <div class="b-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg></div>
+            <div class="b-text"><h4>Monthly Leadership Sprint Call</h4><span class="benefit-value">$5,964 value</span></div>
+            <span class="included-badge">Included</span>
+          </div>
+          <div class="benefit-row">
+            <div class="b-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+            <div class="b-text"><h4>BWTV — Full Video Library</h4><span class="benefit-value">$795 value</span></div>
+            <span class="included-badge">Included</span>
+          </div>
+          <div class="benefit-row">
+            <div class="b-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+            <div class="b-text"><h4>Leadership Templates, Downloads &amp; Resources</h4></div>
+            <span class="included-badge">Included</span>
+          </div>
+          <div class="benefit-row">
+            <div class="b-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="b-text"><h4>Private Community &amp; Networking Access</h4></div>
+            <span class="included-badge">Included</span>
+          </div>
+        </div>
+
+        <div class="price-block">
+          <div class="label">Total Value vs. Your Founding Member Rate</div>
+          <div class="figures">
+            <span class="was">$9,747</span>
+            <span class="now">$249<small>/year</small></span>
+          </div>
+          <p class="note">Founding Member pricing — locked in for life, before it becomes $497 on September 30.</p>
+          <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg btn-full btn-glow">Join the Community</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6 — SEE THE COMMUNITY IN ACTION
+============================================================ -->
+<section class="section section-cream texture-dots" id="community" aria-labelledby="community-heading">
+  <div class="chapter-glow chapter-glow-gold" style="width:560px;height:560px;top:-220px;left:-160px;" aria-hidden="true"></div>
+  <div class="chapter-glow chapter-glow-navy" style="width:460px;height:460px;bottom:-200px;right:-140px;" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-header text-center max-720">
+      <div class="section-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow reveal">See The Community In Action</p>
+      <h2 id="community-heading" class="h-lg reveal reveal-delay-1">This Isn't Another Leadership Course You Buy And Forget.</h2>
+      <p class="lede reveal reveal-delay-2" style="color:var(--ink-soft);margin-top:16px;">
+        It's an ongoing environment where leaders learn, connect, practice, and grow together — long after the course would have ended.
+      </p>
+    </div>
+
+    <div class="community-window reveal reveal-delay-3">
+      <div class="cw-titlebar">
+        <span class="cw-dot cw-dot-r"></span><span class="cw-dot cw-dot-a"></span><span class="cw-dot cw-dot-g"></span>
+        <span class="cw-titlebar-label">The Leadership Community — Feed</span>
+      </div>
+      <div class="cw-tabs">
+        <span class="cw-tab active">Feed</span>
+        <span class="cw-tab">Classroom</span>
+        <span class="cw-tab">Calendar</span>
+        <span class="cw-tab">Members</span>
+      </div>
+
+      <div class="cw-body">
+        <div class="cw-card cw-countdown-card">
+          <div class="cw-countdown-top"><span class="cw-live-dot"></span>Next Live Session</div>
+          <div class="cw-countdown-title">The September Leadership Sprint</div>
+          <p class="cw-countdown-sub">Live with Dr. Bryan on September 17 — bring your hardest question.</p>
+          <div class="cw-countdown-nums" id="webinarCountdown">
+            <div class="cw-cd-seg"><b id="wdDays">00</b><small>Days</small></div>
+            <div class="cw-cd-seg"><b id="wdHours">00</b><small>Hrs</small></div>
+            <div class="cw-cd-seg"><b id="wdMins">00</b><small>Min</small></div>
+            <div class="cw-cd-seg"><b id="wdSecs">00</b><small>Sec</small></div>
+          </div>
+          <p class="cw-countdown-note">Members get the calendar invite and replay automatically.</p>
+        </div>
+
+        <div class="cw-card cw-post-card">
+          <div class="cw-host-row">
+            <div class="cw-host-avatar">BW</div>
+            <div>
+              <p class="cw-host-name">Dr. Bryan K. Williams <span class="cw-host-badge">Host</span></p>
+              <p class="cw-post-time">Posted this morning</p>
+            </div>
+            <span class="cw-pin">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 0 0-5 5c0 2.4 1.6 4.9 3 6.6L12 22l2-8.4c1.4-1.7 3-4.2 3-6.6a5 5 0 0 0-5-5z"/></svg>
+              Pinned
+            </span>
+          </div>
+          <p class="cw-post-text">This week's challenge: have the conversation you've been avoiding. Reply below and tell me how it goes — I read every one.</p>
+          <div class="cw-reactions">
+            <span class="cw-chip">👏 24</span>
+            <span class="cw-chip">🙌 9</span>
+            <span class="cw-chip">💬 16 replies</span>
+          </div>
+        </div>
+
+        <div class="cw-card cw-thread-card">
+          <div class="cf-item cw-thread-q">
+            <div class="cf-avatar" style="--bg:#1e3156;">T</div>
+            <div class="cf-body">
+              <p class="cf-meta"><strong>Terrence</strong> · Director of Guest Experience</p>
+              <p class="cf-text">How do you handle a manager who's great with guests but keeps missing deadlines?</p>
+              <p class="cf-time">3 hours ago</p>
+            </div>
+          </div>
+          <div class="cw-reply">
+            <div class="cw-host-avatar" style="width:32px;height:32px;font-size:12px;">BW</div>
+            <div class="cf-body">
+              <p class="cf-meta"><strong>Dr. Bryan</strong> <span class="cw-host-badge">Host</span></p>
+              <p class="cf-text">Separate the two conversations. Praise the guest instinct on Monday, address the deadline pattern on Tuesday. Never stack them in the same breath — one erases the other.</p>
+              <p class="cf-time">Replied 2 hours ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7 — SOCIAL PROOF (full testimonial wall)
+============================================================ -->
+<section class="section section-cream-deep" aria-labelledby="testi-heading">
+  <div class="chapter-curve" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 Q720,0 1440,80 L1440,80 L0,80 Z" style="fill:var(--cream-deep);"/></svg></div>
+  <div class="container">
+    <div class="section-header text-center max-720">
+      <div class="section-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow reveal">Real Leaders. Real Growth.</p>
+      <h2 id="testi-heading" class="h-lg reveal reveal-delay-1">Leaders Who Refused To Let The Workshop Be The Finish Line.</h2>
+      <p class="lede reveal reveal-delay-2" style="color:var(--ink-soft);margin-top:16px;">Hear it directly from the leaders who've experienced Dr. Bryan — and what happened when they didn't stop.</p>
+    </div>
+
+    <div class="tm-masonry reveal reveal-delay-3">
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125329664?h=85de2af59b&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+      <figure class="tm-quote tm-quote-lg">
+        <span class="tm-quote-mark">&rdquo;</span>
+        <p class="quote">I genuinely appreciated and am so thankful to have attended the Manager Skills Workshop, and our all staff presentation on, "Work Like You Own It." This really was a world class experience. I'm realizing now how much I needed this for my own personal growth as a leader as well. I'm blown away by how well you knew everyone's names and even remembered them as you called them out during the all-staff presentation as well.</p>
+        <figcaption>
+          <span class="tm-name">Dell Anderson, M.Ed, LMHC</span>
+          <span class="tm-role">Executive Director, Grant Behavioral Health &amp; Wellness</span>
+        </figcaption>
+      </figure>
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125323208?h=ace35ef467&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+      <div class="tm-stat">
+        <span class="tm-stat-num" data-count-to="1700" data-suffix="+">1,700+</span>
+        <p>Leaders sat in that room together. Now the conversation continues every month — not once a year.</p>
+      </div>
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125322589?h=d3a29d9359&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+      <figure class="tm-quote">
+        <span class="tm-quote-mark">&rdquo;</span>
+        <p class="quote">I wanted to send you a quick note and thank you for last week's Managers Workshop through Commerce Lexington. The content was superb, you are an AMAZING facilitator – your energy and ability to connect with people is truly a gift.</p>
+        <figcaption>
+          <span class="tm-name">Rockelle Ward</span>
+          <span class="tm-role">Director of Global Accreditation, ICF Coaching Federation</span>
+        </figcaption>
+      </figure>
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125322439?h=662c71e37f&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+      <div class="tm-stat tm-stat-alt">
+        <span class="tm-stat-num" data-count-to="25" data-suffix="+">25+</span>
+        <p>Years turning one day of inspiration into a lifetime of leadership habits.</p>
+      </div>
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125322807?h=0157034cb5&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125321962?h=9da397f887&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+      <div class="tm-video">
+        <iframe src="https://player.vimeo.com/video/1125321782?h=821ff289f3&title=0&byline=0&portrait=0" loading="lazy" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Leadership community testimonial"></iframe>
+      </div>
+
+    </div>
+
+    <div class="mini-cta-wrap reveal">
+      <a href="#benefits" class="mini-cta">Ready to be next? See membership details<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 8 — HOW IT WORKS
+============================================================ -->
+<section class="section section-tight section-white" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="section-header text-center max-720">
+      <div class="section-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow reveal">How It Works</p>
+      <h2 id="how-heading" class="h-lg reveal reveal-delay-1">What Happens When You Join.</h2>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <h4>Join The Community</h4>
+        <p>Lock in your Founding Member rate in less than two minutes.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-num">2</div>
+        <h4>Get Access</h4>
+        <p>Instant access to the community, resources, and full video library.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num">3</div>
+        <h4>Start Growing</h4>
+        <p>Weekly tips and monthly live calls keep you moving forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 9 — FINAL CTA
+============================================================ -->
+<section class="section final-cta">
+  <div class="final-cta-bg" aria-hidden="true"></div>
+  <div class="final-cta-glow" aria-hidden="true"></div>
+  <div class="final-cta-glow-2" aria-hidden="true"></div>
+  <div class="container final-cta-inner">
+    <div class="section-mark on-dark reveal" aria-hidden="true"><span></span></div>
+    <p class="eyebrow on-dark reveal">Your Next Chapter As A Leader</p>
+    <h2 class="h-lg on-dark max-620 reveal reveal-delay-1" style="margin:0 auto 22px;">Your Next Level Of Leadership Starts Here.</h2>
+    <p class="lede on-dark max-540 reveal reveal-delay-2" style="margin:0 auto 8px;">The leader you saw in that workshop is still available. Go get them.</p>
+
+    <div class="reveal reveal-delay-3">
+      <a href="https://link.thinkingcreatives.com/preview/R1jjDlE5lx2KBce6FFXV" class="btn btn-gold btn-lg btn-glow" style="margin-top:20px;">Join The BW Leadership Community</a>
+      <p class="final-cta-note">Founding Member pricing ends September 30</p>
+      <p class="final-cta-risk">No contracts. Cancel anytime. Just a decision to keep growing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <img class="footer-logo" src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" />
+    <p class="footer-tagline">Service is not a department. Leadership is not a title.</p>
+    <p class="footer-copy">&copy; <span id="year"></span> Dr. Bryan K. Williams. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- Sticky nav background ---- */
+  var nav = document.getElementById('siteNav');
+  function onScroll(){
+    if(window.scrollY > 40){ nav.classList.add('scrolled'); }
+    else{ nav.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---- Mobile menu ---- */
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  var close = document.getElementById('mobileClose');
+  function openMenu(){ menu.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMenu(){ menu.classList.remove('open'); document.body.style.overflow=''; }
+  toggle.addEventListener('click', openMenu);
+  close.addEventListener('click', closeMenu);
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+  /* ---- Reveal on scroll ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---- Community window card stagger (keys off .community-window.in) ---- */
+  var cwEl = document.querySelector('.community-window');
+  if(cwEl && 'IntersectionObserver' in window){
+    var cwIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          cwIo.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.2});
+    cwIo.observe(cwEl);
+  } else if(cwEl){
+    cwEl.classList.add('in');
+  }
+
+  /* ---- Next live session countdown (September 17) ---- */
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  var wdDays = document.getElementById('wdDays');
+  var wdHours = document.getElementById('wdHours');
+  var wdMins = document.getElementById('wdMins');
+  var wdSecs = document.getElementById('wdSecs');
+  var webinarDate = new Date(new Date().getFullYear(), 8, 17, 0, 0, 0);
+  if(new Date() > webinarDate){ webinarDate.setFullYear(webinarDate.getFullYear() + 1); }
+
+  function tickWebinar(){
+    var msLeft = webinarDate - new Date();
+    if(msLeft <= 0){
+      wdDays.textContent = wdHours.textContent = wdMins.textContent = wdSecs.textContent = '00';
+      return;
+    }
+    var totalSeconds = Math.floor(msLeft / 1000);
+    wdDays.textContent = pad(Math.floor(totalSeconds / 86400));
+    wdHours.textContent = pad(Math.floor((totalSeconds % 86400) / 3600));
+    wdMins.textContent = pad(Math.floor((totalSeconds % 3600) / 60));
+    wdSecs.textContent = pad(totalSeconds % 60);
+  }
+
+  if(wdDays){
+    tickWebinar();
+    setInterval(tickWebinar, 1000);
+  }
+
+  /* ---- Animated stat counters (count up once, on scroll into view) ---- */
+  var counters = document.querySelectorAll('[data-count-to]');
+  if('IntersectionObserver' in window && counters.length){
+    var counterIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting) return;
+        var el = entry.target;
+        counterIo.unobserve(el);
+        var target = parseInt(el.getAttribute('data-count-to'), 10);
+        var prefix = el.getAttribute('data-prefix') || '';
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 1400;
+        var start = null;
+        function easeOutQuad(t){ return t * (2 - t); }
+        function frame(ts){
+          if(start === null) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var value = Math.round(target * easeOutQuad(progress));
+          el.textContent = prefix + value.toLocaleString('en-US') + suffix;
+          if(progress < 1){ requestAnimationFrame(frame); }
+        }
+        requestAnimationFrame(frame);
+      });
+    }, {threshold:0.4});
+    counters.forEach(function(el){ counterIo.observe(el); });
+  }
+
+  /* ---- Hero glow parallax (subtle depth on scroll) ---- */
+  var heroGlow = document.querySelector('.hero-glow');
+  if(heroGlow){
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){
+        var offset = Math.min(window.scrollY * 0.25, 160);
+        heroGlow.style.transform = 'translateY(' + offset + 'px)';
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+
+})();
+</script>
+
+</body>
+</html>
