@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Day Three — Build a Team That Stays | Serve. Lead. Inspire.</title>
+
+<!--
+  ═══════════════════════════════════════════════════════════════
+  DAY THREE REPLAY PAGE — THE ANNIVERSARY SESSION
+  ───────────────────────────────────────────────────────────────
+  This is the SALES ASSET. One destination only: the sales page.
+  No community gating — this page launches Sun Sept 20, after the
+  on-stage reveal. Date-aware states:
+
+    Sun Sept 20 9AM  → page live with hub. Video + tool + full
+                       offer block. Rewatch links to Days 1 & 2.
+    Sun Sept 27 MID  → Day 1/2 rewatch links hide (those expired).
+    Wed Sept 30 MID  → auto-expires: video hidden, bridge shown,
+                       timer hides. Offer block switches to the
+                       standard-pricing message ($497 / 3×$179).
+
+  LIVE LINKS (wired):
+    Day Three tool   → 30-Day Team Action Plan (Google Drive)
+    Day One page     → https://bwleadership.com/replay-1
+    Day Two page     → https://bwleadership.com/replay-2
+    Community/sales  → https://bwleadership.com
+    Justification    → Google Doc (request letter for your organization)
+    Replay hub       → https://bwleadership.com/main-replay-page
+
+  STILL TO REPLACE BEFORE PUBLISHING:
+    VIMEO_DAY3_ID   → the Vimeo video ID (numbers only)
+
+  The GHL page-view trigger applies Watched-Day-3 — no code needed.
+  This is the tag that flips A3/A5 email links to the sales page.
+  ═══════════════════════════════════════════════════════════════
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#192857; --navy-deep:#0f1938; --gold:#e5ab48; --gold-light:#f2c887;
+  --gold-deep:#b9822c; --cream:#faf6ee; --white:#fff; --ink:#20263b;
+  --muted:#666f8a; --border:#e9e2d3; --red:#b0413e;
+  --shadow:0 10px 40px rgba(15,25,56,.10); --shadow-lg:0 24px 70px rgba(15,25,56,.22);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+body{font-family:'Lato',Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'League Gothic',Georgia,serif;font-weight:400}
+.wrap{width:100%;max-width:960px;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,2rem)}
+
+/* HEADER */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:500;padding:.85rem 0;background:rgba(15,25,56,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(229,171,72,.16)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand-logo{height:26px;width:auto}
+.header-cta{font-size:.68rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-deep);background:linear-gradient(135deg,var(--gold-light),var(--gold));padding:.55rem 1.1rem;border-radius:100px;white-space:nowrap}
+
+/* DEADLINE BAR */
+.deadline-bar{position:fixed;left:0;right:0;z-index:490;background:var(--gold);color:var(--navy-deep);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.45rem .8rem;padding:.4rem 1rem;font-size:.72rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 6px 20px rgba(15,25,56,.12)}
+.t-units{display:inline-flex;gap:.35rem}
+.t-box{display:flex;flex-direction:column;align-items:center;background:var(--navy-deep);color:#fff;border-radius:6px;min-width:42px;padding:.24rem .35rem .2rem;line-height:1}
+.t-box .t-num{font-family:'League Gothic',serif;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.t-box em{font-style:normal;font-size:.48rem;font-weight:700;letter-spacing:.14em;color:var(--gold-light);margin-top:.16rem}
+.deadline-bar.closed{display:none}
+@media (max-width:560px){.deadline-tail{display:none}}
+
+/* WATCH */
+.watch{background:linear-gradient(180deg,var(--navy-deep) 0%,var(--navy) 100%);padding-top:9rem;padding-bottom:clamp(2.5rem,6vw,4rem);text-align:center;color:#fff}
+.badge{display:inline-block;font-size:.64rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:var(--navy-deep);background:linear-gradient(135deg,var(--gold-light),var(--gold));padding:.35rem .9rem;border-radius:100px;margin-bottom:1rem}
+.eyebrow{font-size:.72rem;font-weight:900;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-light);display:block;margin-bottom:.8rem}
+.watch h1{font-size:clamp(2.2rem,5.5vw,3.6rem);text-transform:uppercase;line-height:1.06;margin-bottom:.9rem}
+.watch-desc{max-width:620px;margin:0 auto 2rem;color:rgba(255,255,255,.82);font-weight:300;font-size:clamp(.95rem,1.5vw,1.05rem)}
+.player{position:relative;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:#000;aspect-ratio:16/9;outline:2px solid var(--gold);outline-offset:6px}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.player-meta{display:flex;justify-content:center;gap:1.5rem;margin-top:1.2rem;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.player-meta .expiry{color:var(--gold-light)}
+
+/* BRIDGE */
+.bridge{display:none;background:linear-gradient(160deg,#1a2a5c,#0f1938);border:1px solid rgba(229,171,72,.3);border-radius:14px;padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,3rem)}
+.bridge h2{font-size:clamp(1.8rem,4vw,2.6rem);text-transform:uppercase;color:#fff;margin-bottom:1rem}
+.bridge p{color:rgba(255,255,255,.82);max-width:560px;margin:0 auto 1rem;font-weight:300}
+.bridge p strong{color:var(--gold-light)}
+body.closedout .player, body.closedout .player-meta{display:none}
+body.closedout .bridge{display:block}
+
+/* TOOL */
+.below{background:var(--cream);padding-block:clamp(3rem,7vw,4.5rem)}
+.tool-card{display:flex;align-items:center;gap:1.25rem;background:var(--white);border:1.5px solid var(--gold);border-radius:14px;padding:1.4rem 1.6rem;box-shadow:var(--shadow);max-width:640px;margin:0 auto;text-align:left;flex-wrap:wrap}
+.tool-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--gold-light),var(--gold));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tool-copy{flex:1;min-width:220px}
+.tool-copy strong{display:block;color:var(--navy);font-size:1rem}
+.tool-copy span{font-size:.85rem;color:var(--muted)}
+.btn-tool{font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-deep);background:linear-gradient(135deg,var(--gold-light),var(--gold));padding:.75rem 1.4rem;border-radius:100px;white-space:nowrap}
+
+/* OFFER */
+.offer{background:linear-gradient(160deg,#fbf3e2,#f3e2bd);padding-block:clamp(3.5rem,8vw,5.5rem)}
+.offer-inner{max-width:760px;margin-inline:auto;text-align:center;padding-inline:1.5rem}
+.offer .eyebrow2{display:inline-flex;align-items:center;gap:.6em;font-size:.72rem;font-weight:900;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:1rem}
+.offer h2{font-size:clamp(2rem,4.6vw,3rem);text-transform:uppercase;color:var(--navy);line-height:1.06;margin-bottom:1.1rem}
+.offer p{color:var(--muted);max-width:600px;margin:0 auto 1rem}
+.offer p strong{color:var(--navy)}
+.stack{list-style:none;margin:1.6rem auto 1.8rem;max-width:560px;text-align:left}
+.stack li{display:flex;gap:.7rem;align-items:flex-start;padding:.55rem 0;border-bottom:1px solid rgba(185,130,44,.18);font-size:.95rem}
+.stack li:last-child{border-bottom:0}
+.stack li svg{flex-shrink:0;margin-top:.25rem}
+.stack li strong{color:var(--navy)}
+.price-card{background:var(--white);border:1.5px solid var(--gold);border-radius:16px;padding:1.75rem 1.9rem;box-shadow:var(--shadow);max-width:460px;margin:0 auto 1.5rem}
+.price-num{font-family:'League Gothic',serif;font-size:3rem;color:var(--navy);line-height:1}
+.price-num span{font-size:1.2rem;color:var(--muted)}
+.price-lock{font-size:.92rem;font-weight:700;color:var(--navy);margin-top:.5rem}
+.price-note{font-size:.82rem;color:var(--muted);margin-top:.4rem}
+.price-note strong{color:var(--red)}
+/* post-close pricing (swapped automatically Oct 1) */
+#priceStd{display:none}
+body.closedout #priceFounding{display:none}
+body.closedout #priceStd{display:block}
+.btn-gold{display:inline-flex;align-items:center;gap:.7rem;background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--navy-deep);font-weight:900;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:1.1rem 2.4rem;border-radius:100px;box-shadow:0 14px 34px rgba(229,171,72,.3);transition:transform .3s var(--ease)}
+.btn-gold:hover{transform:translateY(-3px)}
+.offer-sub{font-size:.78rem;color:var(--muted);margin-top:1.9rem}
+.offer-sub a{color:var(--gold-deep);font-weight:700;border-bottom:1px solid var(--gold)}
+
+/* REWATCH */
+.rewatch{background:var(--cream);padding-block:clamp(2.5rem,5vw,3.5rem);text-align:center;border-top:1px solid var(--border)}
+.rewatch h3{font-size:1.4rem;text-transform:uppercase;color:var(--navy);margin-bottom:1.1rem}
+.rewatch-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem}
+.btn-ghost{display:inline-flex;align-items:center;gap:.6rem;font-size:.74rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);border:1.5px solid var(--navy);padding:.8rem 1.6rem;border-radius:100px;transition:background .3s var(--ease),color .3s var(--ease)}
+.btn-ghost:hover{background:var(--navy);color:#fff}
+.hub-link{display:inline-block;margin-top:1.2rem;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);border-bottom:1.5px solid var(--gold);padding-bottom:.2rem}
+.rewatch-note{display:none;font-size:.85rem;color:var(--muted)}
+body.d12gone .rewatch-links{display:none}
+body.d12gone .rewatch-note{display:block}
+
+/* FOOTER */
+.site-footer{background:var(--navy-deep);padding-block:2rem;text-align:center}
+.footer-tag{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light)}
+.footer-copy{font-size:.66rem;color:rgba(255,255,255,.32);margin-top:.6rem}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" class="brand-logo" />
+    <a href="https://bwleadership.com" class="header-cta">Join the Community</a>
+  </div>
+</header>
+
+<div class="deadline-bar" id="deadlineBar">
+  <span id="deadlineLabel">Founding enrollment closes in</span>
+  <span class="t-units">
+    <span class="t-box"><span class="t-num" id="tD">–</span><em>DAYS</em></span>
+    <span class="t-box"><span class="t-num" id="tH">–</span><em>HRS</em></span>
+    <span class="t-box"><span class="t-num" id="tM">–</span><em>MIN</em></span>
+    <span class="t-box"><span class="t-num" id="tS">–</span><em>SEC</em></span>
+  </span>
+  <span class="deadline-tail" id="deadlineTail">· $249/yr becomes $497 on Oct 1</span>
+</div>
+
+<main>
+
+  <!-- WATCH -->
+  <section class="watch">
+    <div class="wrap">
+      <span class="badge">★ The Anniversary Session</span>
+      <span class="eyebrow">Day Three · September 19</span>
+      <h1>Build a Team That Stays</h1>
+      <p class="watch-desc">
+        The session Dr. Bryan built toward for twenty years. His blueprint for a team
+        that stays, grows, and excels — how to create a culture your best people never
+        want to leave, and what to do the Monday after.
+      </p>
+
+      <div class="player">
+        <iframe src="https://player.vimeo.com/video/VIMEO_DAY3_ID?title=0&byline=0&portrait=0"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                title="Day Three — Build a Team That Stays"></iframe>
+      </div>
+      <div class="player-meta">
+        <span class="expiry">Available until September 30</span>
+      </div>
+
+      <div class="bridge">
+        <h2>The Celebration Has Ended</h2>
+        <p>The Anniversary Session came down on September 30, along with the founding price — both as promised.</p>
+        <p><strong>But the door is still open.</strong> All three sessions live permanently inside the BW Leadership Community, along with two live calls with Dr. Bryan every month and everything he's built in twenty years.</p>
+        <a href="https://bwleadership.com" class="btn-gold" style="margin-top:.75rem">See What's Inside →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL -->
+  <section class="below">
+    <div class="wrap">
+      <div class="tool-card">
+        <div class="tool-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f1938" stroke-width="2.2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16"/></svg>
+        </div>
+        <div class="tool-copy">
+          <strong>Your 30-Day Team Action Plan</strong>
+          <span>Your tool from Day Three. Week by week, starting the Monday after — don't file it, schedule week one today.</span>
+        </div>
+        <a href="https://drive.google.com/file/d/1-b-1nlZvOwNZR794-ZUDnWbJFHQ2Znk4/view?usp=drive_link" class="btn-tool" target="_blank" rel="noopener">Download</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE OFFER -->
+  <section class="offer">
+    <div class="offer-inner">
+      <span class="eyebrow2">What Dr. Bryan Announced In This Session</span>
+      <h2>These Three Days End.<br/>The Work Doesn't.</h2>
+      <p>
+        For twenty years, Dr. Bryan has flown in, taught for a day or two, watched
+        something shift in a room — and then flown home, always wondering what happened
+        on the Monday after.
+      </p>
+      <p>Insight is easy. It's the seventh week that's hard.</p>
+      <p><strong>Workshops light the fire. The community keeps it burning.</strong></p>
+
+      <ul class="stack">
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9822c" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Two live sessions with Dr. Bryan every month</strong> — The Leadership Lounge and the Leadership Skill Implementation Sprint</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9822c" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Weekly leadership tips and challenges</strong> — practical prompts to use with your team that week</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9822c" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><strong>The complete Manager Skills Workshop</strong> — all 52 lessons across 8 modules</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9822c" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><strong>His full keynote library</strong></span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9822c" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><strong>All three event sessions, permanently</strong> — including this one</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9822c" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><strong>A room of leaders</strong> across hospitality, healthcare, aviation, senior living, and government</span></li>
+      </ul>
+
+      <!-- founding price (until Sept 30) -->
+      <div class="price-card" id="priceFounding">
+        <div class="price-num">$249 <span>/ year</span></div>
+        <p class="price-lock">Locked at that rate for as long as you stay a member.</p>
+        <p class="price-note">Not just the first year — every year. <strong>From October 1, membership is $497.</strong></p>
+      </div>
+      <!-- standard price (auto-swaps Oct 1) -->
+      <div class="price-card" id="priceStd">
+        <div class="price-num">$497 <span>/ year</span></div>
+        <p class="price-lock">Or three payments of $179. Your rate locks for as long as you stay.</p>
+      </div>
+
+      <a href="https://bwleadership.com" class="btn-gold">Claim Your Founding Membership →</a>
+      <p class="offer-sub">
+        Founding enrollment closes September 30 ·
+        <a href="https://docs.google.com/document/d/1m8XhWbK13Oa3g9FRjT-uiQQRUApYisGMuQqA47ii4W8/edit?tab=t.0" target="_blank" rel="noopener">Need approval from your organization? Download a request letter →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- REWATCH -->
+  <section class="rewatch">
+    <div class="wrap">
+      <h3>Missed a Day?</h3>
+      <div class="rewatch-links">
+        <a href="https://bwleadership.com/replay-1" class="btn-ghost">Rewatch Day One</a>
+        <a href="https://bwleadership.com/replay-2" class="btn-ghost">Rewatch Day Two</a>
+      </div>
+      <p class="rewatch-note">Days One and Two came down on September 27 — they live permanently inside the community.</p>
+      <br/>
+      <a href="https://bwleadership.com/main-replay-page" class="hub-link">← All replays</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p class="footer-tag">Serve. Lead. Inspire. · 20th Anniversary Celebration</p>
+  <p class="footer-copy">&copy; <span id="yr"></span> Dr. Bryan K. Williams. All rights reserved.</p>
+</footer>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ── Campaign moments (EDT = UTC-4) ── */
+  var D12_EXPIRY = new Date('2026-09-28T03:59:59Z'); // Sept 27 — Days 1 & 2 rewatch links hide
+  var CLOSE      = new Date('2026-10-01T03:59:59Z'); // Sept 30 — this page + founding price close
+
+  var bar=document.getElementById('deadlineBar');
+  var tD=document.getElementById('tD'),tH=document.getElementById('tH'),
+      tM=document.getElementById('tM'),tS=document.getElementById('tS');
+
+  function applyStates(now){
+    if (now > D12_EXPIRY){ document.body.classList.add('d12gone'); }
+    if (now > CLOSE){ document.body.classList.add('closedout'); }
+  }
+
+  function tick(){
+    var now=new Date();
+    applyStates(now);
+    if (now > CLOSE){ bar.classList.add('closed'); return; }
+    var ms = CLOSE - now;
+    tD.textContent=Math.floor(ms/864e5);
+    tH.textContent=Math.floor(ms%864e5/36e5);
+    tM.textContent=Math.floor(ms%36e5/6e4);
+    tS.textContent=Math.floor(ms%6e4/1e3);
+  }
+  tick(); setInterval(tick,1000);
+
+  function padTop(){
+    bar.style.top=document.querySelector('.site-header').offsetHeight+'px';
+    document.querySelector('.watch').style.paddingTop=
+      (document.querySelector('.site-header').offsetHeight+
+       (bar.classList.contains('closed')?0:bar.offsetHeight)+44)+'px';
+  }
+  padTop(); window.addEventListener('resize',padTop);
+})();
+</script>
+
+</body>
+</html>
