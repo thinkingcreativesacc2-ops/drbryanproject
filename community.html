@@ -971,11 +971,12 @@
   @media(min-width:901px){
     .price-card{position:sticky;top:118px;}
   }
-  /* Very short desktop windows: let the card scroll normally rather than pin
-     something taller than the screen. */
-  @media(min-width:901px) and (max-height:700px){
-    .price-card{position:static;}
-  }
+  /* No height guard here on purpose: the card is ~840px tall, so on a short
+     laptop window its bottom (the guarantee strip) sits below the fold while
+     pinned. That is fine - the offer, the price and the Join button are the
+     part that must stay visible, and the guarantee is repeated in its own
+     section further down. Disabling sticky on short windows just brings the
+     dead space back. */
 
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
