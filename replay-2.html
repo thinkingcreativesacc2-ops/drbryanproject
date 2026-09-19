@@ -23,6 +23,7 @@
     Wed Sept 30 MID  → timer hides; bridge message remains.
 
   LIVE LINKS (wired):
+    Day Two video    → MP4 on the GHL CDN, with poster thumbnail
     Day Two tool     → 20 Lessons From 20 Years field guide (Google Drive)
     Day One page     → https://bwleadership.com/replay-1
     Day Three page   → https://bwleadership.com/replay-3
@@ -30,18 +31,10 @@
     Justification    → Google Doc (request letter for your organization)
     Replay hub       → https://bwleadership.com/main-replay-page
 
-  ── ONE THING LEFT TO DO ──────────────────────────────────────
-    The Day Two MP4 isn't uploaded yet. Find this line in the
-    script at the bottom of the page:
-
-        var DAY2_VIDEO_SRC = '';
-
-    Paste the MP4 URL between the quotes and save. That's the only
-    edit needed — the page wires up the player by itself.
-
-    Until then the thumbnail shows with a "posting shortly" note
-    instead of a play button, so nobody clicks into a dead player.
-  ──────────────────────────────────────────────────────────────
+  Nothing left to fill in — the video is wired. To swap it later,
+  change DAY2_VIDEO_SRC in the script at the bottom of the page.
+  Emptying that constant puts the player back into its "posting
+  shortly" state rather than showing a dead play button.
 
   The GHL page-view trigger applies Watched-Day-2 — no code needed.
   ═══════════════════════════════════════════════════════════════
@@ -321,7 +314,7 @@ body.closedout #priceStd{display:block}
      Leave it empty and the page shows the thumbnail with a
      "Posting shortly" note instead of a dead play button.
      ═══════════════════════════════════════════════════════════ */
-  var DAY2_VIDEO_SRC = '';
+  var DAY2_VIDEO_SRC = 'https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6aae5eef30b0f957cc845336.mp4';
 
   /* ── Video: thumbnail overlay → play ── */
   var video  = document.getElementById('dayTwoVideo');
