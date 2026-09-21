@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="description" content="Day Three — Build a Team That Stays. The 20th Anniversary session from Dr. Bryan K. Williams. Available until September 30." />
+<title>Day Three: Build a Team That Stays | Serve. Lead. Inspire.</title>
+
+<!--
+  ═══════════════════════════════════════════════════════════════
+  SERVE. LEAD. INSPIRE. — DAY THREE REPLAY PAGE
+  ───────────────────────────────────────────────────────────────
+  Companion page to the replay hub (ghl/replay-hub.html). The hub's
+  Day Three card links here: https://bwleadership.com/replay-3
+
+  • Video: native HTML5 player, MP4 from the GHL media library.
+    Poster = the same Day Three thumbnail used on the hub card, so
+    the card and the player read as one asset.
+  • Expiry: after Sept 30, 11:59 PM EDT the player is replaced with
+    the community CTA — same fixed date as the hub's CLOSE_OFFER.
+    No manual page swap needed.
+  • Tagging: this page view = "Watched-Day-3". Wire the trigger in
+    GHL on page-visit, that's why the day is its own page.
+
+  BEFORE PUBLISH — two URLs to fill in (both marked TODO below):
+    1. data-href on #toolDownload → the 30-Day Team Action Plan file
+    2. data-href on the "All Three Sessions" link → the replay hub
+    Each stays hidden until its data-href is set, so the page never
+    ships a link that goes nowhere.
+
+  PASTE: Funnel → Add Page → Custom Code → entire file.
+  ═══════════════════════════════════════════════════════════════
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Playfair+Display:ital@1&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+:root{
+  --navy:#192857; --navy-deep:#0f1938; --gold:#e5ab48; --gold-light:#f2c887;
+  --gold-deep:#b9822c; --cream:#faf6ee; --white:#fff; --ink:#20263b;
+  --muted:#666f8a; --border:#e9e2d3; --red:#b0413e;
+  --shadow:0 10px 40px rgba(15,25,56,.10); --shadow-lg:0 24px 70px rgba(15,25,56,.20);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+body{font-family:'Lato',Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'League Gothic',Georgia,serif;font-weight:400;letter-spacing:.01em}
+.wrap{width:100%;max-width:1140px;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,2.5rem)}
+.narrow{max-width:900px}
+.center{text-align:center}
+.section{padding-block:clamp(3.5rem,8vw,6.5rem);position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:.6em;font-size:.72rem;font-weight:900;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:1.1rem}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+.lede{font-size:clamp(1rem,1.5vw,1.15rem);color:var(--muted);line-height:1.75;font-weight:300}
+@media (prefers-reduced-motion: no-preference){
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+}
+
+/* HEADER */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:500;padding:.9rem 0;background:rgba(15,25,56,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(229,171,72,.16)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand-logo{height:28px;width:auto}
+.header-cta{font-size:.7rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-deep);background:linear-gradient(135deg,var(--gold-light),var(--gold));padding:.6rem 1.15rem;border-radius:100px;white-space:nowrap}
+
+/* COUNTDOWN BAR */
+.deadline-bar{position:fixed;top:52px;left:0;right:0;z-index:490;background:var(--gold);color:var(--navy-deep);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.45rem .8rem;padding:.45rem 1rem;font-size:.74rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 6px 20px rgba(15,25,56,.12)}
+.t-units{display:inline-flex;gap:.4rem}
+.t-box{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--navy-deep);color:#fff;border-radius:7px;min-width:46px;padding:.28rem .4rem .22rem;line-height:1}
+.t-box .t-num{font-family:'League Gothic',serif;font-size:1.15rem;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.t-box em{font-style:normal;font-size:.5rem;font-weight:700;letter-spacing:.14em;color:var(--gold-light);margin-top:.18rem}
+.deadline-bar.closed{display:none}
+@media (max-width:560px){.deadline-bar{font-size:.66rem}.deadline-tail{display:none}}
+
+/* STAGE (title + player) */
+.stage{background:linear-gradient(180deg,var(--navy-deep) 0%,var(--navy) 62%,var(--cream) 62%,var(--cream) 100%);padding-block:clamp(7.5rem,14vw,9rem) clamp(2.5rem,6vw,4rem)}
+.stage-head{text-align:center;max-width:780px;margin:0 auto clamp(1.8rem,4vw,2.6rem)}
+.stage-badge{display:inline-block;font-size:.64rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--navy-deep);background:linear-gradient(135deg,var(--gold-light),var(--gold));padding:.32rem .8rem;border-radius:100px;margin-bottom:.9rem}
+.stage-day{display:block;font-size:.72rem;font-weight:900;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.7rem}
+.stage-title{font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.08;text-transform:uppercase;color:#fff;margin-bottom:.9rem;text-shadow:0 3px 16px rgba(0,0,0,.25)}
+.stage-sub{font-size:clamp(.95rem,1.5vw,1.1rem);color:rgba(255,255,255,.82);font-weight:300;max-width:620px;margin-inline:auto}
+
+/* PLAYER */
+.player-frame{position:relative;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:#000;outline:2px solid var(--gold);outline-offset:6px;aspect-ratio:16/9}
+.player-frame video{width:100%;height:100%;display:block;object-fit:contain;background:#000}
+.player-ended{display:none;position:absolute;inset:0;z-index:2;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;text-align:center;padding:2rem;background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff}
+.player-ended h2{font-size:clamp(1.5rem,3.4vw,2.2rem);text-transform:uppercase;color:var(--gold)}
+.player-ended p{font-size:.95rem;color:rgba(255,255,255,.8);max-width:420px}
+.ended .player-ended{display:flex}
+.ended video{visibility:hidden}
+.player-meta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;margin-top:1.1rem;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.player-meta .expiry{color:var(--red);font-weight:900}
+body.replay-ended .player-meta .expiry{display:none}
+
+/* TOOL / CTA BLOCKS */
+.tool-card{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;justify-content:space-between;background:var(--white);border:1.5px solid var(--gold);border-radius:16px;padding:1.5rem 1.75rem;box-shadow:var(--shadow);margin-top:clamp(2rem,4vw,2.75rem)}
+.tool-card .tool-copy{flex:1 1 320px}
+.tool-card h3{font-size:1.5rem;text-transform:uppercase;color:var(--navy);line-height:1.1;margin-bottom:.3rem}
+.tool-card p{font-size:.92rem;color:var(--muted)}
+.btn-gold{display:inline-flex;align-items:center;gap:.75rem;background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--navy-deep);font-weight:900;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:1.1rem 2.4rem;border-radius:100px;box-shadow:0 14px 34px rgba(229,171,72,.30);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(229,171,72,.42)}
+.is-hidden{display:none !important}
+.back-link{display:inline-flex;align-items:center;gap:.55rem;font-size:.76rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:.25rem;transition:gap .3s var(--ease),color .3s var(--ease)}
+.back-link:hover{gap:.9rem;color:var(--gold-deep)}
+.back-row{margin-top:clamp(2rem,4vw,2.5rem);text-align:center}
+
+/* COMMUNITY OFFER */
+.community{background:linear-gradient(160deg,#fbf3e2 0%,#f3e2bd 100%)}
+.community-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(2.5rem,6vw,4.5rem);align-items:start}
+.community-media .frame{border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/5}
+.community-media img{width:100%;height:100%;object-fit:cover}
+.community-h{font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.06;text-transform:uppercase;color:var(--navy);margin-bottom:1.1rem}
+.community-text p{color:var(--muted);margin-bottom:1rem;font-size:1rem}
+.community-text p strong{color:var(--navy)}
+.stack{list-style:none;margin:1.4rem 0 1.8rem}
+.stack li{display:flex;gap:.7rem;align-items:flex-start;padding:.55rem 0;border-bottom:1px solid rgba(185,130,44,.18);font-size:.95rem;color:var(--ink)}
+.stack li:last-child{border-bottom:0}
+.stack li svg{flex-shrink:0;margin-top:.25rem}
+.stack li strong{color:var(--navy)}
+.price-card{background:var(--white);border:1.5px solid var(--gold);border-radius:16px;padding:1.75rem 1.9rem;box-shadow:var(--shadow);margin-bottom:1.4rem}
+.price-num{font-family:'League Gothic',serif;font-size:3rem;color:var(--navy);line-height:1}
+.price-num span{font-size:1.2rem;color:var(--muted)}
+.price-lock{font-size:.92rem;font-weight:700;color:var(--navy);margin-top:.5rem}
+.price-note{font-size:.82rem;color:var(--muted);margin-top:.4rem}
+.price-note strong{color:var(--red)}
+.community-sub{font-size:.78rem;color:var(--muted);margin-top:.9rem}
+.community-sub a{color:var(--gold-deep);font-weight:700;border-bottom:1px solid var(--gold)}
+@media (max-width:860px){.community-grid{grid-template-columns:1fr}.community-media{max-width:340px;margin-inline:auto}}
+
+/* FOOTER */
+.site-footer{background:var(--navy-deep);padding-block:2.5rem;text-align:center;border-top:1px solid rgba(229,171,72,.15)}
+.footer-logo{height:30px;margin:0 auto .9rem;opacity:.9}
+.footer-tag{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light)}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1.1rem}
+.footer-links a{font-size:.78rem;color:rgba(255,255,255,.55)}
+.footer-links a:hover{color:var(--gold-light)}
+.footer-sep{color:rgba(255,255,255,.25)}
+.footer-copy{font-size:.7rem;color:rgba(255,255,255,.32);margin-top:1rem}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" class="brand-logo" />
+    <a href="https://bwleadership.com" class="header-cta">Join the Community</a>
+  </div>
+</header>
+
+<div class="deadline-bar" id="deadlineBar">
+  <span id="deadlineLabel">This replay comes down in</span>
+  <span class="t-units">
+    <span class="t-box"><span class="t-num" id="tD">–</span><em>DAYS</em></span>
+    <span class="t-box"><span class="t-num" id="tH">–</span><em>HRS</em></span>
+    <span class="t-box"><span class="t-num" id="tM">–</span><em>MIN</em></span>
+    <span class="t-box"><span class="t-num" id="tS">–</span><em>SEC</em></span>
+  </span>
+  <span class="deadline-tail" id="deadlineTail">· Founding membership closes Sept 30</span>
+</div>
+
+<main>
+
+  <!-- STAGE: title + player -->
+  <section class="stage">
+    <div class="wrap narrow">
+      <div class="stage-head">
+        <span class="stage-badge">★ The Anniversary Session</span>
+        <span class="stage-day">Day Three · September 19</span>
+        <h1 class="stage-title">Build a Team That Stays</h1>
+        <p class="stage-sub">
+          The session Dr. Bryan built toward for twenty years — his blueprint for a team
+          that stays, grows, and excels, and what to do the Monday after.
+        </p>
+      </div>
+
+      <div class="player-frame" id="playerFrame">
+        <video
+          id="dayThreeVideo"
+          controls
+          controlsList="nodownload"
+          preload="metadata"
+          playsinline
+          poster="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6aad17114091fa65e65bb122.png">
+          <source src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6ab0bf0cff484614db701d93.mp4" type="video/mp4" />
+          Your browser can't play this video.
+          <a href="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6ab0bf0cff484614db701d93.mp4">Open it directly</a>.
+        </video>
+        <div class="player-ended">
+          <h2>This Replay Has Ended</h2>
+          <p>All three anniversary sessions live permanently inside the community.</p>
+          <a href="https://bwleadership.com" class="btn-gold">Go to the Community</a>
+        </div>
+      </div>
+
+      <div class="player-meta">
+        <span>About 30 minutes</span>
+        <span class="expiry">Available until September 30</span>
+      </div>
+
+      <!-- TOOL: 30-Day Team Action Plan.
+           TODO — paste the asset URL into data-href below; the button
+           stays hidden until it's a real link. -->
+      <div class="tool-card">
+        <div class="tool-copy">
+          <h3>Your 30-Day Team Action Plan</h3>
+          <p>The worksheet from this session — what to run with your team over the next four weeks.</p>
+        </div>
+        <a class="btn-gold is-hidden" id="toolDownload" data-href="" target="_blank" rel="noopener">
+          Download the Plan
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16"/></svg>
+        </a>
+      </div>
+
+      <!-- TODO — paste the replay hub URL into data-href; hidden until set. -->
+      <div class="back-row">
+        <a class="back-link is-hidden" data-href="">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          All Three Sessions
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY OFFER -->
+  <section class="section community" id="community">
+    <div class="wrap">
+      <div class="community-grid">
+
+        <div class="community-media reveal">
+          <div class="frame">
+            <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a5f73a028b4c07e403605e7.jpg" alt="Dr. Bryan K. Williams with workshop attendees" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="community-text reveal">
+          <span class="eyebrow">Beyond the Celebration</span>
+          <h2 class="community-h">These Three Days End.<br/>The Work Doesn't.</h2>
+          <p>
+            For twenty years, Dr. Bryan has flown in, taught for a day or two, watched
+            something shift in a room — and then flown home, always wondering what
+            happened on the Monday after.
+          </p>
+          <p>Insight is easy. It's the seventh week that's hard.</p>
+          <p><strong>Workshops light the fire. The community keeps it burning.</strong></p>
+
+          <ul class="stack">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9822c" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Two live sessions with Dr. Bryan every month</strong> — The Leadership Lounge and the Leadership Skill Implementation Sprint</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9822c" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Weekly leadership tips and challenges</strong> — practical prompts to use with your team that week</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9822c" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><strong>The complete Manager Skills Workshop</strong> — all 52 lessons across 8 modules</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9822c" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><strong>His full keynote library</strong></span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9822c" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><strong>All three of these sessions, permanently</strong> — when the replays come down, this is where they live</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9822c" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><strong>A room of leaders</strong> across hospitality, healthcare, aviation, senior living, and government</span></li>
+          </ul>
+
+          <div class="price-card">
+            <div class="price-num">$249 <span>/ year</span></div>
+            <p class="price-lock">Locked at that rate for as long as you stay a member.</p>
+            <p class="price-note">Not just the first year — every year. <strong>From October 1, membership is $497.</strong></p>
+          </div>
+
+          <a href="https://bwleadership.com" class="btn-gold">
+            Claim Your Founding Membership
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="community-sub">
+            Founding enrollment closes September 30 ·
+            <a href="https://docs.google.com/document/d/1m8XhWbK13Oa3g9FRjT-uiQQRUApYisGMuQqA47ii4W8/edit?tab=t.0" target="_blank" rel="noopener">Need approval from your organization? Download a request letter →</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <img src="https://assets.cdn.filesafe.space/eOl2CeW0rzpKqeaLLemn/media/6a50cb8ceada8c1f45d64c8d.png" alt="Dr. Bryan K. Williams" class="footer-logo" />
+    <p class="footer-tag">Serve. Lead. Inspire. · 20th Anniversary Celebration</p>
+    <nav class="footer-links">
+      <a href="https://www.drbwilliams.com" rel="noopener">Website</a>
+      <span class="footer-sep">&bull;</span>
+      <a href="https://www.drbwilliams.com/privacy-policy/" rel="noopener">Privacy Policy</a>
+      <span class="footer-sep">&bull;</span>
+      <a href="mailto:bwilliams@bwenterprise.net">Contact</a>
+    </nav>
+    <p class="footer-copy">&copy; <span id="yr"></span> Dr. Bryan K. Williams. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ── Scroll reveal ── */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
+    }, { threshold:.15, rootMargin:'0px 0px -40px 0px' });
+    revealEls.forEach(function(el){ obs.observe(el); });
+  } else { revealEls.forEach(function(el){ el.classList.add('in'); }); }
+
+  /* ── Deferred links (workbook, hub): shown only once a URL is set ── */
+  document.querySelectorAll('a[data-href]').forEach(function(a){
+    var url = a.getAttribute('data-href');
+    if (!url) return;
+    a.setAttribute('href', url);
+    a.classList.remove('is-hidden');
+  });
+
+  /* ── Deadline (EDT = UTC-4). Same fixed date as the hub. ── */
+  var CLOSE_OFFER = new Date('2026-10-01T03:59:59Z'); // Sept 30, 11:59 PM EDT
+
+  var bar    = document.getElementById('deadlineBar');
+  var frame  = document.getElementById('playerFrame');
+  var video  = document.getElementById('dayThreeVideo');
+  var tD = document.getElementById('tD'), tH = document.getElementById('tH'),
+      tM = document.getElementById('tM'), tS = document.getElementById('tS');
+
+  function endReplay(){
+    if (frame.classList.contains('ended')) return;
+    frame.classList.add('ended');
+    document.body.classList.add('replay-ended');
+    try { video.pause(); } catch(e){}
+    video.removeAttribute('controls');
+    video.setAttribute('preload','none');
+  }
+
+  function tick(){
+    var now = new Date();
+    if (now > CLOSE_OFFER){
+      endReplay();
+      bar.classList.add('closed');
+      padTop();
+      return;
+    }
+    var ms = CLOSE_OFFER - now;
+    tD.textContent = Math.floor(ms/864e5);
+    tH.textContent = Math.floor(ms%864e5/36e5);
+    tM.textContent = Math.floor(ms%36e5/6e4);
+    tS.textContent = Math.floor(ms%6e4/1e3);
+  }
+
+  /* Push page content below fixed header + bar */
+  function padTop(){
+    var headerH = document.querySelector('.site-header').offsetHeight;
+    var h = headerH + (bar.classList.contains('closed') ? 0 : bar.offsetHeight);
+    document.querySelector('.stage').style.paddingTop = (h + 40) + 'px';
+    bar.style.top = headerH + 'px';
+  }
+
+  tick();
+  setInterval(tick, 1000);
+  padTop();
+  window.addEventListener('resize', padTop);
+})();
+</script>
+
+</body>
+</html>
