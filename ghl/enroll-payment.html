@@ -302,38 +302,15 @@ p{margin:0;}
 .card-title{
   font-size:clamp(24px,2.4vw,30px);color:var(--navy);line-height:1.1;
   position:relative;z-index:1;
-  /* The floating "Founding Member" tag sits top-right; keep the title
+  /* The floating "Full Access" tag sits top-right; keep the title
      clear of it so a longer community name can't run underneath. */
   max-width:calc(100% - 150px);
 }
 .card-price{
   display:flex;align-items:baseline;gap:14px;margin-top:22px;position:relative;z-index:1;
 }
-.card-price .was{font-family:'League Gothic';font-size:24px;color:#B9BEC7;text-decoration:line-through;}
 .card-price .now{font-family:'League Gothic';font-size:58px;color:var(--navy);line-height:1;}
 .card-price .per{font-size:14px;color:var(--ink-soft);}
-.founding-badge{
-  display:inline-flex;align-items:center;gap:7px;margin-top:14px;
-  padding:7px 14px;border-radius:100px;
-  background:linear-gradient(135deg,var(--gold-light),var(--gold));
-  color:var(--navy-deep);font-size:12px;font-weight:800;letter-spacing:0.4px;
-  position:relative;z-index:1;
-  animation:badgePulse 2.6s ease-in-out infinite;
-}
-.founding-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--navy-deep);flex-shrink:0;}
-@keyframes badgePulse{
-  0%,100%{box-shadow:0 0 0 0 rgba(229,171,72,0.45);}
-  50%{box-shadow:0 0 0 8px rgba(229,171,72,0);}
-}
-.deadline-chip{
-  display:inline-flex;align-items:center;gap:7px;margin-top:14px;
-  padding:8px 14px;border-radius:100px;
-  background:rgba(168,36,15,0.08);
-  border:1px solid rgba(168,36,15,0.28);
-  color:#a8240f;font-size:11.5px;font-weight:800;letter-spacing:0.4px;text-transform:uppercase;
-  position:relative;z-index:1;
-}
-.deadline-chip svg{flex-shrink:0;}
 
 .card-value{
   margin-top:18px;font-size:14.5px;color:var(--ink-soft);line-height:1.6;
@@ -594,7 +571,7 @@ p{margin:0;}
           </div>
           <div class="trust-item">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            <span>Founding Pricing<span class="sub">Locked for as long as you stay</span></span>
+            <span>Full-Year Access<span class="sub">Every call, video &amp; tool</span></span>
           </div>
         </div>
       </div>
@@ -605,18 +582,15 @@ p{margin:0;}
       <div class="enroll-card-wrap reveal reveal-delay-2">
         <div class="enroll-card">
           <div class="card-glow" aria-hidden="true"></div>
-          <span class="card-float-tag">Founding Member</span>
+          <span class="card-float-tag">Full Access</span>
 
           <p class="card-kicker">Membership</p>
           <h3 class="card-title">BW STRONG Leader Community</h3>
 
           <div class="card-price">
-            <span class="was">$497</span>
-            <span class="now">$249</span>
+            <span class="now">$497</span>
             <span class="per">/ year</span>
           </div>
-          <span class="founding-badge"><span class="dot"></span>Founding Member Pricing — Save $248</span>
-          <span class="deadline-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Founding rate ends September 30, 2026</span>
 
           <p class="card-value">One membership. Everything included. No tiers to compare, no add-ons to upsell — just full access, for a full year.</p>
 
